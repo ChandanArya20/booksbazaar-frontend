@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
+import '../css/searchbox.css'
 
 const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState('');

@@ -1,0 +1,83 @@
+nav {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-left: 10px;
+    /* border: 1px solid black; */
+   }
+   .book-app-logo img{
+     width: 200px;
+   }
+   
+   ul {
+     list-style-type: none;
+     display: flex;
+     padding: 10px;
+     gap: 10px;
+     margin-left: 20px;
+   }
+   a {
+     text-decoration: none;
+     color: #333;
+     font-size: 18px;
+     padding: 10px;
+     transition: all 0.3s ease;
+   }
+   
+   a:hover {
+     color: #0400ffd7;
+   }
+   .nav-right-content{
+     width: 50%;
+     display: flex;
+     justify-content: space-around;
+     gap: 10px;
+     /* border: 1px solid red; */
+   }
+   .icons{
+     /* margin-left: 50px; */
+     display: flex;
+     width: 50px;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+   }
+   .icon{
+     font-size: 20px;
+     transition: 300ms;
+   }
+   .icon:hover{
+     color:#1502ed;
+   }
+   .cart-icon{
+     padding: 7px 10px;
+     transition: 300ms;
+   }
+   .profile-icon{
+     padding: 7px 10px;
+     transition: 300ms;
+   }
+   .cart-icon:hover{
+     background-color: #dad4d4;
+     border-radius: 50px;
+   }
+   .profile-icon:hover{
+     border-radius: 50px;
+     background-color: #dad4d4;
+   }
+   .login-button {
+     background-color: #FF5F6D;
+     color: #fff;
+     border: none;
+     border-radius: 4px;
+     /* margin-left: 40px; */
+     padding: 10px 15px;
+     font-size: 16px;
+     font-weight: bold;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+   }
+   
+   .login-button:hover {
+     background-color: #FF4358;
+   }

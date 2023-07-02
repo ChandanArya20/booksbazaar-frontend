@@ -25,14 +25,12 @@ a {
   text-decoration: none;
   color: #333;
   font-size: 18px;
-  font-weight: bold;
   padding: 10px;
   transition: all 0.3s ease;
 }
 
 a:hover {
   color: #0400ffd7;
-  border-radius: 4px;
 }
 .nav-right-content{
   width: 50%;
@@ -57,20 +55,19 @@ a:hover {
   color:#1502ed;
 }
 .cart-icon{
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 7px 10px;
   transition: 300ms;
 }
 .profile-icon{
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 7px 10px;
+  transition: 300ms;
 }
 .cart-icon:hover{
   background-color: #dad4d4;
-  border-radius: 5px;
+  border-radius: 50px;
 }
 .profile-icon:hover{
-  padding: 5px 10px;
+  border-radius: 50px;
   background-color: #dad4d4;
 }
 .login-button {
@@ -148,9 +145,23 @@ a:hover {
 }
 .shop-now-btn{
   margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  background-color: #ff6f4be5;
+  border-radius: 5px;
+}
+.shop-now-btn a{
   font-weight: normal;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: small;
+  transition: 300ms;
+}
+.shop-now-btn a:hover{
+  color: rgb(45, 92, 245);
+}
+.shop-now-btn HiOutlineArrowLongRight{
+  background-color: #d8c2c2;
 }
 
 .main-section-img img{
