@@ -1,12 +1,20 @@
 nav {
+    /* top:0px;
+    position: sticky; */
+    /* background-color: #3fce54; */
+    margin-top: 10px;
     display: flex;
     align-items: center;
-    margin-top: 5px;
-    margin-left: 10px;
-    /* border: 1px solid black; */
+   }
+   .nav_left_content{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
    }
    .book-app-logo img{
-     width: 200px;
+     width: 150px;
+     mix-blend-mode: darken;
    }
    
    ul {
@@ -15,8 +23,9 @@ nav {
      padding: 10px;
      gap: 10px;
      margin-left: 20px;
+     font-weight: bolder;
    }
-   a {
+   li a {
      text-decoration: none;
      color: #333;
      font-size: 18px;
@@ -24,9 +33,10 @@ nav {
      transition: all 0.3s ease;
    }
    
-   a:hover {
-     color: #0400ffd7;
+   li a:hover {
+     color: #FF4358;
    }
+  
    .nav-right-content{
      width: 50%;
      display: flex;
@@ -35,12 +45,13 @@ nav {
      /* border: 1px solid red; */
    }
    .icons{
-     /* margin-left: 50px; */
+     color: black;
      display: flex;
      width: 50px;
      justify-content: center;
      align-items: center;
      cursor: pointer;
+     gap: 20px;
    }
    .icon{
      font-size: 20px;
@@ -49,21 +60,12 @@ nav {
    .icon:hover{
      color:#1502ed;
    }
-   .cart-icon{
+   .cart-icon, .profile-icon{
      padding: 7px 10px;
      transition: 300ms;
    }
-   .profile-icon{
-     padding: 7px 10px;
-     transition: 300ms;
-   }
-   .cart-icon:hover{
-     background-color: #dad4d4;
-     border-radius: 50px;
-   }
-   .profile-icon:hover{
-     border-radius: 50px;
-     background-color: #dad4d4;
+   .icons a{
+    color: black;
    }
    .login-button {
      background-color: #FF5F6D;

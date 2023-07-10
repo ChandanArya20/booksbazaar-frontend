@@ -1,5 +1,4 @@
 .search-box {
-    /* margin-left: 120px; */
     display: flex;
     align-items: center;
   }
@@ -16,7 +15,6 @@
   
   .search-input:focus {
     outline: none;
-     /* background-color: #fff; */
   }
   
   .search-button {

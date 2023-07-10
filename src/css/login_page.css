@@ -1,0 +1,80 @@
+
+.login-page-container{
+
+  display: flex;
+  justify-content: center;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  background-color: #a3f4f53f;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 30px 30px;
+  width: 270px;
+  margin-top: 30px;
+}
+
+.login-page h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+/* .login-with-email{
+  margin-bottom: 5px;
+} */
+.login-page form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.login-page input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  outline: none; /* Remove default outline */
+}
+.login-page input:focus{
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+}
+/* .password-hide-icon {
+  padding: 20px;
+} */
+.login-page button.login-button {
+  padding: 10px;
+  margin-top: 30px;
+  background-color: #56c1eb;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-page button.login-button:hover {
+  background-color: #3aaad9;
+}
+
+p.login-with-email-link, p.login-with-phone-link, p.create-account-link {
+  margin-top: 20px;
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+
+p.login-with-email-link a, p.login-with-phone-link a, p.create-account-link a {
+  color: #0f38ed;
+  text-decoration: none;
+}
+#registration-page h1{
+  margin-bottom: 40px;
+}
+#password-page h1{
+  margin-bottom: 40px;
+}

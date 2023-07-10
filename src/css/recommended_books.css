@@ -1,0 +1,29 @@
+.recommended-section {
+    margin: auto;
+    width: 95%;
+    margin-top: 30px;
+    /* background-color: #af3f3f; */
+  }
+  
+  .recommended-section__title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 7px;
+    margin-top: 10px;
+
+  }
+  
+  .recommended-section__books {
+    display: flex;
+    overflow-x: auto;
+    justify-content: space-evenly;
+    /* padding-bottom: 10px; */
+  }
+  
+  @media screen and (max-width: 480px) {
+    .recommended-section__books {
+      flex-wrap: nowrap;
+    }
+  }
+  
