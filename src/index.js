@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import App from './App';
-import "./App.css"
 import CartPage from './components/CartPage';
 import LoginWithEmailPage from './components/LoginWithEmailPage';
 import LoginWithPhonePage from './components/LoginWithPhonePage';

@@ -23,9 +23,7 @@
   font-size: 24px;
   margin-bottom: 15px;
 }
-/* .login-with-email{
-  margin-bottom: 5px;
-} */
+
 .login-page form {
   display: flex;
   flex-direction: column;
@@ -45,9 +43,7 @@
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
 }
-/* .password-hide-icon {
-  padding: 20px;
-} */
+
 .login-page button.login-button {
   padding: 10px;
   margin-top: 30px;
@@ -77,4 +73,12 @@ p.login-with-email-link a, p.login-with-phone-link a, p.create-account-link a {
 }
 #password-page h1{
   margin-bottom: 40px;
+}
+
+.error-message{
+  color: red;
+  font-size: 12px ;
+  margin-top: -12px; 
+  margin-bottom: 10px;
+  margin-left:3px;  
 }

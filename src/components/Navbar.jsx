@@ -13,11 +13,7 @@ const Navbar=()=>{
                 <img src={bookapplogo} alt="BookApp Logo" />
               </div>
               <ul>
-                <li>
-                  <NavLink exact to="/" activeClassName="active-link">
-                    Home
-                  </NavLink>
-                </li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#footer">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#footer">Contact</a></li>

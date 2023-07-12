@@ -1,53 +1,81 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import '../css/login_page.css';
 
 const RegistrationPage = () => {
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-
-  const goNext = (e) => {
-    e.preventDefault();
-    // Add your login logic here
-    window.location.href = '/passwordPage';
-    console.log('Login button clicked');
+  const onSubmit = (data) => {
+    console.log(data);
+    navigate('/passwordPage', { state: data });
   };
 
   return (
     <div className="login-page-container">
-    <div className="login-page" id='registration-page'>
-      <h1>Registration</h1>
-      <form>
-        <input
-          type="text"
-          placeholder="Enter full name"
-          value={name}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="tel"
-          placeholder="Phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Email ( optional )"
-          value={email}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <button className="login-button" onClick={goNext} >
-         Continue
-        </button>
-      </form>
-      <p className="create-account-link">
-        Existing user? <Link to="/phonelogin">Login here</Link>
-      </p>
-    </div>
+      <div className="login-page" id="registration-page">
+        <h1>Registration</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="text"
+            placeholder="Enter full name"
+            {...register('name', {
+              required: 'Name is required',
+              pattern: {
+                value: /^[a-zA-Z\s]+$/,
+                message: 'Only letters and spaces are allowed'
+              },
+              minLength: {
+                value: 3,
+                message: 'Name should not be less than 3'
+              }
+            })}
+          />
+          <p className="error-message">{errors.name?.message}</p>
+
+          <input
+            type="tel"
+            placeholder="Phone"
+            name="phone"
+            {...register('phone', {
+              required: 'Phone is required',
+              pattern: {
+                value: /^[6-9][0-9]*$/,
+                message: 'Only digits 0-9 are allowed'
+              },
+              minLength: {
+                value: 10,
+                message: 'Number must be exactly 10 digits'
+              },
+              maxLength: {
+                value: 10,
+                message: 'Number must be exactly 10 digits'
+              }
+            })}
+          />
+          <p className="error-message">{errors.phone?.message}</p>
+
+          <input
+            type="email"
+            placeholder="Email (optional)"
+            {...register('email', {
+              pattern: {
+                value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                message: 'Invalid email address!'
+              }
+            })}
+          />
+          <p className="error-message">{errors.email?.message}</p>
+
+          <button type="submit" className="login-button">
+            Continue
+          </button>
+        </form>
+        <p className="create-account-link">
+          Existing user? <Link to="/phonelogin">Login here</Link>
+        </p>
+      </div>
     </div>
   );
 };

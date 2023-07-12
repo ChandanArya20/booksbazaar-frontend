@@ -4,6 +4,7 @@ import RecommendedBooks from "./components/RecommendedBooks";
 import SearchBox from "./components/SearchBox";
 import Footer from "./components/Footer";
 import Services from "./components/Services";
+import "./App.css"
 
 const App = () => {
   return (
@@ -12,7 +13,7 @@ const App = () => {
       <MainSection/>
       <RecommendedBooks />
       <Services/>
-      <Footer/>
+      <Footer/> 
     </>
   );
 };
