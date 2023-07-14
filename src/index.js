@@ -7,6 +7,7 @@ import LoginWithEmailPage from './components/LoginWithEmailPage';
 import LoginWithPhonePage from './components/LoginWithPhonePage';
 import RegistrationPage from './components/RegistrationPage';
 import PasswordCreationPage from './components/PasswordCreationPage';
+import ErrorPage from './components/ErrorPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
     <Route path='/phoneLogin' element={<LoginWithPhonePage/>}/>
     <Route path='/signup' element={<RegistrationPage/>}/>
     <Route path='/passwordPage' element={<PasswordCreationPage/>}/>
+    <Route path='/errorPage' element={<ErrorPage />}/>
   </Routes>
 </Router>
 );

@@ -5,7 +5,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth;                                                                                               
 }
 
 /* Customize the scroll bar */
@@ -14,7 +14,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Set the background color of the track */
+  background-color: #f1f1f1;    /* Set the background color of the track */
 }
 
 body::-webkit-scrollbar-thumb {

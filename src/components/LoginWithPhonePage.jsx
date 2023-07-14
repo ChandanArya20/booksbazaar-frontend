@@ -1,18 +1,62 @@
+import '../css/login_page.css';
 import React, { useState } from 'react';
 import { BiHide as PassHideIcon } from "react-icons/bi";
 import { Link } from 'react-router-dom';
+import {useForm} from 'react-hook-form'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
+import { doLogin } from '../Auth/loginFunc';
 
-import '../css/login_page.css';
 
 const LoginWithPhonePage = () => {
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
+  
+  const{register ,handleSubmit, formState:{errors}} = useForm()
+  const navigate = useNavigate()
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Add your login logic here
-    console.log('Login button clicked');
-  };
+
+  const loginUser = async(data) => {
+    try {
+
+      let response= await fetch('http://localhost:8080/api/user/login',{
+        method:'POST',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(data)
+      })
+
+      if (response.ok) {
+        const userData = await response.json()
+        console.log(userData)
+        doLogin(userData,()=>{
+          console.log("Data saved to localstorage...");
+        })
+        toast.success("Login successfull", {
+          position: 'top-center',
+          theme: 'dark'
+        })
+      } else if(response.status===500){
+        const errorDetails=await response.json()
+        throw new Error(errorDetails.status)
+
+      } else {
+        const errorMessage = await response.text()
+        toast.error(errorMessage, {
+          position: 'top-center',
+          theme: 'dark'
+        })
+      }
+
+    } catch (error) {
+      console.error(error)
+      const errorObj={  
+        errorMessage : error.message
+      }
+      navigate('/errorPage', {state:errorObj })
+    }
+
+  }
 
   return (
     <div className="login-page-container">
@@ -21,24 +65,44 @@ const LoginWithPhonePage = () => {
       <p className="login-with-email-link">
           <Link to="/emailLogin">Login with Email</Link>
       </p>
-      <form onSubmit={handleLogin}>
-        <input
+      <form onSubmit={handleSubmit(loginUser)}>
+      <input
           type="tel"
           placeholder="Phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          required
-        />
+          {...register('phone', {
+            required: 'Phone is required',
+            pattern: {
+              value: /^[6-9][0-9]*$/,
+              message: 'Only digits 0-9 are allowed'
+            },
+            minLength: {
+              value: 10,
+              message: 'Number must be exactly 10 digits'
+            },
+            maxLength: {
+              value: 10,
+              message: 'Number must be exactly 10 digits'
+            }
+          })}
+          />
+          <p className="error-message">{errors.phone?.message}</p>
+
         <input
-          type="password"
+          type="text"
           placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
+          {...register("password", {
+            required: "Enter password",
+            minLength: {
+              value: 8,
+              message: "Password should not be less than 8"
+            },
+            maxLength: {
+              value: 15,
+              message: "Password should not be greater than 15"
+            }
+          })}
         />
-        {/* <div className="pass-hide-icon">
-          <PassHideIcon />
-        </div> */}
+        <p className="error-message">{errors.password?.message}</p>
         <button type="submit" className="login-button">
           Login
         </button>
@@ -47,6 +111,7 @@ const LoginWithPhonePage = () => {
         New user? <Link to="/signup">Create an account</Link>
       </p>
     </div>
+    <ToastContainer />
     </div>
   );
 };

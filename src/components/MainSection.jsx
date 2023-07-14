@@ -18,7 +18,6 @@ const MainSection=()=>{
                 </div>
             </div>
             <div className="main-section-img">
-                {/* <img src={book1} alt="" /> */}
                 <img src={book2} alt="" />
             </div>
         </div>

@@ -12,10 +12,10 @@ const ServiceItem = ({ icon:Icon, title, description }) => {
   );
 };
 
-ServiceItem.propTypes = {
-  iconClass: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-};
+// ServiceItem.propTypes = {
+//   iconClass: PropTypes.string.isRequired,
+//   title: PropTypes.string.isRequired,
+//   description: PropTypes.string.isRequired,
+// };
 
 export default ServiceItem;

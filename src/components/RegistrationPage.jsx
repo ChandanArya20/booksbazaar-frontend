@@ -1,13 +1,13 @@
+import '../css/login_page.css';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import '../css/login_page.css';
 
 const RegistrationPage = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => {
+  const registerUser = (data) => {
     console.log(data);
     navigate('/passwordPage', { state: data });
   };
@@ -16,9 +16,10 @@ const RegistrationPage = () => {
     <div className="login-page-container">
       <div className="login-page" id="registration-page">
         <h1>Registration</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(registerUser)}>
           <input
             type="text"
+            // defaultValue={name}
             placeholder="Enter full name"
             {...register('name', {
               required: 'Name is required',
@@ -37,7 +38,7 @@ const RegistrationPage = () => {
           <input
             type="tel"
             placeholder="Phone"
-            name="phone"
+            // defaultValue={phone}
             {...register('phone', {
               required: 'Phone is required',
               pattern: {
@@ -58,6 +59,7 @@ const RegistrationPage = () => {
 
           <input
             type="email"
+            // defaultValue={email}
             placeholder="Email (optional)"
             {...register('email', {
               pattern: {

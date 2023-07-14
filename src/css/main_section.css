@@ -1,13 +1,12 @@
 .main-section{
     margin: auto;
     width: 95%;
-    height: 310px;
-    /* margin-top: 10px; */
+    height: 280px;
     border-radius: 10px;
     background-color: #bbe2eb5d;;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
   
   }
   .main-section-content{
@@ -17,13 +16,11 @@
     font-weight: bold;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    /* background-color: #ec0c0c; */
+    align-items: center; 
     
   }
   .main-section-img{
-    width: 40%;
-    /* background-color: #ad8080; */
+    margin-right: 230px;
   }
   .shop-now-btn{
     margin-top: 30px;
@@ -41,7 +38,7 @@
   }
   
   .main-section-img img{
-   
-    height: 280px;
+    
+    height: 230px;
     mix-blend-mode: darken;
   }
