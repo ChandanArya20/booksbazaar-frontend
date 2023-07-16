@@ -6,12 +6,12 @@ export const doLogin=(data,next)=>{
 export const isLoggedin=()=>{
     let data=localStorage.getItem("userData")
     if(data!=null)
-        return false
-    else
         return true
+    else
+        return false
 }
 
-export const doLogout=(data,next)=>{
+export const doLogout=(next)=>{
     localStorage.removeItem("userData")
     next()
 }

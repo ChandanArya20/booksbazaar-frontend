@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { doLogin } from '../Auth/loginFunc';
 
 const PasswordCreationPage = () => {
   
@@ -12,8 +13,9 @@ const PasswordCreationPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
-    const { name, phone, email } = location.state;
-    const { password1, password2 } = data;
+
+    const { name, phone, email } = location.state
+    const { password1, password2 } = data
 
     if (password1 !== password2) {
       toast.error('Passwords do not match', {
@@ -24,26 +26,21 @@ const PasswordCreationPage = () => {
     }
 
     try {
-      console.log('inside try block')
       const response = await fetch('http://localhost:8080/api/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          name,
-          phone,
-          email,
-          password: password1 // Sending only one of the passwords
-        })
-      });
-
+        body: email.length !== 0 ? JSON.stringify({name,phone,email,password:password1}) :
+                                  JSON.stringify({name,phone,password:password1})
+      })  
+    
       if (response.ok) {
-        const successMessage = await response.text();
-        toast.success(successMessage, {
-          position: 'top-center',
-          theme: 'dark'
-        });
+        const userData = await response.json();
+        doLogin(userData,()=>{
+          navigate("/")
+        })
+        
       } else if (response.status === 400) {
         const errorMessage = await response.text();
         toast.error(errorMessage, {
@@ -61,7 +58,7 @@ const PasswordCreationPage = () => {
       }
       navigate('/errorPage', {state:errorObj })
     }
-  };
+  }
 
   const goBack = () => {
     navigate(-1);
@@ -124,7 +121,6 @@ const PasswordCreationPage = () => {
       </div>
       <ToastContainer />
     </div>
-  );
-};
-
+  )
+}
 export default PasswordCreationPage;

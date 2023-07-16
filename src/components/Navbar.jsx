@@ -1,6 +1,6 @@
 import '../css/navbar.css';
 import React, { useState, useRef, useEffect } from 'react';
-import { Link,Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
 import { FaUser as ProfileIcon } from 'react-icons/fa';
 import bookapplogo from '../Images/bookapplogo.png';
@@ -17,7 +17,18 @@ const Navbar = () => {
     if(login)
         navigate("/cart")
     else
-    navigate("/phoneLogin")
+      navigate("/phoneLogin")
+  }
+
+  const featureName={
+    feature:'Order management feature'
+  }
+  const myOrderClickHandler=()=>{
+    if(login){
+      navigate("/comingFeature")
+    }
+    else
+      navigate("/phoneLogin")
   }
 
   return (
@@ -28,17 +39,17 @@ const Navbar = () => {
           <img src={bookapplogo} alt="BookApp Logo" />
         </div>
         <ul>
-          <li>
-            <a href="#">Admin</a>
+          <li onClick={myOrderClickHandler}>
+            <a href="">Admin</a>
           </li>
-          <li>
-            <a href="#">My Orders</a>
+          <li onClick={myOrderClickHandler}>
+            <a href="">My Orders</a>
           </li>
           <li>
             <a href="#services">Services</a>
           </li>
-          <li>
-            <a href="#">Become a seller</a>
+          <li onClick={myOrderClickHandler}>
+            <a href="">Become a seller</a>
           </li>
         </ul>
       </div>

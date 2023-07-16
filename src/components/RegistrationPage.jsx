@@ -8,7 +8,6 @@ const RegistrationPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const registerUser = (data) => {
-    console.log(data);
     navigate('/passwordPage', { state: data });
   };
 

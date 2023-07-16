@@ -5,6 +5,7 @@ import {useForm} from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { doLogin } from '../Auth/loginFunc';
 
 const LoginWithEmailPage = () => {
 
@@ -25,11 +26,13 @@ const LoginWithEmailPage = () => {
 
       if (response.ok) {
         const userData = await response.json()
-        console.log(userData)
-        toast.success("Login successfull", {
-          position: 'top-center',
-          theme: 'dark'
+        doLogin(userData,()=>{
+          navigate("/")
         })
+        // toast.success("Login successfull", {
+        //   position: 'top-center',
+        //   theme: 'dark'
+        // })
       } else if(response.status===500){
         const errorDetails=await response.json()
         throw new Error(errorDetails.status)

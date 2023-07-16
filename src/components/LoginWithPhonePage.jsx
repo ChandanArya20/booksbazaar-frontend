@@ -28,13 +28,8 @@ const LoginWithPhonePage = () => {
 
       if (response.ok) {
         const userData = await response.json()
-        console.log(userData)
         doLogin(userData,()=>{
-          console.log("Data saved to localstorage...");
-        })
-        toast.success("Login successfull", {
-          position: 'top-center',
-          theme: 'dark'
+          navigate("/")
         })
       } else if(response.status===500){
         const errorDetails=await response.json()

@@ -1,12 +1,12 @@
 .main-section{
     margin: auto;
     width: 95%;
-    height: 280px;
+    height: 250px;
     border-radius: 10px;
     background-color: #bbe2eb5d;;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
   
   }
   .main-section-content{
@@ -17,10 +17,12 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
-    
   }
   .main-section-img{
-    margin-right: 230px;
+    width: 50%;
+  }
+  .main-section-img img{
+    margin-left: 80px;
   }
   .shop-now-btn{
     margin-top: 30px;

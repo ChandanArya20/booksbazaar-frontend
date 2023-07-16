@@ -11,6 +11,7 @@
 }
 
 .product-image {
+
   flex: 0 0 50px;
   margin-right: 10px;
 }
@@ -20,13 +21,17 @@
   height: auto;
 }
 
-.product-details {
-  flex: 1;
+.book-details {
+  flex: 1; 
+ } 
+
+.book-title {
+  font-size: 15px;
 }
 
-.product-name {
-  font-size: 18px;
-  margin-bottom: 5px;
+.book-author {
+  font-size: 13px;
+  margin-left: 20px;
 }
 
 .quantity-control {
