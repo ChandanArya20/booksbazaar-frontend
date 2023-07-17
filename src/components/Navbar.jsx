@@ -5,73 +5,71 @@ import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
 import { FaUser as ProfileIcon } from 'react-icons/fa';
 import bookapplogo from '../Images/bookapplogo.png';
 import SearchBox from './SearchBox';
-import { isLoggedin, getCurrentUserDetails } from '../Auth/loginFunc';
+import { isLoggedin } from '../Auth/loginFunc';
+import { isSellerLoggedin } from '../Auth/sellerLoginFunc';
 import Dropdown from './Dropdown';
 
 const Navbar = () => {
+  const login = isLoggedin();
+  const selleLogin = isSellerLoggedin();
+  const navigate = useNavigate();
 
-  const login=isLoggedin()
-  const navigate=useNavigate();
+  const cartClickHandler = () => {
+    if (login) navigate('/cart');
+    else navigate('/phoneLogin');
+  };
 
-  const cartClickHandler=()=>{
-    if(login)
-        navigate("/cart")
-    else
-      navigate("/phoneLogin")
-  }
+  const myOrderClickHandler = () => {
+    if (login) {
+      navigate('/comingFeature');
+    } else navigate('/phoneLogin');
+  };
 
-  const featureName={
-    feature:'Order management feature'
-  }
-  const myOrderClickHandler=()=>{
-    if(login){
-      navigate("/comingFeature")
-    }
-    else
-      navigate("/phoneLogin")
-  }
+  const becomeSellerClickHandler = () => {
+    if (selleLogin) {
+      navigate('/sellerDashboard');
+    } else navigate('/sellerLogin');
+  };
 
   return (
     <>
-    <nav>
-      <div className="nav_left_content">
-        <div className="book-app-logo">
-          <img src={bookapplogo} alt="BookApp Logo" />
-        </div>
-        <ul>
-          <li onClick={myOrderClickHandler}>
-            <a href="">Admin</a>
-          </li>
-          <li onClick={myOrderClickHandler}>
-            <a href="">My Orders</a>
-          </li>
-          <li>
-            <a href="#services">Services</a>
-          </li>
-          <li onClick={myOrderClickHandler}>
-            <a href="">Become a seller</a>
-          </li>
-        </ul>
-      </div>
-      <div className="nav-right-content">
-        <SearchBox/>
-        <div className="icons">
-          <div className="cart-icon">          
-            <CartIcon className="icon" onClick={cartClickHandler}/>           
+      <nav>
+        <div className="nav_left_content">
+          <div className="book-app-logo">
+            <img src={bookapplogo} alt="BookApp Logo" />
           </div>
-          <div className="profile-icon">
-            {isLoggedin() && <Dropdown/>}       
-            {!isLoggedin() && (
-              <Link to="/phonelogin">
-                <button className="login-button">Login</button>
-              </Link>
-            )}
+          <ul>
+            <li onClick={myOrderClickHandler}>
+              <Link to="">Admin</Link>
+            </li>
+            <li onClick={myOrderClickHandler}>
+              <Link to="">My Orders</Link>
+            </li>
+            <li>
+            <Link to="">Services</Link>
+            </li>
+            <li onClick={becomeSellerClickHandler}>
+              {selleLogin? <Link to="">Seller Dashboard</Link> : <Link to="">Login as seller</Link>}
+            </li>
+          </ul>
+        </div>
+        <div className="nav-right-content">
+          <SearchBox />
+          <div className="icons">
+            <div className="cart-icon">
+              <CartIcon className="icon" onClick={cartClickHandler} />
+            </div>
+            <div className="profile-icon">
+              {isLoggedin() ? <Dropdown /> : 
+                <Link to="/phonelogin">
+                  <button className="login-button">Login</button>
+                </Link>
+              }
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-       
-        </>
+      </nav>
+    </>
   );
 };
 

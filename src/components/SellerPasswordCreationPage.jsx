@@ -4,18 +4,19 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { doLogin } from '../Auth/loginFunc';
+import { doSellerLogin } from '../Auth/sellerLoginFunc';
+import axios from 'axios';
 
-const PasswordCreationPage = () => {
+const SellerPasswordCreationPage = () => {
   
   const navigate = useNavigate();
-  const location = useLocation();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const stateLocation = useLocation();
+  const { register, handleSubmit, formState: { errors } } = useForm()
 
   const onSubmit = async (data) => {
 
-    const { name, phone, email } = location.state
-    const { password1, password2 } = data
+    const { name, location, phone, email } = stateLocation.state
+    const { sellerId, password1, password2 } = data
 
     if (password1 !== password2) {
       toast.error('Passwords do not match', {
@@ -26,32 +27,35 @@ const PasswordCreationPage = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/api/user/register', {
-        method: 'POST',
-        headers: {
+      const requestdata=phone.length !== 0 ? { name, phone, email,location, sellerId, password: password1 } : 
+                                             { name, email,location, sellerId, password: password1 };         
+
+        let response= await fetch('http://localhost:8080/api/seller/register',{
+        method:'POST',
+        headers:{
           'Content-Type': 'application/json'
         },
-        body: email.length !== 0 ? JSON.stringify({name,phone,email,password:password1}) :
-                                  JSON.stringify({name,phone,password:password1})
-      })  
-    
+        body:JSON.stringify(requestdata)
+      })
+
       if (response.ok) {
-        const userData = await response.json();
-        doLogin(userData,()=>{
-          navigate("/")
+        const sellerData = await response.json()
+        doSellerLogin(sellerData,()=>{
+          navigate("/sellerDashboard")
         })
-        
-      } else if (response.status === 400) {
-        const errorMessage = await response.text();
+    
+      } else if(response.status===500){
+        const errorDetails=await response.json()
+        throw new Error(errorDetails.status)
+
+      } else {
+        const errorMessage = await response.text()
         toast.error(errorMessage, {
           position: 'top-center',
           theme: 'dark'
-        });
-
-      }else{
-        const errorDetails=await response.json()
-        throw new Error(errorDetails.status)
+        })
       }
+
     } catch (error) {
       console.error(error)
       const errorObj={  errorMessage : error.message }
@@ -68,6 +72,23 @@ const PasswordCreationPage = () => {
       <div className="login-page" id="password-page">
         <h1>Create a password</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="text"
+            placeholder="Seller id"
+            {...register("sellerId", {
+              required: "Enter Seller id",
+              minLength: {
+                value: 8,
+                message: "Seller id should not be less than 8"
+              },
+              maxLength: {
+                value: 15,
+                message: "Seller id should not be greater than 15"
+              }
+            })}
+          />
+          <p className="error-message">{errors.sellerId?.message}</p>
+
           <input
             type="text"
             placeholder="Create a password"
@@ -122,4 +143,4 @@ const PasswordCreationPage = () => {
     </div>
   )
 }
-export default PasswordCreationPage;
+export default SellerPasswordCreationPage;

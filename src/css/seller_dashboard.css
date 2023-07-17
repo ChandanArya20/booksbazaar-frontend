@@ -1,0 +1,52 @@
+
+.seller-dashboard {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.seller-dashboard h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.dashboard-main{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.dashboard-main a{
+  color: #0f38ed;
+  text-decoration: none;
+}
+.seller-dashboard button {
+  padding: 10px 15px;
+  background-color: #008cff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #0062cc;
+}
+.seller-profile-icon a{
+  color: black;
+
+}
+.published-books {
+  margin-top: 30px;
+}
+
+.published-books h3 {
+  margin-bottom: 10px;
+}
+
+
+

@@ -8,6 +8,10 @@ import PasswordCreationPage from './components/PasswordCreationPage';
 import ErrorPage from './components/ErrorPage';
 import UpcomingFeature from './components/UpcommingFeature';
 import HomePage from "./components/HomePage";
+import SellerPasswordCreationPage from "./components/SellerPasswordCreationPage";
+import SellerRegistrationPage from "./components/SellerRegistrationPage";
+import SellerLoginPage from "./components/SellerLoginPage";
+import SellerDashboard from "./components/SelllerDashboard";
 
 const App = () => {
   return ( 
@@ -19,6 +23,10 @@ const App = () => {
         <Route path="/phoneLogin" element={<LoginWithPhonePage />} />
         <Route path="/signup" element={<RegistrationPage />} />
         <Route path="/passwordPage" element={<PasswordCreationPage />} />
+        <Route path="/SellerSignup" element={<SellerRegistrationPage />} />
+        <Route path="/sellerLogin" element={<SellerLoginPage />} />
+        <Route path="/sellerPasswordPage" element={<SellerPasswordCreationPage />} />
+        <Route path="/sellerDashboard" element={<SellerDashboard />} />
         <Route path="/errorPage" element={<ErrorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>

@@ -47,12 +47,9 @@ const LoginWithEmailPage = () => {
 
     } catch (error) {
       console.error(error)
-      const errorObj={  
-        errorMessage : error.message
-      }
+      const errorObj={  errorMessage : error.message }
       navigate('/errorPage', {state:errorObj })
     }
-
   }
 
   return (

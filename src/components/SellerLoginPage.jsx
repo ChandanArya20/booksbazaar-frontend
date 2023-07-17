@@ -6,19 +6,20 @@ import {useForm} from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import { doLogin } from '../Auth/loginFunc';
+import { doSellerLogin } from '../Auth/sellerLoginFunc';
+import axios from 'axios';
 
 
-const LoginWithPhonePage = () => {
+const SellerLoginPage = () => {
   
   const{register ,handleSubmit, formState:{errors}} = useForm()
   const navigate = useNavigate()
 
 
-  const loginUser = async(data) => {
+  const loginSeller = async(data) => {
+   
     try {
-
-      let response= await fetch('http://localhost:8080/api/user/login',{
+        let response= await fetch('http://localhost:8080/api/seller/login',{
         method:'POST',
         headers:{
           'Content-Type': 'application/json'
@@ -27,11 +28,11 @@ const LoginWithPhonePage = () => {
       })
 
       if (response.ok) {
-        const userData = await response.json()
-        doLogin(userData,()=>{
-          navigate("/")
+        const sellerData = await response.json()
+        doSellerLogin(sellerData,()=>{
+          navigate("/sellerDashboard")
         })
-
+    
       } else if(response.status===500){
         const errorDetails=await response.json()
         throw new Error(errorDetails.status)
@@ -49,37 +50,29 @@ const LoginWithPhonePage = () => {
       const errorObj={  errorMessage : error.message }
       navigate('/errorPage', {state:errorObj })
     }
-
   }
 
   return (
     <div className="login-page-container">
     <div className="login-page">
       <h1>Login</h1>
-      <p className="login-with-email-link">
-          <Link to="/emailLogin">Login with Email</Link>
-      </p>
-      <form onSubmit={handleSubmit(loginUser)}>
+      <form onSubmit={handleSubmit(loginSeller)}>
       <input
-          type="tel"
-          placeholder="Phone"
-          {...register('phone', {
-            required: 'Phone is required',
-            pattern: {
-              value: /^[6-9][0-9]*$/,
-              message: 'Only digits 0-9 are allowed'
-            },
+          type="text"
+          placeholder="Seller id"
+          {...register("sellerId", {
+            required: "Enter Seller id",
             minLength: {
-              value: 10,
-              message: 'Number must be exactly 10 digits'
+              value: 8,
+              message: "Seller id should not be less than 8"
             },
             maxLength: {
-              value: 10,
-              message: 'Number must be exactly 10 digits'
+              value: 15,
+              message: "Seller id should not be greater than 15"
             }
           })}
-          />
-          <p className="error-message">{errors.phone?.message}</p>
+        />
+        <p className="error-message">{errors.sellerId?.message}</p>
 
         <input
           type="text"
@@ -102,7 +95,7 @@ const LoginWithPhonePage = () => {
         </button>
       </form>
       <p className="create-account-link">
-        New user? <Link to="/signup">Create an account</Link>
+        New seller? <Link to="/SellerSignup">Become a seller</Link>
       </p>
     </div>
     <ToastContainer />
@@ -110,4 +103,4 @@ const LoginWithPhonePage = () => {
   );
 };
 
-export default LoginWithPhonePage;
+export default SellerLoginPage;

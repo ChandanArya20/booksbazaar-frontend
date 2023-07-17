@@ -32,7 +32,7 @@ const BookCard = ({ book }) => {
       <img src={book.image} alt={book.title} className="book-card-image" />
       <div className="book-card-content">
         <h3 className="book-card-title">{book.title}</h3>
-        <p className="book-card__author">{book.author}</p>
+        <p className="book-card-author">{book.author}</p>
         <div className="book-card-price">₹{book.price}</div>
         <button
           className={isBookInCart ? 'book-card-button-remove' :'book-card-button'}

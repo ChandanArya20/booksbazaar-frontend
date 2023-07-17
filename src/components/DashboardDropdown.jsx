@@ -2,20 +2,20 @@ import '../css/dropdown.css'
 import user from '../Images/user.png';
 import edit from '../Images/edit.png';
 import inbox from '../Images/envelope.png';
-import settings from '../Images/settings.png';
 import help from '../Images/question.png';
 import logout from '../Images/log-out.png';
 import { FaUser as ProfileIcon } from 'react-icons/fa';
 import React, {useState, useEffect, useRef} from 'react';
-import { getCurrentUserDetails, doLogout } from '../Auth/loginFunc';
+import { getCurrentSellerDetails,doSellerLogout } from '../Auth/sellerLoginFunc';
 import {useNavigate } from 'react-router-dom';
 
-function Dropdown() {
+function DashboardDropdown() {
 
   const [open, setOpen] = useState(false);
-  const userData=getCurrentUserDetails()
+  const sellerData=getCurrentSellerDetails()
   let menuRef = useRef();
   const navigate=useNavigate()
+
   useEffect(() => {
     let handler = (e)=>{
       if(!menuRef.current.contains(e.target)){
@@ -30,13 +30,10 @@ function Dropdown() {
   });
 
   const logoutHandler=()=>{
-    console.log("log out");
-    doLogout(()=>{
+    doSellerLogout(()=>{
       navigate('/')
-    });
+    })
   }
-
-
 
   return (
     <div className="App">
@@ -47,13 +44,12 @@ function Dropdown() {
           </div>
         </div>
 
-        <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} >
-          <h3>{userData.name}<br/><span> { userData?.email || userData?.phone}</span></h3>
+        <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} style={{position:'absolute', top:'120px', right:'340px'}} >
+          <h3>{sellerData.name}<br/><span> { sellerData.sellerId}</span></h3>
           <ul>
             <DropdownItem img = {user} text = {"My Profile"}/>
             <DropdownItem img = {edit} text = {"Edit Profile"}/>
             <DropdownItem img = {inbox} text = {"Inbox"}/>
-            <DropdownItem img = {settings} text = {"Settings"}/>
             <DropdownItem img = {help} text = {"Helps"}/>
             <DropdownItem img = {logout} text = {"Logout"} onClick={logoutHandler}/>
           </ul>
@@ -72,4 +68,4 @@ function DropdownItem(props){
   );
 }
 
-export default Dropdown;
+export default DashboardDropdown;
