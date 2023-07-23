@@ -59,9 +59,24 @@ nav {
      color:#1502ed;
    }
    .cart-icon, .profile-icon{
-     padding: 7px 10px;
-     transition: 300ms;
-   }
+    position: relative;
+    display: flex;
+    padding: 7px 10px;
+    transition: 300ms;
+  }
+  
+  .cart-icon p {
+    position: absolute;
+    top: -5px; /* Adjust the value to control the vertical overlap */
+    right: -5px; /* Adjust the value to control the horizontal overlap */
+    background-color: #009AEE;
+    color: #fff;
+    font-size: 13px;
+    padding: 3px 5px;
+    border-radius: 50%;
+    z-index: 1; /* Make sure the p tag appears above the CartIcon */
+  }
+  
    .cart-icon, .profile-icon:hover{
     cursor: pointer;
    }

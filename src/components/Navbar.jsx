@@ -1,5 +1,5 @@
 import '../css/navbar.css';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
 import { FaUser as ProfileIcon } from 'react-icons/fa';
@@ -8,8 +8,11 @@ import SearchBox from './SearchBox';
 import { isLoggedin } from '../Auth/loginFunc';
 import { isSellerLoggedin } from '../Auth/sellerLoginFunc';
 import Dropdown from './Dropdown';
+import { CartContext } from '../context/CartContext';
 
 const Navbar = () => {
+
+  const {cartQuantity}=useContext(CartContext)
   const login = isLoggedin();
   const selleLogin = isSellerLoggedin();
   const navigate = useNavigate();
@@ -58,6 +61,7 @@ const Navbar = () => {
           <div className="icons">
             <div className="cart-icon">
               <CartIcon className="icon" onClick={cartClickHandler} />
+              {cartQuantity>0? <p>{cartQuantity}</p>:''}
             </div>
             <div className="profile-icon">
               {isLoggedin() ? <Dropdown /> : 

@@ -2,7 +2,7 @@ import '../css/login_page.css';
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { doLogin } from '../Auth/loginFunc';
 
@@ -118,7 +118,6 @@ const PasswordCreationPage = () => {
           <Link onClick={goBack}>Go Back</Link>
         </p>
       </div>
-      <ToastContainer />
     </div>
   )
 }

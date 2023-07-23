@@ -1,4 +1,4 @@
-import '../css/dropdown.css'
+import '../css/dashboard_dropdown.css'
 import user from '../Images/user.png';
 import edit from '../Images/edit.png';
 import inbox from '../Images/envelope.png';
@@ -37,14 +37,14 @@ function DashboardDropdown() {
 
   return (
     <div className="App">
-      <div className='menu-container' ref={menuRef}>
-        <div className='menu-trigger' onClick={()=>{setOpen(!open)}}>
+      <div className='dmenu-container' ref={menuRef}>
+        <div className='dmenu-trigger' onClick={()=>{setOpen(!open)}}>
         <div className="profile-icon">
             <ProfileIcon className="icon" />
           </div>
         </div>
 
-        <div className={`dropdown-menu ${open? 'active' : 'inactive'}`} style={{position:'absolute', top:'120px', right:'340px'}} >
+        <div className={`ddropdown-menu ${open? 'active' : 'inactive'}`} >
           <h3>{sellerData.name}<br/><span> { sellerData.sellerId}</span></h3>
           <ul>
             <DropdownItem img = {user} text = {"My Profile"}/>
@@ -61,7 +61,7 @@ function DashboardDropdown() {
 
 function DropdownItem(props){
   return(
-    <li className = 'dropdownItem' onClick={props.onClick}>
+    <li className = 'ddropdownItem' onClick={props.onClick}>
       <img src={props.img}></img>
       <a> {props.text} </a>
     </li>

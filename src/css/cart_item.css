@@ -41,12 +41,15 @@
 
 .quantity-btn {
   border: none;
-  background-color: #ddd;
+  background-color: #e1e1e1;
   color: #333;
   font-size: 18px;
   width: 30px;
   height: 30px;
   cursor: pointer;
+}
+.quantity-btn:hover{
+  background-color: #e1e1e1;
 }
 
 .quantity-input {

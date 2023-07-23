@@ -12,15 +12,15 @@ code {
     monospace;
 }
 
-.dropdown-menu ul{
+.ddropdown-menu ul{
   list-style: none;
 }
 
-.dropdown-menu a {
+.ddropdown-menu a {
   text-decoration: none;
 }
 
-.menu-trigger img{
+.dmenu-trigger img{
   position: absolute;
   top: 20px;
   right: 20px;
@@ -32,9 +32,9 @@ code {
   background-color: #fff;
 }
 
-.dropdown-menu{
+.ddropdown-menu{
   position: absolute;
-  top: 65px;
+  top: 45px;
   right: 0px;
   background-color: #fff;
   border-radius: var(--border-radius);
@@ -43,7 +43,7 @@ code {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
-.dropdown-menu::before{
+.ddropdown-menu::before{
   content: '';
   position: absolute;
   top: -5px;
@@ -54,7 +54,7 @@ code {
   transform: rotate(45deg);
 }
 
-.dropdown-menu.active{
+.ddropdown-menu.active{
  
   opacity: 1;
   visibility: visible;
@@ -62,7 +62,7 @@ code {
   transition: var(--speed) ease;
 }
 
-.dropdown-menu.inactive{
+.ddropdown-menu.inactive{
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
@@ -70,7 +70,7 @@ code {
 }
 
 
-.dropdown-menu h3{
+.ddropdown-menu h3{
   width: 100%;
   text-align: center;
   font-size: 18px;
@@ -82,27 +82,27 @@ code {
   /* background-color: #ffee07; */
 }
 
-.dropdown-menu h3 span{
+.ddropdown-menu h3 span{
   font-size: 14px;
   color: var(--secondary-text-color);
   font-weight: 400;
 }
-.dropdown-menu ul li{
+.ddropdown-menu ul li{
   padding: 7px  0;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.dropdown-menu ul li:hover a{
+.ddropdown-menu ul li:hover a{
   color: rgb(212, 33, 9);
   cursor: pointer;
 }
 
-.dropdown-menu ul li:hover img{
+.ddropdown-menu ul li:hover img{
   opacity: 1;
   cursor: pointer;
 }
 
-.dropdownItem{
+.ddropdownItem{
   display: flex;
   margin: 10px auto;
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -110,14 +110,14 @@ code {
   sans-serif;
 }
 
-.dropdownItem img{
+.ddropdownItem img{
   max-width: 20px;
   margin-right: 10px;
   opacity: 0.5;
   transition: var(--speed);
 }
 
-.dropdownItem a{
+.ddropdownItem a{
   max-width: 100px;
   margin-left: 10px;
   transition: var(--speed);

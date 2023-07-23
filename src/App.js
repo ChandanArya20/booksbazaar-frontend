@@ -12,6 +12,7 @@ import SellerPasswordCreationPage from "./components/SellerPasswordCreationPage"
 import SellerRegistrationPage from "./components/SellerRegistrationPage";
 import SellerLoginPage from "./components/SellerLoginPage";
 import SellerDashboard from "./components/SelllerDashboard";
+import BookSellerPage from "./pages/BookSellerPage";
 
 const App = () => {
   return ( 
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/sellerLogin" element={<SellerLoginPage />} />
         <Route path="/sellerPasswordPage" element={<SellerPasswordCreationPage />} />
         <Route path="/sellerDashboard" element={<SellerDashboard />} />
+        <Route path="/bookSellerPage" element={<BookSellerPage />} />
         <Route path="/errorPage" element={<ErrorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>

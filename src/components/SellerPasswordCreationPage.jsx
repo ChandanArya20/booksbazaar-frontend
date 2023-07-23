@@ -2,7 +2,7 @@ import '../css/login_page.css';
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { doSellerLogin } from '../Auth/sellerLoginFunc';
 import axios from 'axios';
@@ -30,7 +30,7 @@ const SellerPasswordCreationPage = () => {
       const requestdata=phone.length !== 0 ? { name, phone, email,location, sellerId, password: password1 } : 
                                              { name, email,location, sellerId, password: password1 };         
 
-        let response= await fetch('http://localhost:8080/api/seller/register',{
+        const response= await fetch('http://localhost:8080/api/seller/register',{
         method:'POST',
         headers:{
           'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ const SellerPasswordCreationPage = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
-            placeholder="Seller id"
+            placeholder="Create a seller id"
             {...register("sellerId", {
               required: "Enter Seller id",
               minLength: {
@@ -139,7 +139,6 @@ const SellerPasswordCreationPage = () => {
           <Link onClick={goBack}>Go Back</Link>
         </p>
       </div>
-      <ToastContainer />
     </div>
   )
 }
