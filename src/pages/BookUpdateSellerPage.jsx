@@ -1,59 +1,100 @@
 import '../css/book_seller_page.css'
-import React, { useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
 
 
-const SellerRegistrationPage = () => {
+const BookUpdateSellerPage = () => {
 
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+  const location = useLocation(); // Get the location object
+  const[book, setBook]=useState()
+
+  // Access the book object from the state
+  const bookInfo = location.state;
+
+  const getAllBookDetails=async()=>{
+
+      try {
+        const response=await fetch("http://localhost:8080/api/book/"+bookInfo.id)
+        if(response.ok){
+          const bookData=await response.json()
+          setBook(bookData)
+        }
+
+      } catch (error) {
+        console.error(error)
+        const errorObj={  errorMessage : error.message }
+        navigate('/errorPage', {state:errorObj })
+      }
+  }
+
+  useEffect(()=>{
+    getAllBookDetails()
+  },[])
+
+  useEffect(()=>{
+    console.log(book);
+    setValue('id',book?.id);
+    setValue('title', book?.title);
+    setValue('author', book?.author);
+    setValue('description', book?.description);
+    setValue('title', book?.title);
+    setValue('price', book?.price);
+    setValue('language', book?.language);
+    setValue('category', book?.category);
+    setValue('publishingYear', book?.publishingYear);
+    setValue('isbn', book?.isbn);
+    setValue('pages', book?.pages);
+    setValue('publisher', book?.publisher);
+    setValue('format', book?.format);
+    setValue('stockAvailability', book?.stockAvailability);
+    setValue('edition', book?.edition);
+    setValue('deliveryTime', book?.deliveryTime);
+
+
+  },[book])
+  
 
   const submitBookDetails = async (data) => {
-    
-    const formData = new FormData();
-  
-    const bookSeller=getCurrentSellerDetails()
-    // Remove the coverImage property from the data object using destructuring
-    const { coverImage, ...bookData } = data;
+    console.log(data);
 
-     // Create a new object containing bookData and the bookSeller field
+    const { coverImage, ...bookData } = data;
+      
+    const bookSeller=getCurrentSellerDetails() 
+    // Create a new object containing bookData and the bookSeller field
     const newData = { ...bookData, bookSeller };
     
     // Convert the book data to a JSON string and append it to the FormData
+    const formData = new FormData(); 
     formData.append('bookInfo', JSON.stringify(newData));
   
     // Append the cover image file to the FormData
     formData.append('coverImage', data.coverImage[0]);
-  
-    console.log(coverImage);
-    console.log(coverImage[0] );
-    console.log(coverImage[0].name);
-    console.log(bookData);
-    console.log(newData);
-    console.log(formData);
-  
+
     // Fetch API POST request
     try {
-      const response = await fetch('http://localhost:8080/api/book/seller/addBook', {
-        method: 'POST',
+      const response = await fetch('http://localhost:8080/api/book/seller/update', {
+        method: 'PUT',
         body: formData,
       });
   
       if (response.ok) {
-        const errorMessage=await response.text()
-        toast.success(errorMessage, {
+        const message=await response.text()
+        toast.success(message, {
           position: 'top-center',
           theme: 'dark'
         })
-      } else {
-        const errorMsg=response.text()
-        throw new Error(errorMsg)
-        
+      }else{
+        const errorData= await response.json()
+        const errMsg=errorData.status
+        throw new Error(errMsg)
       }
+
     } catch (error) {
       console.error(error)
       const errorObj={  errorMessage : error.message }
@@ -61,13 +102,10 @@ const SellerRegistrationPage = () => {
     }
   };
   
-  
-  
 
-  
   return (
     <div className="book-selling-page-container" >
-      <h1>Add a New Book</h1>
+      <h1>Update the Book Data</h1>
       <div className="book_selling-Page">
         <form onSubmit={handleSubmit(submitBookDetails)}>
           <div className="selling-form">
@@ -91,6 +129,7 @@ const SellerRegistrationPage = () => {
               Author:
               <input
                 type="text"
+                defaultValue={book?.author}
                 placeholder="Enter author"
                 {...register('author', {
                   required: 'Author is required',
@@ -106,6 +145,7 @@ const SellerRegistrationPage = () => {
             <label>
               Description:
               <textarea
+                defaultValue={book?.description}
                 {...register('description', {
                   required: 'Description is required',
                   minLength: {
@@ -121,6 +161,7 @@ const SellerRegistrationPage = () => {
               Price:
               <input
                 type="number"
+                defaultValue={book?.price}
                 placeholder="Enter price"
                 {...register('price', {
                   required: 'Price is required',
@@ -134,18 +175,21 @@ const SellerRegistrationPage = () => {
             <p className="error-message">{errors.price?.message}</p>
 
             <label>
-              Language:
-              <select {...register('language', {
+            Language:
+            <select
+              {...register('language', {
                 required: 'Choose one language',
-              })}>
-                <option value="English">English</option>
-                <option value="Hindi">Hindi</option>
-                <option value="French">French</option>
-                <option value="Russian">Russian</option>
-                <option value="German">German</option>
-                <option value="Chinese">Chinese</option>
-              </select>
-            </label>           
+              })}
+            >
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+              <option value="French">French</option>
+              <option value="Russian">Russian</option>
+              <option value="German">German</option>
+              <option value="Chinese">Chinese</option>
+            </select>
+          </label>
+  
             <p className="error-message">{errors.language?.message}</p>
 
             <label>
@@ -153,8 +197,9 @@ const SellerRegistrationPage = () => {
               <select
                 {...register('category', {
                   required: 'Choose one category',
-                })}
-              >
+                })} 
+                >
+             
                <option value="">Select a category</option>
                 <option value="fiction">Fiction</option>
                 <option value="non-fiction">Non-Fiction</option>
@@ -207,6 +252,7 @@ const SellerRegistrationPage = () => {
               Publication Year:
               <input
                 type="date"
+                defaultValue={book?.publishingYear}
                 placeholder="Enter Publishing year"
                 {...register('publishingYear', {
                   min: {
@@ -225,6 +271,7 @@ const SellerRegistrationPage = () => {
               ISBN No.:
               <input
                 type="number"
+                defaultValue={book?.isbn}
                 placeholder="Enter ISBN no."
                 {...register('isbn', {
                   pattern: {
@@ -239,6 +286,7 @@ const SellerRegistrationPage = () => {
               Number of Pages:
               <input
                 type="number"
+                defaultValue={book?.pages}
                 placeholder="Enter Pages"
                 {...register('pages', {
                   required: 'Pages is required',
@@ -255,6 +303,7 @@ const SellerRegistrationPage = () => {
               Publisher:
               <input
                 type="text"
+                defaultValue={book?.publisher}
                 placeholder="Enter publisher"
                 {...register('publisher', {
                   required: 'Publisher is required',
@@ -272,8 +321,8 @@ const SellerRegistrationPage = () => {
               <select
                 {...register('format', {
                   required: 'Choose one fomat',
-                })}
-              >
+                })} 
+                >            
                 <option value="">Select a format</option>
                 <option value="hardcover">Hardcover</option>
                 <option value="paperback">Paperback</option>
@@ -290,6 +339,7 @@ const SellerRegistrationPage = () => {
               Stock Availability:
               <input
                 type="number"
+                defaultValue={book?.stockAvailability}
                 placeholder="Enter stock"
                 {...register('stockAvailability', {
                   required: 'Stock is required',
@@ -306,6 +356,7 @@ const SellerRegistrationPage = () => {
               Edition:
               <input
                 type="number"
+                defaultValue={book?.edition}
                 placeholder="Enter edition"
                 {...register('edition', {
                   min: {
@@ -321,6 +372,7 @@ const SellerRegistrationPage = () => {
               Delivery Time:
               <input
                 type="number"
+                defaultValue={book?.deliveryTime}
                 placeholder="Enter delivery time (in days)"
                 {...register('deliveryTime', {
                   required: 'Delivery time is required',
@@ -351,7 +403,7 @@ const SellerRegistrationPage = () => {
             </div>
             <div className="book-submit">
               <button type="submit" className="book-submit-button">
-                Submit
+                Update
               </button>
           </div>
         </form>
@@ -361,4 +413,4 @@ const SellerRegistrationPage = () => {
   );
 };
 
-export default SellerRegistrationPage;
+export default BookUpdateSellerPage;

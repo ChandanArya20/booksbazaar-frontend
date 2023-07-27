@@ -13,7 +13,7 @@ import SellerRegistrationPage from "./components/SellerRegistrationPage";
 import SellerLoginPage from "./components/SellerLoginPage";
 import SellerDashboard from "./components/SelllerDashboard";
 import BookSellerPage from "./pages/BookSellerPage";
-
+import BookUpdateSellerPage from "./pages/BookUpdateSellerPage";
 const App = () => {
   return ( 
     <BrowserRouter>
@@ -29,6 +29,7 @@ const App = () => {
         <Route path="/sellerPasswordPage" element={<SellerPasswordCreationPage />} />
         <Route path="/sellerDashboard" element={<SellerDashboard />} />
         <Route path="/bookSellerPage" element={<BookSellerPage />} />
+        <Route path="/bookUpdateSellerPage" element={<BookUpdateSellerPage />} />
         <Route path="/errorPage" element={<ErrorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>

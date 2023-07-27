@@ -33,8 +33,8 @@
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
-button:hover {
-  background-color: #0062cc;
+.seller-dashboard button:hover {
+  background-color: #0476f0;
 }
 .seller-profile-icon a{
   color: black;
@@ -48,5 +48,10 @@ button:hover {
   margin-bottom: 10px;
 }
 
+.seller-books{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 

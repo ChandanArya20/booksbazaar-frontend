@@ -39,8 +39,8 @@ const SellerPasswordCreationPage = () => {
       })
 
       if (response.ok) {
-        const sellerData = await response.json()
-        doSellerLogin(sellerData,()=>{
+          const sellerData = await response.json()
+          doSellerLogin(sellerData,()=>{
           navigate("/sellerDashboard")
         })
     

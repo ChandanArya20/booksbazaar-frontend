@@ -1,0 +1,91 @@
+/* Book card container */
+.seller-book-card {
+    display: flex;
+    height: 120px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    text-overflow: ellipsis;
+  }
+  .seller-book-card div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .seller-book-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .seller-book-card .book-details-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    /* background-color: #c18383; */
+  }
+  .seller-book-card .book-details-button{
+    display: flex;
+    gap: 10px;
+  }
+
+
+  /* Book cover image */
+  .book-image {
+    width: 80px;
+    object-fit: cover;
+  }
+  
+  /* Book details */
+  .book-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 10px;
+    width: 150px;
+  }
+  
+  .book-author {
+    /* width: 220px; */
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .book-price {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  
+  .book-stock {
+    font-size: 16px;
+    color: #666;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+ 
+  .update-btn{
+    background-color: #FF5F6D;
+  }
+  .update-btn:hover{
+    background-color: #FF4358; 
+  }
+  .update-btn.uppper-btn{
+    background-color: #E3963E;
+  }
+  .update-btn.uppper-btn:hover{
+    background-color: #d08938;
+  }
+  #activate-btn{
+    background-color: #08b441;
+  }
+  #activate-btn:hover{
+    background-color: #079b38;
+  }
+  #deactivate-btn{
+    background-color: #FF5F6D;
+  }
+  #deactivate-btn:hover{
+    background-color: #FF4358;
+  }
