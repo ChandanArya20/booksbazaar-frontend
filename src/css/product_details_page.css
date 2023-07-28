@@ -1,0 +1,125 @@
+/* ProductDetailsPage.css */
+.product-details-page {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    margin-top: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .product-details-image {
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  .product-details-image img {
+    width: 300px;
+  }
+  
+  .product-details {
+    flex: 1;
+    padding: 20px;
+    margin-left: 20px;
+  }
+  
+  .product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .product-author {
+    margin-bottom: 10px;
+    color: #666;
+  }
+  .product-description.description-highlight{
+    margin-top: 90px;
+  }
+  #description{
+    color: black;
+  }
+  .product-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #007bff;
+  }
+  
+  .product-buttons {
+    display: flex;
+    margin-top: 20px;
+    gap: 15px;
+  }
+  
+  .product-buttons button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .product-buttons .addToCart{
+    /* background-color: #fa1a1a; */
+    background-color: #FF5F6D;
+  }
+  .product-buttons .addToCart:hover{
+    /* background-color: #fa1a1a; */
+    background-color: #FF4358;
+  }
+  .product-buttons button:hover {
+    background-color: #0074f0;
+  }
+  .book-highlight {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+  }
+  
+  .highlight-item {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #444;
+  }
+  
+  .highlight-label {
+    font-weight: bold;
+    color: #007bff;
+  }
+
+.specifications {
+    margin-top: 30px;
+  }
+  
+  .section-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .spec-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .spec-item {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .spec-label {
+    font-weight: bold;
+  }
+@media (max-width: 768px) {
+    .product-details-page {
+      flex-direction: column;
+      align-items: center;
+    }
+}

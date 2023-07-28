@@ -14,6 +14,7 @@ import SellerLoginPage from "./components/SellerLoginPage";
 import SellerDashboard from "./components/SelllerDashboard";
 import BookSellerPage from "./pages/BookSellerPage";
 import BookUpdateSellerPage from "./pages/BookUpdateSellerPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 const App = () => {
   return ( 
     <BrowserRouter>
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/sellerDashboard" element={<SellerDashboard />} />
         <Route path="/bookSellerPage" element={<BookSellerPage />} />
         <Route path="/bookUpdateSellerPage" element={<BookUpdateSellerPage />} />
+        <Route path="/productDetailsPage" element={<ProductDetailsPage />} />
         <Route path="/errorPage" element={<ErrorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>

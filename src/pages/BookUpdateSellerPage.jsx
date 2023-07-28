@@ -15,7 +15,7 @@ const BookUpdateSellerPage = () => {
   const[book, setBook]=useState()
 
   // Access the book object from the state
-  const bookInfo = location.state;
+  const bookInfo = location.state
 
   const getAllBookDetails=async()=>{
 

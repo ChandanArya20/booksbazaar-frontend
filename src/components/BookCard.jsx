@@ -2,10 +2,12 @@ import React from 'react';
 import '../css/bookcard.css';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import ProductDetailsPage from '../pages/ProductDetailsPage';
+import { useNavigate } from 'react-router-dom';
 
 const BookCard = ({ book }) => {
   const { cart, setCart } = useContext(CartContext);
-
+  const navigate=useNavigate()
   const isBookInCart = cart.some((item) => item.id === book.id);
 
   const addToCart = () => {
@@ -27,9 +29,13 @@ const BookCard = ({ book }) => {
     }
   };
 
+  const showProductDetails=()=>{
+    navigate("/productDetailsPage", { state: book })
+  }
+
   return (
-    <div className="book-card">
-      <img src={book.image} alt={book.title} className="book-card-image" />
+    <div className="book-card" >
+      <img src={book.image} alt={book.title} className="book-card-image" onClick={showProductDetails}/>
       <div className="book-card-content">
         <h3 className="book-card-title">{book.title}</h3>
         <p className="book-card-author">{book.author}</p>

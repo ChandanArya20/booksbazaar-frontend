@@ -13,6 +13,10 @@ const SellerBookItem = ({ bookData }) => {
       navigate("/bookUpdateSellerPage", { state: book })
   }
 
+  const productDetailsHandler=()=>{
+    navigate("/productDetailsPage", { state: book })
+  }
+
   const changeStatus=async()=>{
     try {
       const initialStatus=book.status
@@ -54,7 +58,7 @@ const SellerBookItem = ({ bookData }) => {
               id={book.status ? 'deactivate-btn' : 'activate-btn'}
             >{book.status?'Deactivate':'Activate'}</button>
 
-            <button >See as User</button>
+            <button onClick={productDetailsHandler}>See as User</button>
         </div>
       </div>
     </div>

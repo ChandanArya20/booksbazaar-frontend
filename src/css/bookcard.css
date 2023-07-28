@@ -9,7 +9,6 @@
     transition: transform 0.3s ease;
     text-align: center;
     background-color: #fcfcfc;
-    cursor: pointer;
   }
   
   .book-card:hover {
@@ -20,6 +19,7 @@
     height: 115px;
     object-fit: cover;
     border-radius: 5px;
+    cursor: pointer;
   }
   
   .book-card-title {
