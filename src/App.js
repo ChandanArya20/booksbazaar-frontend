@@ -12,7 +12,7 @@ import SellerPasswordCreationPage from "./components/SellerPasswordCreationPage"
 import SellerRegistrationPage from "./components/SellerRegistrationPage";
 import SellerLoginPage from "./components/SellerLoginPage";
 import SellerDashboard from "./components/SelllerDashboard";
-import BookSellerPage from "./pages/BookSellerPage";
+import BookAddSellerPage from "./pages/BookAddSellerPage";
 import BookUpdateSellerPage from "./pages/BookUpdateSellerPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
         <Route path="/sellerLogin" element={<SellerLoginPage />} />
         <Route path="/sellerPasswordPage" element={<SellerPasswordCreationPage />} />
         <Route path="/sellerDashboard" element={<SellerDashboard />} />
-        <Route path="/bookSellerPage" element={<BookSellerPage />} />
+        <Route path="/bookAddSellerPage" element={<BookAddSellerPage />} />
         <Route path="/bookUpdateSellerPage" element={<BookUpdateSellerPage />} />
         <Route path="/productDetailsPage" element={<ProductDetailsPage />} />
         <Route path="/errorPage" element={<ErrorPage />} />

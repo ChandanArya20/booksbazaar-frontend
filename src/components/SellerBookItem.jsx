@@ -20,7 +20,7 @@ const SellerBookItem = ({ bookData }) => {
   const changeStatus=async()=>{
     try {
       const initialStatus=book.status
-      const response=await fetch('http://localhost:8080/api/book/changeStatus/'+book.id,{
+      const response=await fetch(`http://localhost:8080/api/book/${book.id}/changeStatus/`, {
         method:"PATCH"
       })
       if(response.ok){

@@ -47,30 +47,28 @@
     margin-top: 5px;
     padding: 7px 14px;
     font-size: 14px;
-    font-weight: bold;
     color: #ffffff;
-    background-color: #009AEE;
+    background-color: #007bff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   .book-card-button:hover {
-    background-color: #0086ce;
+    background-color: #0270e7;
   }
   .book-card-button-remove{
     margin-top: 5px;
     padding: 7px 14px;
     font-size: 14px;
-    font-weight: bold;
     color: #ffffff;
-    background-color: #ee4d2d;
+    background-color: #FF4938;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   .book-card-button-remove:hover{
-    background-color: #df4a2c;
+    background-color: #e94132;
   }
   

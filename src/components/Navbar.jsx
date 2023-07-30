@@ -61,7 +61,7 @@ const Navbar = () => {
           <div className="icons">
             <div className="cart-icon">
               <CartIcon className="icon" onClick={cartClickHandler} />
-              {cartQuantity>0? <p>{cartQuantity}</p>:''}
+              {cartQuantity>0 && isLoggedin()? <p>{cartQuantity}</p>:''}
             </div>
             <div className="profile-icon">
               {isLoggedin() ? <Dropdown /> : 

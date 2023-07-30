@@ -78,7 +78,7 @@ const BookUpdateSellerPage = () => {
 
     // Fetch API POST request
     try {
-      const response = await fetch('http://localhost:8080/api/book/seller/update', {
+      const response = await fetch('http://localhost:8080/api/book/seller/updateBook', {
         method: 'PUT',
         body: formData,
       });

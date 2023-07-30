@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
 
 
-const SellerRegistrationPage = () => {
+const BookAddSellerPage = () => {
 
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -361,4 +361,4 @@ const SellerRegistrationPage = () => {
   );
 };
 
-export default SellerRegistrationPage;
+export default BookAddSellerPage;

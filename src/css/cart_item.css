@@ -25,9 +25,15 @@
   flex: 1; 
  } 
 
-.book-title {
-  font-size: 15px;
+ .book-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Number of lines to show before adding ellipsis */
+  overflow: hidden;
+  font-size: 13px;
 }
+
+
 
 .book-author {
   font-size: 13px;

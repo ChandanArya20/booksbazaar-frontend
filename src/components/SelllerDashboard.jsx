@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import DashboardDropdown from './DashboardDropdown';
 import Navbar from './Navbar';
 import SellerBookItem from './SellerBookItem';
+import {toast} from 'react-toastify'
 import { getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
 
 const SellerDashboard = () => {
@@ -19,15 +20,15 @@ const SellerDashboard = () => {
   },[books])
 
   const sellBookButtonHandler=()=>{
-    navigate("/booksellerPage")
+    navigate("/bookAddSellerPage")
   }
   
   const fetchSellerAllBooks=async ()=>{
 
-    const id=getCurrentSellerDetails().id
+    const sellerId=getCurrentSellerDetails().id
     try {
 
-      const response=await fetch("http://localhost:8080/api/book/seller/allBook/"+id)
+      const response=await fetch(`http://localhost:8080/api/book/seller/${sellerId}/allBook`)
 
       if(response.ok){
         const bookList=await response.json()
@@ -37,8 +38,10 @@ const SellerDashboard = () => {
       
     } catch (error) {
       console.error(error)
-      const errorObj={  errorMessage : error.message }
-      navigate('/errorPage', {state:errorObj })
+      toast.error("Server is down, try again later", {
+        position: 'top-center',
+        theme: 'dark'
+      });
     }
     
   }

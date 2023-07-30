@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from 'react';
 import '../css/product_details_page.css';
+import React, { useState, useEffect, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import { CartContext } from '../context/CartContext';
+import {toast} from 'react-toastify'
+import { isLoggedin } from '../Auth/loginFunc';
 
 const ProductDetailsPage = () => {
   const location = useLocation();
   const bookInfo = location.state;
   const navigate = useNavigate();
   const [book, setBook] = useState();
+  const {cart, setCart}=useContext(CartContext)
+  const isBookInCart = cart.some((item) => item.book.id === bookInfo?.id);
 
   const getAllBookDetails = async () => {
     try {
@@ -18,8 +23,10 @@ const ProductDetailsPage = () => {
       }
     } catch (error) {
       console.error(error);
-      const errorObj = { errorMessage: error.message };
-      navigate('/errorPage', { state: errorObj });
+      toast.error("Server is down, try again later", {
+        position: 'top-center',
+        theme: 'dark'
+      });
     }
   };
 
@@ -31,9 +38,17 @@ const ProductDetailsPage = () => {
     console.log(book);
   }, [book]);
 
-  const handleAddToCart = () => {
-    // Implement logic to add the product to the cart
-  };
+  const addToCart = () => {
+    if(isLoggedin()){
+      const cartItem={id:book.id ,book, quantity:1}
+      setCart([...cart,cartItem])
+
+    }else
+      navigate("/phoneLogin")
+  }
+  const goToCart=()=>{
+    navigate("/cart")
+  }
 
   const handleBuyNow = () => {
     // Implement logic to handle the "Buy Now" functionality
@@ -51,7 +66,11 @@ const ProductDetailsPage = () => {
         <p className="product-author">By {book?.author}</p>
         <p className="product-price">₹{book?.price}</p>
         <div className="product-buttons">
-          <button className='addToCart' onClick={handleAddToCart}>Add to Cart</button>
+          <button 
+            className='addToCart' 
+            onClick={isBookInCart ? goToCart : addToCart}>             
+            {isBookInCart ? 'Go To Cart' : 'Add To Cart'}           
+          </button>
           <button className='buyNow' onClick={handleBuyNow}>Buy Now</button>
         </div>
         <div className="book-highlight">

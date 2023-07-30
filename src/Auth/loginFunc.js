@@ -22,7 +22,7 @@ export const getCurrentUserDetails = () => {
       const parsedData = JSON.parse(userData);
       return parsedData.user;
     } else {
-      return undefined;
+      return null;
     }
   };
   

@@ -1,56 +1,48 @@
 import '../css/cart_item.css';
-import { RiDeleteBin6Line as CartDeleteButton } from 'react-icons/ri';
-import { useState, useContext, useEffect } from 'react';
-import { CartContext } from '../context/CartContext';
+import { RiDeleteBin6Line as CartDeleteButton } from 'react-icons/ri'
+import { useState, useContext, useEffect } from 'react'
+import { CartContext } from '../context/CartContext'
 
-const CartItem = ({ item }) => {
+const CartItem = ({ cartItem }) => { 
 
-  const { id, title, author, image, price, quantity: initialQuantity, totalPrice: initialTotalPrice } = item;
-  const { cart, setCart } = useContext(CartContext);
-  const [totalPrice, setTotalPrice] = useState(initialTotalPrice);
-  const [quantity, setQuantity] = useState(initialQuantity);
+  console.log(cartItem)
+
+  const {cart, setCart } = useContext(CartContext)
+  const [totalPrice, setTotalPrice] = useState(cartItem.book.price)
+  const [quantity, setQuantity] = useState(cartItem.quantity)
 
   useEffect(() => {
-    // Update the totalPrice whenever quantity changes
-    setTotalPrice(price * quantity);
-  }, [quantity, price]);
+    setTotalPrice(cartItem.book.price * quantity);
+  }, [quantity]);
 
   const plusButtonHandler = () => {
-    setQuantity(quantity + 1);
-    updateCartItem(quantity + 1);
-  };
+    setQuantity(quantity + 1)
+    console.log(quantity)
+    setCart(cart.map(item=>item.id===cartItem.id ? {...item, quantity:quantity+1}:item))
+    console.log(cart)
+  }
 
   const minusButtonHandler = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
-      updateCartItem(quantity - 1);
+      setCart(cart.map(item=>item.id===cartItem.id ? {...item, quantity:quantity-1}:item))
     }
-  };
-
-  const updateCartItem = (updatedQuantity) => {
-    // Calculate the updated total price and update the cart item in the context
-    const updatedTotalPrice = price * updatedQuantity;
-    setCart((prevCart) =>
-      prevCart.map((book) =>
-        book.id === id ? { ...book, quantity: updatedQuantity, totalPrice: updatedTotalPrice } : book
-      )
-    );
-  };
+  }
 
   const cartRemoveHandler = () => {
-    setCart(cart.filter((book) => book.id !== id));
+    setCart(cart.filter(item => item.id !== cartItem.id));
   };
 
   return (
     <>
       <div className="cart-item">
         <div className="product-image">
-          <img src={image} alt="Product Image" />
+          <img src={cartItem.book.imageURL} alt="Product Image" />
         </div>
 
         <div className="book-details">
-          <h3 className="book-title">{title}</h3>
-          <a className="book-author">{author}</a>
+          <h3 className="book-title">{cartItem.book.title}</h3>
+          <a className="book-author">{cartItem.book.author}</a>
         </div>
 
         <div className="quantity-control">
