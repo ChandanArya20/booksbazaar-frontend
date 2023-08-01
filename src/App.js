@@ -15,6 +15,10 @@ import SellerDashboard from "./components/SelllerDashboard";
 import BookAddSellerPage from "./pages/BookAddSellerPage";
 import BookUpdateSellerPage from "./pages/BookUpdateSellerPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
+import OrderSuccessPage from "./pages/OrderSuccessPage";
+import OrderItem from "./components/OrderItem";
+import OrderPage from "./pages/OrderPage";
+
 const App = () => {
   return ( 
     <BrowserRouter>
@@ -32,6 +36,9 @@ const App = () => {
         <Route path="/bookAddSellerPage" element={<BookAddSellerPage />} />
         <Route path="/bookUpdateSellerPage" element={<BookUpdateSellerPage />} />
         <Route path="/productDetailsPage" element={<ProductDetailsPage />} />
+        <Route path="/orderSuccessPage" element={<OrderSuccessPage />} />
+        <Route path="/orderItem" element={<OrderItem/>} />
+        <Route path="/orderPage" element={<OrderPage/>} />
         <Route path="/errorPage" element={<ErrorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>

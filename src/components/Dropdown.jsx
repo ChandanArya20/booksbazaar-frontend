@@ -6,16 +6,19 @@ import settings from '../Images/settings.png';
 import help from '../Images/question.png';
 import logout from '../Images/log-out.png';
 import { FaUser as ProfileIcon } from 'react-icons/fa';
-import React, {useState, useEffect, useRef} from 'react';
-import { getCurrentUserDetails, doLogout } from '../Auth/loginFunc';
+import React, {useState, useEffect, useRef, useContext} from 'react';
 import {useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContex';
 
 function Dropdown() {
 
   const [open, setOpen] = useState(false);
+  const{getCurrentUserDetails,logoutUser}=useContext(UserContext)
   const userData=getCurrentUserDetails()
   let menuRef = useRef();
   const navigate=useNavigate()
+   
+
   useEffect(() => {
     let handler = (e)=>{
       if(!menuRef.current.contains(e.target)){
@@ -29,13 +32,10 @@ function Dropdown() {
   });
 
   const logoutHandler=()=>{
-    console.log("log out");
-    doLogout(()=>{
+    logoutUser(()=>{
       navigate('/')
     });
   }
-
-
 
   return (
     <div className="App">

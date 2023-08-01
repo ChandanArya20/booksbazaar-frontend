@@ -7,7 +7,7 @@ const CartItem = ({ cartItem }) => {
 
   console.log(cartItem)
 
-  const {cart, setCart } = useContext(CartContext)
+  const {cart, setCart, updateCartItemQuantity, deleteCartItems } = useContext(CartContext)
   const [totalPrice, setTotalPrice] = useState(cartItem.book.price)
   const [quantity, setQuantity] = useState(cartItem.quantity)
 
@@ -17,20 +17,19 @@ const CartItem = ({ cartItem }) => {
 
   const plusButtonHandler = () => {
     setQuantity(quantity + 1)
-    console.log(quantity)
-    setCart(cart.map(item=>item.id===cartItem.id ? {...item, quantity:quantity+1}:item))
+    updateCartItemQuantity(cartItem,quantity+1)
     console.log(cart)
   }
 
   const minusButtonHandler = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
-      setCart(cart.map(item=>item.id===cartItem.id ? {...item, quantity:quantity-1}:item))
+      updateCartItemQuantity(cartItem,quantity-1)
     }
   }
 
   const cartRemoveHandler = () => {
-    setCart(cart.filter(item => item.id !== cartItem.id));
+    deleteCartItems([cartItem])
   };
 
   return (

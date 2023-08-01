@@ -1,21 +1,21 @@
 import '../css/login_page.css';
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { BiHide as PassHideIcon } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import {useForm} from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import { doLogin } from '../Auth/loginFunc';
-
+import { UserContext } from '../context/UserContex';
 
 const LoginWithPhonePage = () => {
   
   const{register ,handleSubmit, formState:{errors}} = useForm()
   const navigate = useNavigate()
+  const{loginUser}=useContext(UserContext)
 
 
-  const loginUser = async(data) => {
+  const doLoginUser = async(data) => {
     try {
 
       let response= await fetch('http://localhost:8080/api/user/login',{
@@ -28,7 +28,8 @@ const LoginWithPhonePage = () => {
 
       if (response.ok) {
         const userData = await response.json()
-        doLogin(userData,()=>{
+        loginUser(userData,()=>{
+          console.log("login");
           navigate("/")
         })
 
@@ -59,7 +60,7 @@ const LoginWithPhonePage = () => {
       <p className="login-with-email-link">
           <Link to="/emailLogin">Login with Email</Link>
       </p>
-      <form onSubmit={handleSubmit(loginUser)}>
+      <form onSubmit={handleSubmit(doLoginUser)}>
       <input
           type="tel"
           placeholder="Phone"

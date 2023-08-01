@@ -1,0 +1,18 @@
+/* OrderPage styles */
+.order-page {
+    padding: 20px;
+  }
+  
+  .order-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Optional: Add some responsive styles for smaller screens */
+  @media screen and (max-width: 768px) {
+    .order-list {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+  

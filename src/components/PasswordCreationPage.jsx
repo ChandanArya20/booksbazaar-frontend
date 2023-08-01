@@ -1,16 +1,17 @@
 import '../css/login_page.css';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { doLogin } from '../Auth/loginFunc';
+import { UserContext } from '../context/UserContex';
 
 const PasswordCreationPage = () => {
   
   const navigate = useNavigate();
   const location = useLocation();
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const{loginUser}=useContext(UserContext)
 
   const onSubmit = async (data) => {
 
@@ -37,7 +38,7 @@ const PasswordCreationPage = () => {
     
       if (response.ok) {
         const userData = await response.json();
-        doLogin(userData,()=>{
+        loginUser(userData,()=>{
           navigate("/")
         })
         

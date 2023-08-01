@@ -4,14 +4,17 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { CartContext } from '../context/CartContext';
 import {toast} from 'react-toastify'
-import { isLoggedin } from '../Auth/loginFunc';
+import { UserContext } from '../context/UserContex';
+import { getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
 
 const ProductDetailsPage = () => {
+
   const location = useLocation();
   const bookInfo = location.state;
   const navigate = useNavigate();
   const [book, setBook] = useState();
-  const {cart, setCart}=useContext(CartContext)
+  const {cart, addToCart}=useContext(CartContext)
+  const {isUserLoggedin}=useContext(UserContext)
   const isBookInCart = cart.some((item) => item.book.id === bookInfo?.id);
 
   const getAllBookDetails = async () => {
@@ -23,10 +26,10 @@ const ProductDetailsPage = () => {
       }
     } catch (error) {
       console.error(error);
-      toast.error("Server is down, try again later", {
-        position: 'top-center',
-        theme: 'dark'
-      });
+      // toast.error("Server is down, try again later", {
+      //   position: 'top-center',
+      //   theme: 'dark'
+      // });
     }
   };
 
@@ -38,20 +41,50 @@ const ProductDetailsPage = () => {
     console.log(book);
   }, [book]);
 
-  const addToCart = () => {
-    if(isLoggedin()){
+  const handleAddToCart = () => {
+    if(isUserLoggedin()){
       const cartItem={id:book.id ,book, quantity:1}
-      setCart([...cart,cartItem])
+      addToCart(cartItem)
 
     }else
       navigate("/phoneLogin")
   }
   const goToCart=()=>{
-    navigate("/cart")
+    if(isUserLoggedin()){
+      navigate("/cart")
+    }else
+       navigate("/phoneLogin")
   }
 
-  const handleBuyNow = () => {
-    // Implement logic to handle the "Buy Now" functionality
+  const handleBuyNow = async() => {
+    if(!isUserLoggedin()){
+      navigate("/phoneLogin")
+      return
+    }
+    try {
+        const response=await fetch(`http://localhost:8080/api/order/placeOrder`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify([{book, quantity:1, user:getCurrentSellerDetails()}])
+      });
+      if(response.ok){
+        navigate("/orderSuccessPage")
+      }
+      else{
+        toast.error("Placing order failed..., try again later", {
+          position: 'top-center',
+          theme: 'dark'
+        })
+      }
+
+    console.log("Cart item quantity updated on the server!");
+    } catch (error) {
+      console.error(error)
+      const errorObj={  errorMessage : error.message }
+      navigate('/errorPage', {state:errorObj })
+    }
   };
 
   return (
@@ -68,7 +101,7 @@ const ProductDetailsPage = () => {
         <div className="product-buttons">
           <button 
             className='addToCart' 
-            onClick={isBookInCart ? goToCart : addToCart}>             
+            onClick={isBookInCart ? goToCart : handleAddToCart}>             
             {isBookInCart ? 'Go To Cart' : 'Add To Cart'}           
           </button>
           <button className='buyNow' onClick={handleBuyNow}>Buy Now</button>

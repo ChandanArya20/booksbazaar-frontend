@@ -1,13 +1,51 @@
 import '../css/cart_page.css';
 import React, { useContext, useEffect, useState } from 'react';
 import CartItem from './CartItem';
+import {  toast } from 'react-toastify';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
+import { getCurrentUserDetails } from '../Auth/loginFunc';
 
 const CartPage = () => {
-  const {cart, setCart, totalCartPrice,cartQuantity } = useContext(CartContext);
+  const {cart, setCart, totalCartPrice,cartQuantity, deleteCartItems } = useContext(CartContext);
   const navigate=useNavigate()
+
+  const handlePlaceOrder=async()=>{
+
+    const orderData=cart.map(item=>{
+      return {book:item.book, quantity:item.quantity,user:getCurrentUserDetails()}
+    })
+          
+    try {
+        const response=await fetch(`http://localhost:8080/api/order/placeOrder`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(orderData)
+        });
+        if(response.ok){
+          deleteCartItems(cart)
+          setCart([])
+          navigate("/orderSuccessPage")
+        }
+        else{
+          toast.error("Placing order failed..., try again later", {
+            position: 'top-center',
+            theme: 'dark'
+          })
+        }
+
+      console.log("Cart item quantity updated on the server!");
+      } catch (error) {
+        console.error(error)
+        const errorObj={  errorMessage : error.message }
+        navigate('/errorPage', {state:errorObj })
+      }
+    }
+
+
 
   return (
     <>
@@ -31,7 +69,7 @@ const CartPage = () => {
         <div className="total-amount">
           Total: ₹ {totalCartPrice.toFixed(2)}
         </div>
-        <button className="purchase-btn">Place order</button>
+        <button className="purchase-btn" onClick={handlePlaceOrder}>Place order</button>
       </div>
     </div>
     }

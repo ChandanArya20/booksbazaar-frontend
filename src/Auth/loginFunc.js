@@ -1,8 +1,8 @@
 
-export const doLogin=(data,next)=>{
-    localStorage.setItem("userData",JSON.stringify(data))
-    next()
-}
+// export const doLogin=(data,next)=>{
+//     localStorage.setItem("userData",JSON.stringify(data))
+//     next()
+// }
 export const isLoggedin=()=>{
     let data=localStorage.getItem("userData")
     if(data!=null)
@@ -11,10 +11,10 @@ export const isLoggedin=()=>{
         return false
 }
 
-export const doLogout=(next)=>{
-    localStorage.removeItem("userData")
-    next()
-}
+// export const doLogout=(next)=>{
+//     localStorage.removeItem("userData")
+//     next()
+// }
 
 export const getCurrentUserDetails = () => {
     if (isLoggedin()) {

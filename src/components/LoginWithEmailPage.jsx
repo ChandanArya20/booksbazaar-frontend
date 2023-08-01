@@ -1,19 +1,20 @@
 import '../css/login_page.css';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {useForm} from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import { doLogin } from '../Auth/loginFunc';
+import { UserContext } from '../context/UserContex';
 
 const LoginWithEmailPage = () => {
 
   const{register, handleSubmit, formState:{errors}} = useForm()
   const navigate = useNavigate()
+  const{loginUser}=useContext(UserContext)
 
 
-  const loginUser = async(data) => {       
+  const doLoginUser = async(data) => {       
     try {
 
       let response= await fetch('http://localhost:8080/api/user/login',{
@@ -26,13 +27,10 @@ const LoginWithEmailPage = () => {
 
       if (response.ok) {
         const userData = await response.json()
-        doLogin(userData,()=>{
+        loginUser(userData,()=>{
           navigate("/")
         })
-        // toast.success("Login successfull", {
-        //   position: 'top-center',
-        //   theme: 'dark'
-        // })
+    
       } else if(response.status===500){
         const errorDetails=await response.json()
         throw new Error(errorDetails.status)
@@ -59,7 +57,7 @@ const LoginWithEmailPage = () => {
       <p className="login-with-phone-link">
           <Link to="/phoneLogin">Login with Phone</Link>
       </p>
-      <form onSubmit={handleSubmit(loginUser)}>
+      <form onSubmit={handleSubmit(doLoginUser)}>
         <input
             type="email"
             placeholder="Email"

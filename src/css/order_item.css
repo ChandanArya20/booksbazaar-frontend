@@ -1,0 +1,48 @@
+.order-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .book-image {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .book-details {
+    flex: 1;
+  }
+  
+  .book-title {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .book-author {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .quantity,
+  .delivery-date,
+  .delivery-status,
+  .delivery-address {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .delivery-status {
+    color: #008000; /* Green for delivered */
+  }
+  
+  .delivery-address {
+    color: #555;
+  }
+  
+  /* Add any additional styles as needed */
+  

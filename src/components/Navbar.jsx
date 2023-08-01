@@ -9,22 +9,30 @@ import { isLoggedin } from '../Auth/loginFunc';
 import { isSellerLoggedin } from '../Auth/sellerLoginFunc';
 import Dropdown from './Dropdown';
 import { CartContext } from '../context/CartContext';
+import { UserContext } from '../context/UserContex';
 
 const Navbar = () => {
 
   const {cartQuantity}=useContext(CartContext)
-  const login = isLoggedin();
+  const {currentUser, isUserLoggedin}=useContext(UserContext)
+  const [login, setLogin]=useState(isUserLoggedin())
   const selleLogin = isSellerLoggedin();
   const navigate = useNavigate();
 
+  useEffect(()=>{
+    setLogin(isLoggedin())
+  },[currentUser])
+
   const cartClickHandler = () => {
-    if (login) navigate('/cart');
-    else navigate('/phoneLogin');
+    if (login) 
+      navigate('/cart');
+    else 
+      navigate('/phoneLogin');
   };
 
   const myOrderClickHandler = () => {
     if (login) {
-      navigate('/comingFeature');
+      navigate('/orderPage');
     } else navigate('/phoneLogin');
   };
 
@@ -49,7 +57,7 @@ const Navbar = () => {
               <Link to="">My Orders</Link>
             </li>
             <li>
-            <Link to="">Services</Link>
+              <Link to="#services">Services</Link>
             </li>
             <li onClick={becomeSellerClickHandler}>
               {selleLogin? <Link to="">Seller Dashboard</Link> : <Link to="">Login as seller</Link>}
@@ -61,7 +69,7 @@ const Navbar = () => {
           <div className="icons">
             <div className="cart-icon">
               <CartIcon className="icon" onClick={cartClickHandler} />
-              {cartQuantity>0 && isLoggedin()? <p>{cartQuantity}</p>:''}
+              {cartQuantity>0 ? <p>{cartQuantity}</p>:''}
             </div>
             <div className="profile-icon">
               {isLoggedin() ? <Dropdown /> : 
