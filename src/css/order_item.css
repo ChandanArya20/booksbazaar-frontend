@@ -1,26 +1,33 @@
 .order-item {
     display: flex;
+    /* justify-content: space-around; */
     align-items: center;
     padding: 10px;
     border: 1px solid #eaeaea;
     border-radius: 5px;
-    margin-bottom: 10px;
+    width: 700px;
+    height: 100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
   
-  .book-image {
-    width: 100px;
-    height: 150px;
+  .order-item .book-image {
+    width: 70px;
     object-fit: cover;
     margin-right: 10px;
   }
   
-  .book-details {
-    flex: 1;
+  .order-item .book-details {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* background-color: #e79e9e; */
   }
-  
+  .book-details-second{
+    margin-right: 100px;
+  }
   .book-title {
     font-size: 18px;
-    margin: 0;
   }
   
   .book-author {
@@ -37,12 +44,16 @@
   }
   
   .delivery-status {
+    font-weight: bolder;
     color: #008000; /* Green for delivered */
+  }
+
+  .delivery-status span{
+    color: black;
   }
   
   .delivery-address {
     color: #555;
+    margin-right: 50px;
   }
-  
-  /* Add any additional styles as needed */
   

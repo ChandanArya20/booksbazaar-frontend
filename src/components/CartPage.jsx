@@ -6,6 +6,7 @@ import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import { getCurrentUserDetails } from '../Auth/loginFunc';
+import { getUserAddress } from '../Auth/helper';
 
 const CartPage = () => {
   const {cart, setCart, totalCartPrice,cartQuantity, deleteCartItems } = useContext(CartContext);
@@ -26,22 +27,24 @@ const CartPage = () => {
           body: JSON.stringify(orderData)
         });
         if(response.ok){
-          deleteCartItems(cart)
-          setCart([])
-          navigate("/orderSuccessPage")
+          const address=await getUserAddress()
+          console.log(address);
+          if(address.length!==0){
+            navigate("/orderSuccessPage")
+            deleteCartItems(cart)
+            setCart([])
+          } else{
+            navigate("/addressFormPage")
+          }
         }
         else{
-          toast.error("Placing order failed..., try again later", {
-            position: 'top-center',
-            theme: 'dark'
-          })
+          const errorObj={errorMessage:"Placing order failed..., try again later"}
+              navigate("/errorPage",{state:errorObj})
         }
 
       console.log("Cart item quantity updated on the server!");
       } catch (error) {
         console.error(error)
-        const errorObj={  errorMessage : error.message }
-        navigate('/errorPage', {state:errorObj })
       }
     }
 

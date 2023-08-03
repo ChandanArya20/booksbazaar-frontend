@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import { getCurrentUserDetails } from "../Auth/loginFunc"
+import {toast} from 'react-toastify'
 
 export const CartContext = createContext()
 
@@ -8,6 +9,7 @@ const CartContextProvider=({children})=>{
     const [cart, setCart]=useState([])
     const [totalCartPrice, setTotalCartPrice] = useState(0)
     const [cartQuantity, setCartQuantity] = useState(0)
+
 
     useEffect(() => {      
         setCartQuantity(cart.length)     
@@ -28,11 +30,16 @@ const CartContextProvider=({children})=>{
             const cartItems = await response.json();
             console.log("Cart data", cart);
             setCart(cartItems)
-          }else
-            console.log("Not got cartData");
+          }else{
+            console.log("Not got cartData");           
+          }
         }
       } catch (error) {
-        console.error(error);
+        console.error(error)
+          toast.error("Server is down, try again later", {
+            position: 'top-center',
+            theme: 'dark'
+          });
       }
     };
 

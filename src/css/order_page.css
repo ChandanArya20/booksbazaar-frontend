@@ -1,18 +1,19 @@
 /* OrderPage styles */
 .order-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.order-page h2{
+    margin-top: 20px;
+}
+.order-list {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-  }
-  
-  .order-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    align-items: center;
     gap: 20px;
+    margin-top: 20px; 
   }
   
-  /* Optional: Add some responsive styles for smaller screens */
-  @media screen and (max-width: 768px) {
-    .order-list {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-  }
   
