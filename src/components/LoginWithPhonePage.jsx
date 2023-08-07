@@ -1,9 +1,8 @@
 import '../css/login_page.css';
 import React, { useState,useContext } from 'react';
-import { BiHide as PassHideIcon } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import {useForm} from 'react-hook-form'
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContex';
@@ -106,7 +105,6 @@ const LoginWithPhonePage = () => {
         New user? <Link to="/signup">Create an account</Link>
       </p>
     </div>
-    <ToastContainer />
     </div>
   );
 };

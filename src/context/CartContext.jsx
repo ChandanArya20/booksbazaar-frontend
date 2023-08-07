@@ -10,7 +10,6 @@ const CartContextProvider=({children})=>{
     const [totalCartPrice, setTotalCartPrice] = useState(0)
     const [cartQuantity, setCartQuantity] = useState(0)
 
-
     useEffect(() => {      
         setCartQuantity(cart.length)     
         let totalPrice = 0;
@@ -127,6 +126,32 @@ const CartContextProvider=({children})=>{
       }
     };
 
+    const placeOrder=async(orderData)=>{
+
+      try {
+        const response=await fetch(`http://localhost:8080/api/order/placeOrder`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData)
+        });
+        if(response.ok){
+          deleteCartItems(cart)
+          setCart([])
+          return true
+        }
+        else{
+          console.log(await response.text())
+          return false;
+        }
+      } catch (error) {
+        console.error(error)
+        return false;
+      }
+      
+    }
+
     return(
         <CartContext.Provider value={{
           cart,
@@ -138,7 +163,8 @@ const CartContextProvider=({children})=>{
           getAllCartItems,
           addToCart,
           updateCartItemQuantity,
-          deleteCartItems }}>
+          deleteCartItems,
+          placeOrder }}>
 
             {children}
         </CartContext.Provider>

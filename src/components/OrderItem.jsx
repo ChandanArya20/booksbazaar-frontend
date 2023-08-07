@@ -14,7 +14,7 @@ const OrderItem = ({ order }) => {
             <p className="delivery-date">Delivery Date: {order.deliveryDate}</p>
             <p className="delivery-status"><span>Delivery Status: </span>{order.status}</p>
         </div>
-        <p className="delivery-address">Delivery Address: {order.deliveryAddress}</p>
+        {/* <p className="delivery-address">Delivery Address: {order.deliveryAddress}</p>  */}
     </div>
   );
 };

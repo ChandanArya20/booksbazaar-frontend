@@ -38,7 +38,7 @@ code {
   right: 0px;
   background-color: #fff;
   border-radius: var(--border-radius);
-  padding: 10px 20px;
+  padding: 10px 13px;
   width: 200px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
@@ -88,7 +88,7 @@ code {
   font-weight: 400;
 }
 .ddropdown-menu ul li{
-  padding: 7px  0;
+  padding: 3px  0;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 

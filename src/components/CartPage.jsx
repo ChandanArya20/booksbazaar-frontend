@@ -1,53 +1,50 @@
 import '../css/cart_page.css';
 import React, { useContext, useEffect, useState } from 'react';
 import CartItem from './CartItem';
-import {  toast } from 'react-toastify';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import { getCurrentUserDetails } from '../Auth/loginFunc';
-import { getUserAddress } from '../Auth/helper';
+import {getWholeUserData } from '../Auth/helper';
+import {toast } from 'react-toastify';
 
 const CartPage = () => {
-  const {cart, setCart, totalCartPrice,cartQuantity, deleteCartItems } = useContext(CartContext);
+
+  const {cart, setCart, totalCartPrice,cartQuantity, deleteCartItems, placeOrder } = useContext(CartContext);
   const navigate=useNavigate()
 
   const handlePlaceOrder=async()=>{
 
-    const orderData=cart.map(item=>{
-      return {book:item.book, quantity:item.quantity,user:getCurrentUserDetails()}
-    })
-          
-    try {
-        const response=await fetch(`http://localhost:8080/api/order/placeOrder`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(orderData)
-        });
-        if(response.ok){
-          const address=await getUserAddress()
-          console.log(address);
-          if(address.length!==0){
+      const user=await getWholeUserData()
+      const orderAddress=user.address
+
+      console.log(user);
+      console.log(orderAddress);
+
+      if(orderAddress.length!==0){
+
+        if(orderAddress.length===1){
+          const orderData=cart.map(item=>{
+          return {book:item.book, quantity:item.quantity,deliveryAddress: orderAddress[0], user:user}
+          })
+          console.log(orderData); 
+          const status = await placeOrder(orderData) 
+          console.log(status);
+          if(status===true){
             navigate("/orderSuccessPage")
-            deleteCartItems(cart)
-            setCart([])
-          } else{
-            navigate("/addressFormPage")
+          }else{
+            toast.error("Placing order failed..., try again later", {
+              position: 'top-center',
+              theme: 'dark'
+            })
           }
+        }else{       
+          navigate("/selectAddressPage", {state:user})
         }
-        else{
-          const errorObj={errorMessage:"Placing order failed..., try again later"}
-              navigate("/errorPage",{state:errorObj})
-        }
-
-      console.log("Cart item quantity updated on the server!");
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
+    } else{
+      navigate("/addressFormPage", {state:user})
+    }     
+  }
 
 
   return (

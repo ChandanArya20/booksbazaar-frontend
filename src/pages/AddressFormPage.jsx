@@ -1,14 +1,57 @@
 import { useForm } from 'react-hook-form';
 import '../css/address_form_page.css'
-
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+import {toast } from 'react-toastify';
 
 const AddressFormPage = () => {
 
+  const {cart, setCart, placeOrder}=useContext(CartContext)
+  const navigate=useNavigate()
+  const location=useLocation()
+  const userData=location.state
   const { register, handleSubmit, formState: { errors } } = useForm()
 
-  const submitAddress = (data) => {
-    console.log(data);
+  const submitAddress = async(addressData) => {
+    console.log(addressData);
+    try {
+        const response=await fetch(`http://localhost:8080/api/user/${userData.id}/saveAddress`,{
+        method:'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body:JSON.stringify(userData)
+      })
+      if(response.ok){
+        const orderData=cart.map(item=>{
+          return {book:item.book, quantity:item.quantity,deliveryAddress: addressData, user:userData}
+          })
+          console.log(orderData); 
+          const status = await placeOrder(orderData) 
+          if(status===true){
+            navigate("/orderSuccessPage")
+          }else{
+            toast.error("Placing order failed..., try again later", {
+              position: 'top-center',
+              theme: 'dark'
+            })
+          }
+      }else{
+        console.log(await response.text())
+        toast.error("There is some issues, try later...", {
+          position: 'top-center',
+          theme: 'dark'
+        })
+      }
+
+    } catch (error) {
+      console.log(error)
+      const errorObj={  errorMessage : error.message }
+      navigate('/errorPage', {state:errorObj })
+    }
   };
+
 
   return (
     <div className="address-form-container">
@@ -35,7 +78,7 @@ const AddressFormPage = () => {
               required: 'Phone is required',
               pattern: {
                 value: /^[6-9][0-9]*$/,
-                message: 'Invalid pincode'
+                message: 'Only digits 0-9 are allowed'
               },
               minLength: {
                 value: 10,
@@ -57,7 +100,7 @@ const AddressFormPage = () => {
             required: 'Pincode is required',
             pattern: {
               value: /^[1-9][0-9]{5}$/,
-              message: 'Only digits 0-9 are allowed'
+              message: 'Invalid pincode'
             },
             minLength: {
               value: 6,

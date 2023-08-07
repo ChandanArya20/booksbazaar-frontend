@@ -45,6 +45,7 @@
   
   .delivery-status {
     font-weight: bolder;
+    font-size: 15px;
     color: #008000; /* Green for delivered */
   }
 
