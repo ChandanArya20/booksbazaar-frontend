@@ -2,10 +2,11 @@ import '../css/cart_item.css';
 import { RiDeleteBin6Line as CartDeleteButton } from 'react-icons/ri'
 import { useState, useContext, useEffect } from 'react'
 import { CartContext } from '../context/CartContext'
+import { useNavigate } from 'react-router-dom';
 
 const CartItem = ({ cartItem }) => { 
 
-  console.log(cartItem)
+  const navigate=useNavigate()
 
   const {cart, setCart, updateCartItemQuantity, deleteCartItems } = useContext(CartContext)
   const [totalPrice, setTotalPrice] = useState(cartItem.book.price)
@@ -14,6 +15,12 @@ const CartItem = ({ cartItem }) => {
   useEffect(() => {
     setTotalPrice(cartItem.book.price * quantity);
   }, [quantity]);
+
+  const showProductDetails=()=>{
+
+    navigate("/productDetailsPage", { state: cartItem.book })
+  }
+
 
   const plusButtonHandler = () => {
     setQuantity(quantity + 1)
@@ -35,7 +42,7 @@ const CartItem = ({ cartItem }) => {
   return (
     <>
       <div className="cart-item">
-        <div className="product-image">
+        <div className="product-image" onClick={showProductDetails}>
           <img src={cartItem.book.imageURL} alt="Product Image" />
         </div>
 

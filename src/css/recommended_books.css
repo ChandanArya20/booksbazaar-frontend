@@ -1,8 +1,9 @@
 .recommended-section {
     margin: auto;
     width: 95%;
+    height: 300px;
     margin-top: 20px;
-    /* background-color: #af3f3f; */
+    padding-bottom: 15px;
   }
   
   .recommended-section__title {
@@ -15,10 +16,9 @@
   }
   
   .recommended-section__books {
+    margin-top: 20px;
     display: flex;
-    overflow-x: auto;
     justify-content: space-evenly;
-    /* padding-bottom: 10px; */
   }
   
   @media screen and (max-width: 480px) {

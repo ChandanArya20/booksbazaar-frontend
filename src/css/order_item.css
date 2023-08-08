@@ -7,24 +7,28 @@
     border-radius: 5px;
     width: 700px;
     height: 100px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  .order-item:hover{
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
-  
   .order-item .book-image {
     width: 70px;
     object-fit: cover;
-    margin-right: 10px;
+    margin-left: 20px;
   }
   
   .order-item .book-details {
-    width: 150px;
+    width: 100px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-right: 50px;
     /* background-color: #e79e9e; */
   }
   .book-details-second{
-    margin-right: 100px;
+    margin-right: 120px;
   }
   .book-title {
     font-size: 18px;
@@ -35,26 +39,19 @@
     color: #777;
   }
   
-  .quantity,
-  .delivery-date,
-  .delivery-status,
-  .delivery-address {
-    font-size: 14px;
+  .quantity span,
+  .delivery-date span,
+  .delivery-statuss span {
     margin: 5px 0;
+    color: black;
+    font-weight: bold;
   }
-  
-  .delivery-status {
-    font-weight: bolder;
-    font-size: 15px;
+
+  #delivery-status{
+    font-weight: bold;
     color: #008000; /* Green for delivered */
   }
 
-  .delivery-status span{
-    color: black;
+  .forword-sign{
+   margin-right: 20px;
   }
-  
-  .delivery-address {
-    color: #555;
-    margin-right: 50px;
-  }
-  

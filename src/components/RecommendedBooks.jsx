@@ -45,13 +45,13 @@ const sections = [
         price: 749, // Price in Indian Rupees
         image: book4,
       },
-      {
-        id: 5,
-        title: 'Hyperion',
-        author: 'Dan Simmons',
-        price: 599, // Price in Indian Rupees
-        image: book5,
-      },
+      // {
+      //   id: 5,
+      //   title: 'Hyperion',
+      //   author: 'Dan Simmons',
+      //   price: 599, // Price in Indian Rupees
+      //   image: book5,
+      // },
     ],
   },
   {

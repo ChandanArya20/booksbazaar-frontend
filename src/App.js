@@ -19,6 +19,7 @@ import OrderSuccessPage from "./pages/OrderSuccessPage";
 import OrderItem from "./components/OrderItem";
 import OrderPage from "./pages/OrderPage";
 import AddressFormPage from "./pages/AddressFormPage";
+import AddressSelectorPage from "./pages/AddressSelectorPage";
 
 const App = () => {
   return ( 
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/orderPage" element={<OrderPage/>} />
         <Route path="/orderPage" element={<OrderPage/>} />
         <Route path="/addressFormPage" element={<AddressFormPage />} />
+        <Route path="/addressSelectorPage" element={<AddressSelectorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>
     </BrowserRouter>

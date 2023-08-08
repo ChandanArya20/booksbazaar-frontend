@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import {toast } from 'react-toastify';
+import { getUserAddress } from '../Auth/helper';
 
 const AddressFormPage = () => {
 
@@ -14,18 +15,19 @@ const AddressFormPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm()
 
   const submitAddress = async(addressData) => {
-    console.log(addressData);
+   
     try {
         const response=await fetch(`http://localhost:8080/api/user/${userData.id}/saveAddress`,{
         method:'POST',
         headers: {
           "Content-Type": "application/json",
         },
-        body:JSON.stringify(userData)
+        body:JSON.stringify(addressData)
       })
       if(response.ok){
+        const userAddress= await getUserAddress()
         const orderData=cart.map(item=>{
-          return {book:item.book, quantity:item.quantity,deliveryAddress: addressData, user:userData}
+          return {book:item.book, quantity:item.quantity,deliveryAddress: userAddress[0], user:userData}
           })
           console.log(orderData); 
           const status = await placeOrder(orderData) 

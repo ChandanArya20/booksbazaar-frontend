@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    width: 170px;
+    height: 230px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     text-align: center;
-    background-color: #fcfcfc;
   }
   
   .book-card:hover {
@@ -23,10 +23,15 @@
   }
   
   .book-card-title {
+    width: 150px;
     margin-top: 7px;
     font-size: 16px;
     font-weight: bold;
     color: #333333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .book-card-author {

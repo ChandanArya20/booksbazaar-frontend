@@ -18,18 +18,14 @@ const CartPage = () => {
       const user=await getWholeUserData()
       const orderAddress=user.address
 
-      console.log(user);
-      console.log(orderAddress);
-
       if(orderAddress.length!==0){
 
         if(orderAddress.length===1){
           const orderData=cart.map(item=>{
           return {book:item.book, quantity:item.quantity,deliveryAddress: orderAddress[0], user:user}
           })
-          console.log(orderData); 
           const status = await placeOrder(orderData) 
-          console.log(status);
+
           if(status===true){
             navigate("/orderSuccessPage")
           }else{
@@ -39,7 +35,7 @@ const CartPage = () => {
             })
           }
         }else{       
-          navigate("/selectAddressPage", {state:user})
+          navigate("/addressSelectorPage", {state:user})
         }
     } else{
       navigate("/addressFormPage", {state:user})
