@@ -1,0 +1,15 @@
+.address-card{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 320px;
+    height: 130px; 
+    padding:20px;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+.address-card span{
+    color: #009788;
+    font-weight: bold;
+}

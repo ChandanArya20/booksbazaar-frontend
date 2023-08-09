@@ -16,7 +16,7 @@
   .order-item .book-image {
     width: 70px;
     object-fit: cover;
-    margin-left: 20px;
+    margin-left: 10px;
   }
   
   .order-item .book-details {
@@ -28,10 +28,14 @@
     /* background-color: #e79e9e; */
   }
   .book-details-second{
-    margin-right: 120px;
+    width: 250px;
+    margin-right: 100px;
+    display: flex;
+    flex-direction:column;
+    gap: 7px;
   }
   .book-title {
-    font-size: 18px;
+    font-size: 16px;
   }
   
   .book-author {
@@ -42,16 +46,39 @@
   .quantity span,
   .delivery-date span,
   .delivery-statuss span {
-    margin: 5px 0;
-    color: black;
+    font-size: 15px;
     font-weight: bold;
   }
+  #delivery-date-span{
+    font-size: normal;
+    font-weight: normal;
 
-  #delivery-status{
-    font-weight: bold;
-    color: #008000; /* Green for delivered */
   }
 
   .forword-sign{
    margin-right: 20px;
+  }
+  #order-Cancelled-status, #order-Returned-status{
+    color: red;
+  }
+  #order-Pending-status{
+    color: rgb(219, 146, 20);
+  }
+  #order-Confirmed-status{
+    color: rgb(18, 109, 227);
+  }
+  #order-Shipped-status{
+    color: rgb(12, 167, 144);
+  }
+  #order-Delivered-status{
+    color: rgb(15, 167, 25);
+  }
+  #order-item-cancelled{
+    background-color: #f6dede;
+  }
+  #order-item-delivered{
+    background-color: #bfe8d6;
+  }
+  .text-with-line-through {
+    text-decoration: line-through;
   }

@@ -46,13 +46,15 @@ const SellerDashboard = () => {
     
   }
 
+  const seeAllOrders=()=>{
+    
+  }
 
   return (
     <>
     <Navbar/>
     <div className="seller-dashboard">
       <h2>Welcome, Book Seller!</h2>
-
       <div className="dashboard-main">
         <Link to="/">Go to Home</Link>
         <button onClick={sellBookButtonHandler}>Sell a New Book </button>
@@ -60,7 +62,7 @@ const SellerDashboard = () => {
           <DashboardDropdown/>
         </div>
       </div>
-
+      <button onClick={seeAllOrders} id='see-all-orders-btn'>See All Orders </button>
       <div className="published-books">
         <h3>Published Books</h3>
       </div>

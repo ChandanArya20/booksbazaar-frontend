@@ -53,11 +53,9 @@ const SellerBookItem = ({ bookData }) => {
         </div>
         <div className='book-details-button'>
             <button className='update-btn uppper-btn' onClick={updateBookData}>Update</button>
-            <button className='update-btn' 
-              onClick={changeStatus}
+            <button className='update-btn'  onClick={changeStatus}         
               id={book.status ? 'deactivate-btn' : 'activate-btn'}
             >{book.status?'Deactivate':'Activate'}</button>
-
             <button onClick={productDetailsHandler}>See as User</button>
         </div>
       </div>

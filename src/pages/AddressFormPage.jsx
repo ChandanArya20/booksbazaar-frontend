@@ -14,8 +14,10 @@ const AddressFormPage = () => {
   const userData=location.state
   const { register, handleSubmit, formState: { errors } } = useForm()
 
+  console.log(userData);
+
   const submitAddress = async(addressData) => {
-   
+   console.log(userData);
     try {
         const response=await fetch(`http://localhost:8080/api/user/${userData.id}/saveAddress`,{
         method:'POST',

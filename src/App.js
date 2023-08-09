@@ -1,4 +1,5 @@
 import "./App.css";
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartPage from './components/CartPage';
 import LoginWithEmailPage from './components/LoginWithEmailPage';
@@ -20,6 +21,9 @@ import OrderItem from "./components/OrderItem";
 import OrderPage from "./pages/OrderPage";
 import AddressFormPage from "./pages/AddressFormPage";
 import AddressSelectorPage from "./pages/AddressSelectorPage";
+import OrderItemDetailsPage from "./pages/OrderItemDetailsPage";
+import AddressItem from "./components/AddressItem";
+import AddressContinue from "./pages/AddressContinue";
 
 const App = () => {
   return ( 
@@ -39,11 +43,14 @@ const App = () => {
         <Route path="/bookUpdateSellerPage" element={<BookUpdateSellerPage />} />
         <Route path="/productDetailsPage" element={<ProductDetailsPage />} />
         <Route path="/orderSuccessPage" element={<OrderSuccessPage />} />
+        <Route path="/addressItem" element={<AddressItem/>} />
         <Route path="/orderItem" element={<OrderItem/>} />
-        <Route path="/orderPage" element={<OrderPage/>} />
         <Route path="/orderPage" element={<OrderPage/>} />
         <Route path="/addressFormPage" element={<AddressFormPage />} />
         <Route path="/addressSelectorPage" element={<AddressSelectorPage />} />
+        <Route path="/orderItemDetailsPage" element={<OrderItemDetailsPage />} />
+        <Route path="/addressContinue" element={<AddressContinue />} />
+        <Route path="/errorPage" element={<ErrorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>
     </BrowserRouter>

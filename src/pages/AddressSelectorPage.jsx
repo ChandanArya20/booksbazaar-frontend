@@ -4,6 +4,7 @@ import {toast} from 'react-toastify'
 import { getCurrentUserDetails } from '../Auth/loginFunc';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import { getWholeUserData } from '../Auth/helper';
 
 const AddressSelectorPage = () => {
 
@@ -17,6 +18,11 @@ const AddressSelectorPage = () => {
   const handleAddressSelection = (address) => {
     setSelectedAddress(address);
   };
+
+  const handleAddNewAddress=async()=>{
+    const user=await getWholeUserData()
+    navigate("/addressFormPage", {state:user})
+  }
 
   const handleProceedBtn=async()=>{
 
@@ -67,12 +73,14 @@ const AddressSelectorPage = () => {
           </div>
         ))}
       </div>
+      <div className="address-hanler-btn" >
+      <button className='add-new-address-btn' onClick={handleAddNewAddress}>+Add a new Address</button>
       {
         selectedAddress !== null && <div className="seleted-next-btn">
                                             <button onClick={handleProceedBtn}>Proceed</button>
                                         </div>
       }
-
+      </div>
     </div>
   );
 };
