@@ -19,10 +19,7 @@
   .seller-book-card .book-details-info{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 5px;
-    /* background-color: #c18383; */
   }
   .seller-book-card .book-details-button{
     display: flex;
@@ -54,7 +51,9 @@
     margin-left: 10px;
     width: 150px;
   }
-  
+  .seller-book-id span, .book-stock span{
+    font-weight: bold;
+  }
   .book-author {
     /* width: 220px; */
     font-size: 16px;
@@ -70,7 +69,6 @@
   .book-stock {
     font-size: 16px;
     color: #666;
-    font-weight: bold;
     margin-right: 20px;
   }
  

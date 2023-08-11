@@ -49,7 +49,8 @@ const SellerBookItem = ({ bookData }) => {
         <div className='book-details-info' >
             <p className="book-author">By {book.author}</p>
             <p className="book-price">₹{book.price}</p>
-            <p className="book-stock">Stock: {book.stockAvailability}</p>
+            <p className="book-stock"><span>Stock: </span>{book.stockAvailability}</p>
+            <p className="seller-book-id"> <span>Book id: </span>{book.id}</p>
         </div>
         <div className='book-details-button'>
             <button className='update-btn uppper-btn' onClick={updateBookData}>Update</button>

@@ -1,11 +1,10 @@
 .order-item {
     display: flex;
-    /* justify-content: space-around; */
     align-items: center;
     padding: 10px;
     border: 1px solid #eaeaea;
     border-radius: 5px;
-    width: 700px;
+    width: 750px;
     height: 100px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -28,8 +27,8 @@
     /* background-color: #e79e9e; */
   }
   .book-details-second{
-    width: 250px;
-    margin-right: 100px;
+    width: 200px;
+    margin-right: 30px;
     display: flex;
     flex-direction:column;
     gap: 7px;
@@ -45,7 +44,8 @@
   
   .quantity span,
   .delivery-date span,
-  .delivery-statuss span {
+  .delivery-statuss span 
+  .book-id span {
     font-size: 15px;
     font-weight: bold;
   }
@@ -81,4 +81,12 @@
   }
   .text-with-line-through {
     text-decoration: line-through;
+  }
+
+  .delivery-status-change-btn{
+    width: 160px;
+    margin-right: 50px;
+  }
+  #delivery-status-change-btn{
+    width: 140px;
   }

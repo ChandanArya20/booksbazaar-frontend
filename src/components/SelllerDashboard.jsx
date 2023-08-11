@@ -47,7 +47,7 @@ const SellerDashboard = () => {
   }
 
   const seeAllOrders=()=>{
-    
+    navigate("/sellerOrderPage")
   }
 
   return (

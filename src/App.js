@@ -24,6 +24,10 @@ import AddressSelectorPage from "./pages/AddressSelectorPage";
 import OrderItemDetailsPage from "./pages/OrderItemDetailsPage";
 import AddressItem from "./components/AddressItem";
 import AddressContinue from "./pages/AddressContinue";
+import SellerOrderItemDetailsPage from "./pages/SellerOrderItemDetailsPage";
+import SellerOrderPage from "./pages/SellerOrderPage";
+import DeliveryStatusModel from "./components/DeliveryStatusModel";
+
 
 const App = () => {
   return ( 
@@ -50,6 +54,9 @@ const App = () => {
         <Route path="/addressSelectorPage" element={<AddressSelectorPage />} />
         <Route path="/orderItemDetailsPage" element={<OrderItemDetailsPage />} />
         <Route path="/addressContinue" element={<AddressContinue />} />
+        <Route path="/sellerOrderPage" element={<SellerOrderPage />} />
+        <Route path="/sellerOrderItemDetailsPage" element={<SellerOrderItemDetailsPage />} />
+        <Route path="/deliveryStatusModel" element={<DeliveryStatusModel />} />
         <Route path="/errorPage" element={<ErrorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>
