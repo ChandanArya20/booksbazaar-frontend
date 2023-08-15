@@ -140,10 +140,11 @@ const BookAddSellerPage = () => {
               })}>
                 <option value="English">English</option>
                 <option value="Hindi">Hindi</option>
-                <option value="French">French</option>
+                <option value="Urdu">French</option>
                 <option value="Russian">Russian</option>
                 <option value="German">German</option>
-                <option value="Chinese">Chinese</option>
+                <option value="Greek">Chinese</option>
+                <option value="Other">Chinese</option>
               </select>
             </label>           
             <p className="error-message">{errors.language?.message}</p>
@@ -155,50 +156,28 @@ const BookAddSellerPage = () => {
                   required: 'Choose one category',
                 })}
               >
-               <option value="">Select a category</option>
-                <option value="fiction">Fiction</option>
-                <option value="non-fiction">Non-Fiction</option>
-                <option value="science-fiction">Science Fiction</option>
-                <option value="mystery">Mystery</option>
-                <option value="fantasy">Fantasy</option>
-                <option value="romance">Romance</option>
-                <option value="biography">Biography</option>
-                <option value="self-help">Self-Help</option>
-                <option value="thriller">Thriller</option>
-                <option value="horror">Horror</option>
-                <option value="action-and-adventure">Action & Adventure</option>
-                <option value="humor">Humor</option>
-                <option value="children">Children's</option>
-                <option value="young-adult">Young Adult</option>
-                <option value="poetry">Poetry</option>
-                <option value="drama">Drama</option>
-                <option value="classic-literature">Classic Literature</option>
-                <option value="school">School</option>
-                <option value="college">College</option>
-                <option value="science">Science</option>
-                <option value="history">History</option>
-                <option value="philosophy">Philosophy</option>
-                <option value="religion">Religion</option>
-                <option value="psychology">Psychology</option>
-                <option value="sociology">Sociology</option>
-                <option value="business">Business</option>
-                <option value="economics">Economics</option>
-                <option value="marketing">Marketing</option>
-                <option value="finance">Finance</option>
-                <option value="leadership">Leadership</option>
-                <option value="programming">Programming</option>
-                <option value="computer-science">Computer Science</option>
-                <option value="web-development">Web Development</option>
-                <option value="data-science">Data Science</option>
-                <option value="design">Design</option>
-                <option value="cooking">Cooking</option>
-                <option value="food-and-drink">Food & Drink</option>
-                <option value="travel">Travel</option>
-                <option value="sports">Sports</option>
-                <option value="fitness">Fitness</option>
-                <option value="health">Health</option>
-                <option value="education">Education</option>
-                <option value="language-learning">Language Learning</option>
+                <option value="">Select a category</option>
+                <option value="Sceince & Mathematics">Sceince & Mathematics</option>
+                <option value="Computer & internet">Computer & internet</option>
+                <option value="Technology & Engineering">Technology & Engineering</option>
+                <option value="Society & Social Science">Society & Social Science</option>
+                <option value="Bussiness & Economics">Bussiness & Economics</option>
+                <option value="History & Humanities">History & Humanities</option>
+                <option value="Arts & Photography">Arts & Photography</option>
+                <option value="Boigrphy & Memories">Boigrphy & Memories</option>
+                <option value="Exam Preparation">Exam Preparation</option>
+                <option value="Mystery/Thriller">Mystery/Thriller</option>
+                <option value="Cooking">Cooking</option>
+                <option value="Dictionaries & Language">Dictionaries & Language</option>
+                <option value="Religion/Spirituality">Religion/Spirituality</option>
+                <option value="Health/Fitness">Health/Fitness</option>
+                <option value="Family/Lifestyle & Parenting">Family/Lifestyle & Parenting</option>
+                <option value="Medicine">Medicine</option>
+                <option value="Fictional">Fictional</option>
+                <option value="Non-Fictional">Non-Fictional</option>
+                <option value="Literature">Literature</option>
+                <option value="Children & Teens">Children & Teens</option>
+                <option value="Others">Children & Teens</option>
               </select>
             </label>
             <p className="error-message">{errors.category?.message}</p>
