@@ -7,7 +7,7 @@ const HomePage=()=>{
     return(
         <>
         <Navbar/>
-        <MainSection/>
+        {/* <MainSection/> */}
         <RecommendedBooks/>
         <Services/>
         <Footer/>

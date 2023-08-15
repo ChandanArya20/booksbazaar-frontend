@@ -1,28 +1,34 @@
 import '../css/order_item.css'
+import '../css/delivery_status_model.css';
 import { useNavigate } from 'react-router-dom';
 import {MdOutlineArrowForwardIos } from 'react-icons/md'
 import { formatDateForOrderItem } from '../Auth/helper'
 import DeliveryStatusModel from '../components/DeliveryStatusModel';
+import { useState } from 'react';
 
 
 const SellerOrderItem = ({ order }) => {
 
-  const navigate=useNavigate()
-  const[showStatusModel, setShowStatusModel]=useState(false)
+    const navigate=useNavigate();
+    const [showStatusModel, setShowStatusModel]=useState(false);
+    const [status, setStatus]=useState(order.status)
 
+    const handleStatusChanges=(newStatus)=>{
+      setStatus(newStatus)
+    }
+    const handleOrderDetails=()=>{
+        navigate("/sellerOrderItemDetailsPage",{state:order});
+    }
 
-  const handleOrderDetails=()=>{
-    navigate("/sellerOrderItemDetailsPage",{state:order})
-  }
-  const changeDeliveryStatus=(e)=>{
-    e.stopPropagation(); // Stop the event from propagating up the DOM hierarchy
-    setShowStatusModel(true)
-  }
+    const showDeliveryStatusModel=(e)=>{
+        e.stopPropagation(); // Stop the event from propagating up the DOM hierarchy
+        setShowStatusModel(true);
+    }
 
   return (
     <div className="order-item" onClick={handleOrderDetails}
-      id={order.status==='Cancelled' || order.status==='Returned' ? 'order-item-cancelled': 
-      order.status==='Delivered' ? 'order-item-delivered':''}
+      id={status==='Cancelled' || status==='Returned' ? 'order-item-cancelled': 
+      status==='Delivered' ? 'order-item-delivered':''}
     >
       <img src={order.book.imageURL} alt="Book" className="book-image" />
       <div className="book-details">
@@ -41,16 +47,19 @@ const SellerOrderItem = ({ order }) => {
             <p className="delivery-statuss"> <span>Delivery Status: </span> 
               <span 
                 className='delivery-status'
-                id={'order-'+order.status+'-status'}
+                id={'order-'+status+'-status'}
               >
-              {order.status}</span>         
+              {status}</span>         
             </p>
             <p className="quantity"> <span>Total Price: </span> ₹{order.book.price*order.quantity}</p>
         </div>
         <div className="delivery-status-change-btn">
-          <button onClick={changeDeliveryStatus} className='add-new-address-btn' id='delivery-status-change-btn'>Change status </button>
-          { showStatusModel && <DeliveryStatusModel closeModel={closeModel}/>}
+          <button onClick={showDeliveryStatusModel} className='add-new-address-btn' id='delivery-status-change-btn'>Change status </button>
         </div>
+        { showStatusModel && <DeliveryStatusModel setShowStatusModel={setShowStatusModel} 
+                                                  orderId={order.id} 
+                                                  orderStatus={status}
+                                                  handleStatusChanges={handleStatusChanges}/>}
         <div className="forword-sign">
           <MdOutlineArrowForwardIos/>
         </div>

@@ -20,7 +20,6 @@ const OrderItemDetailsPage = () => {
         method:'PATCH',
       }) 
       if(response.ok){
-        // order.status='Cancelled'
         setStatus('Cancelled')
         toast.success("Order cancelled successfully...", {
           position: 'top-center',

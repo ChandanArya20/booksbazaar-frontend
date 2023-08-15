@@ -17,8 +17,7 @@ import BookAddSellerPage from "./pages/BookAddSellerPage";
 import BookUpdateSellerPage from "./pages/BookUpdateSellerPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
-import OrderItem from "./components/OrderItem";
-import OrderPage from "./pages/OrderPage";
+import UserOrderPage from "./pages/UserOrderPage";
 import AddressFormPage from "./pages/AddressFormPage";
 import AddressSelectorPage from "./pages/AddressSelectorPage";
 import OrderItemDetailsPage from "./pages/OrderItemDetailsPage";
@@ -27,7 +26,6 @@ import AddressContinue from "./pages/AddressContinue";
 import SellerOrderItemDetailsPage from "./pages/SellerOrderItemDetailsPage";
 import SellerOrderPage from "./pages/SellerOrderPage";
 import DeliveryStatusModel from "./components/DeliveryStatusModel";
-
 
 const App = () => {
   return ( 
@@ -48,8 +46,8 @@ const App = () => {
         <Route path="/productDetailsPage" element={<ProductDetailsPage />} />
         <Route path="/orderSuccessPage" element={<OrderSuccessPage />} />
         <Route path="/addressItem" element={<AddressItem/>} />
-        <Route path="/orderItem" element={<OrderItem/>} />
-        <Route path="/orderPage" element={<OrderPage/>} />
+        {/* <Route path="/orderItem" element={<OrderItem/>} /> */}
+        <Route path="/userOrderPage" element={<UserOrderPage/>} />
         <Route path="/addressFormPage" element={<AddressFormPage />} />
         <Route path="/addressSelectorPage" element={<AddressSelectorPage />} />
         <Route path="/orderItemDetailsPage" element={<OrderItemDetailsPage />} />

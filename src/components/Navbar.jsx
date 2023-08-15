@@ -37,7 +37,7 @@ const Navbar = () => {
 
     const myOrderClickHandler = () => {
         if (login) {
-            navigate('/orderPage');
+            navigate('/userOrderPage');
         } else {
             navigate('/phoneLogin');
         }
@@ -53,6 +53,7 @@ const Navbar = () => {
 
     // Close profile dropdown menu
     const closeProfileMenu = () => {
+        console.log("Shyam");
         setShowMenu(false);
     };
 
@@ -64,15 +65,15 @@ const Navbar = () => {
             <img src={bookapplogo} alt="BookApp Logo" />
           </div>
           <ul>
-            <li onClick={myOrderClickHandler}>
+            <li >
               <Link to="">Admin</Link>
             </li>
             <li onClick={myOrderClickHandler}>
               <Link to="">My Orders</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="#services">Services</Link>
-            </li>
+            </li> */}
             <li onClick={becomeSellerClickHandler}>
               {selleLogin ? <Link to="">Seller Dashboard</Link> : <Link to="">Login as seller</Link>}
             </li>
@@ -91,8 +92,8 @@ const Navbar = () => {
                   <button className="login-button">Login</button>
                 </Link>
               }
-              {showMenu && <UserProfileDropdown closeProfileMenu={closeProfileMenu} showMenu={showMenu} />}
             </div>
+            {showMenu && <UserProfileDropdown setShowMenu={setShowMenu} showMenu={showMenu} />}
           </div>
         </div>
       </nav>

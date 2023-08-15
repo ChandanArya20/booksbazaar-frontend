@@ -1,6 +1,7 @@
 .order-item-details-container {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 65px;
   padding: 20px;
   display: flex;
 }

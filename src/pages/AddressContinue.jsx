@@ -43,7 +43,7 @@ const AddressContinue=()=>{
         <div className='address-continue-item'>
             <AddressItem address={user.address[0]}/>
             <div className="address_combo">           
-                <button onClick={handleChangeAddress} className='add-new-address-btn' id='see-all-orders-btn'>Change Address </button>
+                <button onClick={handleChangeAddress} className='add-new-address-btn' id='#change-address-btn'>Change Address </button>
                 <div className="seleted-next-btn">
                     <button onClick={handleProceedBtn}>Proceed</button>
                 </div>

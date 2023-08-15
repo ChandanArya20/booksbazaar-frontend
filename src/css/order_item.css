@@ -26,12 +26,16 @@
     margin-right: 50px;
     /* background-color: #e79e9e; */
   }
+
   .book-details-second{
     width: 200px;
     margin-right: 30px;
     display: flex;
     flex-direction:column;
     gap: 7px;
+  }
+  #book-details-second-id{
+    margin-right: 180px;
   }
   .book-title {
     font-size: 16px;

@@ -9,7 +9,8 @@ const SellerBookItem = ({ bookData }) => {
   console.log(book);
   const navigate=useNavigate()
 
-  const updateBookData=()=>{
+  const updateBookData=(e)=>{
+      e.stopPropagation();
       navigate("/bookUpdateSellerPage", { state: book })
   }
 
@@ -17,7 +18,8 @@ const SellerBookItem = ({ bookData }) => {
     navigate("/productDetailsPage", { state: book })
   }
 
-  const changeStatus=async()=>{
+  const changeStatus=async(e)=>{
+    e.stopPropagation();
     try {
       const initialStatus=book.status
       const response=await fetch(`http://localhost:8080/api/book/${book.id}/changeStatus/`, {
@@ -41,7 +43,7 @@ const SellerBookItem = ({ bookData }) => {
 
   return (
     
-    <div className="seller-book-card">    
+    <div className="seller-book-card" onClick={productDetailsHandler}>    
 
       <img src={book.imageURL} alt={book.title} className="book-image"/>
       <div className="book-details">
@@ -57,7 +59,7 @@ const SellerBookItem = ({ bookData }) => {
             <button className='update-btn'  onClick={changeStatus}         
               id={book.status ? 'deactivate-btn' : 'activate-btn'}
             >{book.status?'Deactivate':'Activate'}</button>
-            <button onClick={productDetailsHandler}>See as User</button>
+            {/* <button onClick={productDetailsHandler}>See as User</button> */}
         </div>
       </div>
     </div>

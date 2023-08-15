@@ -22,27 +22,30 @@ const CartItem = ({ cartItem }) => {
   }
 
 
-  const plusButtonHandler = () => {
+  const plusButtonHandler = (e) => {
+    e.stopPropagation()
     setQuantity(quantity + 1)
     updateCartItemQuantity(cartItem,quantity+1)
     console.log(cart)
   }
 
-  const minusButtonHandler = () => {
+  const minusButtonHandler = (e) => {
+    e.stopPropagation()
     if (quantity > 1) {
       setQuantity(quantity - 1);
       updateCartItemQuantity(cartItem,quantity-1)
     }
   }
 
-  const cartRemoveHandler = () => {
+  const cartRemoveHandler = (e) => {
+    e.stopPropagation()
     deleteCartItems([cartItem])
   };
 
   return (
     <>
-      <div className="cart-item">
-        <div className="product-image" onClick={showProductDetails}>
+      <div className="cart-item" onClick={showProductDetails}>
+        <div className="product-image" >
           <img src={cartItem.book.imageURL} alt="Product Image" />
         </div>
 

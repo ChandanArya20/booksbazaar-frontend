@@ -1,4 +1,3 @@
-/* Book card container */
 .seller-book-card {
     display: flex;
     height: 100px;
@@ -7,6 +6,7 @@
     padding: 16px;
     transition: box-shadow 0.3s ease-in-out;
     text-overflow: ellipsis;
+    cursor: pointer;
   }
   .seller-book-card div{
     display: flex;

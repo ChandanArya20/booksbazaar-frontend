@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {MdOutlineArrowForwardIos } from 'react-icons/md'
 import { formatDateForOrderItem } from '../Auth/helper'
 
-const OrderItem = ({ order }) => {
+const UserOrderItem = ({ order }) => {
 
   const navigate=useNavigate()
 
@@ -17,11 +17,11 @@ const OrderItem = ({ order }) => {
       order.status==='Delivered' ? 'order-item-delivered':''}
     >
       <img src={order.book.imageURL} alt="Book" className="book-image" />
-      <div className="book-details">
+      <div className="book-details" >
         <h3 className="book-title">{order.book.title}</h3>
         <p className="book-author">{order.book.author}</p>
       </div>
-        <div className="book-details-second">
+        <div className="book-details-second" id='book-details-second-id'>
             <p className="delivery-date "> <span>Delivery Date: </span> 
               <span 
                 id='delivery-date-span'
@@ -45,4 +45,4 @@ const OrderItem = ({ order }) => {
   );
 };
 
-export default OrderItem;
+export default UserOrderItem;

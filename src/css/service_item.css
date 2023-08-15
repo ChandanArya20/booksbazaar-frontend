@@ -1,6 +1,6 @@
 .services__item {
     background-color: #d0e8edd5;
-    padding: 40px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -11,14 +11,13 @@
   }
   
   .services__icon {
-    font-size: 48px;
-    /* color: #009AEE; */
-    color: #ee4d2d;
+    font-size: 40px;
+    color:#007bff;
     margin-bottom: 20px;
   }
   
   .services__item-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
   }

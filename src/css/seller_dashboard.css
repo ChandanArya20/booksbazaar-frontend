@@ -2,6 +2,7 @@
 .seller-dashboard {
   max-width: 900px;
   margin: 0 auto;
+  margin-top: 75px;  
   padding: 20px;
   font-family: 'Arial', sans-serif;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -34,7 +35,7 @@
   cursor: pointer;
   padding: 5px;
   margin-top: 20px;
-  margin-left: 383px;
+  margin-left: 392px;
 }
 .dashboard-main button {
   padding: 10px 15px;
@@ -49,10 +50,15 @@
 .dashboard-main button:hover {
   background-color: #0476f0;
 }
-.seller-profile-icon a{
-  color: black;
-
+.profile-icon.seller-profile-icon{
+  font-size: 20px;
+  transition: 300ms;
+  color: #333;
 }
+.profile-icon.seller-profile-icon:hover{
+  color: #0f38ed;
+}
+
 .published-books {
   margin-top: 30px;
 }

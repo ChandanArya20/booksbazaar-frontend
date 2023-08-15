@@ -1,11 +1,13 @@
 /* OrderPage styles */
+
 .order-page {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 75px;  
 }
 .order-page h2{
-    margin-top: 20px;
+    margin-top: 5px;
 }
 .order-list {
     display: flex;
@@ -15,4 +17,18 @@
     gap: 20px;
   }
   
+  .filter-button{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    left: 340px;
+    /* margin-left: 200px; */
+
+  }
   

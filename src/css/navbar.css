@@ -1,17 +1,23 @@
-nav {
-    margin-top: 10px;
+  nav {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%);
+    z-index: 10; 
     display: flex;
     align-items: center;
     width: 95%;
     margin: auto;
     border-radius: 5px;
+    background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
    }
    .nav_left_content{
     width: 60%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
    }
    .book-app-logo img{
      width: 150px;
@@ -22,8 +28,8 @@ nav {
      list-style-type: none;
      display: flex;
      justify-content: end; 
-     gap: 20px;
-     margin-right: 20px;
+     gap: 30px;
+     margin-right: 60px;
    }
    .nav_left_content li a {
      text-decoration: none;
@@ -43,7 +49,7 @@ nav {
      justify-content: space-around;
    }
 
-   .icons{
+   .nav-right-content .icons{
      color: black;
      display: flex;
      width: 50px;
@@ -51,11 +57,11 @@ nav {
      align-items: center;
      gap: 20px;
    }
-   .icon{
+   .nav-right-content .icon{
      font-size: 20px;
      transition: 300ms;
    }
-   .icon:hover{
+   .nav-right-content .icon:hover{
      color:#1502ed;
    }
    .cart-icon, .profile-icon{
@@ -87,7 +93,7 @@ nav {
    .cart-icon, .profile-icon:hover{
     cursor: pointer;
    }
-   .icons a{
+   .nav-right-content .icons a{
     color: black;
    }
    .login-button {

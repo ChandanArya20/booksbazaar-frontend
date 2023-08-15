@@ -6,7 +6,7 @@
     width: 170px;
     height: 230px;
     padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     text-align: center;
   }
@@ -52,14 +52,14 @@
     padding: 7px 14px;
     font-size: 14px;
     color: #ffffff;
-    background-color: #007bff;
+    background-color: #02b19f;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   .book-card-button:hover {
-    background-color: #0270e7;
+    background-color: #018a7c;
   }
   .book-card-button-remove{
     margin-top: 5px;
