@@ -18,7 +18,7 @@ const categories = [
     { id: 5, name: 'Bussiness $ Echonomics' },
     { id: 6, name: 'History & Humanities' },
     { id: 7, name: 'Arts & Photography' },
-    { id: 8, name: 'Boigrphy $ Memories' },
+    { id: 8, name: 'Boigrphy & Memories' },
     { id: 9, name: 'Exam Preparation' },
     { id: 10, name: 'Mystery/Thriller' },
     { id: 11, name: 'Cooking' },

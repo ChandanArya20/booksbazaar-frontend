@@ -74,7 +74,7 @@ const SellerOrderPage = () => {
     {
       orders.length===0?<div className="empty-cart">
           <h1 className='empty-cart-heading'>There is no recent orders...</h1>
-          <button className='empty-cart-btn' onClick={()=>navigate('/')}>Continue Shopping</button>
+          <button className='empty-cart-btn' onClick={()=>navigate(-1)}>Go Back</button>
           </div> :
       <>
       <Navbar/> 

@@ -151,7 +151,18 @@ const BookAddSellerPage = () => {
 
             <label>
               Category:
-              <select
+              <input
+                type="text"
+                placeholder="ex-Fiction, Self-Growth, Finance"
+                {...register('category', {
+                  required: 'Category is required',
+                  minLength: {
+                    value: 3,
+                    message: 'Length should not be less than 3'
+                  }
+                })}
+              />
+              {/* <select
                 {...register('category', {
                   required: 'Choose one category',
                 })}
@@ -178,7 +189,7 @@ const BookAddSellerPage = () => {
                 <option value="Literature">Literature</option>
                 <option value="Children & Teens">Children & Teens</option>
                 <option value="Others">Children & Teens</option>
-              </select>
+              </select> */}
             </label>
             <p className="error-message">{errors.category?.message}</p>
 
@@ -284,7 +295,7 @@ const BookAddSellerPage = () => {
             <label>
               Edition:
               <input
-                type="number"
+                type="text"
                 placeholder="Enter edition"
                 {...register('edition', {
                   min: {

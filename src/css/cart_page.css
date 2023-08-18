@@ -2,8 +2,11 @@
 .cart-page {
   width: 70%;
   margin: auto;
-  margin-top: 75px;  
+  margin-top: 53px;  
   margin-bottom: 20px;
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
 }
 .cart-items-container{
   padding: 20px;

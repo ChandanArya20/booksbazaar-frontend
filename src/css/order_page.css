@@ -4,7 +4,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 75px;  
+    margin-top: 60px;  
+    background-color: #fff;
 }
 .order-page h2{
     margin-top: 5px;

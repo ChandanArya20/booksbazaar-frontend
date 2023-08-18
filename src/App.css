@@ -5,7 +5,8 @@
 }
 
 html {
-  scroll-behavior: smooth;                                                                                         
+  scroll-behavior: smooth;  
+  background-color: #F1F3F6;                                                                                       
 }
 
 /* Customize the scroll bar */
