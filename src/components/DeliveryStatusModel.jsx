@@ -52,7 +52,7 @@ const DeliveryStatusModel = ({setShowStatusModel, orderId, orderStatus, handleSt
 
     return (
       <>
-      <div className="change-delivery-status-model-container" onClick={closeModel}></div>
+      <div className="change-delivery-status-model-container" onClick={doNothing}></div>
       <div className="delivery-status-model" onClick={doNothing}>
         <h2>Delivery Status</h2>
         <p>Current Status: {selectedStatus}</p>

@@ -33,19 +33,21 @@ const CartPage = () => {
           </div> :
       
       <div className="cart-page">
-        <h1>Shopping Cart</h1>
-        <div className="cart-items-container">
-          <div className="cart-items">
-            {cart.map((item,index) => (
-              <CartItem key={index} cartItem={item} />
-            ))}
+        <div className="cart-all-item">
+          <h1>Shopping Cart</h1>
+          <div className="cart-items-container">
+            <div className="cart-items">
+              {cart.map((item,index) => (
+                <CartItem key={index} cartItem={item} />
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="order-details">
-          <div className="total-amount">
-            Total: ₹ {totalCartPrice.toFixed(2)}
+          <div className="order-details">
+            <div className="total-amount">
+              Total: ₹ {totalCartPrice.toFixed(2)}
+            </div>
+            <button className="purchase-btn" onClick={handlePlaceOrder}>Place order</button>
           </div>
-          <button className="purchase-btn" onClick={handlePlaceOrder}>Place order</button>
         </div>
       </div>
       }

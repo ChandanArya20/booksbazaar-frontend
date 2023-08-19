@@ -12,17 +12,14 @@ const Footer = () => {
         <div className="footer__section">
           <h3 className="footer__section-title">About Us</h3>
           <p className="footer__section-text">
-          Welcome to our Bookstore, the ultimate destination for book lovers! 
-          We are dedicated to providing an exceptional online shopping experience,
-          where you can explore an extensive collection of books across various genres. 
-          From bestsellers to hidden gems, we curate a diverse selection to satisfy every 
-          reading taste.
-          At our Bookstore, we believe in the transformative power of books. 
-          We strive to connect readers with stories that inspire, entertain. 
-          Our mission is to fuel your love for reading and helpyou discover 
-          new literary adventures.
-
- 
+            Welcome to our Bookstore, the ultimate destination for book lovers! 
+            We are dedicated to providing an exceptional online shopping experience,
+            where you can explore an extensive collection of books across various genres. 
+            From bestsellers to hidden gems, we curate a diverse selection to satisfy every 
+            reading taste.
+            At our Bookstore,  
+            Our mission is to fuel your love for reading and help you discover 
+            new literary adventures.
           </p>
         </div>
         <div className="footer__section" >

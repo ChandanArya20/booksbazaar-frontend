@@ -1,16 +1,21 @@
 
 .cart-page {
-  width: 70%;
+  width: 98%;
   margin: auto;
-  margin-top: 53px;  
+  margin-top: 63px;  
   margin-bottom: 20px;
   background-color: #fff;
-  padding: 10px 15px;
+  padding: 10px 0px;
   border-radius: 5px;
 }
+.cart-all-item{
+  width: 70%;
+  margin: 0 auto;
+}
 .cart-items-container{
+  
   padding: 20px;
-  height: 300px;
+  height: 290px;
   border-radius: 10px;
   background-color: #bbe2eb5d;
   overflow-y: scroll;

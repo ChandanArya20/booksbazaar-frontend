@@ -1,15 +1,17 @@
-
+.seller-dashboard-container{
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 63px;  
+  background-color: #fff;
+}
 .seller-dashboard {
   max-width: 900px;
   margin: 0 auto;
-  margin-top: 53px;  
-  padding: 20px;
   font-family: 'Arial', sans-serif;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 15px 0px;
   color: #333;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
 }
 
 .seller-dashboard h2 {

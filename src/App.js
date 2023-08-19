@@ -26,6 +26,7 @@ import AddressContinue from "./pages/AddressContinue";
 import SellerOrderItemDetailsPage from "./pages/SellerOrderItemDetailsPage";
 import SellerOrderPage from "./pages/SellerOrderPage";
 import DeliveryStatusModel from "./components/DeliveryStatusModel";
+import CategoryResultPage from "./pages/CategoryResultPage";
 
 const App = () => {
   return ( 
@@ -55,6 +56,7 @@ const App = () => {
         <Route path="/sellerOrderPage" element={<SellerOrderPage />} />
         <Route path="/sellerOrderItemDetailsPage" element={<SellerOrderItemDetailsPage />} />
         <Route path="/deliveryStatusModel" element={<DeliveryStatusModel />} />
+        <Route path="/categoryResultPage" element={<CategoryResultPage />} />
         <Route path="/errorPage" element={<ErrorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>

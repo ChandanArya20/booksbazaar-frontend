@@ -4,18 +4,22 @@ import RecommendedBooks from "./RecommendedBooks"
 import Services from "./Services"
 import Footer from "./Footer"
 import CategoryRow from "./CategoryRow"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import CategoryResultPage from "../pages/CategoryResultPage"
 
 const HomePage=()=>{
 
-const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const [selectedCategoryName, setSelectedCategoryName] = useState(null);
+  const navigate=useNavigate();
 
-const categories = [
+  const categories = [
     { id: 1, name: 'Sceince & Mathematics' },
-    { id: 2, name: 'Computer & internet' },
+    { id: 2, name: 'Computer & Internet' },
     { id: 3, name: 'Technology & Engineering' },
-    { id: 4, name: 'Society & Social Science' },
-    { id: 5, name: 'Bussiness $ Echonomics' },
+    { id: 4, name: 'Society & Social-Science' },
+    { id: 5, name: 'Bussiness & Echonomics' },
     { id: 6, name: 'History & Humanities' },
     { id: 7, name: 'Arts & Photography' },
     { id: 8, name: 'Boigrphy & Memories' },
@@ -33,21 +37,29 @@ const categories = [
     { id: 20, name: 'Childrenn & Teens' },
   ];
   
-  const handleCategorySelect = categoryId => {
-    setSelectedCategory(categoryId);
-    // Perform any additional actions when a category is selected
+  const handleCategorySelect = async(category) => {
+    setSelectedCategoryId(category.id);
+    let selectedCategoryName=category.name.replace('&',"");
+    setSelectedCategoryName(selectedCategoryName)
+    console.log(selectedCategoryName);
   };
-    return(
-        <>
-        <Navbar/>
-        <CategoryRow
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onCategorySelect={handleCategorySelect}/>     
+
+  return(
+      <>
+      <Navbar/>
+      <CategoryRow
+        categories={categories}
+        selectedCategoryId={selectedCategoryId}
+        onCategorySelect={handleCategorySelect}/>     
+      
+      {selectedCategoryName ? <CategoryResultPage categoryName={selectedCategoryName}/> :
+        <>  
         <RecommendedBooks/>
         <Services/>
         <Footer/>
-        </>
+        </>   
+      }
+      </>
     )
 }
 

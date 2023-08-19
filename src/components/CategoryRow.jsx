@@ -1,15 +1,14 @@
 import '../css/category_row.css';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 
 const categories = [
   // ... your categories data ...
 ];
 
-const CategoryRow = ({ categories, selectedCategory, onCategorySelect }) => {
+const CategoryRow = ({ categories, selectedCategoryId, onCategorySelect }) => {
 
   const categoryListRef = useRef(null);
-
 
   const handleScroll = direction => {
     const scrollAmount = 200; // Adjust scroll distance
@@ -20,28 +19,24 @@ const CategoryRow = ({ categories, selectedCategory, onCategorySelect }) => {
     }
   };
 
-  const handleClick = (categoryId) => {
-    onCategorySelect(categoryId);
-    
-  };
 
   return (
     <div className="category-row">
-      <div className="scroll-button left" onClick={() => handleScroll('left')}>
+      <div className='scroll-button left' onClick={() => handleScroll('left')}>
         <MdArrowForwardIos />
       </div>
       <div className="category-list" ref={categoryListRef}>
         {categories.map(category => (
           <div
             key={category.id}
-            className={`category-item ${selectedCategory === category.id ? 'selected' : ''}`}
-            onClick={() => handleClick(category.id)}
+            className={`category-item ${selectedCategoryId === category.id ? 'selected' : ''}`}
+            onClick={() => onCategorySelect(category)}
           >
             {category.name}
           </div>
         ))}
       </div>
-      <div className="scroll-button right" onClick={() => handleScroll('right')}>
+      <div className='scroll-button right' onClick={() => handleScroll('right')}>
         <MdArrowForwardIos />
       </div>
     </div>

@@ -196,12 +196,12 @@ const BookAddSellerPage = () => {
             <label>
               Publication Year:
               <input
-                type="date"
-                placeholder="Enter Publishing year"
+                type="text"
+                placeholder="Enter Publication Year"
                 {...register('publishingYear', {
-                  min: {
-                    value: 1500,
-                    message: 'Year should not be less than 1500'
+                  minLength: {
+                    value: 3,
+                    message: 'Length should not be less than 3'
                   }
                 })}
               />

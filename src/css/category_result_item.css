@@ -1,32 +1,44 @@
-.book-card {
+.result-book-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #fff;
-    width: 170px;
-    height: 230px;
-    padding: 10px 20px;
+    width: 200px;
+    height: 300px;
+    padding: 20px 20px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     text-align: center;
+    margin-top: 10px;
   }
-  .book-card-content{
-    /* margin-top: 10px; */
+  .result-book-card .book-card-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
   }
-  .book-card:hover {
+  .result-book-card .book-card-footer{
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .result-book-card .book-card:hover {
     transform: translateY(-5px);
   }
   
-  .book-card-image {
-    height: 115px;
+  .result-book-card .book-card-image {
+    height: 170px;
     margin-top: 7px;
     object-fit: cover;
     border-radius: 5px;
     cursor: pointer;
   }
   
-  .book-card-title {
-    width: 150px;
+  .result-book-card .book-card-title {
+    width: 200px;
     margin-top: 7px;
     font-size: 16px;
     font-weight: bold;
@@ -36,13 +48,15 @@
     text-overflow: ellipsis;
   }
   
-  .book-card-author {
+  .result-book-card .book-card-author {
     margin-top: 6px;
     font-size: 14px;
     color: #666666;
   }
-  
-  .book-card-price {
+  .result-book-card .book-card-author span{
+    font-weight: bold;
+  }
+  .result-book-card .book-card-price {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 5px;
     font-size: 15px;
@@ -50,7 +64,7 @@
     color: rgb(0, 0, 0);
   }
   
-  .book-card-button {
+  .result-book-card .book-card-button {
     margin-top: 5px;
     padding: 7px 14px;
     font-size: 14px;
@@ -61,10 +75,10 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  .book-card-button:hover {
+  .result-book-card  .book-card-button:hover {
     background-color: #00a494;
   }
-  .book-card-button-remove{
+  .result-book-card .book-card-button-remove{
     margin-top: 5px;
     padding: 7px 14px;
     font-size: 14px;
@@ -75,7 +89,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  .book-card-button-remove:hover{
+  .result-book-card .book-card-button-remove:hover{
     background-color: #e94132;
   }
-  
+

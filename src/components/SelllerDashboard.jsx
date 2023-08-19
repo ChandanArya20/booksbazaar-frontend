@@ -54,6 +54,7 @@ const SellerDashboard = () => {
   return (
     <>
     <Navbar/>
+    <div className="seller-dashboard-container">
     <div className="seller-dashboard">
       <h2>Welcome, Book Seller!</h2>
       <div className="dashboard-main" id='dashboard-main-id'>
@@ -77,6 +78,7 @@ const SellerDashboard = () => {
           })
         }     
       </div>
+    </div>
     </div>
     </>
   )

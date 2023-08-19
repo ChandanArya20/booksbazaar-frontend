@@ -1,0 +1,28 @@
+.category-filter-modal-container {
+    padding: 20px 20px;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+ 
+  .category-filter-modal-container h2 {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+  #category-filter-heading{
+    margin-top: -10px;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+    color: #0497a1;
+  }
+  .price-filter-options{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px;
+    gap: 5px;
+  }
+  .price-filter-option{
+    cursor: pointer;
+  }
+
+  

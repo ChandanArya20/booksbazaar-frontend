@@ -48,7 +48,7 @@ const SellerOrderFilterModel = ({setShowFilter , applyFilter, currentFilterStatu
 
     return (
       <>
-      <div className="filter-model-container" onClick={closeModel}></div>
+      <div className="filter-model-container"></div>
         <div className="modal-content">
         <div className="filter-cross-button" onClick={closeModel}>
             <AiOutlineClose/>

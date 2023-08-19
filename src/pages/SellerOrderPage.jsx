@@ -89,9 +89,11 @@ const SellerOrderPage = () => {
                           applyFilter={applyFilter}
                           currentFilterStatus={filterStatus}/>}
         <div className="order-list">
-          {orders?.map(order => (
-            <SellerOrderItem key={order.id} order={order} />
-          ))}
+          {
+            orders?.map(order => (
+              <SellerOrderItem key={order.id} order={order} />
+            ))
+          }
         </div>
       </div>
       </>
