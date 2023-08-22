@@ -21,7 +21,7 @@
     display: flex;
     gap: 30px;
     margin-top: 20px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     
   }

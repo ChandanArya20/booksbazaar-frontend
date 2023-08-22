@@ -124,10 +124,10 @@ const ProductDetailsPage = () => {
         <div className="specifications">
           <h2 className="section-title">Specifications</h2>
           <ul className="spec-list">
-            <li className="spec-item">
+            {/* <li className="spec-item">
               <span className="spec-label">Seller:</span> {book?.bookSeller?.name}
               <span className="spec-label"></span>,  {book?.bookSeller?.email}
-            </li>
+            </li> */}
             {
               book?.isbn ?  
                 <li className="spec-item">

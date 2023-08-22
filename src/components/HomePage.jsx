@@ -19,7 +19,7 @@ const HomePage=()=>{
     { id: 2, name: 'Computer & Internet' },
     { id: 3, name: 'Technology & Engineering' },
     { id: 4, name: 'Society & Social-Science' },
-    { id: 5, name: 'Bussiness & Echonomics' },
+    { id: 5, name: 'Business & Echonomics' },
     { id: 6, name: 'History & Humanities' },
     { id: 7, name: 'Arts & Photography' },
     { id: 8, name: 'Boigrphy & Memories' },
@@ -41,7 +41,6 @@ const HomePage=()=>{
     setSelectedCategoryId(category.id);
     let selectedCategoryName=category.name.replace('&',"");
     setSelectedCategoryName(selectedCategoryName)
-    console.log(selectedCategoryName);
   };
 
   return(
@@ -52,7 +51,7 @@ const HomePage=()=>{
         selectedCategoryId={selectedCategoryId}
         onCategorySelect={handleCategorySelect}/>     
       
-      {selectedCategoryName ? <CategoryResultPage categoryName={selectedCategoryName}/> :
+        {selectedCategoryName ? <CategoryResultPage categoryName={selectedCategoryName}/> :
         <>  
         <RecommendedBooks/>
         <Services/>

@@ -24,6 +24,22 @@ const SellerOrderPage = () => {
       Returned: false
     });
   
+    const closeModel=(e)=>{
+      e.stopPropagation(); 
+      setShowFilter(false);
+    }
+
+    const applyFilter=(filteredStatus)=>{
+
+      setFilterStatus(filteredStatus);
+      const filteredOrders=originalOrders.filter(order=>filteredStatus[order.status]);
+
+      if(filteredOrders.length===0){
+        setOrders(originalOrders);
+      }else{
+        setOrders(filteredOrders);
+      }
+    };
 
     const fetchAllOrders=async ()=>{
         const sellerId=getCurrentSellerDetails().id
@@ -51,24 +67,7 @@ const SellerOrderPage = () => {
       fetchAllOrders()
     },[])
 
-    const closeModel=(e)=>{
-      e.stopPropagation(); 
-      setShowFilter(false);
-    }
-
-    const applyFilter=(filteredStatus)=>{
-      console.log(filteredStatus); 
-      setFilterStatus(filteredStatus);
-      const filteredOrders=originalOrders.filter(order=>filteredStatus[order.status]);
-
-      if(filteredOrders.length===0){
-        setOrders(originalOrders);
-      }else{
-        setOrders(filteredOrders);
-      }
-    };
-  
-
+    
   return (
     <div className='seller_order-page_container'>
     {
@@ -86,8 +85,8 @@ const SellerOrderPage = () => {
         </div>
         {showFilter && <SellerOrderFilterModel 
                           setShowFilter={setShowFilter} 
-                          applyFilter={applyFilter}
-                          currentFilterStatus={filterStatus}/>}
+                          currentFilterStatus={filterStatus}
+                          applyFilter={applyFilter} />}
         <div className="order-list">
           {
             orders?.map(order => (

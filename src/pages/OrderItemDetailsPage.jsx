@@ -48,7 +48,7 @@ const OrderItemDetailsPage = () => {
       </div>
       <div className="order-item-details">
         <h1>{order.book.title}</h1>
-        <p>{order.book.author}</p>
+        <p><span>By: </span>{order.book.author}</p>
         <p><span>Order Date: </span>{formatDate(order.orderDate)}</p>
         <p> <span>Quantity: </span>{order.quantity}</p>
         <p> <span>Total price: </span>₹{order.quantity*order.book.price}</p>

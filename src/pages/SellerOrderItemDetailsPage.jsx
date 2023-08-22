@@ -49,7 +49,7 @@ const SellerOrderItemDetailsPage = () => {
       </div>
       <div className="order-item-details">
         <h1>{order.book.title}</h1>
-        <p>{order.book.author}</p>
+        <p><span>By: </span>{order.book.author}</p>
         <p><span>Book id: </span>{order.book.id}</p>
         <p><span>Order Date: </span>{formatDate(order.orderDate)}</p>
         <p> <span>Quantity: </span>{order.quantity}</p>
