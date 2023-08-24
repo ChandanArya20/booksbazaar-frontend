@@ -1,12 +1,4 @@
-:root {
-  --primary-bg: #242526;
-  --secondary-bg: #fff;
-  --primary-text-color: #555;
-  --secondary-text-color: #9f9e9e;
-  --border-radius: 8px;
-  --speed: 500ms;
-}                                                                     
-
+                                                                  
 .menu-container{
   position: fixed;
   top: 0;
@@ -19,13 +11,14 @@
 
 .dropdown-menu{
   position: fixed;
-  top: 65px;
-  right: 0;
+  top: 50px;
+  right: 25px;
+  z-index: 10;
   background-color: #fff;
-  border-radius: var(--border-radius);
+  border-radius: 10px;
   padding: 10px 13px;
   width: 200px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity var(--speed), transform var(--speed);

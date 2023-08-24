@@ -30,7 +30,7 @@ const HomePage=()=>{
     { id: 13, name: 'Religion/Spirituality' },
     { id: 14, name: 'Health/Fitness' },
     { id: 15, name: 'Family/Lifestyle & Parenting' },
-    { id: 16, name: 'Medicine' },
+    { id: 16, name: 'Medical' },
     { id: 17, name: 'Fictional' },
     { id: 18, name: 'Non-Fictional' },
     { id: 19, name: 'Literature' },

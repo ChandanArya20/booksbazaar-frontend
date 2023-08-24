@@ -11,6 +11,7 @@ const CategoryRow = ({ categories, selectedCategoryId, onCategorySelect }) => {
   const categoryListRef = useRef(null);
 
   const handleScroll = direction => {
+    
     const scrollAmount = 200; // Adjust scroll distance
     if (direction === 'left') {
       categoryListRef.current.scrollLeft -= scrollAmount;

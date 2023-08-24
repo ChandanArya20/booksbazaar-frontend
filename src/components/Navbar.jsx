@@ -1,8 +1,10 @@
 import '../css/navbar.css';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
 import { FaUser as ProfileIcon } from 'react-icons/fa';
+import { FaSearch as SearchIcon} from 'react-icons/fa';
+import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
 import bookapplogo from '../Images/bookapplogo.png';
 import SearchBox from './SearchBox';
 import { isLoggedin } from '../Auth/loginFunc';
@@ -20,6 +22,7 @@ const Navbar = () => {
     const selleLogin = isSellerLoggedin();
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
+    const [showSearchBox, setShowSearchBox]=useState(false)
 
     // Update login state when currentUser changes
     useEffect(() => {
@@ -57,6 +60,15 @@ const Navbar = () => {
         setShowMenu(false);
     };
 
+    const toggleSearchBox = () => {
+      setShowSearchBox(!showSearchBox);
+    };
+
+    const closeSearchBox=()=>{
+
+    }
+
+
     return (
       <>
       <nav>
@@ -66,22 +78,23 @@ const Navbar = () => {
           </div>
           <ul>
             <li >
-              <Link to="">Admin</Link>
+              <Link to="/comingFeature">Admin</Link>
             </li>
             <li onClick={myOrderClickHandler}>
               <Link to="">My Orders</Link>
             </li>
-            {/* <li>
-              <Link to="#services">Services</Link>
-            </li> */}
             <li onClick={becomeSellerClickHandler}>
               {selleLogin ? <Link to="">Seller Dashboard</Link> : <Link to="">Login as seller</Link>}
             </li>
           </ul>
         </div>
         <div className="nav-right-content">
-          <SearchBox />
+          <SearchBox showSearchBox={showSearchBox} toggleSearchBox={toggleSearchBox} />
           <div className="icons">
+            <div className="search-icon">
+              {showSearchBox ? <CloseIcon className='icon' id='close-icon' onClick={()=>toggleSearchBox()} /> : 
+              <SearchIcon className='icon' onClick={()=>toggleSearchBox()}/>}
+            </div>
             <div className="cart-icon">
               <CartIcon className="icon" onClick={cartClickHandler} />
               {cartQuantity > 0 && <p className='cart-quantity'><span>{cartQuantity}</span></p>}

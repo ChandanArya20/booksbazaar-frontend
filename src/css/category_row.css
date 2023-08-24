@@ -53,16 +53,16 @@
     transition: color 0.3s;
     background-color: #fff;
     position: absolute;
-    z-index: 10;
+    z-index: 5;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
   }
   
 .left {
-  left: 5px;
+  left: 7px;
   transform: rotate(180deg);
 }
 
 .right {
-  right: 5px;
+  right: 0px;
 }
   

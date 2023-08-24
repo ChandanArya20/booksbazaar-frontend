@@ -12,6 +12,7 @@ const CategoryResultPage = ({categoryName}) => {
     const navigate = useNavigate();    
     const [originalBooks, setOriginalBooks]=useState([]);
     const [books, setBooks] = useState([]);
+    const [partialyFilteredBooks, setPartialyFilteredBooks] = useState([]);
 
     const [priceFilter, setPriceFilter] = useState(null);
     const [languageFilters, setLanguageFilters] = useState({
@@ -27,75 +28,6 @@ const CategoryResultPage = ({categoryName}) => {
         onlyLatest: false,
         deliveryWithinOneDay: false,
     });
-
-    const handlePriceFilterChange = (filterType) => {      
-        setPriceFilter(filterType);
-    };
-    const handleLanguageFilterChange=(language)=>{
-        setLanguageFilters({...languageFilters, [language]: !languageFilters[language]});
-    };
-    const handleOtherFilterChange = (filter) => {
-        setOtherFilters({ ...otherFilters, [filter]: !otherFilters[filter] });
-    };
-    
-     // Apply filters to the original books and set the filtered books
-     const applyFilters = () => {
-
-        let filteredBooks = [...originalBooks];
-
-        // Apply price filter
-        if (priceFilter === 'lowToHigh') {
-            filteredBooks.sort((a, b) => a.price - b.price);
-        } else if (priceFilter === 'highToLow') {
-            filteredBooks.sort((a, b) => b.price - a.price);
-        }
-
-        // Apply language filters
-        filteredBooks = filteredBooks.filter(book => languageFilters[book.language]);
-
-        // Apply other filters (outOfStock, onlyLatest, deliveryWithinOneDay)
-
-        if (otherFilters.outOfStock) {
-            filteredBooks = filteredBooks.filter(book => book.stock > 0);
-        }
-
-        if (otherFilters.onlyLatest) {
-            // Implement logic to filter only latest books
-        }
-
-        if (otherFilters.deliveryWithinOneDay) {
-            // Implement logic to filter books with one-day delivery
-        }
-
-        setBooks(filteredBooks);
-    };
-
-    useEffect(() => {
-        applyFilters();
-    }, [priceFilter, languageFilters, otherFilters]);
-
-
-
-    const fetchBooksByCategory = async () => {
-        try {
-            const response = await fetch(`http://localhost:8080/api/book/search/category?query=${categoryName}`);
-
-            if (response.ok) {
-                const books = await response.json();
-                setOriginalBooks(books);
-                setBooks(books);
-            } else {
-                const errorObj = { errorMessage: "Something went wrong, try later..." };
-                navigate("/errorPage", { state: errorObj });
-            }
-        } catch (error) {
-            console.error(error);
-            toast.error("Server is down, try again later", {
-                position: 'top-center',
-                theme: 'dark'
-            });
-        }
-    };
 
     useEffect(() => {
         fetchBooksByCategory();
@@ -118,6 +50,108 @@ const CategoryResultPage = ({categoryName}) => {
             deliveryWithinOneDay: false,
         });
     }, [categoryName]);
+
+
+    const handlePriceFilterChange = (filterType) => {      
+        setPriceFilter(filterType);
+    };
+    const handleLanguageFilterChange=(language)=>{
+        setLanguageFilters({...languageFilters, [language]: !languageFilters[language]});
+    };
+    const handleOtherFilterChange = (filter) => {
+        setOtherFilters({ ...otherFilters, [filter]: !otherFilters[filter] });
+    };
+    
+     // Apply filters to the original books and set the filtered books
+     const applyFilters = () => {
+         
+        // Apply language filters
+        let filteredBooks = [...originalBooks];
+       
+        let isAtLeastOneTrue = Object.values(languageFilters).some(value => value === true);
+       
+        if(isAtLeastOneTrue){
+            console.log("RAm");
+            filteredBooks=originalBooks.filter(book => languageFilters[book.language]);
+        }
+
+        // Apply other filters (outOfStock, onlyLatest, deliveryWithinOneDay)
+        console.log(otherFilters.outOfStock);
+        if (otherFilters.outOfStock) {
+            filteredBooks = filteredBooks.filter(book => book.stockAvailability > 0);
+        }
+
+        if (otherFilters.onlyLatest) {
+            // Get the current date
+            const currentDate = new Date();
+           
+            // Calculate the date one week ago
+            const oneWeekAgo = new Date(currentDate);
+            oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+            // Filter books based on bookListingTime
+            filteredBooks = filteredBooks.filter(book => {
+                
+                // Parse the bookListingTime string to a Date object
+                const bookListingTime = new Date(book.bookListingTime);
+                
+                // Check if bookListingTime is within the last week
+                return bookListingTime >= oneWeekAgo;
+            });
+        }
+
+        if (otherFilters.deliveryWithinOneDay) {
+            filteredBooks = filteredBooks.filter(book => book.deliveryTime === 1);
+        }
+
+        setPartialyFilteredBooks(filteredBooks);
+    };
+
+    useEffect(() => {
+        applyFilters();
+    }, [languageFilters, otherFilters]);
+
+    const sortBooks=()=>{
+
+        // Apply price filter
+        let sortedBooks=[...partialyFilteredBooks];
+        if (priceFilter === 'lowToHigh') {
+            sortedBooks.sort((a, b) => a.price - b.price);
+        } else if (priceFilter === 'highToLow') {
+            sortedBooks.sort((a, b) => b.price - a.price);
+        }
+
+        setBooks(sortedBooks);
+    }
+
+    useEffect(() => {
+        sortBooks();
+    }, [priceFilter, partialyFilteredBooks]);
+    useEffect(() => {
+        console.log(partialyFilteredBooks);
+    }, [partialyFilteredBooks]);
+
+
+    const fetchBooksByCategory = async () => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/book/search/category?query=${categoryName}`);
+
+            if (response.ok) {
+                const books = await response.json();
+                setOriginalBooks(books);
+                setBooks(books);
+            } else {
+                const errorObj = { errorMessage: "Something went wrong, try later..." };
+                navigate("/errorPage", { state: errorObj });
+            }
+        } catch (error) {
+            console.error(error);
+            toast.error("Server is down, try again later", {
+                position: 'top-center',
+                theme: 'dark'
+            });
+        }
+    };
 
   
 

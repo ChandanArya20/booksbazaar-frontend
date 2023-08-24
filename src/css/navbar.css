@@ -29,7 +29,7 @@
      list-style-type: none;
      display: flex;
      justify-content: end; 
-     gap: 30px;
+     gap: 50px;
      margin-right: 60px;
    }
    .nav_left_content li a {
@@ -47,31 +47,36 @@
    .nav-right-content{
      width: 40%;
      display: flex;
-     justify-content: space-around;
+     justify-content: flex-end;
    }
 
    .nav-right-content .icons{
      color: black;
      display: flex;
-     width: 50px;
-     justify-content: space-evenly;
+     width: 250px;
+     justify-content: space-between;
      align-items: center;
-     gap: 20px;
+     margin-right: 20px;
    }
    .nav-right-content .icon{
      font-size: 20px;
      transition: 300ms;
+     cursor: pointer;
    }
    .nav-right-content .icon:hover{
      color:#1502ed;
    }
-   .cart-icon, .profile-icon{
+   .search-icon, .cart-icon, .profile-icon{
     position: relative;
     display: flex;
     padding: 7px 10px;
     transition: 300ms;
   }
-  
+
+  #close-icon{
+    color: red;
+  }
+
   .cart-quantity {
     position: absolute;
     top: -5px; 
@@ -91,9 +96,6 @@
     right: 5px; 
   }
   
-   .cart-icon, .profile-icon:hover{
-    cursor: pointer;
-   }
    .nav-right-content .icons a{
     color: black;
    }
