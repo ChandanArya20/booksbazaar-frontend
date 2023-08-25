@@ -1,0 +1,80 @@
+.search-result-book-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    width: 750px;
+    height: 150px;
+    padding: 20px 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .result-book-card .book-card-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .search-result-book-card .book-card-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    
+  }
+  .search-result-book-card .book-image-conatiner{
+    width: 150px;
+  }
+  .search-result-book-card .book-card-image {
+    height: 170px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-result-book-card .book-card-title {
+    width: 430px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .search-result-book-card .book-card-author {
+    font-size: 14px;
+    color: #666666;
+  }
+  .search-result-book-card .book-card-author span{
+    font-weight: bold;
+  }
+  .search-result-book-card .book-card-price {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+  }
+  
+  .search-result-book-card .book-card-button {
+    width: 100px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #02b19f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .search-result-book-card  .book-card-button:hover {
+    background-color: #00a494;
+  }
+
+  .search-result-book-card .book-card-button-buy{
+    background-color: #FF5F6D;
+  }
+  .search-result-book-card .book-card-button-buy:hover{
+    background-color:  #FF4358;
+  }

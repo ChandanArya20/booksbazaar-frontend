@@ -7,6 +7,7 @@ import CategoryRow from "./CategoryRow"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import CategoryResultPage from "../pages/CategoryResultPage"
+import SearchResultPage from "../pages/SearchResultPage"
 
 const HomePage=()=>{
 
@@ -45,13 +46,13 @@ const HomePage=()=>{
 
   return(
       <>
-      <Navbar/>
+      <Navbar />     
       <CategoryRow
         categories={categories}
         selectedCategoryId={selectedCategoryId}
-        onCategorySelect={handleCategorySelect}/>     
-      
-        {selectedCategoryName ? <CategoryResultPage categoryName={selectedCategoryName}/> :
+        onCategorySelect={handleCategorySelect}
+      />          
+      {selectedCategoryName ? <CategoryResultPage categoryName={selectedCategoryName}/> :
         <>  
         <RecommendedBooks/>
         <Services/>

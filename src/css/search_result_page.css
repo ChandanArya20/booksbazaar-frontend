@@ -1,19 +1,19 @@
-.category-result-container{
+.search-result-container{
     width: 98%;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 63px;
     display: flex;
     gap: 20px;
 
 }
-.category-result-filter{
+.search-result-filter{
     width: 30%;
     height: 425px;
     border-radius: 10px;
     position: sticky;
     top: 63px;
 }
-.category-result-item-container{
+.search-result-item-container{
     width: 70%;
     display: flex;
     flex-wrap: wrap;

@@ -3,31 +3,36 @@ import '../css/category_result_item.css';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContex';
 
 const CategoryResultItem = ({ book }) => {
 
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart, addToCart } = useContext(CartContext);
+  const {isUserLoggedin}=useContext(UserContext)
   const navigate=useNavigate()
   const isBookInCart = cart.some((item) => item.id === book.id);
 
-  const addToCart = () => {
-    if (!isBookInCart) {
-      setCart([
-        ...cart,
-        {
-          ...book,
-          quantity: 1,
-          totalPrice: book.price,
-        },
-      ]);
-    }
-  };
+  const goToCart=(e)=>{
 
-  const removeFromCart = () => {
-    if (isBookInCart) {
-      setCart(cart.filter((item) => item.id !== book.id));
+    e.stopPropagation();
+
+    if(isUserLoggedin()){
+      navigate("/cart")
+    }else{
+      navigate("/phoneLogin")
     }
-  };
+  }
+
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+
+    if(isUserLoggedin()){
+      const cartItem={id:book.id ,book, quantity:1}
+      addToCart(cartItem)
+
+    }else
+      navigate("/phoneLogin")
+  }
 
   const showProductDetails=()=>{
     navigate("/productDetailsPage", { state: book })
@@ -42,10 +47,9 @@ const CategoryResultItem = ({ book }) => {
         <div className="book-card-footer">
             <div className="book-card-price">₹{book.price}</div>
             <button
-            className={isBookInCart ? 'book-card-button-remove' :'book-card-button'}
-            onClick={isBookInCart ? removeFromCart : addToCart}
-            >
-            {isBookInCart ? 'Remove from Cart' : 'Add to Cart'}
+            className='book-card-button'
+            onClick={isBookInCart ? goToCart : handleAddToCart}>      
+            {isBookInCart ? 'Go To Cart' : 'Add to Cart'}
             </button>
         </div>
       </div>

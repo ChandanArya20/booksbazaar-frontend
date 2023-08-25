@@ -13,7 +13,7 @@ import UserProfileDropdown from './UserProfileDropdown';
 import { CartContext } from '../context/CartContext';
 import { UserContext } from '../context/UserContex';
 
-const Navbar = () => {
+const Navbar = ({showSearchValue,searchQuery}) => {
 
     // Context and State
     const { cartQuantity } = useContext(CartContext);
@@ -22,7 +22,7 @@ const Navbar = () => {
     const selleLogin = isSellerLoggedin();
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
-    const [showSearchBox, setShowSearchBox]=useState(false)
+    const [showSearchBox, setShowSearchBox]=useState(showSearchValue)
 
     // Update login state when currentUser changes
     useEffect(() => {
@@ -56,7 +56,6 @@ const Navbar = () => {
 
     // Close profile dropdown menu
     const closeProfileMenu = () => {
-        console.log("Shyam");
         setShowMenu(false);
     };
 
@@ -89,7 +88,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="nav-right-content">
-          <SearchBox showSearchBox={showSearchBox} toggleSearchBox={toggleSearchBox} />
+          <SearchBox showSearchBox={showSearchBox} searchQuery={searchQuery}/>
           <div className="icons">
             <div className="search-icon">
               {showSearchBox ? <CloseIcon className='icon' id='close-icon' onClick={()=>toggleSearchBox()} /> : 

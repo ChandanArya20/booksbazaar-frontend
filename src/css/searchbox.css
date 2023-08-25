@@ -1,7 +1,7 @@
 .search-box {
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 35px;
   padding: 0 10px;
   background-color: #f1f1f1;
   border-radius: 20px;
@@ -9,14 +9,13 @@
   width: 0px;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, width 0.3s ease, visibility 0.3s ease;
+  transition: 0.3s;
 }
 
 .search-box.active {
   width: 250px;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.3s ease, width 0.3s ease, visibility 0.3s ease;
 }
 
 .search-input {

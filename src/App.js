@@ -27,6 +27,7 @@ import SellerOrderItemDetailsPage from "./pages/SellerOrderItemDetailsPage";
 import SellerOrderPage from "./pages/SellerOrderPage";
 import DeliveryStatusModel from "./components/DeliveryStatusModel";
 import CategoryResultPage from "./pages/CategoryResultPage";
+import SearchResultPage from "./pages/SearchResultPage";
 
 const App = () => {
   return ( 
@@ -57,6 +58,7 @@ const App = () => {
         <Route path="/sellerOrderItemDetailsPage" element={<SellerOrderItemDetailsPage />} />
         <Route path="/deliveryStatusModel" element={<DeliveryStatusModel />} />
         <Route path="/categoryResultPage" element={<CategoryResultPage />} />
+        <Route path="/searchResultPage" element={<SearchResultPage />} />
         <Route path="/errorPage" element={<ErrorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>

@@ -59,14 +59,14 @@
   .result-book-card .book-card-price {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 5px;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: bold;
     color: rgb(0, 0, 0);
   }
   
   .result-book-card .book-card-button {
     margin-top: 5px;
-    padding: 7px 14px;
+    padding: 10px 14px;
     font-size: 14px;
     color: #ffffff;
     background-color: #02b19f;

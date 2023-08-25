@@ -1,19 +1,24 @@
 import { useState, useRef, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import '../css/searchbox.css';
+import { useNavigate } from 'react-router-dom';
 
-const SearchBox = ({ showSearchBox, toggleSearchBox }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+const SearchBox = ({ showSearchBox, searchQuery }) => {
+
+  const [searchTerm, setSearchTerm] = useState(searchQuery);
   const [placeholderVisible, setPlaceholderVisible] = useState(true);
+  const navigate=useNavigate();
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
 
   const handleSubmit = (e) => {
-    // Handle form submission if needed
     e.preventDefault();
-    console.log(searchTerm);
+    const searchQuery=searchTerm.trim();
+    console.log(searchQuery);
+    navigate('/searchResultPage',{state:searchQuery})
+
   };
 
   useEffect(()=>{
