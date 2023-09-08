@@ -1,75 +1,94 @@
-.footer {
-    width: 95%;
-    margin: auto;
+  .footer {
+    width: 98%;
+    margin: 0 auto;
     background-color: #333333;
     color: #ffffff;
   }
   
-  .footer__content {
+  .footer-content {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 20px;
-    padding: 0 20px;
+    padding: 20px 20px 0px 20px;
   }
   
-  .footer__section {
+  .footer-section {
+    width: 340px;
     height: 180px;
     background-color: #736c6c19;
-    flex: 1 0 300px;
     padding: 20px;
     border-radius: 10px;
     overflow: hidden;
   }
   
-  .footer__section-title {
+  .footer-section-title {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
   }
   
-  .footer__section-text {
+  .footer-section-text {
     font-size: 14px;
     margin-bottom: 8px;
     margin-top: 15px;
   }
   
-  .footer__social-icons {
+  .footer-social-icons {
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
   }
   
-  .footer__social-icon {
+  .footer-social-icon {
     font-size: 25px;
     color: #02b8c5;
     margin-right: 10px;
     transition: color 0.3s ease;
   }
   
-  .footer__social-icon:hover {
-    color: #338c8f;
+  .footer-social-icon:hover {
+    color:#338c8f;
   }
   
-#contact_details a{
+  #contact-details a{
     text-decoration: none;
     color: white;
     font-size: 13px;
     /* padding: 10px; */
     transition: all 0.3s ease;
   }
-  #contact_details a:hover{
+  #contact-details a:hover{
     color: rgb(199, 198, 198);
   }
 
-  .footer__bottom {
+  .footer-bottom {
     text-align: center;
     padding: 0px;
     margin-top: 10px;
   }
   
-  .footer__bottom-text {
+  .footer-bottom-text {
     font-size: 12px;
     padding: 5px 0px;
+  }
+
+  @media (max-width:426px) {
+    .footer {
+      width: 100%;
+    }
+    .footer-content {
+      margin-top: 5vw;
+      flex-direction: column;
+      align-items: center;
+      gap: 2vw;
+      padding: 0;
+    }
+    .footer-section {
+      width: 85vw;
+      height: auto;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
   }

@@ -86,8 +86,8 @@ const sections = [
     <div>
       {sections.map((section, index) => (
         <div key={index} className="recommended-section" id='books'>
-          <h2 className="recommended-section__title">{section.title}</h2>
-          <div className="recommended-section__books">
+          <h2 className="recommended-section-title">{section.title}</h2>
+          <div className="recommended-section-books">
             {section.books.map((book, bookIndex) => (
               <BookCard key={book.id} book={book} />
             ))}

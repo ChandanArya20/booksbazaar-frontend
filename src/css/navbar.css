@@ -1,42 +1,39 @@
   nav {
     position: fixed;
     top: 0;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%);
     z-index: 10; 
+    width: 100vw;
+    height: 53px;
     display: flex;
     align-items: center;
-    width: 100%;
-    height: 53px;
-    margin: auto;
-    border-radius: 5px;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
    }
    .nav_left_content{
-    width: 60%;
+    width: 60vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
    }
    .book-app-logo img{
-     width: 120px;
+     width: 8vw;
      mix-blend-mode: darken;
+     margin-left: 20px;
    }
    
    .nav_left_content ul {
      list-style-type: none;
      display: flex;
      justify-content: end; 
-     gap: 50px;
-     margin-right: 60px;
+     gap: 3vw;
+     margin-right: 10vw;
+     margin-left: 2vw;
    }
    .nav_left_content li a {
      text-decoration: none;
      color: #333;
-     font-size: 18px;
-     padding: 15px;
+     font-size: 1.8rem;
+     padding: 1.5rem;
      transition: all 0.3s ease;
    }
    
@@ -45,26 +42,30 @@
    }
   
    .nav-right-content{
-     width: 40%;
+     width: 40vw;
      display: flex;
+     align-items: center;
      justify-content: flex-end;
+     /* position: absolute; */
    }
 
    .nav-right-content .icons{
      color: black;
+     width: 100%;
      display: flex;
-     width: 250px;
-     justify-content: space-between;
+     justify-content: flex-end;
+     gap: 5vw;
      align-items: center;
      margin-right: 20px;
    }
-   .nav-right-content .icon{
+   .icon{
      font-size: 20px;
      transition: 300ms;
      cursor: pointer;
    }
-   .nav-right-content .icon:hover{
-     color:#1502ed;
+
+  .icon:hover{
+     color:#4d4d4e;
    }
    .search-icon, .cart-icon, .profile-icon{
     position: relative;
@@ -95,24 +96,55 @@
     top: 2px; 
     right: 5px; 
   }
-  
-   .nav-right-content .icons a{
+  .nav-right-content .icons a{
     color: black;
-   }
-   .login-button {
-     background-color: #FF5F6D;
-     color: #fff;
-     border: none;
-     border-radius: 4px;
-     padding: 10px 12px;
-     font-size: 16px;
-     letter-spacing: 2px;
-     cursor: pointer;
-     transition: background-color 0.3s ease;
-   }
-   
+  }
+  .login-button {
+    background-color: #FF5F6D;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+   }  
    .login-button:hover {
-     background-color: #FF4358;
+      background-color: #FF4358;
+   }
+   #navbar-menu{
+      display: none;
+      position: absolute;
+      font-size: 27px;
+      left: 10px;
    }
 
+  @media (max-width:426px) {
+
+    nav{
+      height: 55px;
+    }
+    .nav_left_content{
+     display: none;
+    }
+    .nav-right-content{
+      width: 100vw;
+    }
+    .nav-right-content .icons{
+      width: 40%;
+      gap: 1vw;
+      margin-right: 0;
+    }
+    .login-button {
+      padding: 6px 9px;
+    }
+    #navbar-menu{
+      display: block;
+   }
+   body::-webkit-scrollbar {
+    width: 0;
+   }
+  }
   
+ 

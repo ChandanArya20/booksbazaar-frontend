@@ -5,9 +5,9 @@ import '../css/services.css';
 
 const Services = () => {
   return (
-    <section className="services" id='services'>
-      <h2 className="services__title">Our Services</h2>
-      <div className="services__grid">
+    <section className="services">
+      <h2 className="services-title">Our Services</h2>
+      <div className="services-container">
         <ServiceItem
           icon={FaBook}
           title="Wide Selection of Books"

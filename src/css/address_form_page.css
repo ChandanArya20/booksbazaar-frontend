@@ -1,4 +1,10 @@
-.address-form-container {
+.address-form-page {
+    width: 98%;
+    height: 540px;
+    background-color: #fff;
+    margin: 0 auto;
+  }
+  .address-form-container{
     width: 330px;
     display: flex;
     flex-direction: column;
@@ -12,9 +18,6 @@
   .address-form-container h2{
     text-align: center;
     margin-top: 0px;
-  }
-  .address-form-container .form-group {
-    /* padding: 4px; */
   }
   
   .address-form-container label {

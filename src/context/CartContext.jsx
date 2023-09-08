@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import { getCurrentUserDetails } from "../Auth/loginFunc"
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 
 export const CartContext = createContext()
 
@@ -21,27 +21,27 @@ const CartContextProvider=({children})=>{
     }, [cart]);
 
 
-  const getAllCartItems = async () => {   
-    const currentUser=getCurrentUserDetails()
-    console.log(currentUser);
-    try {
-      if(currentUser){
-        const response = await fetch(`http://localhost:8080/api/cart/user/${currentUser.id}/allCartData`);
-        if (response.ok) {
-          const cartItems = await response.json();
-          console.log("Cart data", cart);
-          setCart(cartItems)
-        }else{
-          console.log("Not got cartData");           
+    const getAllCartItems = async () => {   
+      const currentUser=getCurrentUserDetails()
+      console.log(currentUser);
+      try {
+        if(currentUser){
+          const response = await fetch(`http://localhost:8080/api/cart/user/${currentUser.id}/allCartData`);
+          if (response.ok) {
+            const cartItems = await response.json();
+            console.log("Cart data", cart);
+            setCart(cartItems)
+          }else{
+            console.log("Not got cartData");           
+          }
         }
+      } catch (error) {
+        console.error(error)
+          toast.error("Server is down, try again later", {
+            position: 'top-center',
+            theme: 'dark'
+          });
       }
-    } catch (error) {
-      console.error(error)
-        toast.error("Server is down, try again later", {
-          position: 'top-center',
-          theme: 'dark'
-        });
-    }
   };
 
     useEffect(() => { 
@@ -49,33 +49,33 @@ const CartContextProvider=({children})=>{
     }, []);
 
     const addToCart = async (newCartItem) => {
-
+      
+      const cartItem={id:newCartItem.book.id, ...newCartItem}
       // Send the new cart item to the server using API  
       const currentUser = getCurrentUserDetails();
+
       if (currentUser) {
         const response=await fetch(`http://localhost:8080/api/cart/addToCart`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({...newCartItem,user:getCurrentUserDetails()})
+          body: JSON.stringify({...cartItem, user:getCurrentUserDetails()})
         });
         if(response.ok){
           // Update the local cart state
-          setCart([...cart, newCartItem]);
-          console.log("Cart item added to database...");             
+          setCart([...cart, cartItem]);
+            console.log("Cart item added to database...");             
           } else{
             console.log("Cart didn't added..., failed!");           
           }
-      }
-      
+      }    
     };
 
 
   const updateCartItemQuantity = async (cartItem, itemQuantity) => {
 
-    // Send the updated quantity to the server using API
-    
+    // Send the updated quantity to the server using API 
     const response=await fetch(`http://localhost:8080/api/cart/updateCartQuantity`, {
     method: "PATCH",
     headers: {
@@ -95,8 +95,7 @@ const CartContextProvider=({children})=>{
   };
 
   const deleteCartItems = async (cartItems) => {
-    try {
-      // Make the DELETE request to the server
+   
       const response = await fetch(`http://localhost:8080/api/cart/delete`, {
         method: 'DELETE',
         headers: {
@@ -114,12 +113,9 @@ const CartContextProvider=({children})=>{
       } else {
         console.error('Failed to delete cart item.');
       }
-    } catch (error) {
-      console.error('An error occurred while deleting the cart item:', error);
-    }
   };
 
-  const placeOrder=async(orderData)=>{ 
+  const placeCartOrder=async(orderData)=>{ 
 
     const response=await fetch(`http://localhost:8080/api/order/placeOrder`, {
     method: "POST",
@@ -152,7 +148,7 @@ const CartContextProvider=({children})=>{
           addToCart,
           updateCartItemQuantity,
           deleteCartItems,
-          placeOrder }}>
+          placeCartOrder }}>
 
             {children}
         </CartContext.Provider>

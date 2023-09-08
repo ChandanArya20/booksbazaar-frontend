@@ -25,7 +25,6 @@ const SearchBox = ({ showSearchBox, searchQuery }) => {
     setPlaceholderVisible(showSearchBox)
   },[showSearchBox])
 
-  console.log(showSearchBox);
   return (
     <form
       className={`search-box ${showSearchBox ? 'active' : ''}`}

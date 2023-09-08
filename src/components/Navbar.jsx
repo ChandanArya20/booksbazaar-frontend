@@ -5,6 +5,7 @@ import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
 import { FaUser as ProfileIcon } from 'react-icons/fa';
 import { FaSearch as SearchIcon} from 'react-icons/fa';
 import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
+import { IoMenuOutline as MenuIcon } from 'react-icons/io5';
 import bookapplogo from '../Images/bookapplogo.png';
 import SearchBox from './SearchBox';
 import { isLoggedin } from '../Auth/loginFunc';
@@ -63,10 +64,6 @@ const Navbar = ({showSearchValue,searchQuery}) => {
       setShowSearchBox(!showSearchBox);
     };
 
-    const closeSearchBox=()=>{
-
-    }
-
 
     return (
       <>
@@ -88,7 +85,8 @@ const Navbar = ({showSearchValue,searchQuery}) => {
           </ul>
         </div>
         <div className="nav-right-content">
-          <SearchBox showSearchBox={showSearchBox} searchQuery={searchQuery}/>
+          <MenuIcon id='navbar-menu' className='icon'/>
+          <SearchBox className='icon' showSearchBox={showSearchBox} searchQuery={searchQuery}/>
           <div className="icons">
             <div className="search-icon">
               {showSearchBox ? <CloseIcon className='icon' id='close-icon' onClick={()=>toggleSearchBox()} /> : 

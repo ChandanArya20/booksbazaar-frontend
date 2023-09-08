@@ -11,10 +11,10 @@ const AddressFormPage = () => {
   const {cart, setCart, placeOrder}=useContext(CartContext)
   const navigate=useNavigate()
   const location=useLocation()
-  const userData=location.state
+  const userData=location.state.book
+  const book=location.state.book
   const { register, handleSubmit, formState: { errors } } = useForm()
 
-  console.log(userData);
 
   const submitAddress = async(addressData) => {
    console.log(userData);
@@ -28,10 +28,11 @@ const AddressFormPage = () => {
       })
       if(response.ok){
         const userAddress= await getUserAddress()
+        
         const orderData=cart.map(item=>{
           return {book:item.book, quantity:item.quantity,deliveryAddress: userAddress[0], user:userData}
           })
-          console.log(orderData); 
+  
           const status = await placeOrder(orderData) 
           if(status===true){
             navigate("/orderSuccessPage")
@@ -58,6 +59,7 @@ const AddressFormPage = () => {
 
 
   return (
+    <div className="address-form-page">
     <div className="address-form-container">
       <h2>Address Details</h2>
       <form onSubmit={handleSubmit(submitAddress)}>
@@ -176,6 +178,7 @@ const AddressFormPage = () => {
           <button type="submit">Submit</button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

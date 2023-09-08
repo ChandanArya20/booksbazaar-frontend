@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContex';
 
 const UserProfileDropdown = ({ showMenu, setShowMenu }) => {
+  
   // Context and State
   const { getCurrentUserDetails, logoutUser } = useContext(UserContext);
   const userData = getCurrentUserDetails();
@@ -13,6 +14,7 @@ const UserProfileDropdown = ({ showMenu, setShowMenu }) => {
   // Handle user logout
   const logoutHandler = () => {
     logoutUser(() => {
+      setShowMenu(false);
       navigate('/');
     });
   };
@@ -26,11 +28,7 @@ const UserProfileDropdown = ({ showMenu, setShowMenu }) => {
     <>
       <div className="menu-container" onClick={closeProfileMenu}></div>
       <div className={`dropdown-menu ${showMenu ? 'visible' : 'hidden'}`}>
-        <h3>
-          {userData.name}
-          <br />
-          <span> {userData?.email || userData?.phone}</span>
-        </h3>
+        <h3> {userData?.name} <br/>  <span> {userData?.email || userData?.phone}</span> </h3>                 
         <ul>
           <DropdownItem icon={<FaUser />} text={"My Profile"} />
           <DropdownItem icon={<FaEdit />} text={"Edit Profile"} />

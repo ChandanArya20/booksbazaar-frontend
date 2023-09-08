@@ -27,6 +27,7 @@ const UserContextProvider = ({ children }) => {
   };
 
   const logoutUser = (next) => {
+    console.log("RAm");
     localStorage.removeItem("userData");
     setCurrentUser(null);
     setCart([])

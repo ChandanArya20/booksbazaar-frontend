@@ -1,11 +1,18 @@
 /* AddressSelector.css */
 
-.address-selector {
-  max-width: 800px;
+.address-selector-page {
+  background-color: #fff;;
+  width: 98%;
+  height: 540px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
 }
-
+.address-selector-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
 .address-list {
   display: flex;
   gap: 20px;

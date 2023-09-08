@@ -1,27 +1,29 @@
 .recommended-section {
-    width: 95%;
+    width: 98%;
     margin: auto;
     padding-bottom: 20px;
     background-color: #fff;
     margin-top: 10px;
   }
   
-  .recommended-section__title {
+  .recommended-section-title {
     font-size: 20px;
     font-weight: bold;
     padding: 10px 10px;
 
   }
   
-  .recommended-section__books {
+  .recommended-section-books {
     margin-top: 10px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
   }
   
-  @media screen and (max-width: 480px) {
-    .recommended-section__books {
-      flex-wrap: nowrap;
+  @media screen and (max-width: 426px) {
+
+    .recommended-section-books {
+      gap: 2vw;
     }
   }
   

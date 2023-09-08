@@ -6,21 +6,19 @@ import { useNavigate } from 'react-router-dom';
 
 const CartItem = ({ cartItem }) => { 
 
-  const navigate=useNavigate()
-
   const {cart, setCart, updateCartItemQuantity, deleteCartItems } = useContext(CartContext)
   const [totalPrice, setTotalPrice] = useState(cartItem.book.price)
   const [quantity, setQuantity] = useState(cartItem.quantity)
+  const navigate=useNavigate()
 
   useEffect(() => {
     setTotalPrice(cartItem.book.price * quantity);
   }, [quantity]);
 
-  const showProductDetails=()=>{
 
+  const showProductDetails=()=>{
     navigate("/productDetailsPage", { state: cartItem.book })
   }
-
 
   const plusButtonHandler = (e) => {
     e.stopPropagation()
@@ -42,30 +40,36 @@ const CartItem = ({ cartItem }) => {
     deleteCartItems([cartItem])
   };
 
+
+
   return (
     <>
       <div className="cart-item" onClick={showProductDetails}>
-        <div className="product-image" >
-          <img src={cartItem.book.imageURL} alt="Product Image" />
-        </div>
+        <div className="left-cart-item">
+          <div className="product-image" >
+            <img src={cartItem.book.imageURL} alt="Product Image" />
+          </div>
 
-        <div className="book-details">
-          <h3 className="book-title">{cartItem.book.title}</h3>
-          <a className="book-author">{cartItem.book.author}</a>
+          <div className="book-details">
+            <h3 className="book-title">{cartItem.book.title}</h3>
+            <a className="book-author">{cartItem.book.author}</a>
+          </div>
         </div>
-
-        <div className="quantity-control">
-          <button className="quantity-btn minus" onClick={minusButtonHandler}>
-            -
-          </button>
-          <input type="number" className="quantity-input" value={quantity} readOnly />
-          <button className="quantity-btn plus" onClick={plusButtonHandler}>
-            +
-          </button>
+        <div className="right-cart-item">
+          <div className="quantity-control">
+            <button className="quantity-btn minus" onClick={minusButtonHandler}>
+              -
+            </button>
+            <input type="number" className="quantity-input" value={quantity} readOnly />
+            <button className="quantity-btn plus" onClick={plusButtonHandler}>
+              +
+            </button>
+          </div>
+          <div className="price">{totalPrice.toFixed(2)} ₹</div>
+          <div>
+            <CartDeleteButton className="remove-btn" onClick={cartRemoveHandler} />
+          </div>
         </div>
-
-        <div className="price">{totalPrice.toFixed(2)} ₹</div>
-        <CartDeleteButton className="remove-btn" onClick={cartRemoveHandler} />
       </div>
     </>
   );

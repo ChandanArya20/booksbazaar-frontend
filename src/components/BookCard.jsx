@@ -1,13 +1,15 @@
-import React from 'react';
 import '../css/bookcard.css';
+import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
-import ProductDetailsPage from '../pages/ProductDetailsPage';
 import { useNavigate } from 'react-router-dom';
 
 const BookCard = ({ book }) => {
+
   const { cart, setCart } = useContext(CartContext);
   const navigate=useNavigate()
+
+  //checking whether comming book is already in cart or not 
   const isBookInCart = cart.some((item) => item.id === book.id);
 
   const addToCart = () => {

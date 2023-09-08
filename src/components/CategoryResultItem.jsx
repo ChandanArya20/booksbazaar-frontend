@@ -27,7 +27,7 @@ const CategoryResultItem = ({ book }) => {
     e.stopPropagation();
 
     if(isUserLoggedin()){
-      const cartItem={id:book.id ,book, quantity:1}
+      const cartItem={book, quantity:1}
       addToCart(cartItem)
 
     }else

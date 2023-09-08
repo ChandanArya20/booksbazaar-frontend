@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContex';
 import { doSellerLogout, getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
 
-const UserProfileDropdown = ({ showMenu, setShowMenu }) => {
+const SellerProfileDropdown = ({ showMenu, setShowMenu }) => {
   // Context and State
   const sellerData=getCurrentSellerDetails()
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const UserProfileDropdown = ({ showMenu, setShowMenu }) => {
     <>
       <div className="menu-container"  onClick={closeProfileMenu}></div>
       <div className={`dropdown-menu ${showMenu ? 'visible' : 'hidden'}`} id='menu-container-seller'>    
-      <h3> {sellerData.name} <br/> <span> {sellerData.sellerId }</span> </h3>       
+      <h3> {sellerData?.name} <br/> <span> {sellerData?.sellerId }</span> </h3>       
       <ul>
         <DropdownItem icon={<FaUser />} text={"My Profile"} />
         <DropdownItem icon={<FaEdit />} text={"Edit Profile"} />
@@ -51,4 +51,4 @@ const DropdownItem = (props) => {
   );
 };
 
-export default UserProfileDropdown;
+export default SellerProfileDropdown;

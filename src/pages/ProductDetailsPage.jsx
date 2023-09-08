@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import { CartContext } from '../context/CartContext';
 import {toast} from 'react-toastify'
 import { UserContext } from '../context/UserContex';
-import { getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
+import { getWholeUserData } from '../Auth/helper';
 
 const ProductDetailsPage = () => {
 
@@ -17,7 +17,9 @@ const ProductDetailsPage = () => {
   const {isUserLoggedin}=useContext(UserContext)
   const isBookInCart = cart.some((item) => item.book.id === bookInfo?.id);
 
+
   const getAllBookDetails = async () => {
+
     try {
       const response = await fetch("http://localhost:8080/api/book/" + bookInfo.id);
       if (response.ok) {
@@ -26,10 +28,10 @@ const ProductDetailsPage = () => {
       }
     } catch (error) {
       console.error(error);
-      // toast.error("Server is down, try again later", {
-      //   position: 'top-center',
-      //   theme: 'dark'
-      // });
+      toast.error("Server is down, try again later", {
+        position: 'top-center',
+        theme: 'dark'
+      });
     }
   };
 
@@ -43,7 +45,7 @@ const ProductDetailsPage = () => {
 
   const handleAddToCart = () => {
     if(isUserLoggedin()){
-      const cartItem={id:book.id ,book, quantity:1}
+      const cartItem={book, quantity:1}
       addToCart(cartItem)
 
     }else
@@ -57,33 +59,26 @@ const ProductDetailsPage = () => {
   }
 
   const handleBuyNow = async() => {
-    if(!isUserLoggedin()){
-      navigate("/phoneLogin")
-      return
-    }
-    try {
-        const response=await fetch(`http://localhost:8080/api/order/placeOrder`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify([{book, quantity:1, user:getCurrentSellerDetails()}])
-      });
-      if(response.ok){
-        navigate("/orderSuccessPage")
-      }
-      else{
-        toast.error("Placing order failed..., try again later", {
-          position: 'top-center',
-          theme: 'dark'
-        })
-      }
 
-    console.log("Cart item quantity updated on the server!");
-    } catch (error) {
-      console.error(error)
-      const errorObj={  errorMessage : error.message }
-      navigate('/errorPage', {state:errorObj })
+    if(isUserLoggedin()){    
+      try {
+        const user=await getWholeUserData()
+  
+        if(user.address.length!==0){
+          navigate("/addressContinue", {state:{book,user}})
+        } else{
+          navigate("/addressFormPage", {state:{book,user}})
+        }     
+  
+      console.log("Cart item quantity updated on the server!");
+      } catch (error) {
+        console.error(error)
+        const errorObj={  errorMessage : error.message }
+        navigate('/errorPage', {state:errorObj })
+      }
+  
+    } else{
+      navigate("/phoneLogin")
     }
   };
 

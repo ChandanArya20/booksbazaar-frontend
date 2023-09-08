@@ -2,9 +2,6 @@ import '../css/category_row.css';
 import React, { useRef, useState } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 
-const categories = [
-  // ... your categories data ...
-];
 
 const CategoryRow = ({ categories, selectedCategoryId, onCategorySelect }) => {
 

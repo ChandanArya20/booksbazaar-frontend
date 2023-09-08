@@ -1,29 +1,52 @@
-.services__item {
+  .services-item {
     background-color: #d0e8edd5;
+    width: 28vw;
+    height: 15vw;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
   
-  .services__item:hover {
+  .services-item:hover {
     transform: translateY(-10px);
   }
   
-  .services__icon {
+  .services-icon {
     font-size: 40px;
     color:#007bff;
     margin-bottom: 20px;
   }
   
-  .services__item-title {
+  .services-item-title {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
   }
   
-  .services__item-description {
+  .services-item-description {
     font-size: 16px;
     line-height: 1.6;
   }
   
+
+  @media (max-width:426px) {
+    .services-item {  
+      width: 88vw;
+      height: 40vw;  
+      padding: 10px;
+    }
+    .services-icon {
+      font-size: 30px;
+      color:#007bff;
+      margin-bottom: 5px;
+    }
+    .services-item-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .services-item:hover {
+      transform:none;
+    }
+  }

@@ -4,42 +4,38 @@ import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContex';
+import { getWholeUserData } from '../Auth/helper';
 
 
-const CategoryResultItem = ({ book }) => {
+const SearchResultItem = ({ book }) => {
 
   const { cart, addToCart, setCart } = useContext(CartContext);
   const {isUserLoggedin}=useContext(UserContext)
   const navigate=useNavigate()
   const isBookInCart = cart.some((item) => item.id === book.id);
 
+
   const handleAddToCart = (e) => {
     e.stopPropagation();
 
     if(isUserLoggedin()){
-      const cartItem={id:book.id ,book, quantity:1}
+      const cartItem={book, quantity:1}
       addToCart(cartItem)
 
     }else
       navigate("/phoneLogin")
   }
 
-  const removeFromCart = () => {
-    if (isBookInCart) {
-      setCart(cart.filter((item) => item.id !== book.id));
-    }
-  };
-
-  const HandleBuyBook=(e)=>{
-
+  const HandleBuyBook=async(e)=>{
     e.stopPropagation();
-     // const user=await getWholeUserData()
 
-    // if(user.address.length!==0){
-    //   navigate("/addressContinue", {state:user})
-    // } else{
-    //   navigate("/addressFormPage", {state:user})
-    // }     
+    const user=await getWholeUserData()
+
+    if(user.address.length!==0){
+      navigate("/addressContinue", {state:{book,user}})
+    } else{
+      navigate("/addressFormPage", {state:{book,user}})
+    }     
   }
 
   const goToCart=(e)=>{
@@ -91,4 +87,4 @@ const CategoryResultItem = ({ book }) => {
   );
 };
 
-export default CategoryResultItem;
+export default SearchResultItem;
