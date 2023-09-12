@@ -1,4 +1,4 @@
-import '../css/book_seller_page.css'
+import '../css/book_seller_page.css';
 import React, { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -14,9 +14,10 @@ const BookAddSellerPage = () => {
 
   const submitBookDetails = async (data) => {
     
+    //Holds data as key value pair to transfer in backend 
     const formData = new FormData();
   
-    const bookSeller=getCurrentSellerDetails()
+    const bookSeller=getCurrentSellerDetails();
     // Remove the coverImage property from the data object using destructuring
     const { coverImage, ...bookData } = data;
 
@@ -29,13 +30,6 @@ const BookAddSellerPage = () => {
     // Append the cover image file to the FormData
     formData.append('coverImage', data.coverImage[0]);
   
-    console.log(coverImage);
-    console.log(coverImage[0] );
-    console.log(coverImage[0].name);
-    console.log(bookData);
-    console.log(newData);
-    console.log(formData);
-  
     // Fetch API POST request
     try {
       const response = await fetch('http://localhost:8080/api/book/seller/addBook', {
@@ -44,20 +38,20 @@ const BookAddSellerPage = () => {
       });
   
       if (response.ok) {
-        const errorMessage=await response.text()
+        const errorMessage=await response.text();
         toast.success(errorMessage, {
           position: 'top-center',
           theme: 'dark'
-        })
+        });
       } else {
-        const errorMsg=response.text()
-        throw new Error(errorMsg)
+        const errorMsg=response.text();
+        throw new Error(errorMsg);
         
       }
     } catch (error) {
-      console.error(error)
-      const errorObj={  errorMessage : error.message }
-      navigate('/errorPage', {state:errorObj })
+      console.error(error);
+      const errorObj={  errorMessage : error.message };
+      navigate('/errorPage', {state:errorObj });
     }
   };
   
@@ -344,8 +338,7 @@ const BookAddSellerPage = () => {
                 Submit
               </button>
           </div>
-        </form>
-        
+        </form>      
       </div>
     </div>
   );

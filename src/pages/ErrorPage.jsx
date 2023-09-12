@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 
 const ErrorPage = () => {
 
-    const location=useLocation()
-    const{errorMessage}=location.state
+    const location=useLocation();
+    const{errorMessage}=location.state;
 
   return (
     <div className="error-container">

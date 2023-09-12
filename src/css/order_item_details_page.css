@@ -8,6 +8,8 @@
 
 .order-item-image {
   padding: 20px;
+  display: flex;
+  justify-content: center;
   flex: 1;
 }
 
@@ -64,4 +66,25 @@
 }
 .cancel-order-button button:hover {
   background-color: #ff4c39;
+}
+
+
+@media (max-width:426px) {
+
+  .order-item-details-container {
+    flex-direction: column;
+  }
+  .order-item-image {
+    padding: 10px;
+  }
+  .order-item-image img {
+    width: 50%;
+  }
+  .order-item-details-extra{
+    width: 100%;
+    flex-direction: column;
+    gap: 4vw;
+    padding: 10px 0px;
+  }
+  
 }

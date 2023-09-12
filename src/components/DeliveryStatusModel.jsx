@@ -1,7 +1,7 @@
 import '../css/delivery_status_model.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {toast} from 'react-toastify'
+import {toast} from 'react-toastify';
 
 const DeliveryStatusModel = ({setShowStatusModel, orderId, orderStatus, handleStatusChanges}) => {
 
@@ -70,7 +70,7 @@ const DeliveryStatusModel = ({setShowStatusModel, orderId, orderStatus, handleSt
           onClick={handleChangeStatusButton}
           disabled={selectedStatus === orderStatus}> 
           Save Status
-          </button>
+        </button>
         </div>
       </div>
       </>

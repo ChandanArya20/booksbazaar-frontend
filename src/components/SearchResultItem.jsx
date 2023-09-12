@@ -55,32 +55,34 @@ const SearchResultItem = ({ book }) => {
 
   return (
     <div className="search-result-book-card" onClick={productDetailsHandler}>
+      <div className="search-result-book-card-left">
+        <div className="book-image-conatiner">
+          <img src={book.imageURL} alt="Book image" className="book-card-image" />
+        </div>
 
-      <div className="book-image-conatiner">
-        <img src={book.imageURL} alt="Book image" className="book-card-image" />
+        <div className="book-card-content" >
+          <h3 className="book-card-title">{book.title}</h3>
+          <p className="book-card-author"><span>By: </span>{book.author}</p>
+          <p className="book-card-author"><span>Language: </span>{book.language}</p>
+          <p className="book-card-author"><span>Publisher: </span>{book.publisher}</p>
+          <p className="book-card-author"><span>Category: </span>{book.category}</p>
+          <p className="book-card-author"><span>Pages: </span>{book.pages}</p>
+        </div>
       </div>
-
-      <div className="book-card-content" >
-        <h3 className="book-card-title">{book.title}</h3>
-        <p className="book-card-author"><span>By: </span>{book.author}</p>
-        <p className="book-card-author"><span>Language: </span>{book.language}</p>
-        <p className="book-card-author"><span>Publisher: </span>{book.publisher}</p>
-        <p className="book-card-author"><span>Category: </span>{book.category}</p>
-        <p className="book-card-author"><span>Pages: </span>{book.pages}</p>
-      </div>
-
-      <div className="book-card-buttons">
+      <div className="search-result-book-card-right">
           <div className="book-card-price">₹{book.price}</div>
-          <button
-            className='book-card-button'
-            onClick={isBookInCart ? goToCart : handleAddToCart}>      
-            {isBookInCart ? 'Go To Cart' : 'Add to Cart'}
-          </button>
-          <button
-            className='book-card-button book-card-button-buy'
-            onClick={HandleBuyBook} >    
-            Buy Now
-          </button>
+          <div className="book-card-buttons">
+            <button
+              className='book-card-button'
+              onClick={isBookInCart ? goToCart : handleAddToCart}>      
+              {isBookInCart ? 'Go To Cart' : 'Add to Cart'}
+            </button>
+            <button
+              className='book-card-button book-card-button-buy'
+              onClick={HandleBuyBook} >    
+              Buy Now
+            </button>
+          </div>
       </div>
 
     </div>

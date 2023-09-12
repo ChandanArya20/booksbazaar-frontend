@@ -22,3 +22,44 @@
     padding: 10px 0px;
     border-radius: 10px;
 }
+
+
+@media (max-width:426px) {
+
+    .search-result-container{
+        width: 95vw;
+    }
+    .search-result-item-container{
+        width: 100%;
+        gap: 7px;
+    }
+    .search-result-list-container{
+        width: 100%;
+        margin: auto 0;
+        justify-content: space-between;
+    }
+    .search-result-filter{
+        display: none;
+    }
+    .filter-button-container{
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .search-result-filter-model{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        height: auto;
+        background-color: #fff;
+        justify-content: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+    .search-filter-modal-cross-button{
+        display: flex;
+    }
+}

@@ -1,6 +1,5 @@
 
 .book-selling-page-container{
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +14,7 @@
   background-color: rgba(255, 255, 255, 0.925);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 30px 30px;
+  padding: 30px;
   width: 800px;
 }
 
@@ -33,7 +32,7 @@
 }
 
 .book_selling-Page input, textarea, select {
-  padding: 10px 30px;
+  padding: 10px;
   margin-bottom: 25px;
   margin-top: 8px;
   border: none;
@@ -43,7 +42,7 @@
   outline: none;
 }
 .book_selling-Page textarea{
-  width:300px;
+  width:280px;
   height: 100px
 }
 .book_selling-Page input:focus{
@@ -86,4 +85,22 @@
   display: flex;
   flex-direction: column;
   font-weight: bolder;
+}
+
+@media (max-width:426px) {
+  
+  .book_selling-Page {
+    flex-direction: column;
+    padding:30px;
+    width: 80vw;
+  }
+  .selling-form{
+    width: 85vw;
+   flex-direction: column;
+   gap: 0;
+  }
+  .book_selling-Page textarea{
+    width:93%;
+    height: 70px;
+  }
 }

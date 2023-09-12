@@ -45,40 +45,39 @@ const ProductDetailsPage = () => {
 
   const handleAddToCart = () => {
     if(isUserLoggedin()){
-      const cartItem={book, quantity:1}
-      addToCart(cartItem)
+      const cartItem={book, quantity:1};
+      addToCart(cartItem);
 
     }else
-      navigate("/phoneLogin")
+      navigate("/phoneLogin");
   }
   const goToCart=()=>{
     if(isUserLoggedin()){
-      navigate("/cart")
+      navigate("/cart");
     }else
-       navigate("/phoneLogin")
+       navigate("/phoneLogin");
   }
 
   const handleBuyNow = async() => {
 
     if(isUserLoggedin()){    
       try {
-        const user=await getWholeUserData()
+        const user=await getWholeUserData();
   
         if(user.address.length!==0){
-          navigate("/addressContinue", {state:{book,user}})
+          navigate("/addressContinue", {state:{book,user}});
         } else{
-          navigate("/addressFormPage", {state:{book,user}})
+          navigate("/addressFormPage", {state:{book,user}});
         }     
   
-      console.log("Cart item quantity updated on the server!");
       } catch (error) {
-        console.error(error)
-        const errorObj={  errorMessage : error.message }
-        navigate('/errorPage', {state:errorObj })
+        console.error(error);
+        const errorObj={  errorMessage : error.message };
+        navigate('/errorPage', {state:errorObj });
       }
   
     } else{
-      navigate("/phoneLogin")
+      navigate("/phoneLogin");
     }
   };
 

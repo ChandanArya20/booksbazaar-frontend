@@ -1,18 +1,18 @@
 import "./App.css";
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import CartPage from './components/CartPage';
-import LoginWithEmailPage from './components/LoginWithEmailPage';
-import LoginWithPhonePage from './components/LoginWithPhonePage';
-import RegistrationPage from './components/RegistrationPage';
-import PasswordCreationPage from './components/PasswordCreationPage';
-import ErrorPage from './components/ErrorPage';
-import UpcomingFeature from './components/UpcommingFeature';
-import HomePage from "./components/HomePage";
-import SellerPasswordCreationPage from "./components/SellerPasswordCreationPage";
-import SellerRegistrationPage from "./components/SellerRegistrationPage";
-import SellerLoginPage from "./components/SellerLoginPage";
-import SellerDashboard from "./components/SelllerDashboard";
+import CartPage from './pages/CartPage';
+import LoginWithEmailPage from './pages/LoginWithEmailPage';
+import LoginWithPhonePage from './pages/LoginWithPhonePage';
+import RegistrationPage from './pages/RegistrationPage';
+import PasswordCreationPage from './pages/PasswordCreationPage';
+import ErrorPage from './pages/ErrorPage';
+import UpcomingFeature from './pages/UpcommingFeature';
+import HomePage from "./pages/HomePage";
+import SellerPasswordCreationPage from "./pages/SellerPasswordCreationPage";
+import SellerRegistrationPage from "./pages/SellerRegistrationPage";
+import SellerLoginPage from "./pages/SellerLoginPage";
+import SellerDashboard from "./pages/SelllerDashboard";
 import BookAddSellerPage from "./pages/BookAddSellerPage";
 import BookUpdateSellerPage from "./pages/BookUpdateSellerPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
@@ -21,13 +21,14 @@ import UserOrderPage from "./pages/UserOrderPage";
 import AddressFormPage from "./pages/AddressFormPage";
 import AddressSelectorPage from "./pages/AddressSelectorPage";
 import OrderItemDetailsPage from "./pages/OrderItemDetailsPage";
-import AddressItem from "./components/AddressItem";
+import AddressItem from "./pages/AddressItem";
 import AddressContinue from "./pages/AddressContinue";
 import SellerOrderItemDetailsPage from "./pages/SellerOrderItemDetailsPage";
 import SellerOrderPage from "./pages/SellerOrderPage";
-import DeliveryStatusModel from "./components/DeliveryStatusModel";
+import DeliveryStatusModel from "./pages/DeliveryStatusModel";
 import CategoryResultPage from "./pages/CategoryResultPage";
 import SearchResultPage from "./pages/SearchResultPage";
+
 
 const App = () => {
   return ( 
@@ -48,7 +49,6 @@ const App = () => {
         <Route path="/productDetailsPage" element={<ProductDetailsPage />} />
         <Route path="/orderSuccessPage" element={<OrderSuccessPage />} />
         <Route path="/addressItem" element={<AddressItem/>} />
-        {/* <Route path="/orderItem" element={<OrderItem/>} /> */}
         <Route path="/userOrderPage" element={<UserOrderPage/>} />
         <Route path="/addressFormPage" element={<AddressFormPage />} />
         <Route path="/addressSelectorPage" element={<AddressSelectorPage />} />

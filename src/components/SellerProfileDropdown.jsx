@@ -2,20 +2,19 @@ import '../css/user_profile_dropdown.css';
 import { FaUser, FaEdit, FaInbox, FaCog, FaQuestion, FaSignOutAlt } from 'react-icons/fa';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../context/UserContex';
 import { doSellerLogout, getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
 
 const SellerProfileDropdown = ({ showMenu, setShowMenu }) => {
   // Context and State
-  const sellerData=getCurrentSellerDetails()
+  const sellerData=getCurrentSellerDetails();
   const navigate = useNavigate();
 
   // Handle seller logout
   const logoutHandler=()=>{
     doSellerLogout(()=>{
-      navigate('/')
+      navigate('/');
     })
-  }
+  };
 
   const closeProfileMenu = (e) => {
     e.stopPropagation();

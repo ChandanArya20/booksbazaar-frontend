@@ -23,7 +23,7 @@ const SellerRegistrationPage = () => {
         <form onSubmit={handleSubmit(registerUser)}>
           <input
             type="text"
-            defaultValue={isLoggedin && currentUser.name}
+            defaultValue={isLoggedin && currentUser?.name}
             placeholder="Enter full name"
             {...register('name', {
               required: 'Name is required',
@@ -72,7 +72,7 @@ const SellerRegistrationPage = () => {
           <input
             type="tel"
             placeholder="Phone (optional)"
-            defaultValue={isLoggedin && currentUser.phone}
+            defaultValue={isLoggedin && currentUser?.phone}
             {...register('phone', {
               pattern: {
                 value: /^[6-9][0-9]*$/,

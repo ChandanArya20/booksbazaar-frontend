@@ -6,12 +6,15 @@ import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import FilterModel from "../components/FIlterModel";
+import {BiFilterAlt as FilterIcon} from 'react-icons/bi';
+import {AiOutlineClose as CloseIcon} from 'react-icons/ai';
 
 const SearchResultPage = () => {
 
     const searchQuery=useLocation().state;
     const navigate = useNavigate();    
     const [originalBooks, setOriginalBooks]=useState([]);
+    const [showFilter, setShowFilter]=useState(false);
     const [books, setBooks] = useState([]); 
     const [priceFilter, setPriceFilter] = useState(null);
     const [languageFilters, setLanguageFilters] = useState({
@@ -128,13 +131,22 @@ const SearchResultPage = () => {
     useEffect(()=>{
         searchBooks();
     },[searchQuery])
+
+    const closeModel=()=>{
+        setShowFilter(false);
+    };
+
+
   
 
     return (
         <>
         <Navbar showSearchValue={true} searchQuery={searchQuery}/>
         <div className="search-result-container">
-            <div className="search-result-filter">
+            <div className={`search-result-filter ${showFilter ? 'search-result-filter-model' : ''}`}>
+                <div className="category-filter-modal-cross-button" onClick={closeModel}>
+                    <CloseIcon/>
+                </div>
                 <FilterModel                
                     priceFilter={priceFilter}
                     handlePriceFilterChange={handlePriceFilterChange}
@@ -145,8 +157,17 @@ const SearchResultPage = () => {
                 />
             </div>
             <div className="search-result-item-container">
-                {books.map(book => <SearchResultItem key={book.id} book={book} />)}
+                <div className="filter-button-container">
+                 <div onClick={()=>setShowFilter(true)}>
+                    <FilterIcon/>
+                    <p>Filters </p>
+                 </div>
+                </div>
+                <div className="search-result-item-container">
+                    {books.map(book => <SearchResultItem key={book.id} book={book} />)}
+                </div>
             </div>
+            
         </div>
         </>
     );

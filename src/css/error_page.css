@@ -2,10 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 85vh;
   }
   
   .error-content {
+    width: 90vw;
     text-align: center;
   }
   

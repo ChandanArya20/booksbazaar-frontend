@@ -3,7 +3,7 @@
 .address-selector-page {
   background-color: #fff;;
   width: 98%;
-  height: 540px;
+  height: 550px;
   margin: 0 auto;
   margin-top: 10px;
 }
@@ -45,7 +45,7 @@
 .address-item.selected {
   background-color: #beecf0d3;
 }
-.address-hanler-btn{
+.address-handler-btn{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,4 +95,26 @@
 }
 .seleted-next-btn button:hover{
   background-color:#02877a;
+}
+
+@media (max-width:426px) {
+
+  .address-list {
+    flex-direction: column;
+  }  
+  .address-item {
+    padding: 10px;
+    width: 90vw;
+  }
+  .address-handler-btn{
+    margin-top: 15px;
+  }
+  .select-indicator {
+    margin-top: -20px;
+  }
+  .address-selector-container h2{
+    font-size: 18px;
+  }
+  
+   
 }

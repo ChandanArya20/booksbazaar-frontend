@@ -1,6 +1,6 @@
 /* OrderPage styles */
 
-.order-page {
+  .order-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,12 +8,12 @@
     width: 98%;
     margin-top: 63px;  
     background-color: #fff;
-
-}
-.order-page h2{
+  }
+  .order-page h2{
     margin-top: 5px;
-}
-.order-list {
+    font-size: 22px;
+  }
+  .order-list {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -26,13 +26,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 16px;
     gap: 5px;
-    padding: 7px 13px;
+    padding: 7px;
     border-radius: 5px;
     cursor: pointer;
     position: relative;
     left: 340px;
-    /* margin-left: 200px; */
+    width: 80px;
+  }
 
+  @media (max-width:426px) {
+    .order-page {
+      width: 98vw;
+    }
+    .filter-button{
+      left: 35vw;
+    }
+    .order-list {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      align-items: center;
+      gap: 2vw;
+    }
   }
   

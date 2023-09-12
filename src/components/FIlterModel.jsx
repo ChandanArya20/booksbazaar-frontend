@@ -1,6 +1,4 @@
 import '../css/order_filter_model.css';
-import React, { useEffect, useState } from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
 
 const FilterModel = ({
     priceFilter,
@@ -15,6 +13,7 @@ const FilterModel = ({
   return (
     <>
       <div className="category-filter-modal-container">
+        
         <h2 id='category-filter-heading'>Filters</h2>
         <div className="price-filter">
           <h2>Price</h2>

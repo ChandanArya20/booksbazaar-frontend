@@ -1,13 +1,12 @@
-import '../css/order_success_page.css'
+import '../css/order_success_page.css';
 import { useNavigate } from 'react-router-dom';
 
 const OrderSuccessPage = () => {
 
-    const navigate=useNavigate()
+    const navigate=useNavigate();
 
   const handleContinueShopping=()=>{
-
-    navigate("/")
+    navigate("/");
   }
   
   return (

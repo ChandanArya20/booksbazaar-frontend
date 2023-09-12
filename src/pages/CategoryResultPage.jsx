@@ -6,13 +6,15 @@ import { toast } from 'react-toastify';
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import FilterModel from "../components/FIlterModel";
+import {BiFilterAlt as FilterIcon} from 'react-icons/bi';
+import {AiOutlineClose as CloseIcon} from 'react-icons/ai';
 
 const CategoryResultPage = ({categoryName}) => {
 
     const navigate = useNavigate();    
     const [originalBooks, setOriginalBooks]=useState([]);
     const [books, setBooks] = useState([]);
-
+    const [showFilter, setShowFilter]=useState(false);
     const [priceFilter, setPriceFilter] = useState(null);
     const [languageFilters, setLanguageFilters] = useState({
         English: false,
@@ -120,6 +122,10 @@ const CategoryResultPage = ({categoryName}) => {
         setBooks(sortBooks(books));
     }, [priceFilter]);
 
+    const closeModel=()=>{
+        setShowFilter(false);
+    };
+
 
 
     const fetchBooksByCategory = async () => {
@@ -149,18 +155,29 @@ const CategoryResultPage = ({categoryName}) => {
         <>
         <Navbar/>
         <div className="category-result-container">
-            <div className="category-result-filter">
+                <div className={`category-result-filter ${showFilter ? 'category-result-filter-model' : ''}`}>
+                <div className="category-filter-modal-cross-button" onClick={closeModel}>
+                    <CloseIcon/>
+                </div>
                 <FilterModel                
                     priceFilter={priceFilter}
                     handlePriceFilterChange={handlePriceFilterChange}
                     languageFilters={languageFilters}
                     handleLanguageFilterChange={handleLanguageFilterChange}
                     otherFilters={otherFilters}
-                    handleOtherFilterChange={handleOtherFilterChange}             
+                    handleOtherFilterChange={handleOtherFilterChange}           
                 />
             </div>
             <div className="category-result-item-container">
-                {books.map(book => <CategoryResultItem key={book.id} book={book} />)}
+                <div className="filter-button-container">
+                 <div onClick={()=>setShowFilter(true)}>
+                    <FilterIcon/>
+                    <p>Filters </p>
+                 </div>
+                </div>
+                <div className="category-result-list-container">
+                    {books.map(book => <CategoryResultItem key={book.id} book={book} />)}
+                </div>
             </div>
         </div>
         </>

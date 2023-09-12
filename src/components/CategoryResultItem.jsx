@@ -17,9 +17,9 @@ const CategoryResultItem = ({ book }) => {
     e.stopPropagation();
 
     if(isUserLoggedin()){
-      navigate("/cart")
+      navigate("/cart");
     }else{
-      navigate("/phoneLogin")
+      navigate("/phoneLogin");
     }
   }
 
@@ -28,14 +28,14 @@ const CategoryResultItem = ({ book }) => {
 
     if(isUserLoggedin()){
       const cartItem={book, quantity:1}
-      addToCart(cartItem)
+      addToCart(cartItem);
 
     }else
-      navigate("/phoneLogin")
+      navigate("/phoneLogin");
   }
 
   const showProductDetails=()=>{
-    navigate("/productDetailsPage", { state: book })
+    navigate("/productDetailsPage", { state: book });
   }
 
   return (

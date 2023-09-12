@@ -79,6 +79,16 @@
 
 @media (max-width:426px) {
 
+  .cart-page {
+    width: 98%;
+    height: 80vh;
+    margin: auto;
+    margin-top: 63px;  
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 10px 0px;
+    border-radius: 5px;
+  }
   .cart-all-item{
     width: 95vw;
     margin: 0 auto;
@@ -102,6 +112,14 @@
     padding: 7px 15px;
     font-size: 16px;
   }
+  .empty-cart-heading{
+    font-size: 20px;
+  }
+  .empty-cart-btn { 
+    padding: 7px 14px;
+    font-size: 14px;
+    font-weight: normal;
+  } 
   
 }
 

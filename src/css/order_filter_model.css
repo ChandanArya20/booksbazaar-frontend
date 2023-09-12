@@ -20,6 +20,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 12;
   }
+
   .filter-cross-button{
     display: flex;
     justify-content: flex-end;
@@ -37,7 +38,7 @@
   }
   .modal-content h2 {
     margin-top: 0;
-    font-size: 18px;
+    font-size: 18px !important;
   }
   
   .filter-options {
@@ -103,5 +104,22 @@
     background-color: #82d9df;
     cursor: not-allowed;
  }
+
+
+ @media (max-width:426px) {
+  .filter-options {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .category-filter-modal-container{
+    padding: 0 20px 10px 20px;
+  }
+
+ 
+ }
+
+ 
 
   

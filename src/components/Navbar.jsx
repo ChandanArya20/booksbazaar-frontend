@@ -24,6 +24,7 @@ const Navbar = ({showSearchValue,searchQuery}) => {
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
     const [showSearchBox, setShowSearchBox]=useState(showSearchValue)
+    const [activeNavMenu, setActiveNavMenu]=useState(false);
 
     // Update login state when currentUser changes
     useEffect(() => {
@@ -64,11 +65,20 @@ const Navbar = ({showSearchValue,searchQuery}) => {
       setShowSearchBox(!showSearchBox);
     };
 
+    const toggleNavMenuBtn=()=>{
+      setActiveNavMenu(!activeNavMenu);
+    }
+
+    const closeActiveNavMenu=()=>{
+      setActiveNavMenu(!activeNavMenu);
+
+    }
+
 
     return (
       <>
       <nav>
-        <div className="nav_left_content">
+        <div className={`nav-left-content ${activeNavMenu ? 'activeMenu' : ''}`}>
           <div className="book-app-logo">
             <img src={bookapplogo} alt="BookApp Logo" />
           </div>
@@ -85,7 +95,9 @@ const Navbar = ({showSearchValue,searchQuery}) => {
           </ul>
         </div>
         <div className="nav-right-content">
-          <MenuIcon id='navbar-menu' className='icon'/>
+          {!activeNavMenu && <MenuIcon id='navbar-menu' className='icon' onClick={toggleNavMenuBtn}/>}
+          {activeNavMenu && <CloseIcon id='navbar-menu' className='icon' onClick={closeActiveNavMenu}/>}
+            
           <SearchBox className='icon' showSearchBox={showSearchBox} searchQuery={searchQuery}/>
           <div className="icons">
             <div className="search-icon">

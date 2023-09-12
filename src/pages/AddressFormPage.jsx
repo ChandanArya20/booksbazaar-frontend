@@ -1,5 +1,5 @@
+import '../css/address_form_page.css';
 import { useForm } from 'react-hook-form';
-import '../css/address_form_page.css'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
@@ -17,7 +17,7 @@ const AddressFormPage = () => {
 
 
   const submitAddress = async(addressData) => {
-   console.log(userData);
+   
     try {
         const response=await fetch(`http://localhost:8080/api/user/${userData.id}/saveAddress`,{
         method:'POST',
@@ -27,33 +27,33 @@ const AddressFormPage = () => {
         body:JSON.stringify(addressData)
       })
       if(response.ok){
-        const userAddress= await getUserAddress()
+        const userAddress= await getUserAddress();
         
         const orderData=cart.map(item=>{
           return {book:item.book, quantity:item.quantity,deliveryAddress: userAddress[0], user:userData}
-          })
+          });
   
-          const status = await placeOrder(orderData) 
+          const status = await placeOrder(orderData);
           if(status===true){
-            navigate("/orderSuccessPage")
+            navigate("/orderSuccessPage");
           }else{
             toast.error("Placing order failed..., try again later", {
               position: 'top-center',
               theme: 'dark'
-            })
+            });
           }
       }else{
-        console.log(await response.text())
+        console.log(await response.text());
         toast.error("There is some issues, try later...", {
           position: 'top-center',
           theme: 'dark'
-        })
+        });
       }
 
     } catch (error) {
-      console.log(error)
-      const errorObj={  errorMessage : error.message }
-      navigate('/errorPage', {state:errorObj })
+      console.log(error);
+      const errorObj={  errorMessage : error.message };
+      navigate('/errorPage', {state:errorObj });
     }
   };
 

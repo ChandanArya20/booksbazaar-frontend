@@ -8,66 +8,62 @@
     align-items: center;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-   }
-   .nav_left_content{
+  }
+  .nav-left-content{
     width: 60vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
-   }
-   .book-app-logo img{
-     width: 8vw;
-     mix-blend-mode: darken;
-     margin-left: 20px;
-   }
-   
-   .nav_left_content ul {
-     list-style-type: none;
-     display: flex;
-     justify-content: end; 
-     gap: 3vw;
-     margin-right: 10vw;
-     margin-left: 2vw;
-   }
-   .nav_left_content li a {
-     text-decoration: none;
-     color: #333;
-     font-size: 1.8rem;
-     padding: 1.5rem;
-     transition: all 0.3s ease;
-   }
-   
-   .nav_left_content li a:hover {
-     color: #e48a03;
-   }
+  }
+  .book-app-logo img{
+    width: 8vw;
+    mix-blend-mode: darken;
+    margin-left: 20px;
+  }   
+  .nav-left-content ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: end; 
+    gap: 3vw;
+    margin-right: 10vw;
+    margin-left: 2vw;
+  }
+  .nav-left-content li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    padding: 15px;
+    transition: all 0.3s ease;
+  }   
+  .nav-left-content li a:hover {
+    color: #e48a03;
+  }
   
-   .nav-right-content{
-     width: 40vw;
-     display: flex;
-     align-items: center;
-     justify-content: flex-end;
-     /* position: absolute; */
-   }
-
-   .nav-right-content .icons{
-     color: black;
-     width: 100%;
-     display: flex;
-     justify-content: flex-end;
-     gap: 5vw;
-     align-items: center;
-     margin-right: 20px;
-   }
-   .icon{
-     font-size: 20px;
-     transition: 300ms;
-     cursor: pointer;
-   }
+  .nav-right-content{
+    width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .nav-right-content .icons{
+    color: black;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5vw;
+    align-items: center;
+    margin-right: 20px;
+  }
+  .icon{
+    font-size: 20px;
+    transition: 300ms;
+    cursor: pointer;
+  }
 
   .icon:hover{
-     color:#4d4d4e;
-   }
-   .search-icon, .cart-icon, .profile-icon{
+    color:#4d4d4e;
+  }
+  .search-icon, .cart-icon, .profile-icon{
     position: relative;
     display: flex;
     padding: 7px 10px;
@@ -125,8 +121,35 @@
     nav{
       height: 55px;
     }
-    .nav_left_content{
-     display: none;
+    .nav-left-content .book-app-logo{
+      display: none;
+    }
+    .nav-left-content{
+      position: fixed;
+      width: 80%;
+      height: 150px;
+      left: 50%;
+      right: 50%;
+      transform: translate(-50%, -50%);
+      top: -100%;
+      background-color: #071836c4;  
+      transition: all .3s;   
+      border-radius: 10px;
+    }
+    .nav-left-content ul {
+      flex-direction:column ;
+      align-items: center;
+      gap: 6vw;
+      margin-right: 0;
+      margin-left: 0;
+    }
+    .nav-left-content li a {
+      color: #fff;
+      font-size: 19px;
+      padding: 15px;
+    }
+    .nav-left-content.activeMenu{
+      top: 130px;
     }
     .nav-right-content{
       width: 100vw;

@@ -1,28 +1,27 @@
 import '../css/address_selector_page.css'; 
 import React, { useContext, useEffect, useState } from 'react';
 import {toast} from 'react-toastify'
-import { getCurrentUserDetails } from '../Auth/loginFunc';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { getWholeUserData } from '../Auth/helper';
 
 const AddressSelectorPage = () => {
 
-  const navigate=useNavigate()
-  const location=useLocation()
-  const user=location.state.user
-  const book=location.state.book
+  const navigate=useNavigate();
+  const location=useLocation();
+  const user=location.state.user;
+  const book=location.state.book;
   const [selectedAddress, setSelectedAddress] = useState(null);
-  const [userAddress, setUserAddress]=useState(user.address)
-  const {cart, placeCartOrder}=useContext(CartContext)
+  const [userAddress, setUserAddress]=useState(user.address);
+  const {cart, placeCartOrder}=useContext(CartContext);
 
   const handleAddressSelection = (address) => {
     setSelectedAddress(address);
   };
 
   const handleAddNewAddress=async()=>{
-    const user=await getWholeUserData()
-    navigate("/addressFormPage", {state:user})
+    const user=await getWholeUserData();
+    navigate("/addressFormPage", {state:user});
   }
 
   const handleProceedBtn=async()=>{
@@ -31,28 +30,28 @@ const AddressSelectorPage = () => {
 
         const cartOrderData=cart.map(item=>{
           return {book:item.book, quantity:item.quantity,deliveryAddress: selectedAddress, user:user}
-          })
+          });
 
         try {
-            const status = await placeCartOrder(cartOrderData) 
+            const status = await placeCartOrder(cartOrderData) ;
 
             if(status===true){
-                navigate("/orderSuccessPage")
+                navigate("/orderSuccessPage");
             }else{
                 toast.error("Placing order failed..., try again later", {
                     position: 'top-center',
                     theme: 'dark'
-                })
+                });
             }
         } catch (error) {
-            console.error(error)
-            const errorObj={  errorMessage : error.message }
-            navigate('/errorPage', {state:errorObj })
+            console.error(error);
+            const errorObj={  errorMessage : error.message };
+            navigate('/errorPage', {state:errorObj });
         }
         
     } else{
 
-        const orderData=[{book:book, quantity:1, deliveryAddress:selectedAddress, user:user }]
+        const orderData=[{book:book, quantity:1, deliveryAddress:selectedAddress, user:user }];
         try {
             const response=await fetch(`http://localhost:8080/api/order/placeOrder`, {
                 method: "POST",
@@ -62,17 +61,17 @@ const AddressSelectorPage = () => {
                 body: JSON.stringify(orderData)
             });
             if(response.ok){
-                navigate("/orderSuccessPage")
+                navigate("/orderSuccessPage");
             }else{
                 toast.error("Placing order failed..., try again later", {
                     position: 'top-center',
                     theme: 'dark'
-                })
+                });
             }
         } catch (error) {
-            console.error(error)
-            const errorObj={  errorMessage : error.message }
-            navigate('/errorPage', {state:errorObj })
+            console.error(error);
+            const errorObj={  errorMessage : error.message };
+            navigate('/errorPage', {state:errorObj });
         }
         
     }
@@ -104,7 +103,7 @@ const AddressSelectorPage = () => {
             </div>
           ))}
         </div>
-        <div className="address-hanler-btn" >
+        <div className="address-handler-btn" >
         <button className='add-new-address-btn' onClick={handleAddNewAddress}>+Add a new Address</button>
         {
           selectedAddress !== null && <div className="seleted-next-btn">

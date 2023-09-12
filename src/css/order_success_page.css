@@ -2,8 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 98%;
     height: 100vh;
-    background-color: #f2f2f2;
+    margin: 0 auto;
   }
   
   .order-success-content {
@@ -15,7 +16,6 @@
   }
   
   .order-success-content h1 {
-    font-size: 36px;
     margin-bottom: 10px;
     color: #333;
   }
@@ -41,3 +41,15 @@
     background-color: #0056b3;
   }
   
+  @media (max-width:426px) {
+    .order-success-container {
+      width: 98vw;
+    }
+    .order-success-content {
+      padding: 20px;
+    }
+    .order-success-content h1 {
+      font-size: 22px;
+    }
+    
+  }

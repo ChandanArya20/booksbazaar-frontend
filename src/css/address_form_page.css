@@ -74,3 +74,10 @@
     background-color: #0056b3;
   }
   
+
+  @media (max-width:426px) {
+
+    .address-form-container h2{
+      font-size: 18px;
+    }
+  }

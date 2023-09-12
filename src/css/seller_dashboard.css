@@ -23,22 +23,21 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.dashboard-main a{
-  color: #009183;
-  text-decoration: none;
+.see-all-orders-btn-container{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 #see-all-orders-btn{
-  width: 160px;
-  height: 40px;
+  width: 120px;
+  height: 30px;
   color: #029788;
-  font-size: 17px;
+  font-size: 16px;
   border:1px solid blue;
   border-radius: 5px;
   background-color:#fff;
   cursor: pointer;
   padding: 5px;
-  margin-top: 20px;
-  margin-left: 392px;
 }
 .dashboard-main button {
   padding: 10px 15px;
@@ -60,21 +59,39 @@
   cursor: pointer;
 }
 .profile-icon.seller-profile-icon:hover{
-  color: #0f38ed;
+  color: #4d4d4e;
 }
 
 .published-books {
-  margin-top: 30px;
-}
-
-.published-books h3 {
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
+.published-books h3 {
+  font-size: 20px;
+}
 .seller-books{
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+@media (max-width:426px) {
+  .seller-dashboard-container{
+    width: 90vw;
+    padding: 3vw;
+  }
+  .seller-dashboard {
+    width: 100%;
+  }
+  #see-all-orders-btn{
+    margin: 0;
+  }
+  .published-books {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
 }
 
 

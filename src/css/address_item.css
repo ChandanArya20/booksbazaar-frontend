@@ -13,3 +13,12 @@
     color: #009788;
     font-weight: bold;
 }
+
+@media (max-width:426px) {
+    .address-card{
+        width: 90vw;
+        height: 130px; 
+        padding:10px;
+        gap: 3px;
+    }
+}

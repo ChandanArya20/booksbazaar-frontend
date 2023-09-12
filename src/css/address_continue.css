@@ -25,5 +25,13 @@
 }
 #change-address-btn{
     margin-top: 20px;
-    width: 100px;
+}
+
+@media (max-width:426px) {
+
+    .address-continue-item{
+        flex-direction: column;
+    }
+    
+    
 }

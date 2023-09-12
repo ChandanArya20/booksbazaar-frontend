@@ -1,20 +1,20 @@
-import '../css/order_page.css'
+import '../css/order_page.css';
 import '../css/order_filter_model.css';
 import SellerOrderItem from '../components/SellerOrderItem';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {toast} from 'react-toastify'
+import {toast} from 'react-toastify';
 import Navbar from '../components/Navbar';
 import { getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
-import {BiFilterAlt} from 'react-icons/bi'
+import {BiFilterAlt as FilterIcon} from 'react-icons/bi';
 import SellerOrderFilterModel from '../components/SellerOrderFilterModel';
 
 const SellerOrderPage = () => {
 
-    const [originalOrders, setOriginalOrders]=useState([])
-    const [orders, setOrders]=useState([])
-    const navigate=useNavigate()
-    const [showFilter, setShowFilter]=useState(false)
+    const [originalOrders, setOriginalOrders]=useState([]);
+    const [orders, setOrders]=useState([]);
+    const navigate=useNavigate();
+    const [showFilter, setShowFilter]=useState(false);
     const [filterStatus, setFilterStatus] = useState({
       Pending: false,
       Confirmed: false,
@@ -23,11 +23,6 @@ const SellerOrderPage = () => {
       Cancelled: false,
       Returned: false
     });
-  
-    const closeModel=(e)=>{
-      e.stopPropagation(); 
-      setShowFilter(false);
-    }
 
     const applyFilter=(filteredStatus)=>{
 
@@ -42,20 +37,20 @@ const SellerOrderPage = () => {
     };
 
     const fetchAllOrders=async ()=>{
-        const sellerId=getCurrentSellerDetails().id
+        const sellerId=getCurrentSellerDetails().id;
         try {    
             const response=await fetch(`http://localhost:8080/api/order/seller/${sellerId}/allOrders`)
         
             if(response.ok){
-                const orderList=await response.json()
-                setOriginalOrders(orderList)
-                setOrders(orderList)
+                const orderList=await response.json();
+                setOriginalOrders(orderList);
+                setOrders(orderList);
             }else{
-                const errorObj={errorMessage:"Something went wrong, try later..."}
-                navigate("/errorPage",{state:errorObj})
+                const errorObj={errorMessage:"Something went wrong, try later..."};
+                navigate("/errorPage",{state:errorObj});
             }              
         } catch (error) {
-          console.error(error)
+          console.error(error);
           toast.error("Server is down, try again later", {
             position: 'top-center',
             theme: 'dark'
@@ -64,8 +59,8 @@ const SellerOrderPage = () => {
     }
 
     useEffect(()=>{
-      fetchAllOrders()
-    },[])
+      fetchAllOrders();
+    },[]);
 
     
   return (
@@ -80,7 +75,7 @@ const SellerOrderPage = () => {
       <div className="order-page">
         <h2>Users Order</h2>
         <div className="filter-button" onClick={()=>setShowFilter(true)}>
-          <BiFilterAlt/>
+          <FilterIcon/>
           <p>Filters </p>
         </div>
         {showFilter && <SellerOrderFilterModel 

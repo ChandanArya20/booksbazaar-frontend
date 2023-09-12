@@ -1,20 +1,20 @@
-import '../css/order_item.css'
+import '../css/order_item.css';
 import '../css/delivery_status_model.css';
 import { useNavigate } from 'react-router-dom';
-import {MdOutlineArrowForwardIos } from 'react-icons/md'
-import { formatDateForOrderItem } from '../Auth/helper'
+import {MdOutlineArrowForwardIos } from 'react-icons/md';
+import { formatDateForOrderItem } from '../Auth/helper';
 import DeliveryStatusModel from '../components/DeliveryStatusModel';
 import { useState } from 'react';
-
+ 
 
 const SellerOrderItem = ({ order }) => {
 
     const navigate=useNavigate();
     const [showStatusModel, setShowStatusModel]=useState(false);
-    const [status, setStatus]=useState(order.status)
+    const [status, setStatus]=useState(order.status);
 
     const handleStatusChanges=(newStatus)=>{
-      setStatus(newStatus)
+      setStatus(newStatus);
     }
     const handleOrderDetails=()=>{
         navigate("/sellerOrderItemDetailsPage",{state:order});
@@ -30,10 +30,12 @@ const SellerOrderItem = ({ order }) => {
       id={status==='Cancelled' || status==='Returned' ? 'order-item-cancelled': 
       status==='Delivered' ? 'order-item-delivered':''}
     >
+      <div className="order-item-left">
       <img src={order.book.imageURL} alt="Book" className="book-image" />
       <div className="book-details">
         <h3 className="book-title">{order.book.title}</h3>
         <p className="book-author">{order.book.author}</p>
+      </div>
       </div>
         <div className="book-details-second">
             <p className='book-id'> <span>Book id: </span>{order.book.id}</p>

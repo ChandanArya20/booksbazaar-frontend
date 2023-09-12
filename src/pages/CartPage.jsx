@@ -1,9 +1,9 @@
 import '../css/cart_page.css';
 import React, { useContext } from 'react';
-import CartItem from './CartItem';
+import CartItem from '../components/CartItem';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
-import Navbar from './Navbar';
+import Navbar from '../components/Navbar';
 import {getWholeUserData } from '../Auth/helper';
 
 const CartPage = () => {
