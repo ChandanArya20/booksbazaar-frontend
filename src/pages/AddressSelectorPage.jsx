@@ -4,6 +4,7 @@ import {toast} from 'react-toastify'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { getWholeUserData } from '../Auth/helper';
+import Navbar from '../components/Navbar';
 
 const AddressSelectorPage = () => {
 
@@ -79,6 +80,8 @@ const AddressSelectorPage = () => {
 
 
   return (
+    <>
+    <Navbar backButton={true}/> 
     <div className="address-selector-page">
       <div className="address-selector-container">
         <h2>Select Delivery Address</h2>
@@ -111,10 +114,9 @@ const AddressSelectorPage = () => {
                                           </div>
         }
         </div>
-
-      </div>
-      
+      </div>    
     </div>
+    </>
   );
 };
 

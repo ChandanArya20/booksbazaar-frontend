@@ -24,7 +24,7 @@ const CartPage = () => {
 
     return (
       <>
-      <Navbar/>
+      <Navbar backButton={true}/>
       {
         cartQuantity===0?<div className="empty-cart">
           <h1 className='empty-cart-heading'>Cart is Empty...</h1>

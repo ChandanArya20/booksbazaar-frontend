@@ -141,7 +141,7 @@ const SearchResultPage = () => {
 
     return (
         <>
-        <Navbar showSearchValue={true} searchQuery={searchQuery}/>
+        <Navbar backButton={true} showSearchValue={true} searchQuery={searchQuery}/>
         <div className="search-result-container">
             <div className={`search-result-filter ${showFilter ? 'search-result-filter-model' : ''}`}>
                 <div className="category-filter-modal-cross-button" onClick={closeModel}>

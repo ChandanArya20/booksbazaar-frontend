@@ -71,7 +71,7 @@ const SellerOrderPage = () => {
           <button className='empty-cart-btn' onClick={()=>navigate(-1)}>Go Back</button>
           </div> :
       <>
-      <Navbar/> 
+      <Navbar backButton={true}/> 
       <div className="order-page">
         <h2>Users Order</h2>
         <div className="filter-button" onClick={()=>setShowFilter(true)}>

@@ -42,7 +42,7 @@ const SellerOrderItemDetailsPage = () => {
 
   return (
     <>
-    <Navbar/>
+    <Navbar backButton={true}/>
     <div className="order-item-details-container">
       <div className="order-item-image">
         <img src={order.book.imageURL} alt={order.book.title} />

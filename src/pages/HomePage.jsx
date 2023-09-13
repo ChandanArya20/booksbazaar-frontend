@@ -1,13 +1,11 @@
-import Navbar from "./Navbar"
-import MainSection from "./MainSection"
-import RecommendedBooks from "./RecommendedBooks"
-import Services from "./Services"
-import Footer from "./Footer"
-import CategoryRow from "./CategoryRow"
-import { useEffect, useState } from "react"
+import Navbar from "../components/Navbar";
+import RecommendedBooks from "../components/RecommendedBooks";
+import Services from "../components/Services";
+import Footer from "../components/Footer"
+import CategoryRow from "../components/CategoryRow"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import CategoryResultPage from "../pages/CategoryResultPage"
-import SearchResultPage from "../pages/SearchResultPage"
 
 const HomePage=()=>{
 

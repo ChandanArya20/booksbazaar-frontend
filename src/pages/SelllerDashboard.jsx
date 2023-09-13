@@ -2,12 +2,12 @@ import '../css/seller_dashboard.css';
 import { FaUser as ProfileIcon } from 'react-icons/fa';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import SellerProfileDropdown from './SellerProfileDropdown';
-import Navbar from './Navbar';
-import SellerBookItem from './SellerBookItem';
+import SellerProfileDropdown from '../components/SellerProfileDropdown';
+import Navbar from '../components/Navbar';
+import SellerBookItem from '../components/SellerBookItem';
 import {toast} from 'react-toastify';
 import { getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
-import BackButton from './BackButton';
+import BackButton from '../components/BackButton';
 
 const SellerDashboard = () => {
 
@@ -71,11 +71,7 @@ const SellerDashboard = () => {
           </div>
           <div className="seller-books">
             {
-              books.map((book)=>{
-                return(         
-                    <SellerBookItem key={book.id} bookData={book}/>
-                )
-              })
+              books.map((book)=><SellerBookItem key={book.id} bookData={book}/>)
             }     
           </div>
         </div>

@@ -69,7 +69,9 @@
     padding: 7px 10px;
     transition: 300ms;
   }
-
+  .search-icon{
+    padding-left: 0;
+  }
   #close-icon{
     color: red;
   }
@@ -117,7 +119,6 @@
    }
 
   @media (max-width:426px) {
-
     nav{
       height: 55px;
     }
@@ -153,9 +154,11 @@
     }
     .nav-right-content{
       width: 100vw;
+      display: flex;
+      justify-content: space-between;
     }
     .nav-right-content .icons{
-      width: 40%;
+      width: 38%;
       gap: 1vw;
       margin-right: 0;
     }
@@ -164,10 +167,16 @@
     }
     #navbar-menu{
       display: block;
-   }
-   body::-webkit-scrollbar {
-    width: 0;
-   }
+    }
+    .nav-right-content .back-buttton{
+      width: 30px;
+      padding: 20px 10px;
+      background-color: #c26e07;
+    }
+    body::-webkit-scrollbar {
+      width: 0;
+    }
+
   }
   
  

@@ -83,7 +83,7 @@ const ProductDetailsPage = () => {
 
   return (
     <>
-    <Navbar/>
+    <Navbar backButton={true}/>
     <div className="product-details-page">
       <div className="product-details-image">
         <img src={book?.imageURL} alt={book?.title} />

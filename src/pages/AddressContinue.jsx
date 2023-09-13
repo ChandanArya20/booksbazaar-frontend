@@ -4,6 +4,7 @@ import AddressItem from '../components/AddressItem';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import {toast} from 'react-toastify';
+import Navbar from '../components/Navbar';
 
 
 const AddressContinue=()=>{
@@ -74,6 +75,8 @@ const AddressContinue=()=>{
     }
 
     return(
+        <>
+        <Navbar backButton={true}/>   
         <div className="address-continue-page">
             <div className="address-continue-container">
                 <h3>Deliver to: </h3>
@@ -88,6 +91,7 @@ const AddressContinue=()=>{
                 </div>
             </div>
         </div>
+        </>
     )
 
 }

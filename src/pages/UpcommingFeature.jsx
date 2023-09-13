@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/upcoming_feature.css'
-import { useLocation } from 'react-router-dom';
 
 
 const UpcomingFeature = () => {

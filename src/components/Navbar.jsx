@@ -1,4 +1,4 @@
-import '../css/navbar.css';
+import '../css//navbar.css';
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
@@ -13,8 +13,12 @@ import { isSellerLoggedin } from '../Auth/sellerLoginFunc';
 import UserProfileDropdown from './UserProfileDropdown';
 import { CartContext } from '../context/CartContext';
 import { UserContext } from '../context/UserContex';
+import BackButton from './BackButton';
+import '../css/back_button.css';
+import {BiArrowBack as BackArrow} from 'react-icons/bi';
 
-const Navbar = ({showSearchValue,searchQuery}) => {
+
+const Navbar = ({backButton, showSearchValue,searchQuery}) => {
 
     // Context and State
     const { cartQuantity } = useContext(CartContext);
@@ -74,6 +78,10 @@ const Navbar = ({showSearchValue,searchQuery}) => {
 
     }
 
+    const goBack=()=>{
+      navigate(-1);
+   }
+
 
     return (
       <>
@@ -95,9 +103,13 @@ const Navbar = ({showSearchValue,searchQuery}) => {
           </ul>
         </div>
         <div className="nav-right-content">
-          {!activeNavMenu && <MenuIcon id='navbar-menu' className='icon' onClick={toggleNavMenuBtn}/>}
-          {activeNavMenu && <CloseIcon id='navbar-menu' className='icon' onClick={closeActiveNavMenu}/>}
-            
+          {
+            backButton ? <BackArrow className='icon' id='navbar-menu' onClick={goBack}/>:
+            (<>
+              {!activeNavMenu && <MenuIcon id='navbar-menu' className='icon' onClick={toggleNavMenuBtn}/>}
+              {activeNavMenu && <CloseIcon id='navbar-menu' className='icon' onClick={closeActiveNavMenu}/>}
+            </>)
+          }
           <SearchBox className='icon' showSearchBox={showSearchBox} searchQuery={searchQuery}/>
           <div className="icons">
             <div className="search-icon">
