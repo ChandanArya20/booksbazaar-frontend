@@ -71,7 +71,7 @@
     .category-result-list-container{
         width: 100%;
         margin: auto 0;
-        justify-content: space-between;
+        justify-content: space-around;
     }
     .category-result-filter{
         display: none;

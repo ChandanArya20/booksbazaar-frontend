@@ -24,6 +24,7 @@
 
     .recommended-section-books {
       gap: 2vw;
+      justify-content: space-evenly;
     }
   }
   

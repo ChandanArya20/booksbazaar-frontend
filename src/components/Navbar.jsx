@@ -97,8 +97,8 @@ const Navbar = ({backButton, showSearchValue,searchQuery}) => {
             <li onClick={myOrderClickHandler}>
               <Link to="">My Orders</Link>
             </li>
-            <li onClick={becomeSellerClickHandler}>
-              {selleLogin ? <Link to="">Seller Dashboard</Link> : <Link to="">Login as seller</Link>}
+            <li onClick={becomeSellerClickHandler} >
+              {selleLogin ? <Link to="" id='seller'>Seller Dashboard</Link> : <Link to="" id='seller'>Login as seller</Link>}
             </li>
           </ul>
         </div>

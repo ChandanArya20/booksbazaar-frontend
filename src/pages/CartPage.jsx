@@ -27,7 +27,7 @@ const CartPage = () => {
       <Navbar backButton={true}/>
       {
         cartQuantity===0?<div className="empty-cart">
-          <h1 className='empty-cart-heading'>Cart is Empty...</h1>
+          <h1 className='empty-cart-heading'>Cart is Empty</h1>
           <button className='empty-cart-btn' onClick={()=>navigate('/')}>Continue Shopping</button>
           </div> :
           

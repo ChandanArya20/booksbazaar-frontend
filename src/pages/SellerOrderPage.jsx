@@ -68,19 +68,20 @@ const SellerOrderPage = () => {
 
     
   return (
-    <div className='seller_order-page_container'>
+    <>
+    <Navbar backButton={true}/> 
     {
-       loading ? 
-       <div className="loading-overlay">
-           <BeatLoader color="#36d7b7" className="loading-spinner" />
-       </div>
-       :
-        orders.length===0?<div className="empty-cart">
-          <h1 className='empty-cart-heading'>There is no recent orders...</h1>
-          <button className='empty-cart-btn' onClick={()=>navigate(-1)}>Go Back</button>
-          </div> :
+      loading ? 
+      <div className="loading-overlay">
+      <BeatLoader color="#36d7b7" className="loading-spinner" />
+      </div>
+      :
+      orders.length===0?<div className="empty-cart">
+      <h1 className='empty-cart-heading'>There is no recent orders...</h1>
+      <button className='empty-cart-btn' onClick={()=>navigate(-1)}>Go Back</button>
+      </div> :
       <>
-      <Navbar backButton={true}/> 
+      <div className='seller_order-page_container'>
       <div className="order-page">
         <h2>Users Order</h2>
         <div className="filter-button" onClick={()=>setShowFilter(true)}>
@@ -99,9 +100,10 @@ const SellerOrderPage = () => {
           }
         </div>
       </div>
+    </div>
       </>
     }
-    </div>
+    </>
   );
 };
 

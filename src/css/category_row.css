@@ -10,7 +10,7 @@
   
   .category-list {
     display: flex;
-    gap: 1.5vw; 
+    gap: 1vw; 
     overflow-x: hidden;
     flex: 1;
     margin-top: 5px;
@@ -23,19 +23,19 @@
     cursor: pointer;
     white-space: nowrap;
     transition: background-color 0.3s;
-    background-color: #e9f0fe;
-    /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2); */
+    background-color: #e4ecfd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     font-size: 14px;
 
   }
   
   .category-item.selected {
-    background-color: #b0ffde;
+    background-color: #c3fce4;
     cursor: default; 
     pointer-events: none;
   }
   .category-item.selected:hover {
-    background-color: #C2E7FF;
+    background-color: #c3fce4;
   }
   .category-item:hover {
     background-color: #def2fe
@@ -70,7 +70,9 @@
 
   @media (max-width:426px) {
     .category-item {
+      padding: 8px 10px;
       font-size: 13px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     }
     .left {
       display: none;

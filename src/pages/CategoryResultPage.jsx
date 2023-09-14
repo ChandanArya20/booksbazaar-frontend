@@ -131,8 +131,8 @@ const CategoryResultPage = ({categoryName}) => {
 
 
     const fetchBooksByCategory = async () => {
+        
         setLoading(true);
-
         try {
             const response = await fetch(`http://localhost:8080/api/book/search/category?query=${categoryName}`);
 
@@ -166,6 +166,9 @@ const CategoryResultPage = ({categoryName}) => {
                 <BeatLoader color="#36d7b7" className="loading-spinner" />
             </div>
             :
+            originalBooks.length===0?<div className="empty-cart empty-cart-special-case" >
+                    <h1 className='empty-cart-heading'>Item not found...</h1>
+                </div> :
             <>
             <div className={`category-result-filter ${showFilter ? 'category-result-filter-model' : ''}`}>
             <div className="category-filter-modal-cross-button" onClick={closeModel}>

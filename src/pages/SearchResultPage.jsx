@@ -151,6 +151,10 @@ const SearchResultPage = () => {
             <div className="loading-overlay">
                 <BeatLoader color="#36d7b7" className="loading-spinner" />
             </div>
+            : 
+                originalBooks.length===0?<div className="empty-cart empty-cart-special-case" >
+                <h1 className='empty-cart-heading'>Item not found...</h1>
+                </div> 
             :
             <>
             <div className={`search-result-filter ${showFilter ? 'search-result-filter-model' : ''}`}>
