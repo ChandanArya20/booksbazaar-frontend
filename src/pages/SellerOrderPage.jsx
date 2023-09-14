@@ -8,10 +8,12 @@ import Navbar from '../components/Navbar';
 import { getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
 import {BiFilterAlt as FilterIcon} from 'react-icons/bi';
 import SellerOrderFilterModel from '../components/SellerOrderFilterModel';
+import BeatLoader from "react-spinners/BeatLoader";
 
 const SellerOrderPage = () => {
 
     const [originalOrders, setOriginalOrders]=useState([]);
+    const [loading, setLoading]=useState(false);
     const [orders, setOrders]=useState([]);
     const navigate=useNavigate();
     const [showFilter, setShowFilter]=useState(false);
@@ -37,6 +39,7 @@ const SellerOrderPage = () => {
     };
 
     const fetchAllOrders=async ()=>{
+        setLoading(true);
         const sellerId=getCurrentSellerDetails().id;
         try {    
             const response=await fetch(`http://localhost:8080/api/order/seller/${sellerId}/allOrders`)
@@ -45,6 +48,7 @@ const SellerOrderPage = () => {
                 const orderList=await response.json();
                 setOriginalOrders(orderList);
                 setOrders(orderList);
+                setLoading(false);
             }else{
                 const errorObj={errorMessage:"Something went wrong, try later..."};
                 navigate("/errorPage",{state:errorObj});
@@ -66,7 +70,12 @@ const SellerOrderPage = () => {
   return (
     <div className='seller_order-page_container'>
     {
-      orders.length===0?<div className="empty-cart">
+       loading ? 
+       <div className="loading-overlay">
+           <BeatLoader color="#36d7b7" className="loading-spinner" />
+       </div>
+       :
+        orders.length===0?<div className="empty-cart">
           <h1 className='empty-cart-heading'>There is no recent orders...</h1>
           <button className='empty-cart-btn' onClick={()=>navigate(-1)}>Go Back</button>
           </div> :

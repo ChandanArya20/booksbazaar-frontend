@@ -6,17 +6,19 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContex';
+import ClipLoader  from "react-spinners/ClipLoader";
 
 const LoginWithEmailPage = () => {
 
   const{register, handleSubmit, formState:{errors}} = useForm()
+  const [loading, setLoading]=useState(false);
   const navigate = useNavigate()
   const{loginUser}=useContext(UserContext)
 
 
   const doLoginUser = async(data) => {       
     try {
-
+      setLoading(true);  
       let response= await fetch('http://localhost:8080/api/user/login',{
         method:'POST',
         headers:{
@@ -30,7 +32,7 @@ const LoginWithEmailPage = () => {
         loginUser(userData,()=>{
           navigate("/")
         })
-    
+        setLoading(false);
       } else if(response.status===500){
         const errorDetails=await response.json()
         throw new Error(errorDetails.status)
@@ -41,6 +43,7 @@ const LoginWithEmailPage = () => {
           position: 'top-center',
           theme: 'dark'
         })
+        setLoading(false);
       }
 
     } catch (error) {
@@ -86,8 +89,12 @@ const LoginWithEmailPage = () => {
             })}
         />
         <p className="error-message">{errors.password?.message}</p>
-        <button type="submit" className="login-button">
-        Login
+        <button type="submit" className="login-button" disabled={loading ? true: false}>
+        { loading ? 'Waiting...' : 'Login'}
+        {loading && <div className="loading-overlay-btn">
+                        <ClipLoader color="#620c88" />
+                    </div>
+        }
         </button>
       </form>
       <p className="create-account-link">

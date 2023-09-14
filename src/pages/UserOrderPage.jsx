@@ -7,9 +7,11 @@ import {toast} from 'react-toastify'
 import Navbar from '../components/Navbar';
 import {BiFilterAlt as FilterIcon} from 'react-icons/bi';
 import SellerOrderFilterModel from '../components/SellerOrderFilterModel';
+import BeatLoader from "react-spinners/BeatLoader";
 
 const UserOrderPage = () => {
 
+    const [loading, setLoading]=useState(false); 
     const [originalOrders, setOriginalOrders]=useState([])
     const [orders, setOrders]=useState([])
     const navigate=useNavigate()
@@ -43,7 +45,7 @@ const UserOrderPage = () => {
     };
   
     const fetchAllOrders=async ()=>{
-
+        setLoading(true);
         const userId=getCurrentUserDetails().id;
         try {    
             const response=await fetch(`http://localhost:8080/api/order//user/${userId}/allOrders`);
@@ -52,6 +54,7 @@ const UserOrderPage = () => {
                 const orderList=await response.json();
                 setOriginalOrders(orderList);
                 setOrders(orderList);
+                setLoading(false);
             }else{
                 const errorObj={errorMessage:"Something went wrong, try later..."};
                 navigate("/errorPage",{state:errorObj});
@@ -74,6 +77,11 @@ const UserOrderPage = () => {
   return (
     <>
       {
+        loading ? 
+        <div className="loading-overlay">
+            <BeatLoader color="#36d7b7" className="loading-spinner" />
+        </div>
+        :
         orders.length===0?<div className="empty-cart">
               <h1 className='empty-cart-heading'>There is no recent orders...</h1>
               <button className='empty-cart-btn' onClick={()=>navigate('/')}>Continue Shopping</button>

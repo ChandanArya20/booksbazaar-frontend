@@ -52,6 +52,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  position: relative;
 }
 
 .login-page button.login-button:hover {

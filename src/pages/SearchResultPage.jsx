@@ -8,11 +8,13 @@ import Navbar from "../components/Navbar";
 import FilterModel from "../components/FIlterModel";
 import {BiFilterAlt as FilterIcon} from 'react-icons/bi';
 import {AiOutlineClose as CloseIcon} from 'react-icons/ai';
+import BeatLoader from "react-spinners/BeatLoader";
 
 const SearchResultPage = () => {
 
     const searchQuery=useLocation().state;
     const navigate = useNavigate();    
+    const [loading, setLoading]=useState(false); 
     const [originalBooks, setOriginalBooks]=useState([]);
     const [showFilter, setShowFilter]=useState(false);
     const [books, setBooks] = useState([]); 
@@ -108,6 +110,7 @@ const SearchResultPage = () => {
 
 
     const searchBooks = async () => {
+        setLoading(true);
         try {
             const response = await fetch(`http://localhost:8080/api/book/search?query=${searchQuery}`);
 
@@ -115,6 +118,7 @@ const SearchResultPage = () => {
                 const books = await response.json();
                 setOriginalBooks(books);
                 setBooks(books);
+                setLoading(false);
             } else {
                 const errorObj = { errorMessage: "Something went wrong, try later..." };
                 navigate("/errorPage", { state: errorObj });
@@ -143,6 +147,12 @@ const SearchResultPage = () => {
         <>
         <Navbar backButton={true} showSearchValue={true} searchQuery={searchQuery}/>
         <div className="search-result-container">
+            { loading ? 
+            <div className="loading-overlay">
+                <BeatLoader color="#36d7b7" className="loading-spinner" />
+            </div>
+            :
+            <>
             <div className={`search-result-filter ${showFilter ? 'search-result-filter-model' : ''}`}>
                 <div className="category-filter-modal-cross-button" onClick={closeModel}>
                     <CloseIcon/>
@@ -166,8 +176,9 @@ const SearchResultPage = () => {
                 <div className="search-result-item-container">
                     {books.map(book => <SearchResultItem key={book.id} book={book} />)}
                 </div>
-            </div>
-            
+            </div>   
+            </>
+            }     
         </div>
         </>
     );

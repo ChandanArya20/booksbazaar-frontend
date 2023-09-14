@@ -1,23 +1,24 @@
 import '../css/login_page.css';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { UserContext } from '../context/UserContex';
+import ClipLoader  from "react-spinners/ClipLoader";
 
 const PasswordCreationPage = () => {
   
   const navigate = useNavigate();
   const location = useLocation();
+  const [loading, setLoading]=useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const{loginUser}=useContext(UserContext)
 
   const onSubmit = async (data) => {
-
-    const { name, phone, email } = location.state
-    const { password1, password2 } = data
-
+    const { name, phone, email } = location.state;
+    const { password1, password2 } = data;
+    
     if (password1 !== password2) {
       toast.error('Passwords do not match', {
         position: 'top-center',
@@ -25,8 +26,9 @@ const PasswordCreationPage = () => {
       });
       return;
     }
-
+    
     try {
+      setLoading(true); //starting loading spinners on button
       const response = await fetch('http://localhost:8080/api/user/register', {
         method: 'POST',
         headers: {
@@ -40,15 +42,14 @@ const PasswordCreationPage = () => {
         const userData = await response.json();
         loginUser(userData,()=>{
           navigate("/")
-        })
-        
+        })    
+        setLoading(false);
       } else if (response.status === 400) {
         const errorMessage = await response.text();
         toast.error(errorMessage, {
           position: 'top-center',
           theme: 'dark'
         });
-
       }else{
         const errorDetails=await response.json()
         throw new Error(errorDetails.status)
@@ -111,8 +112,12 @@ const PasswordCreationPage = () => {
           />
           <p className="error-message">{errors.password2?.message}</p>
 
-          <button type="submit" className="login-button">
-            Register
+          <button type="submit" className="login-button" disabled={loading ? true: false}>
+            { loading ? 'Waiting...' : 'Register'}
+            {loading && <div className="loading-overlay-btn">
+                            <ClipLoader color="#620c88" />
+                        </div>
+            }
           </button>
         </form>
         <p className="create-account-link">

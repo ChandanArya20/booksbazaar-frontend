@@ -8,10 +8,12 @@ import SellerBookItem from '../components/SellerBookItem';
 import {toast} from 'react-toastify';
 import { getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
 import BackButton from '../components/BackButton';
+import BeatLoader from "react-spinners/BeatLoader";
 
 const SellerDashboard = () => {
 
     const navigate=useNavigate();
+    const [loading, setLoading]=useState(false);
     const [books, setBooks] = useState([]);
     const [showMenu, setShowMenu] = useState(false);
 
@@ -24,14 +26,14 @@ const SellerDashboard = () => {
     };
   
     const fetchSellerAllBooks=async ()=>{
-
+        setLoading(true);
         const sellerId=getCurrentSellerDetails().id;
         try {
             const response=await fetch(`http://localhost:8080/api/book/seller/${sellerId}/allBook`);
-
             if(response.ok){
               const bookList=await response.json();
               setBooks(bookList);
+              setLoading(false);
             }
               
         } catch (error) {
@@ -53,6 +55,13 @@ const SellerDashboard = () => {
       <>
       <Navbar/>
       <div className="seller-dashboard-container">
+      {
+        loading ? 
+        <div className="loading-overlay">
+            <BeatLoader color="#36d7b7" className="loading-spinner" />
+        </div>
+        :
+        <>
         <div className="seller-dashboard">
           <h2>Welcome, Book Seller!</h2>
           <div className="dashboard-main" id='dashboard-main-id'>
@@ -75,6 +84,8 @@ const SellerDashboard = () => {
             }     
           </div>
         </div>
+        </>
+      }
       </div>
       </>
     )

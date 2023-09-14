@@ -6,8 +6,8 @@
     height: 53px;
     display: flex;
     align-items: center;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #ceebfe;
+    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); */
   }
   .nav-left-content{
     width: 60vw;

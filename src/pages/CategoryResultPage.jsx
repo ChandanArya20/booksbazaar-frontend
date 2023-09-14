@@ -8,10 +8,12 @@ import Navbar from "../components/Navbar";
 import FilterModel from "../components/FIlterModel";
 import {BiFilterAlt as FilterIcon} from 'react-icons/bi';
 import {AiOutlineClose as CloseIcon} from 'react-icons/ai';
+import BeatLoader from "react-spinners/BeatLoader";
 
 const CategoryResultPage = ({categoryName}) => {
 
-    const navigate = useNavigate();    
+    const navigate = useNavigate();   
+    const [loading, setLoading]=useState(false); 
     const [originalBooks, setOriginalBooks]=useState([]);
     const [books, setBooks] = useState([]);
     const [showFilter, setShowFilter]=useState(false);
@@ -129,6 +131,8 @@ const CategoryResultPage = ({categoryName}) => {
 
 
     const fetchBooksByCategory = async () => {
+        setLoading(true);
+
         try {
             const response = await fetch(`http://localhost:8080/api/book/search/category?query=${categoryName}`);
 
@@ -136,6 +140,7 @@ const CategoryResultPage = ({categoryName}) => {
                 const books = await response.json();
                 setOriginalBooks(books);
                 setBooks(books);
+                setLoading(false);
             } else {
                 const errorObj = { errorMessage: "Something went wrong, try later..." };
                 navigate("/errorPage", { state: errorObj });
@@ -146,27 +151,34 @@ const CategoryResultPage = ({categoryName}) => {
                 position: 'top-center',
                 theme: 'dark'
             });
+        } finally{
+            
         }
     };
 
-  
 
     return (
         <>
         <Navbar/>
         <div className="category-result-container">
-                <div className={`category-result-filter ${showFilter ? 'category-result-filter-model' : ''}`}>
-                <div className="category-filter-modal-cross-button" onClick={closeModel}>
-                    <CloseIcon/>
-                </div>
-                <FilterModel                
-                    priceFilter={priceFilter}
-                    handlePriceFilterChange={handlePriceFilterChange}
-                    languageFilters={languageFilters}
-                    handleLanguageFilterChange={handleLanguageFilterChange}
-                    otherFilters={otherFilters}
-                    handleOtherFilterChange={handleOtherFilterChange}           
-                />
+            { loading ? 
+            <div className="loading-overlay">
+                <BeatLoader color="#36d7b7" className="loading-spinner" />
+            </div>
+            :
+            <>
+            <div className={`category-result-filter ${showFilter ? 'category-result-filter-model' : ''}`}>
+            <div className="category-filter-modal-cross-button" onClick={closeModel}>
+                <CloseIcon/>
+            </div>
+            <FilterModel                
+                priceFilter={priceFilter}
+                handlePriceFilterChange={handlePriceFilterChange}
+                languageFilters={languageFilters}
+                handleLanguageFilterChange={handleLanguageFilterChange}
+                otherFilters={otherFilters}
+                handleOtherFilterChange={handleOtherFilterChange}           
+            />
             </div>
             <div className="category-result-item-container">
                 <div className="filter-button-container">
@@ -179,6 +191,8 @@ const CategoryResultPage = ({categoryName}) => {
                     {books.map(book => <CategoryResultItem key={book.id} book={book} />)}
                 </div>
             </div>
+            </>
+            }
         </div>
         </>
     );

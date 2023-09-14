@@ -1,22 +1,23 @@
 import '../css/login_page.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { doSellerLogin } from '../Auth/sellerLoginFunc';
-import axios from 'axios';
+import ClipLoader  from "react-spinners/ClipLoader";
 
 const SellerPasswordCreationPage = () => {
   
   const navigate = useNavigate();
   const stateLocation = useLocation();
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const [loading, setLoading]=useState(false);
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
 
-    const { name, location, phone, email } = stateLocation.state
-    const { sellerId, password1, password2 } = data
+    const { name, location, phone, email } = stateLocation.state;
+    const { sellerId, password1, password2 } = data;
 
     if (password1 !== password2) {
       toast.error('Passwords do not match', {
@@ -27,6 +28,7 @@ const SellerPasswordCreationPage = () => {
     }
 
     try {
+      setLoading(true);
       const requestdata=phone.length !== 0 ? { name, phone, email,location, sellerId, password: password1 } : 
                                              { name, email,location, sellerId, password: password1 };         
 
@@ -43,7 +45,7 @@ const SellerPasswordCreationPage = () => {
           doSellerLogin(sellerData,()=>{
           navigate("/sellerDashboard")
         })
-    
+        setLoading(false);
       } else if(response.status===500){
         const errorDetails=await response.json()
         throw new Error(errorDetails.status)
@@ -55,7 +57,7 @@ const SellerPasswordCreationPage = () => {
           theme: 'dark'
         })
       }
-
+      setLoading(false);
     } catch (error) {
       console.error(error)
       const errorObj={  errorMessage : error.message }
@@ -131,8 +133,12 @@ const SellerPasswordCreationPage = () => {
           />
           <p className="error-message">{errors.password2?.message}</p>
 
-          <button type="submit" className="login-button">
-            Register
+          <button type="submit" className="login-button" disabled={loading ? true: false}>
+          { loading ? 'Waiting...' : 'Register'}
+          {loading && <div className="loading-overlay-btn">
+                          <ClipLoader color="#620c88" />
+                      </div>
+          }
           </button>
         </form>
         <p className="create-account-link">
