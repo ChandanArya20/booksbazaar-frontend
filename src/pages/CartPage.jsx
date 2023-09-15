@@ -1,17 +1,28 @@
 import '../css/cart_page.css';
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import CartItem from '../components/CartItem';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import {getWholeUserData } from '../Auth/helper';
+import BeatLoader from "react-spinners/BeatLoader";
 
 const CartPage = () => {
 
-    const {cart, totalCartPrice, cartQuantity} = useContext(CartContext);
-    const navigate=useNavigate()
+    const {cart, getAllCartItems, totalCartPrice, cartQuantity} = useContext(CartContext);
+    const [loading, setLoading]=useState(true); 
+    const navigate=useNavigate();
+
+    useEffect(()=>{
+      setLoading(false);
+    },[cart])
+
+    useEffect(()=>{
+      getAllCartItems();
+    }, []);
 
     const handlePlaceOrder=async()=>{
+      
         const user=await getWholeUserData()
         const book=null;
         if(user.address.length!==0){
@@ -26,6 +37,11 @@ const CartPage = () => {
       <>
       <Navbar backButton={true}/>
       {
+        loading ? 
+        <div className="loading-overlay">
+            <BeatLoader color="#36d7b7" className="loading-spinner" />
+        </div>
+        :
         cartQuantity===0?<div className="empty-cart">
           <h1 className='empty-cart-heading'>Cart is Empty</h1>
           <button className='empty-cart-btn' onClick={()=>navigate('/')}>Continue Shopping</button>

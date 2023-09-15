@@ -1,195 +1,199 @@
-  nav {
-    position: fixed;
-    top: 0;
-    z-index: 10; 
-    width: 100vw;
-    height: 53px;
-    display: flex;
-    align-items: center;
-    background-color: #dcedf7;
-    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); */
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 10; 
+  width: 100vw;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  background-color: #dcedf7;
+  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); */
+}
+.nav-left-content{
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+  /* justify-content: space-around; */
+}
+.book-app-logo{
+  margin-left: 20px;
+}
+.book-app-logo img{
+  width: 8vw;
+  mix-blend-mode: darken;
+
+}   
+.nav-left-content ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: end; 
+  gap: 4vw;
+  margin-right: 10vw;
+  margin-left: 2vw;
+}
+.nav-left-content li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 17px;
+  padding: 7px;
+  transition: all 0.3s ease;
+}  
+.nav-left-content #seller{
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  font-size: 16px;
+} 
+.nav-left-content li a:hover {
+  color: #f67003;
+}
+.nav-left-content #seller:hover{
+  border: 1px solid #f67003;
+} 
+.nav-right-content{
+  width: 40vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.nav-right-content .icons{
+  color: black;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5vw;
+  align-items: center;
+  margin-right: 20px;
+}
+.icon{
+  font-size: 20px;
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.icon:hover{
+  color:#4d4d4e;
+}
+.search-icon, .cart-icon, .profile-icon{
+  position: relative;
+  display: flex;
+  padding: 7px 10px;
+  transition: 300ms;
+}
+.search-icon{
+  padding-left: 0;
+}
+#close-icon{
+  color: red;
+}
+
+.cart-quantity {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  background-color: #009AEE;
+  color: #fff;
+  font-size: 12px;
+  width: 19px;
+  height: 19px;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 1; /* Make sure the p tag appears above the CartIcon */
+}
+.cart-quantity span{
+  position: absolute;
+  top: 3px; 
+  right: 6px; 
+}
+.nav-right-content .icons a{
+  color: black;
+}
+.login-button {
+  background-color: #FF5F6D;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+ }  
+ .login-button:hover {
+    background-color: #FF4358;
+ }
+ #navbar-menu{
+    display: none;
+    position: absolute;
+    font-size: 27px;
+    left: 10px;
+ }
+
+@media (max-width:426px) {
+  nav{
+    height: 55px;
+  }
+  .nav-left-content .book-app-logo{
+    display: none;
   }
   .nav-left-content{
-    width: 60vw;
-    display: flex;
-    align-items: center;
     justify-content: space-around;
+    position: fixed;
+    width: 80%;
+    height: 150px;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    top: -100%;
+    background-color: #071836e6;  
+    transition: all .3s;   
+    border-radius: 10px;
   }
-  .book-app-logo img{
-    width: 8vw;
-    mix-blend-mode: darken;
-    margin-left: 20px;
-  }   
   .nav-left-content ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: end; 
-    gap: 3vw;
-    margin-right: 10vw;
-    margin-left: 2vw;
+    flex-direction:column ;
+    align-items: center;
+    gap: 7vw;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 7px;
   }
   .nav-left-content li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 17px;
-    padding: 7px;
-    transition: all 0.3s ease;
-  }  
+    color: #fff;
+  }
   .nav-left-content #seller{
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
     font-size: 16px;
-  } 
-  .nav-left-content li a:hover {
-    color: #f67003;
+    padding: 6px;
   }
-  .nav-left-content #seller:hover{
-    border: 1px solid #f67003;
-  } 
+  .nav-left-content.activeMenu{
+    top: 130px;
+    z-index: 100;
+  }
   .nav-right-content{
-    width: 40vw;
+    width: 100vw;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
   .nav-right-content .icons{
-    color: black;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    gap: 5vw;
-    align-items: center;
-    margin-right: 20px;
-  }
-  .icon{
-    font-size: 20px;
-    transition: 300ms;
-    cursor: pointer;
-  }
-
-  .icon:hover{
-    color:#4d4d4e;
-  }
-  .search-icon, .cart-icon, .profile-icon{
-    position: relative;
-    display: flex;
-    padding: 7px 10px;
-    transition: 300ms;
-  }
-  .search-icon{
-    padding-left: 0;
-  }
-  #close-icon{
-    color: red;
-  }
-
-  .cart-quantity {
-    position: absolute;
-    top: -5px; 
-    right: -5px; 
-    background-color: #009AEE;
-    color: #fff;
-    font-size: 12px;
-    width: 19px;
-    height: 19px;
-    text-align: center;
-    border-radius: 50%;
-    z-index: 1; /* Make sure the p tag appears above the CartIcon */
-  }
-  .cart-quantity span{
-    position: absolute;
-    top: 3px; 
-    right: 5px; 
-  }
-  .nav-right-content .icons a{
-    color: black;
+    width: 38%;
+    gap: 1vw;
+    margin-right: 0;
   }
   .login-button {
-    background-color: #FF5F6D;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 12px;
-    font-size: 16px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-   }  
-   .login-button:hover {
-      background-color: #FF4358;
-   }
-   #navbar-menu{
-      display: none;
-      position: absolute;
-      font-size: 27px;
-      left: 10px;
-   }
-
-  @media (max-width:426px) {
-    nav{
-      height: 55px;
-    }
-    .nav-left-content .book-app-logo{
-      display: none;
-    }
-    .nav-left-content{
-      position: fixed;
-      width: 80%;
-      height: 150px;
-      left: 50%;
-      right: 50%;
-      transform: translate(-50%, -50%);
-      top: -100%;
-      background-color: #071836e6;  
-      transition: all .3s;   
-      border-radius: 10px;
-    }
-    .nav-left-content ul {
-      flex-direction:column ;
-      align-items: center;
-      gap: 7vw;
-      margin-right: 0;
-      margin-left: 0;
-      margin-bottom: 7px;
-    }
-    .nav-left-content li a {
-      color: #fff;
-    }
-    .nav-left-content #seller{
-      border: 1px solid rgb(255, 255, 255);
-      border-radius: 5px;
-      font-size: 16px;
-      padding: 6px;
-    }
-    .nav-left-content.activeMenu{
-      top: 130px;
-      z-index: 100;
-    }
-    .nav-right-content{
-      width: 100vw;
-      display: flex;
-      justify-content: space-between;
-    }
-    .nav-right-content .icons{
-      width: 38%;
-      gap: 1vw;
-      margin-right: 0;
-    }
-    .login-button {
-      padding: 6px 9px;
-    }
-    #navbar-menu{
-      display: block;
-    }
-    .nav-right-content .back-buttton{
-      width: 30px;
-      padding: 20px 10px;
-      background-color: #c26e07;
-    }
-    body::-webkit-scrollbar {
-      width: 0;
-    }
-
+    padding: 6px 9px;
   }
-  
- 
+  #navbar-menu{
+    display: block;
+  }
+  .nav-right-content .back-buttton{
+    width: 30px;
+    padding: 20px 10px;
+    background-color: #c26e07;
+  }
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+
+}
+

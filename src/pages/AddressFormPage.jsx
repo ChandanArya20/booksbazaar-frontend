@@ -8,54 +8,89 @@ import { getUserAddress } from '../Auth/helper';
 
 const AddressFormPage = () => {
 
-  const {cart, setCart, placeOrder}=useContext(CartContext)
+  const {cart, setCart, placeCartOrder}=useContext(CartContext)
   const navigate=useNavigate()
   const location=useLocation()
-  const userData=location.state.book
-  const book=location.state.book
+  const user=location.state.user;
+  const book=location.state.book;
   const { register, handleSubmit, formState: { errors } } = useForm()
 
 
   const submitAddress = async(addressData) => {
    
     try {
-        const response=await fetch(`http://localhost:8080/api/user/${userData.id}/saveAddress`,{
-        method:'POST',
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body:JSON.stringify(addressData)
-      })
-      if(response.ok){
-        const userAddress= await getUserAddress();
-        
-        const orderData=cart.map(item=>{
-          return {book:item.book, quantity:item.quantity,deliveryAddress: userAddress[0], user:userData}
-          });
-  
-          const status = await placeOrder(orderData);
-          if(status===true){
-            navigate("/orderSuccessPage");
-          }else{
-            toast.error("Placing order failed..., try again later", {
-              position: 'top-center',
-              theme: 'dark'
-            });
-          }
-      }else{
-        console.log(await response.text());
-        toast.error("There is some issues, try later...", {
-          position: 'top-center',
-          theme: 'dark'
+        const response=await fetch(`http://localhost:8080/api/user/${user.id}/saveAddress`,{
+          method:'POST',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body:JSON.stringify(addressData)
         });
-      }
-
+        if(response.ok){
+          await placeOrderItem(book);
+        }else{
+          console.log(await response.text());
+          toast.error("There is some issues, try later...", {
+            position: 'top-center',
+            theme: 'dark'
+          });
+        }
     } catch (error) {
       console.log(error);
       const errorObj={  errorMessage : error.message };
       navigate('/errorPage', {state:errorObj });
     }
   };
+
+  const placeOrderItem=async(book)=>{
+
+      const userAddress= await getUserAddress();
+      if(!book){
+        const cartOrderData=cart.map(item=>{
+        return {book:item.book, quantity:item.quantity, deliveryAddress: userAddress[0], user:user}
+        });
+        try {
+            const status = await placeCartOrder(cartOrderData);
+
+            if(status===true){
+                navigate("/orderSuccessPage");
+            }else{
+                toast.error("Placing order failed..., try again later", {
+                    position: 'top-center',
+                    theme: 'dark'
+                });
+            }
+        } catch (error) {
+            console.error(error);
+            const errorObj={  errorMessage : error.message };
+            navigate('/errorPage', {state:errorObj });
+        }
+        
+    } else{
+        const orderData=[{book:book, quantity:1, deliveryAddress: userAddress[0], user:user }];
+        try {
+            const response=await fetch(`http://localhost:8080/api/order/placeOrder`, {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify(orderData)
+            });
+            if(response.ok){
+                navigate("/orderSuccessPage");
+            }else{
+                toast.error("Placing order failed..., try again later", {
+                    position: 'top-center',
+                    theme: 'dark'
+                });
+            }
+        } catch (error) {
+            console.error(error);
+            const errorObj={  errorMessage : error.message };
+            navigate('/errorPage', {state:errorObj });
+        }     
+      }
+  }
 
 
   return (

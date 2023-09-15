@@ -23,13 +23,11 @@ const CartContextProvider=({children})=>{
 
     const getAllCartItems = async () => {   
       const currentUser=getCurrentUserDetails()
-      console.log(currentUser);
       try {
         if(currentUser){
           const response = await fetch(`http://localhost:8080/api/cart/user/${currentUser.id}/allCartData`);
           if (response.ok) {
             const cartItems = await response.json();
-            console.log("Cart data", cart);
             setCart(cartItems)
           }else{
             console.log("Not got cartData");           
@@ -42,6 +40,7 @@ const CartContextProvider=({children})=>{
             theme: 'dark'
           });
       }
+      console.log("Lakshman");
   };
 
     useEffect(() => { 
@@ -140,6 +139,7 @@ const CartContextProvider=({children})=>{
         <CartContext.Provider value={{
           cart,
           setCart,
+          getAllCartItems,
           totalCartPrice,
           setTotalCartPrice,
           cartQuantity,

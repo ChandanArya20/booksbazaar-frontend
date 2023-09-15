@@ -14,6 +14,9 @@ const HomePage=()=>{
   const navigate=useNavigate();
 
   const categories = [
+    { id: 17, name: 'Fictional' },
+    { id: 10, name: 'Mystery/Thriller' },
+    { id: 14, name: 'Health/Fitness' },
     { id: 1, name: 'Sceince & Mathematics' },
     { id: 2, name: 'Computer & Internet' },
     { id: 3, name: 'Technology & Engineering' },
@@ -23,14 +26,11 @@ const HomePage=()=>{
     { id: 7, name: 'Arts & Photography' },
     { id: 8, name: 'Boigrphy & Memories' },
     { id: 9, name: 'Exam Preparation' },
-    { id: 10, name: 'Mystery/Thriller' },
     { id: 11, name: 'Cooking' },
     { id: 12, name: 'Dictionaries & Language' },
     { id: 13, name: 'Religion/Spirituality' },
-    { id: 14, name: 'Health/Fitness' },
     { id: 15, name: 'Family/Lifestyle & Parenting' },
     { id: 16, name: 'Medical' },
-    { id: 17, name: 'Fictional' },
     { id: 18, name: 'Non-Fictional' },
     { id: 19, name: 'Literature' },
     { id: 20, name: 'Childrenn & Teens' },

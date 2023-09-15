@@ -39,6 +39,31 @@ const OrderItemDetailsPage = () => {
     }
   }
 
+  const handleReturnOrder=async()=>{
+    try {
+      const response= await fetch(`http://localhost:8080/api/order/${order.id}?status=Returned`,{
+        method:'PATCH',
+      });
+      if(response.ok){
+        setStatus('Returned');
+        toast.success("Order returned successfully..., Order will be picked up soon", {
+          position: 'top-center',
+          theme: 'dark'
+        });
+      } else{
+        toast.error("Order returned failed..., try again", {
+          position: 'top-center',
+          theme: 'dark'
+        });
+      }
+
+    } catch (error) {
+      console.error(error);
+      const errorObj={  errorMessage : error.message };
+      navigate('/errorPage', {state:errorObj });
+    }
+  }
+
   return (
     <>
     <Navbar backButton={true}/>
@@ -65,6 +90,7 @@ const OrderItemDetailsPage = () => {
           
           <div className="cancel-order-button">
           {status!=='Cancelled'&& status!=='Delivered' && status!=='Returned'  && <button onClick={handleCancelOrder}>Cancel Order</button>}
+          {status=='Delivered' && <button onClick={handleReturnOrder}>Return</button>}
           </div>
         </div>
       </div>

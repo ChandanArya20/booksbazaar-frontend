@@ -1,5 +1,6 @@
   .cart-page {
     width: 98%;
+    height: calc(100vh - 93px);
     margin: auto;
     margin-top: 63px;  
     margin-bottom: 20px;
@@ -13,7 +14,7 @@
   }
   .cart-items-container{ 
     padding: 20px;
-    height: 290px;
+    max-height: 370px;
     border-radius: 10px;
     background-color: #bbe2eb5d;
     overflow-y: scroll;
@@ -85,7 +86,7 @@
 
   .cart-page {
     width: 98%;
-    height: 80vh;
+    height: 85vh;
     margin: auto;
     margin-top: 63px;  
     margin-bottom: 20px;
@@ -99,7 +100,7 @@
   }
   .cart-items-container{ 
     padding: 2vw;
-    height: 290px;
+    max-height: 370px;
     border-radius: 10px;
     background-color: #bbe2eb5d;
   }
