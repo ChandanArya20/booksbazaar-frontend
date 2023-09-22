@@ -24,7 +24,7 @@
     white-space: nowrap;
     transition: background-color 0.3s;
     background-color: #e4ecfd;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
     font-size: 14px;
 
   }
@@ -72,7 +72,7 @@
     .category-item {
       padding: 8px 10px;
       font-size: 13px;
-      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+      /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); */
     }
     .left {
       display: none;

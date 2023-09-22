@@ -100,8 +100,9 @@
     background-color:transparent;
     width: 110px;
     height: 33px;
-    font-size: 15px;
+    font-size: 14px;
     padding: 0;
+    color: rgb(9, 114, 155);
   }
 
   @media (max-width:426px) {

@@ -1,7 +1,7 @@
 import '../css/order_item_details_page.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { formatDate } from '../Auth/helper';
+import { formatDate } from '../Helper/helper';
 import AddressItem from '../components/AddressItem';
 import { useState } from 'react';
 import {toast} from 'react-toastify';

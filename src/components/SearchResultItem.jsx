@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContex';
-import { getWholeUserData } from '../Auth/helper';
+import { getWholeUserData } from '../Helper/helper';
 
 
 const SearchResultItem = ({ book }) => {

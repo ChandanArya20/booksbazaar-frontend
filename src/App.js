@@ -27,7 +27,6 @@ import SellerOrderPage from "./pages/SellerOrderPage";
 import CategoryResultPage from "./pages/CategoryResultPage";
 import SearchResultPage from "./pages/SearchResultPage";
 
-
 const App = () => {
   return ( 
     <BrowserRouter>

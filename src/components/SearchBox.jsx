@@ -16,7 +16,6 @@ const SearchBox = ({ showSearchBox, searchQuery }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchQuery=searchTerm.trim();
-    console.log(searchQuery);
     navigate('/searchResultPage',{state:searchQuery})
 
   };

@@ -10,6 +10,7 @@
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
+  border: 1px solid rgb(197, 197, 197);
 }
 
 .search-box.active {
@@ -19,13 +20,16 @@
 }
 
 .search-input {
+  /* color: #fff; */
   padding: 10px;
   border: none;
   background-color: #fff;
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
-
+/* .search-input::placeholder {
+  color: #fff; 
+} */
 .search-input:focus {
   outline: none;
 }
@@ -35,14 +39,15 @@
   background-color: transparent;
   cursor: pointer;
   font-size: 18px;
-  margin-top: 8px;
-  color: rgba(0, 0, 0, 0.416);
+  margin-top: 6px;
+  color: rgb(139, 134, 134);
 }
 
 
 @media (max-width:426px) {
   .search-box {
     height: 35px;
+    border:none;
   }
   .search-input {
     padding: 6px;

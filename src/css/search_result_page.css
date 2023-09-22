@@ -1,11 +1,11 @@
-.search-result-container{
+.search-result-container {
     width: 98%;
     margin: 0 auto;
     margin-top: 63px;
     display: flex;
     gap: 20px;
-
 }
+
 .search-result-filter{
     width: 30%;
     height: 425px;

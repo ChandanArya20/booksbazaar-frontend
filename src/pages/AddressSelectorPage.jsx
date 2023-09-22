@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import {toast} from 'react-toastify'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
-import { getWholeUserData } from '../Auth/helper';
+import { getWholeUserData } from '../Helper/helper';
 import Navbar from '../components/Navbar';
 
 const AddressSelectorPage = () => {

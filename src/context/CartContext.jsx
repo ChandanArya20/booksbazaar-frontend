@@ -40,7 +40,6 @@ const CartContextProvider=({children})=>{
             theme: 'dark'
           });
       }
-      console.log("Lakshman");
   };
 
     useEffect(() => { 

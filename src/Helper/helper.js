@@ -1,4 +1,4 @@
-import { getCurrentUserDetails } from "./loginFunc";
+import { getCurrentUserDetails } from "../Auth/loginFunc";
 
 export const getUserAddress=async()=>{
   const currentUser=getCurrentUserDetails()

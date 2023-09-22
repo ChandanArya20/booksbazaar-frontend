@@ -4,7 +4,7 @@ import CartItem from '../components/CartItem';
 import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import {getWholeUserData } from '../Auth/helper';
+import {getWholeUserData } from '../Helper/helper';
 import BeatLoader from "react-spinners/BeatLoader";
 
 const CartPage = () => {
