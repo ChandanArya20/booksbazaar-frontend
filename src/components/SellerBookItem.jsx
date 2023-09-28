@@ -11,11 +11,11 @@ const SellerBookItem = ({ bookData }) => {
 
   const updateBookData=(e)=>{
       e.stopPropagation();
-      navigate("/bookUpdateSellerPage", { state: book });
+      navigate("/bookUpdate", { state: book });
   };
 
   const productDetailsHandler=()=>{
-    navigate("/productDetailsPage", { state: book });
+    navigate("/productDetails", { state: book });
   };
 
   const changeStatus=async(e)=>{

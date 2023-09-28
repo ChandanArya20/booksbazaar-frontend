@@ -48,7 +48,7 @@ const UserOrderPage = () => {
         setLoading(true);
         const userId=getCurrentUserDetails().id;
         try {    
-            const response=await fetch(`http://localhost:8080/api/order//user/${userId}/allOrders`);
+            const response=await fetch(`http://localhost:8080/api/order/user/${userId}/allOrders`);
         
             if(response.ok){
                 const orderList=await response.json();

@@ -33,27 +33,26 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/emailLogin" element={<LoginWithEmailPage />} />
-        <Route path="/phoneLogin" element={<LoginWithPhonePage />} />
-        <Route path="/signup" element={<RegistrationPage />} />
-        <Route path="/passwordPage" element={<PasswordCreationPage />} />
-        <Route path="/SellerSignup" element={<SellerRegistrationPage />} />
+        <Route path="/userEmailLogin" element={<LoginWithEmailPage />} />
+        <Route path="/userPhoneLogin" element={<LoginWithPhonePage />} />
+        <Route path="/userSignUp" element={<RegistrationPage />} />
+        <Route path="/userPassword" element={<PasswordCreationPage />} />
+        <Route path="/SellerSignUp" element={<SellerRegistrationPage />} />
         <Route path="/sellerLogin" element={<SellerLoginPage />} />
-        <Route path="/sellerPasswordPage" element={<SellerPasswordCreationPage />} />
+        <Route path="/sellerPassword" element={<SellerPasswordCreationPage />} />
         <Route path="/sellerDashboard" element={<SellerDashboard />} />
-        <Route path="/bookAddSellerPage" element={<BookAddSellerPage />} />
-        <Route path="/bookUpdateSellerPage" element={<BookUpdateSellerPage />} />
-        <Route path="/productDetailsPage" element={<ProductDetailsPage />} />
-        <Route path="/orderSuccessPage" element={<OrderSuccessPage />} />
-        <Route path="/userOrderPage" element={<UserOrderPage/>} />
-        <Route path="/addressFormPage" element={<AddressFormPage />} />
-        <Route path="/addressSelectorPage" element={<AddressSelectorPage />} />
-        <Route path="/orderItemDetailsPage" element={<OrderItemDetailsPage />} />
+        <Route path="/bookAdd" element={<BookAddSellerPage />} />
+        <Route path="/bookUpdate" element={<BookUpdateSellerPage />} />
+        <Route path="/productDetails" element={<ProductDetailsPage />} />
+        <Route path="/orderSuccess" element={<OrderSuccessPage />} />
+        <Route path="/userOrders" element={<UserOrderPage/>} />
+        <Route path="/addressForm" element={<AddressFormPage />} />
+        <Route path="/addressSelector" element={<AddressSelectorPage />} />
+        <Route path="/orderItemDetails" element={<OrderItemDetailsPage />} />
         <Route path="/addressContinue" element={<AddressContinue />} />
-        <Route path="/sellerOrderPage" element={<SellerOrderPage />} />
-        <Route path="/sellerOrderItemDetailsPage" element={<SellerOrderItemDetailsPage />} />
-        <Route path="/categoryResultPage" element={<CategoryResultPage />} />
-        <Route path="/searchResultPage" element={<SearchResultPage />} />
+        <Route path="/sellerOrders" element={<SellerOrderPage />} />
+        <Route path="/sellerOrderItemDetails" element={<SellerOrderItemDetailsPage />} />
+        <Route path="/searchResults" element={<SearchResultPage />} />
         <Route path="/errorPage" element={<ErrorPage />} />
         <Route path="/comingFeature" element={<UpcomingFeature />} />
       </Routes>

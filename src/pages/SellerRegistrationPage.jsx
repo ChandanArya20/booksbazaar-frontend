@@ -12,7 +12,7 @@ const SellerRegistrationPage = () => {
   const currentUser=getCurrentUserDetails()
 
   const registerUser = (data) => {
-    navigate('/sellerPasswordPage', { state: data });
+    navigate('/sellerPassword', { state: data });
   };
 
   

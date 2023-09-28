@@ -68,7 +68,7 @@ const PasswordCreationPage = () => {
   return (
     <div className="login-page-container">
       <div className="login-page" id="password-page">
-        <h1>Create a password</h1>
+        <h1>Make a password</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"

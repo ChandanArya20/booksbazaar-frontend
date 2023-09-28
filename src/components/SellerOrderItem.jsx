@@ -17,7 +17,7 @@ const SellerOrderItem = ({ order }) => {
       setStatus(newStatus);
     }
     const handleOrderDetails=()=>{
-        navigate("/sellerOrderItemDetailsPage",{state:order});
+        navigate("/sellerOrderItemDetails",{state:order});
     }
 
     const showDeliveryStatusModel=(e)=>{

@@ -15,27 +15,26 @@ const CategoryResultItem = ({ book }) => {
   const goToCart=(e)=>{
 
     e.stopPropagation();
-
-    if(isUserLoggedin()){
-      navigate("/cart");
-    }else{
-      navigate("/phoneLogin");
-    }
+    navigate("/cart");
   }
 
   const handleAddToCart = (e) => {
+
     e.stopPropagation();
 
     if(isUserLoggedin()){
       const cartItem={book, quantity:1}
       addToCart(cartItem);
 
-    }else
-      navigate("/phoneLogin");
+    }else{
+
+      navigate("/userPhoneLogin");
+    }
   }
 
   const showProductDetails=()=>{
-    navigate("/productDetailsPage", { state: book });
+
+    navigate("/productDetails", { state: book });
   }
 
   return (

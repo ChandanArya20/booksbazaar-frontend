@@ -8,13 +8,13 @@ const RegistrationPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const registerUser = (data) => {
-    navigate('/passwordPage', { state: data });
+    navigate('/userPassword', { state: data });
   };
 
   return (
     <div className="login-page-container">
       <div className="login-page" id="registration-page">
-        <h1>Registration</h1>
+        <h1>Sing Up</h1>
         <form onSubmit={handleSubmit(registerUser)}>
           <input
             type="text"
@@ -74,7 +74,7 @@ const RegistrationPage = () => {
           </button>
         </form>
         <p className="create-account-link">
-          Existing user? <Link to="/phonelogin">Login here</Link>
+          Existing user? <Link to="/userPhoneLogin">Login here</Link>
         </p>
       </div>
     </div>

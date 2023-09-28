@@ -58,7 +58,7 @@ const LoginWithEmailPage = () => {
     <div className="login-page">
       <h1>Login</h1>
       <p className="login-with-phone-link">
-          <Link to="/phoneLogin">Login with Phone</Link>
+          <Link to="/userPhoneLogin">Login with Phone?</Link>
       </p>
       <form onSubmit={handleSubmit(doLoginUser)}>
         <input
@@ -89,6 +89,9 @@ const LoginWithEmailPage = () => {
             })}
         />
         <p className="error-message">{errors.password?.message}</p>
+        <p className="forgot-password-link">
+          <Link to="/comingFeature">Forgot password?</Link>
+        </p>
         <button type="submit" className="login-button" disabled={loading ? true: false}>
         { loading ? 'Waiting...' : 'Login'}
         {loading && <div className="loading-overlay-btn">
@@ -98,7 +101,7 @@ const LoginWithEmailPage = () => {
         </button>
       </form>
       <p className="create-account-link">
-        New user? <Link to="/signup">Create an account</Link>
+        New user? <Link to="/userSignUp">Create an account</Link>
       </p>
     </div>
     <ToastContainer />

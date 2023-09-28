@@ -8,7 +8,7 @@ const UserOrderItem = ({ order }) => {
   const navigate=useNavigate();
 
   const handleOrderDetails=()=>{
-    navigate("/orderItemDetailsPage",{state:order});
+    navigate("/orderItemDetails",{state:order});
   };
 
   return (

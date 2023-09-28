@@ -91,6 +91,9 @@ const SellerLoginPage = () => {
           })}
         />
         <p className="error-message">{errors.password?.message}</p>
+        <p className="forgot-password-link">
+          <Link to="/comingFeature">Forgot password?</Link>
+        </p>
         <button type="submit" className="login-button" disabled={loading ? true: false}>
         { loading ? 'Waiting...' : 'Login'}
         {loading && <div className="loading-overlay-btn">
@@ -100,7 +103,7 @@ const SellerLoginPage = () => {
         </button>
       </form>
       <p className="create-account-link">
-        New seller? <Link to="/SellerSignup">Become a seller</Link>
+        New seller? <Link to="/SellerSignUp">Become a seller</Link>
       </p>
     </div>
     <ToastContainer />

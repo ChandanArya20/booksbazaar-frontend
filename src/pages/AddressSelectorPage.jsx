@@ -22,7 +22,7 @@ const AddressSelectorPage = () => {
 
   const handleAddNewAddress=async()=>{
     const user=await getWholeUserData();
-    navigate("/addressFormPage", {state:user});
+    navigate("/addressForm", {state:user});
   }
 
   const handleProceedBtn=async()=>{
@@ -37,7 +37,7 @@ const AddressSelectorPage = () => {
             const status = await placeCartOrder(cartOrderData) ;
 
             if(status===true){
-                navigate("/orderSuccessPage");
+                navigate("/orderSuccess");
             }else{
                 toast.error("Placing order failed..., try again later", {
                     position: 'top-center',

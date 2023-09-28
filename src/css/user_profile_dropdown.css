@@ -38,12 +38,13 @@
 .dropdown-menu ul{
   margin-left: 15px;
   list-style: none;
+  margin-top: 7px;
 }
 
 .dropdown-menu h3{
   width: 100%;
   text-align: center;
-  font-size: 18px;
+  /* font-size: 16px; */
   padding: 3px 0;
   font-weight: 500;
   font-size: 18px;

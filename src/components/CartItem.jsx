@@ -17,7 +17,7 @@ const CartItem = ({ cartItem }) => {
 
 
   const showProductDetails=()=>{
-    navigate("/productDetailsPage", { state: cartItem.book })
+    navigate("/productDetails", { state: cartItem.book })
   }
 
   const plusButtonHandler = (e) => {
@@ -60,7 +60,7 @@ const CartItem = ({ cartItem }) => {
             <button className="quantity-btn minus" onClick={minusButtonHandler}>
               -
             </button>
-            <input type="number" className="quantity-input" value={quantity} readOnly />
+            <input type="number" className="quantity-input" value={quantity} readOnly onClick={(e)=>e.stopPropagation()}/>
             <button className="quantity-btn plus" onClick={plusButtonHandler}>
               +
             </button>

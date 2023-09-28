@@ -15,9 +15,6 @@ const AddressContinue=()=>{
     const navigate=useNavigate();
     const {cart, placeCartOrder}=useContext(CartContext);
 
-    console.log(user);
-    console.log(book);
-
     const handleProceedBtn=async()=>{
         
         if(!book){
@@ -28,7 +25,7 @@ const AddressContinue=()=>{
                 const status = await placeCartOrder(cartOrderData);
     
                 if(status===true){
-                    navigate("/orderSuccessPage");
+                    navigate("/orderSuccess");
                 }else{
                     toast.error("Placing order failed..., try again later", {
                         position: 'top-center',
@@ -71,7 +68,7 @@ const AddressContinue=()=>{
     }
 
     const handleChangeAddress=()=>{
-        navigate("/addressSelectorPage", {state:{book,user}});
+        navigate("/addressSelector", {state:{book,user}});
     }
 
     return(

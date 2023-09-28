@@ -1,17 +1,17 @@
 import Navbar from "../components/Navbar";
 import RecommendedBooks from "../components/RecommendedBooks";
 import Services from "../components/Services";
-import Footer from "../components/Footer"
-import CategoryRow from "../components/CategoryRow"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import CategoryResultPage from "../pages/CategoryResultPage"
+import Footer from "../components/Footer";
+import CategoryRow from "../components/CategoryRow";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import CategoryResultPage from "../pages/CategoryResultPage";
 
 const HomePage=()=>{
 
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [selectedCategoryName, setSelectedCategoryName] = useState(null);
-  const navigate=useNavigate();
+
 
   const categories = [
     { id: 17, name: 'Fictional' },
@@ -38,8 +38,8 @@ const HomePage=()=>{
   
   const handleCategorySelect = async(category) => {
     setSelectedCategoryId(category.id);
-    let selectedCategoryName=category.name.replace('&',"");
-    setSelectedCategoryName(selectedCategoryName)
+    let selectedCategoryName=category.name.replace('/&','').replace('/',' ');
+    setSelectedCategoryName(selectedCategoryName);
   };
 
   return(
@@ -61,4 +61,4 @@ const HomePage=()=>{
     )
 }
 
-export default HomePage
+export default HomePage;

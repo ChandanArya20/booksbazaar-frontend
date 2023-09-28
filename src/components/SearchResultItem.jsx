@@ -23,7 +23,7 @@ const SearchResultItem = ({ book }) => {
       addToCart(cartItem)
 
     }else
-      navigate("/phoneLogin")
+      navigate("/userPhoneLogin")
   }
 
   const HandleBuyBook=async(e)=>{
@@ -34,7 +34,7 @@ const SearchResultItem = ({ book }) => {
     if(user.address.length!==0){
       navigate("/addressContinue", {state:{book,user}})
     } else{
-      navigate("/addressFormPage", {state:{book,user}})
+      navigate("/addressForm", {state:{book,user}})
     }     
   }
 
@@ -45,12 +45,12 @@ const SearchResultItem = ({ book }) => {
     if(isUserLoggedin()){
       navigate("/cart")
     }else{
-      navigate("/phoneLogin")
+      navigate("/userPhoneLogin")
     }
   }
 
   const productDetailsHandler=()=>{
-    navigate("/productDetailsPage", { state: book })
+    navigate("/productDetails", { state: book })
   }
 
   return (

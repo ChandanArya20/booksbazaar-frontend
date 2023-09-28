@@ -22,7 +22,7 @@ const SellerDashboard = () => {
     },[]);
 
     const sellBookButtonHandler=()=>{
-        navigate("/bookAddSellerPage");
+        navigate("/bookAdd");
     };
   
     const fetchSellerAllBooks=async ()=>{
@@ -47,7 +47,7 @@ const SellerDashboard = () => {
     }
 
     const seeAllOrders=()=>{
-      navigate("/sellerOrderPage");
+      navigate("/sellerOrders");
     };
 
 

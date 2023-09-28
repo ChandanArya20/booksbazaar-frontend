@@ -4,7 +4,7 @@
     align-items: center;
     height: 100px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     padding: 15px;
     transition: box-shadow 0.3s ease-in-out;
     text-overflow: ellipsis;
@@ -31,7 +31,7 @@
     gap: 5vw;
   }
   .seller-book-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   }
   .seller-book-card .book-details-info{
     display: flex;

@@ -1,35 +1,31 @@
+search-box-container{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #e0971a;
+}
 .search-box {
   display: flex;
   align-items: center;
   height: 35px;
   padding: 0 10px;
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
-  width: 0px;
-  opacity: 0;
-  visibility: hidden;
+  width: 30vw;
   transition: 0.3s;
-  border: 1px solid rgb(197, 197, 197);
-}
-
-.search-box.active {
-  width: 500px;
-  opacity: 1;
-  visibility: visible;
+  box-shadow: 0 0 10px #ddd;
+  margin-left: 2vw;
 }
 
 .search-input {
-  /* color: #fff; */
   padding: 10px;
   border: none;
-  background-color: #fff;
+  width: 100%;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease
 }
-/* .search-input::placeholder {
-  color: #fff; 
-} */
+
 .search-input:focus {
   outline: none;
 }
@@ -43,11 +39,51 @@
   color: rgb(139, 134, 134);
 }
 
+.suggestedSearchResults{
+  position: absolute;
+  /* z-index: 1000; */
+  width: 30vw;
+  background-color: #fff;
+  padding: 10px 14px;
+  padding-left: 5px;
+  margin-left: 2vw;
+  margin-top: 3px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #c0c0c0;
+  /* border: 1px solid rgb(156, 156, 156); */
+}
+.result-text-container{
+  display: flex;
+}
+.result-text{
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  padding: 7px 10px;
+  padding-right: 0;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline;
+  border-radius: 5px;
+
+}
+.result-text-container:hover{
+  background-color: #e2f2f6;
+  border-radius: 5px;
+}
+#result-text-search-button{
+  font-size: 18px;
+  color: rgb(139, 134, 134);
+  margin-top: 8px;
+  padding-left: 5px;
+}
 
 @media (max-width:426px) {
   .search-box {
-    height: 35px;
+    width: 47vw;
+    height: 34px;
     border:none;
+    border-radius: 20px;
   }
   .search-input {
     padding: 6px;
@@ -55,11 +91,10 @@
   }
   .search-button {  
     font-size: 16px;
+    margin-top: 5px;
   }
-  .search-box.active {
-    width: 55vw;
-    margin-left: 11vw;;
-  
+  .suggestedSearchResults{  
+    width: 47vw;
   }
  
 }

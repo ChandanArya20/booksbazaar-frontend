@@ -53,7 +53,7 @@ const AddressFormPage = () => {
             const status = await placeCartOrder(cartOrderData);
 
             if(status===true){
-                navigate("/orderSuccessPage");
+                navigate("/orderSuccess");
             }else{
                 toast.error("Placing order failed..., try again later", {
                     position: 'top-center',

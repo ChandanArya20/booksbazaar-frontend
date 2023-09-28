@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 
 const CategoryRow = ({ categories, selectedCategoryId, onCategorySelect }) => {
+  
   const categoryListRef = useRef(null);
   const [startX, setStartX] = useState(null);
   const [scrollLeft, setScrollLeft] = useState(0);
