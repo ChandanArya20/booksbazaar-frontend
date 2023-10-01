@@ -9,14 +9,12 @@ import FilterModel from "../components/FIlterModel";
 import { BiFilterAlt as FilterIcon } from 'react-icons/bi';
 import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
 import BeatLoader from "react-spinners/BeatLoader";
-import ScaleLoader from "react-spinners/ScaleLoader";
 
 const SearchResultPage = () => {
 
     const searchQuery = useLocation().state;
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false); 
-    // const [infinteLoading, setInfiniteLoading] = useState(false); 
     const [page, setPage] = useState(1);
     const [isLoadingMore, setIsLoadingMore] = useState(false);
     const [originalBooks, setOriginalBooks] = useState([]);
@@ -120,7 +118,7 @@ const SearchResultPage = () => {
 
         try {
 
-            const response = await fetch(`http://localhost:8080/api/book/search?per_page=5&page=${page}&query=${query}`);
+            const response = await fetch(`http://localhost:8080/api/book/search?page=${page}&size=6&query=${query}`);
 
             if (response.ok) {
 
@@ -144,7 +142,6 @@ const SearchResultPage = () => {
         } finally{
             setLoading(false);           
             if(fetchedbooks.length>0){
-                // setInfiniteLoading(false);
                 setIsLoadingMore(false);
             }        
         }
@@ -171,9 +168,7 @@ const SearchResultPage = () => {
         if (window.innerHeight + document.documentElement.scrollTop +1 >= 
             document.documentElement.scrollHeight) {
             setIsLoadingMore(true);
-            // setInfiniteLoading(true);
             setPage(pre => pre + 1);
-            setIsLoadingMore(true);
         }
     }
 
