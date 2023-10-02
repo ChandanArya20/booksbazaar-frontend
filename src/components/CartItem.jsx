@@ -5,8 +5,7 @@ import { CartContext } from '../context/CartContext'
 import { useNavigate } from 'react-router-dom';
 
 const CartItem = ({ cartItem }) => { 
-
-  const {cart, setCart, updateCartItemQuantity, deleteCartItems } = useContext(CartContext)
+  const {cart, updateCartItemQuantity, deleteCartItems } = useContext(CartContext)
   const [totalPrice, setTotalPrice] = useState(cartItem.book.price)
   const [quantity, setQuantity] = useState(cartItem.quantity)
   const navigate=useNavigate()

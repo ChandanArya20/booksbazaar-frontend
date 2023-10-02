@@ -1,5 +1,5 @@
 import '../css/order_filter_model.css';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {AiOutlineClose as CloseIcon} from 'react-icons/ai';
 
 const SellerOrderFilterModel = ({setShowFilter , applyFilter, currentFilterStatus}) => {

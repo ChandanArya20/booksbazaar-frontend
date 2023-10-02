@@ -14,31 +14,31 @@ const SellerOrderItemDetailsPage = () => {
   const [status, setStatus]=useState(order.status)
   console.log(order);
 
-  const handleCancelOrder=async()=>{
-    try {
-      const response= await fetch(`http://localhost:8080/api/order/${order.id}?status=Cancelled`,{
-        method:'PATCH',
-      }) 
-      if(response.ok){
-        // order.status='Cancelled'
-        setStatus('Cancelled')
-        toast.success("Order cancelled successfully...", {
-          position: 'top-center',
-          theme: 'dark'
-        })
-      } else{
-        toast.error("Order cancellation failed..., try again", {
-          position: 'top-center',
-          theme: 'dark'
-        })
-      }
+  // const handleCancelOrder=async()=>{
+  //   try {
+  //     const response= await fetch(`http://localhost:8080/api/order/${order.id}?status=Cancelled`,{
+  //       method:'PATCH',
+  //     }) 
+  //     if(response.ok){
+  //       // order.status='Cancelled'
+  //       setStatus('Cancelled')
+  //       toast.success("Order cancelled successfully...", {
+  //         position: 'top-center',
+  //         theme: 'dark'
+  //       })
+  //     } else{
+  //       toast.error("Order cancellation failed..., try again", {
+  //         position: 'top-center',
+  //         theme: 'dark'
+  //       })
+  //     }
 
-    } catch (error) {
-      console.error(error)
-      const errorObj={  errorMessage : error.message }
-      navigate('/errorPage', {state:errorObj })
-    }
-  }
+  //   } catch (error) {
+  //     console.error(error)
+  //     const errorObj={  errorMessage : error.message }
+  //     navigate('/errorPage', {state:errorObj })
+  //   }
+  // }
 
   return (
     <>

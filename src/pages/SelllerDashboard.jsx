@@ -1,7 +1,7 @@
 import '../css/seller_dashboard.css';
 import { FaUser as ProfileIcon } from 'react-icons/fa';
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import SellerProfileDropdown from '../components/SellerProfileDropdown';
 import Navbar from '../components/Navbar';
 import SellerBookItem from '../components/SellerBookItem';

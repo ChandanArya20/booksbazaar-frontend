@@ -24,7 +24,6 @@ import OrderItemDetailsPage from "./pages/OrderItemDetailsPage";
 import AddressContinue from "./pages/AddressContinue";
 import SellerOrderItemDetailsPage from "./pages/SellerOrderItemDetailsPage";
 import SellerOrderPage from "./pages/SellerOrderPage";
-import CategoryResultPage from "./pages/CategoryResultPage";
 import SearchResultPage from "./pages/SearchResultPage";
 
 const App = () => {

@@ -1,6 +1,5 @@
 import '../css/login_page.css';
 import React, { useState } from 'react';
-import { BiHide as PassHideIcon } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import {useForm} from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify';

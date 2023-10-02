@@ -1,6 +1,6 @@
 import '../css/user_profile_dropdown.css';
 import { FaUser, FaEdit, FaInbox, FaCog, FaQuestion, FaSignOutAlt } from 'react-icons/fa';
-import React, { useContext } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { doSellerLogout, getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
 

@@ -7,7 +7,7 @@ import { UserContext } from '../context/UserContex';
 
 const CategoryResultItem = ({ book }) => {
 
-  const { cart, setCart, addToCart } = useContext(CartContext);
+  const { cart, addToCart } = useContext(CartContext);
   const {isUserLoggedin}=useContext(UserContext)
   const navigate=useNavigate()
   const isBookInCart = cart.some((item) => item.id === book.id);

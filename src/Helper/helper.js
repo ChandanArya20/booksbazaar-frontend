@@ -48,7 +48,7 @@ export const formatDateForOrderItem=(inputDate)=> {
 
   const parts = inputDate.split('-');
   if (parts.length === 3) {
-    const [year, month, day] = parts;
+    const [month, day] = parts;
 
     // Get the name of the month based on the numeric value
     const monthNames = [

@@ -9,7 +9,7 @@ import { getWholeUserData } from '../Helper/helper';
 
 const SearchResultItem = ({ book }) => {
 
-  const { cart, addToCart, setCart } = useContext(CartContext);
+  const { cart, addToCart } = useContext(CartContext);
   const {isUserLoggedin}=useContext(UserContext)
   const navigate=useNavigate()
   const isBookInCart = cart.some((item) => item.id === book.id);
