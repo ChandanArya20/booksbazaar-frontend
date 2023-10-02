@@ -57,9 +57,13 @@ nav {
   color: black;
   display: flex;
   justify-content: flex-end;
-  gap: 3vw;
+  gap: 2vw;
   align-items: center;
-  margin-right: 30px;
+  margin-right: 25px;
+}
+.nav-right-content .icons.down-gap{
+  gap: 0vw;
+  margin-right: 5px;
 }
 .icon{
   font-size: 21px;
@@ -177,9 +181,10 @@ nav {
     margin-right: 0;
   }
   .login-button {
-    padding: 8px 10px;
-    margin-right: 2vw;
+    padding: 8px 12px;
+    margin-right: 0;
     font-size: 14px;
+    /* background-color: #11cd30; */
   }
   #navbar-menu{
     display: block;

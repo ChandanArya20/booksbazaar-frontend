@@ -102,7 +102,7 @@ const Navbar = ({backButton,searchQuery}) => {
             )
           }
           <SearchBox className='icon' searchQuery={searchQuery}/>
-          <div className="icons">
+          <div className={isLoggedin()? 'icons':'icons down-gap'}>
             <div className="cart-icon">
               <CartIcon className="icon" onClick={cartClickHandler} />
               {cartQuantity > 0 && <p className='cart-quantity'><span>{cartQuantity}</span></p>}
