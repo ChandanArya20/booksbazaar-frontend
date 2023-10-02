@@ -19,7 +19,7 @@ const AddressFormPage = () => {
   const submitAddress = async(addressData) => {
    
     try {
-        const response=await fetch(`http://localhost:8080/api/user/${user.id}/saveAddress`,{
+        const response=await fetch(`${process.env.REACT_APP_API_URL}/user/${user.id}/saveAddress`,{
           method:'POST',
           headers: {
             "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const AddressFormPage = () => {
     } else{
         const orderData=[{book:book, quantity:1, deliveryAddress: userAddress[0], user:user }];
         try {
-            const response=await fetch(`http://localhost:8080/api/order/placeOrder`, {
+            const response=await fetch(`${process.env.REACT_APP_API_URL}/order/placeOrder`, {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json",

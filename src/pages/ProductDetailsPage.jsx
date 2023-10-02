@@ -21,7 +21,7 @@ const ProductDetailsPage = () => {
   const getAllBookDetails = async () => {
 
     try {
-      const response = await fetch("http://localhost:8080/api/book/" + bookInfo.id);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/book/${bookInfo.id}`);
       if (response.ok) {
         const bookData = await response.json();
         setBook(bookData);

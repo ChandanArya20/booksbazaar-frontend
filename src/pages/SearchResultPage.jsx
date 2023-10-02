@@ -118,7 +118,7 @@ const SearchResultPage = () => {
 
         try {
 
-            const response = await fetch(`http://localhost:8080/api/book/search?page=${page}&size=6&query=${query}`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/book/search?page=${page}&size=6&query=${query}`);
 
             if (response.ok) {
 

@@ -31,7 +31,7 @@ const SearchBox = ({searchQuery }) => {
 
   const fetchSuggestedFilterResultes=async(query)=>{
     try {
-      const response=await fetch(`http://localhost:8080/api/book/suggest_book_names?size=10&query=${query}`);
+      const response=await fetch(`${process.env.REACT_APP_API_URL}/book/suggest_book_names?size=10&query=${query}`);
       if(response.ok){
         const filterResults=await response.json();
         setSearchResults(filterResults);

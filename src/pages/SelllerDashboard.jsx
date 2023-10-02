@@ -29,7 +29,7 @@ const SellerDashboard = () => {
         setLoading(true);
         const sellerId=getCurrentSellerDetails().id;
         try {
-            const response=await fetch(`http://localhost:8080/api/book/seller/${sellerId}/allBook`);
+            const response=await fetch(`${process.env.REACT_APP_API_URL}/book/seller/${sellerId}/allBook`);
             if(response.ok){
               const bookList=await response.json();
               setBooks(bookList);

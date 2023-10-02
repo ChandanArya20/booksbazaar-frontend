@@ -19,7 +19,7 @@ const SellerLoginPage = () => {
    
     try {
         setLoading(true);
-        let response= await fetch('http://localhost:8080/api/seller/login',{
+        let response= await fetch(`${process.env.REACT_APP_API_URL}/seller/login`,{
         method:'POST',
         headers:{
           'Content-Type': 'application/json'

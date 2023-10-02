@@ -42,7 +42,7 @@ const SellerOrderPage = () => {
         setLoading(true);
         const sellerId=getCurrentSellerDetails().id;
         try {    
-            const response=await fetch(`http://localhost:8080/api/order/seller/${sellerId}/allOrders`)
+            const response=await fetch(`${process.env.REACT_APP_API_URL}/order/seller/${sellerId}/allOrders`)
         
             if(response.ok){
                 const orderList=await response.json();

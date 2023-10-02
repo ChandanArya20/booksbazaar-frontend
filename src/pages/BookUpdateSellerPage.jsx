@@ -20,7 +20,7 @@ const BookUpdateSellerPage = () => {
   const getAllBookDetails = async () => {
 
     try {
-      const response = await fetch("http://localhost:8080/api/book/" + bookInfo.id)
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/book/${bookInfo.id}`)
       if (response.ok) {
         const bookData = await response.json();
         setBook(bookData);
@@ -78,7 +78,7 @@ const BookUpdateSellerPage = () => {
 
     // Fetch API POST request
     try {
-      const response = await fetch('http://localhost:8080/api/book/seller/updateBook', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/book/seller/updateBook`, {
         method: 'PUT',
         body: formData,
       });

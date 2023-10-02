@@ -22,7 +22,7 @@ const SellerBookItem = ({ bookData }) => {
     e.stopPropagation();
     try {
       const initialStatus=book.status;
-      const response=await fetch(`http://localhost:8080/api/book/${book.id}/changeStatus/`, {
+      const response=await fetch(`${process.env.REACT_APP_API_URL}/book/${book.id}/changeStatus/`, {
         method:"PATCH"
       });
       if(response.ok){

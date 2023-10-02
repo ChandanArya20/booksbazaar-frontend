@@ -16,7 +16,7 @@ const SellerOrderItemDetailsPage = () => {
 
   // const handleCancelOrder=async()=>{
   //   try {
-  //     const response= await fetch(`http://localhost:8080/api/order/${order.id}?status=Cancelled`,{
+  //     const response= await fetch(`${process.env.REACT_APP_API_URL}/order/${order.id}?status=Cancelled`,{
   //       method:'PATCH',
   //     }) 
   //     if(response.ok){

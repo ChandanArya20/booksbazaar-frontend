@@ -32,7 +32,7 @@ const SellerPasswordCreationPage = () => {
       const requestdata=phone.length !== 0 ? { name, phone, email,location, sellerId, password: password1 } : 
                                              { name, email,location, sellerId, password: password1 };         
 
-        const response= await fetch('http://localhost:8080/api/seller/register',{
+        const response= await fetch(`${process.env.REACT_APP_API_URL}/seller/register`,{
         method:'POST',
         headers:{
           'Content-Type': 'application/json'

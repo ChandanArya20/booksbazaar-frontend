@@ -26,7 +26,7 @@ const DeliveryStatusModel = ({setShowStatusModel, orderId, orderStatus, handleSt
     const handleChangeStatusButton=async()=>{
                
         try {
-            const response= await fetch(`http://localhost:8080/api/order/${orderId}?status=${selectedStatus}`,{
+            const response= await fetch(`${process.env.REACT_APP_API_URL}/order/${orderId}?status=${selectedStatus}`,{
               method:'PATCH',
             }) ;
             if(response.ok){

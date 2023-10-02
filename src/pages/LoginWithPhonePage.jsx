@@ -19,7 +19,7 @@ const LoginWithPhonePage = () => {
   const doLoginUser = async(data) => {
     try {
       setLoading(true);  
-      let response= await fetch('http://localhost:8080/api/user/login',{
+      let response= await fetch(`${process.env.REACT_APP_API_URL}/user/login`,{
         method:'POST',
         headers:{
           'Content-Type': 'application/json'

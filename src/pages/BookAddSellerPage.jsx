@@ -32,7 +32,7 @@ const BookAddSellerPage = () => {
   
     // Fetch API POST request
     try {
-      const response = await fetch('http://localhost:8080/api/book/seller/addBook', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/book/seller/addBook`, {
         method: 'POST',
         body: formData,
       });

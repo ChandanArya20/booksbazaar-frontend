@@ -134,7 +134,7 @@ const CategoryResultPage = ({categoryName}) => {
         
         setLoading(true);
         try {
-            const response = await fetch(`http://localhost:8080/api/book/search/category?page=1&size=20&query=${categoryName}`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/book/search/category?page=1&size=20&query=${categoryName}`);
 
             if (response.ok) {
                 const books = await response.json();
