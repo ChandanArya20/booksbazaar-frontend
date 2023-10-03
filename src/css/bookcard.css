@@ -51,15 +51,16 @@
     margin-top: 5px;
     padding: 7px 14px;
     font-size: 14px;
-    color: #ffffff;
-    background-color: #02b19f;
-    border: none;
+    color: #02b19f;
+    background-color: #fff;
+    border: 1px solid #02b19f;;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   .book-card-button:hover {
-    background-color: #00a494;
+    color: #018577;
+    border: 1px solid #018577;
   }
   .book-card-button-remove{
     margin-top: 5px;

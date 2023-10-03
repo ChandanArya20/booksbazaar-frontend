@@ -185,6 +185,7 @@ const CategoryResultPage = ({categoryName}) => {
             </div>
             <div className="category-result-item-container">
                 <div className="filter-button-container">
+                <p>Results</p>
                  <div onClick={()=>setShowFilter(true)}>
                     <FilterIcon/>
                     <p>Filters </p>

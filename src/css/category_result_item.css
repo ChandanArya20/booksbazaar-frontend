@@ -66,17 +66,18 @@
   
   .result-book-card .book-card-button {
     margin-top: 5px;
-    padding: 10px 14px;
+    padding: 8px;
     font-size: 14px;
-    color: #ffffff;
-    background-color: #02b19f;
-    border: none;
+    color:#02b19f;
+    background-color: #fff;
+    border: 1px solid #02b19f;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   .result-book-card  .book-card-button:hover {
-    background-color: #00a494;
+    color: #018577;
+    border: 1px solid #018577;
   }
   .result-book-card .book-card-button-remove{
     margin-top: 5px;
@@ -115,15 +116,8 @@
       margin-top: 5px;
     }
     .result-book-card .book-card-button {
-      margin-top: 5px;
-      padding: 8px;
-      font-size: 14px;
-      color: #ffffff;
-      background-color: #02b19f;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+      padding: 6px;
+      font-size: 13px;
     }
     
   }

@@ -10,8 +10,8 @@ import { getWholeUserData } from '../Helper/helper';
 const SearchResultItem = ({ book }) => {
 
   const { cart, addToCart } = useContext(CartContext);
-  const {isUserLoggedin}=useContext(UserContext)
-  const navigate=useNavigate()
+  const {isUserLoggedin}=useContext(UserContext);
+  const navigate=useNavigate();
   const isBookInCart = cart.some((item) => item.id === book.id);
 
 
@@ -19,23 +19,27 @@ const SearchResultItem = ({ book }) => {
     e.stopPropagation();
 
     if(isUserLoggedin()){
-      const cartItem={book, quantity:1}
-      addToCart(cartItem)
+      const cartItem={book, quantity:1};
+      addToCart(cartItem);
 
     }else
-      navigate("/userPhoneLogin")
+      navigate("/userPhoneLogin");
   }
 
   const HandleBuyBook=async(e)=>{
     e.stopPropagation();
-
-    const user=await getWholeUserData()
-
-    if(user.address.length!==0){
-      navigate("/addressContinue", {state:{book,user}})
+    
+    if(isUserLoggedin()){
+      const user=await getWholeUserData();
+      if(user.address.length!==0){
+        navigate("/addressContinue", {state:{book,user}});
+      } else{
+        navigate("/addressForm", {state:{book,user}});
+      }     
     } else{
-      navigate("/addressForm", {state:{book,user}})
-    }     
+      navigate("/userPhoneLogin");
+    }
+
   }
 
   const goToCart=(e)=>{
@@ -43,14 +47,14 @@ const SearchResultItem = ({ book }) => {
     e.stopPropagation();
 
     if(isUserLoggedin()){
-      navigate("/cart")
+      navigate("/cart");
     }else{
-      navigate("/userPhoneLogin")
+      navigate("/userPhoneLogin");
     }
   }
 
   const productDetailsHandler=()=>{
-    navigate("/productDetails", { state: book })
+    navigate("/productDetails", { state: book });
   }
 
   return (

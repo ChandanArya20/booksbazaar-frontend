@@ -1,19 +1,21 @@
 import '../css/book_seller_page.css';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getCurrentSellerDetails } from '../Auth/sellerLoginFunc';
-
+import ClipLoader  from "react-spinners/ClipLoader";
 
 const BookAddSellerPage = () => {
 
   const navigate = useNavigate();
+  const [loading, setLoading]=useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const submitBookDetails = async (data) => {
     
+    setLoading(true);
     //Holds data as key value pair to transfer in backend 
     const formData = new FormData();
   
@@ -52,6 +54,8 @@ const BookAddSellerPage = () => {
       console.error(error);
       const errorObj={  errorMessage : error.message };
       navigate('/errorPage', {state:errorObj });
+    } finally{
+      setLoading(false);
     }
   };
   
@@ -334,8 +338,15 @@ const BookAddSellerPage = () => {
             </div>
             </div>
             <div className="book-submit">
-              <button type="submit" className="book-submit-button">
-                Submit
+              <button type="submit" className="book-submit-button" disabled={loading ? true: false}>
+                { loading ? 'Processing...' : 'Add Book'}
+                {loading && <div className="loading-overlay-btn">
+                                <ClipLoader color="#620c88" />
+                            </div>
+                }
+              </button>
+              <button className="book-back-button" onClick={()=>navigate(-1)}>
+                Back
               </button>
           </div>
         </form>      

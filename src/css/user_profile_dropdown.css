@@ -17,15 +17,15 @@
   border-radius: 10px;
   padding: 10px 13px;
   width: 175px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   opacity: 0;
 }
 
 /*specific for the seller dropdown menu */
 #menu-container-seller{
   position: fixed;
-  top: 185px;
-  right: 350px;
+  top: 160px;
+  right: 370px;
 }
 
 .dropdown-menu.visible {
@@ -121,7 +121,7 @@
   /*specific for the seller dropdown menu */
   #menu-container-seller{
     position: fixed;
-    top: 185px;
+    top: 172px;
     right: 55px;
   }
 }

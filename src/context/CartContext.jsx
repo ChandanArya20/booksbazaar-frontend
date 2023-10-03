@@ -25,7 +25,7 @@ const CartContextProvider=({children})=>{
       const currentUser=getCurrentUserDetails()
       try {
         if(currentUser){
-          const response = await fetch(`http://localhost:8080/api/cart/user/${currentUser.id}/allCartData`);
+          const response = await fetch(`${process.env.REACT_APP_API_URL}/cart/user/${currentUser.id}/allCartData`);
           if (response.ok) {
             const cartItems = await response.json();
             setCart(cartItems)
@@ -53,7 +53,7 @@ const CartContextProvider=({children})=>{
       const currentUser = getCurrentUserDetails();
 
       if (currentUser) {
-        const response=await fetch(`http://localhost:8080/api/cart/addToCart`, {
+        const response=await fetch(`${process.env.REACT_APP_API_URL}/cart/addToCart`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -74,7 +74,7 @@ const CartContextProvider=({children})=>{
   const updateCartItemQuantity = async (cartItem, itemQuantity) => {
 
     // Send the updated quantity to the server using API 
-    const response=await fetch(`http://localhost:8080/api/cart/updateCartQuantity`, {
+    const response=await fetch(`${process.env.REACT_APP_API_URL}/cart/updateCartQuantity`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -94,7 +94,7 @@ const CartContextProvider=({children})=>{
 
   const deleteCartItems = async (cartItems) => {
    
-      const response = await fetch(`http://localhost:8080/api/cart/delete`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/cart/delete`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ const CartContextProvider=({children})=>{
 
   const placeCartOrder=async(orderData)=>{ 
 
-    const response=await fetch(`http://localhost:8080/api/order/placeOrder`, {
+    const response=await fetch(`${process.env.REACT_APP_API_URL}/order/placeOrder`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -23,12 +23,12 @@ const CartPage = () => {
 
     const handlePlaceOrder=async()=>{
       
-        const user=await getWholeUserData()
+        const user=await getWholeUserData();
         const book=null;
         if(user.address.length!==0){
-          navigate("/addressContinue", {state:{book,user}})
+          navigate("/addressContinue", {state:{book,user}});
         } else{
-          navigate("/addressFormPage", {state:{book,user}})
+          navigate("/addressFormPage", {state:{book,user}});
         }     
     }
 

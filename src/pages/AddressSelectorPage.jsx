@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { getWholeUserData } from '../Helper/helper';
 import Navbar from '../components/Navbar';
+import ClipLoader  from "react-spinners/ClipLoader";
 
 const AddressSelectorPage = () => {
 
@@ -12,21 +13,23 @@ const AddressSelectorPage = () => {
   const location=useLocation();
   const user=location.state.user;
   const book=location.state.book;
+  const [loading, setLoading]=useState(false);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [userAddress, setUserAddress]=useState(user.address);
   const {cart, placeCartOrder}=useContext(CartContext);
 
+  console.log(user);
   const handleAddressSelection = (address) => {
     setSelectedAddress(address);
   };
 
   const handleAddNewAddress=async()=>{
-    const user=await getWholeUserData();
-    navigate("/addressForm", {state:user});
+    const book=null;
+    navigate("/addressForm", {state:{book,user}});
   }
 
   const handleProceedBtn=async()=>{
-
+      setLoading(true);
       if(!book){
 
         const cartOrderData=cart.map(item=>{
@@ -48,6 +51,8 @@ const AddressSelectorPage = () => {
             console.error(error);
             const errorObj={  errorMessage : error.message };
             navigate('/errorPage', {state:errorObj });
+        } finally{
+          setLoading(false);
         }
         
     } else{
@@ -73,8 +78,9 @@ const AddressSelectorPage = () => {
             console.error(error);
             const errorObj={  errorMessage : error.message };
             navigate('/errorPage', {state:errorObj });
-        }
-        
+        } finally{
+          setLoading(false);
+        }       
     }
   }
 
@@ -110,7 +116,13 @@ const AddressSelectorPage = () => {
         <button className='add-new-address-btn' onClick={handleAddNewAddress}>+Add a new Address</button>
         {
           selectedAddress !== null && <div className="seleted-next-btn">
-                                              <button onClick={handleProceedBtn}>Proceed</button>
+                                              <button onClick={handleProceedBtn} disabled={loading ? true: false}>
+                                              { loading ? 'Processing...' : 'Proceed'}
+                                              {loading && <div className="loading-overlay-btn">
+                                                              <ClipLoader color="#620c88" />
+                                                          </div>
+                                              }
+                                              </button>
                                           </div>
         }
         </div>

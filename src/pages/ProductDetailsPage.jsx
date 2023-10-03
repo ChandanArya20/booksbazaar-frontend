@@ -49,13 +49,13 @@ const ProductDetailsPage = () => {
       addToCart(cartItem);
 
     }else
-      navigate("/phoneLogin");
+      navigate("/userPhoneLogin");
   }
   const goToCart=()=>{
     if(isUserLoggedin()){
       navigate("/cart");
     }else
-       navigate("/phoneLogin");
+       navigate("/userPhoneLogin");
   }
 
   const handleBuyNow = async() => {
@@ -77,7 +77,7 @@ const ProductDetailsPage = () => {
       }
   
     } else{
-      navigate("/phoneLogin");
+      navigate("/userPhoneLogin");
     }
   };
 

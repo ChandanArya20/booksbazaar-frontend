@@ -1,10 +1,11 @@
 import '../css/address_form_page.css';
 import { useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import {toast } from 'react-toastify';
 import { getUserAddress } from '../Helper/helper';
+import ClipLoader  from "react-spinners/ClipLoader";
 
 const AddressFormPage = () => {
 
@@ -13,11 +14,13 @@ const AddressFormPage = () => {
   const location=useLocation()
   const user=location.state.user;
   const book=location.state.book;
+  const [loading, setLoading]=useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm()
 
 
+
   const submitAddress = async(addressData) => {
-   
+    setLoading(true);
     try {
         const response=await fetch(`${process.env.REACT_APP_API_URL}/user/${user.id}/saveAddress`,{
           method:'POST',
@@ -39,6 +42,8 @@ const AddressFormPage = () => {
       console.log(error);
       const errorObj={  errorMessage : error.message };
       navigate('/errorPage', {state:errorObj });
+    } finally{
+      setLoading(false);
     }
   };
 
@@ -64,6 +69,8 @@ const AddressFormPage = () => {
             console.error(error);
             const errorObj={  errorMessage : error.message };
             navigate('/errorPage', {state:errorObj });
+        } finally{
+          setLoading(false);
         }
         
     } else{
@@ -209,8 +216,15 @@ const AddressFormPage = () => {
         </div>
         <p className="error-message">{errors.addressType?.message}</p>
 
-        <div className="form-group">
-          <button type="submit">Submit</button>
+        <div className="form-group-buttons">
+          <button onClick={()=>navigate(-1)} id='back'>Back</button>
+          <button type="submit" disabled={loading ? true: false}>
+          { loading ? 'Processing...' : 'Submit'}
+          {loading && <div className="loading-overlay-btn">
+                          <ClipLoader color="#620c88" />
+                      </div>
+          }
+          </button>
         </div>
       </form>
     </div>

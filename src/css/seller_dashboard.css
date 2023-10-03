@@ -1,11 +1,10 @@
 .seller-dashboard-container{
-  width: 98%;
-  margin: 0 auto;
-  margin-top: 63px;  
+  width: 100%;
+  margin-top: 53px;  
   background-color: #fff;
 }
 .seller-dashboard {
-  max-width: 900px;
+  width: 70%;
   margin: 0 auto;
   font-family: 'Arial', sans-serif;
   padding: 15px 0px;
@@ -27,13 +26,14 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 20px;
+  /* margin-right: 1vw; */
 }
 #see-all-orders-btn{
   width: 120px;
   height: 30px;
   color: #029788;
   font-size: 14px;
-  border:1px solid blue;
+  border:1px solid rgb(0, 0, 0);
   border-radius: 5px;
   background-color:#fff;
   cursor: pointer;
@@ -73,12 +73,13 @@
 .seller-books{
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 @media (max-width:426px) {
+
   .seller-dashboard-container{
-    width: 90vw;
+    width: 94vw;
     padding: 3vw;
   }
   .seller-dashboard {
@@ -90,6 +91,9 @@
   .published-books {
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+  .see-all-orders-btn-container{
+    margin-right: 1vw;
   }
   
 }

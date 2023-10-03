@@ -118,7 +118,7 @@ const SearchResultPage = () => {
 
         try {
 
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/book/search?page=${page}&size=6&query=${query}`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/book/search?page=${page}&size=20&query=${query}`);
 
             if (response.ok) {
 
@@ -213,7 +213,8 @@ const SearchResultPage = () => {
                                 />
                             </div>
                             <div className="search-result-item-container" >
-                                <div className="filter-button-container">
+                                <div className="search-filter-button-container">
+                                    <p>Results</p>
                                     <div onClick={() => setShowFilter(true)}>
                                         <FilterIcon />
                                         <p>Filters </p>
@@ -221,14 +222,7 @@ const SearchResultPage = () => {
                                 </div>
                                 <div className="search-result-item-container">
                                     {books.map(book => <SearchResultItem key={book.id} book={book} />)}
-                                </div>
-                                {/* {
-                                    infinteLoading && 
-                                    <div >
-                                        <BeatLoader color="#36d7b7" />
-                                    </div>
-                                } */}
-                                
+                                </div>                              
                             </div>
                         </>
                 }

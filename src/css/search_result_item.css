@@ -68,24 +68,29 @@
   
   .search-result-book-card .book-card-button {
     width: 100px;
-    padding: 10px 14px;
+    padding: 8px;
     font-size: 14px;
-    color: #ffffff;
-    background-color: #02b19f;
-    border: none;
+    color: #02b19f;
+    background-color: #fff;
+    border: 1px solid #02b19f;;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   .search-result-book-card  .book-card-button:hover {
-    background-color: #00a494;
+    color: #018577;
+    border: 1px solid #018577;
   }
 
   .search-result-book-card .book-card-button-buy{
-    background-color: #FF5F6D;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
   }
   .search-result-book-card .book-card-button-buy:hover{
-    background-color:  #FF4358;
+    background-color:  #0372ea;
+    color: #fff;
+    border: none;
   }
 
 
@@ -98,12 +103,13 @@
       padding: 10px;
       margin-top: 0;
       gap: 4px;
+      border-radius: 10px;
     }
     .search-result-book-card-left{
-      gap: 2vw;
+      gap: 1vw;
     }
     .search-result-book-card .book-image-conatiner{
-      width: 100px;
+      width: 90px;
     }
     .search-result-book-card .book-card-image {
       width: 90%;
@@ -119,7 +125,7 @@
     }
     .search-result-book-card-right .book-card-buttons{
       display: flex;
-      gap: 15px;
+      gap: 7px;
     }
     .search-result-book-card .book-card-title {
       width: 65vw;

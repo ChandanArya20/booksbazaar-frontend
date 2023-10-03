@@ -27,7 +27,6 @@ const CategoryResultItem = ({ book }) => {
       addToCart(cartItem);
 
     }else{
-
       navigate("/userPhoneLogin");
     }
   }

@@ -6,11 +6,11 @@
     border-radius: 5px;
     width: 750px;
     height: 100px;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
   }
   .order-item:hover{
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0px 12px rgba(0, 0, 0, 0.3);
   }
   .order-item-left{
     display: flex;
@@ -112,6 +112,7 @@
       width: 88vw;
       height: auto;
       gap: 2vw;
+      box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
     }  
     .order-item-left{
       display: flex;

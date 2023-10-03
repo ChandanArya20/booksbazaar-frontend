@@ -1,9 +1,9 @@
 /* ProductDetailsPage.css */
   .product-details-page {
     display: flex;
-    width: 98%;
+    width: 100%;
     margin: auto;
-    margin-top: 63px;
+    margin-top: 53px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
   }

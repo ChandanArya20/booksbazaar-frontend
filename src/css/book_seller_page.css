@@ -22,7 +22,7 @@
   font-size: 24px;
   margin-bottom: 25px;
   margin-top: 20px;
-  color: #03a747;
+  color: #ea7e19;
 }
 
 .selling-form{
@@ -68,6 +68,15 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+.book_selling-Page button.book-back-button {
+  background-color: #fff;
+  color: red;
+  border: 1px solid red;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 .book_selling-Page button.book-submit-button:hover {
   background-color: #0056b3;
@@ -88,19 +97,30 @@
 }
 
 @media (max-width:426px) {
-  
+  .book-selling-page-container{
+    background-color: #fff;
+  }
   .book_selling-Page {
     flex-direction: column;
-    padding:30px;
-    width: 80vw;
+    padding:0 20px 20px 20px;
+    width: 100vw;
   }
   .selling-form{
     width: 85vw;
-   flex-direction: column;
-   gap: 0;
+    flex-direction: column;
+    gap: 0;
   }
   .book_selling-Page textarea{
     width:93%;
     height: 70px;
+  }
+  .book-selling-page-container h1 {
+    margin: 15px;
+  }
+  .book_selling-Page button.book-submit-button {
+   font-size: 16px;
+  }
+  .book_selling-Page button.book-back-button {
+    font-size: 16px;
   }
 }

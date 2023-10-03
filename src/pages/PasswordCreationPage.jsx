@@ -43,7 +43,6 @@ const PasswordCreationPage = () => {
         loginUser(userData,()=>{
           navigate("/")
         })    
-        setLoading(false);
       } else if (response.status === 400) {
         const errorMessage = await response.text();
         toast.error(errorMessage, {
@@ -58,6 +57,8 @@ const PasswordCreationPage = () => {
       console.error(error)
       const errorObj={  errorMessage : error.message }
       navigate('/errorPage', {state:errorObj })
+    }finally{
+      setLoading(false);
     }
   }
 

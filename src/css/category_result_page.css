@@ -31,8 +31,9 @@
     display: none;
 }
 .filter-button-container{
-    display: flex; 
-    justify-content: flex-end;
+    display: none;
+}
+.filter-button-container >p{
     display: none;
 }
 .filter-button-container div{
@@ -62,7 +63,8 @@
 @media (max-width:426px) {
 
     .category-result-container{
-        width: 95vw;
+        width: 100vw;
+        margin-top: 5px;
     }
     .category-result-item-container{
         width: 100%;
@@ -78,7 +80,16 @@
     }
     .filter-button-container{
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+    }
+    .filter-button-container > p{
+        display: inline;
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 2vw;    
+    }
+    .filter-button-container div{
+        margin-right: 2vw;    
     }
     .category-result-filter-model{
         display: flex;
