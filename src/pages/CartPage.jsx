@@ -9,7 +9,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 const CartPage = () => {
 
-    const {cart, getAllCartItems, totalCartPrice, cartQuantity} = useContext(CartContext);
+    const {cart, refreshAllCartItems, totalCartPrice, cartQuantity} = useContext(CartContext);
     const [loading, setLoading]=useState(true); 
     const navigate=useNavigate();
 
@@ -18,7 +18,7 @@ const CartPage = () => {
     },[cart])
 
     useEffect(()=>{
-      getAllCartItems();
+      refreshAllCartItems();
     }, []);
 
     const handlePlaceOrder=async()=>{

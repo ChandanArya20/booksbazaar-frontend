@@ -2,15 +2,15 @@ search-box-container{
   display: flex;
   flex-direction: column;
   position: absolute;
-  background-color: #e0971a;
 }
 .search-box {
   display: flex;
   align-items: center;
   height: 35px;
   padding: 0 10px;
-  background-color: #fff;
-  border-radius: 10px;
+  background-color: #ffffff8c;
+  border: 1px solid rgb(194, 194, 194);
+  border-radius: 20px;
   overflow: hidden;
   width: 30vw;
   transition: 0.3s;
@@ -23,7 +23,8 @@ search-box-container{
   border: none;
   width: 100%;
   font-size: 16px;
-  transition: background-color 0.3s ease
+  transition: background-color 0.3s ease;
+  background-color: transparent;
 }
 
 .search-input:focus {
@@ -41,7 +42,6 @@ search-box-container{
 
 .suggestedSearchResults{
   position: absolute;
-  /* z-index: 1000; */
   width: 30vw;
   background-color: #fff;
   padding: 10px 14px;
@@ -50,7 +50,7 @@ search-box-container{
   margin-top: 3px;
   border-radius: 10px;
   box-shadow: 0 0 15px #c0c0c0;
-  /* border: 1px solid rgb(156, 156, 156); */
+  transition: 0.3s;
 }
 .result-text-container{
   display: flex;
@@ -77,13 +77,19 @@ search-box-container{
   margin-top: 8px;
   padding-left: 5px;
 }
+.remove-search-box-size{
+  display: none;
+}
 
-@media (max-width:426px) {
+@media (min-width:380px) And (max-width:426px) {
   .search-box {
-    width: 47vw;
+    width: 48vw;
     height: 34px;
     border:none;
     border-radius: 20px;
+  }
+  .search-box-increase-size{
+    width: 73vw;
   }
   .search-input {
     padding: 6px;
@@ -94,7 +100,55 @@ search-box-container{
     margin-top: 5px;
   }
   .suggestedSearchResults{  
-    width: 47vw;
+    width: 73vw;
+  }
+  .suggestedSearchResults-decrease-size{
+    width: 48vw;   
+  }
+  .remove-search-box-size{
+    display: inline;
+    position: fixed;
+    top: 110px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: #9b96967e; */
   }
  
+}
+
+@media (max-width:380px){
+  .search-box {
+    width: 48vw;
+    height: 34px;
+    border:none;
+    border-radius: 20px;
+  }
+  .search-box-increase-size{
+    width: 70vw;
+  }
+  .search-input {
+    padding: 6px;
+    font-size: 14px;
+  }
+  .search-button {  
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  .suggestedSearchResults{  
+    width: 70vw;
+  }
+  .suggestedSearchResults-decrease-size{
+    width: 48vw;   
+  }
+  .remove-search-box-size{
+    display: inline;
+    position: fixed;
+    top: 110px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: #dcd9d986; */
+  }
+  
 }

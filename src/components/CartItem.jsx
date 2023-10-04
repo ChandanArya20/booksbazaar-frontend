@@ -1,14 +1,14 @@
 import '../css/cart_item.css';
-import { RiDeleteBin6Line as CartDeleteButton } from 'react-icons/ri'
-import { useState, useContext, useEffect } from 'react'
-import { CartContext } from '../context/CartContext'
+import { RiDeleteBin6Line as CartDeleteButton } from 'react-icons/ri';
+import { useState, useContext, useEffect } from 'react';
+import { CartContext } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 
 const CartItem = ({ cartItem }) => { 
-  const {cart, updateCartItemQuantity, deleteCartItems } = useContext(CartContext)
-  const [totalPrice, setTotalPrice] = useState(cartItem.book.price)
-  const [quantity, setQuantity] = useState(cartItem.quantity)
-  const navigate=useNavigate()
+  const {cart, updateCartItemQuantity, deleteCartItems } = useContext(CartContext);
+  const [totalPrice, setTotalPrice] = useState(cartItem.book.price);
+  const [quantity, setQuantity] = useState(cartItem.quantity);
+  const navigate=useNavigate();
 
   useEffect(() => {
     setTotalPrice(cartItem.book.price * quantity);
@@ -16,27 +16,27 @@ const CartItem = ({ cartItem }) => {
 
 
   const showProductDetails=()=>{
-    navigate("/productDetails", { state: cartItem.book })
+    navigate("/productDetails", { state: cartItem.book });
   }
 
   const plusButtonHandler = (e) => {
-    e.stopPropagation()
-    setQuantity(quantity + 1)
-    updateCartItemQuantity(cartItem,quantity+1)
-    console.log(cart)
-  }
+    e.stopPropagation();
+    setQuantity(quantity + 1);
+    updateCartItemQuantity(cartItem,quantity+1);
+    console.log(cart);
+  };
 
   const minusButtonHandler = (e) => {
-    e.stopPropagation()
+    e.stopPropagation();
     if (quantity > 1) {
       setQuantity(quantity - 1);
-      updateCartItemQuantity(cartItem,quantity-1)
+      updateCartItemQuantity(cartItem,quantity-1);
     }
-  }
+  };
 
   const cartRemoveHandler = (e) => {
-    e.stopPropagation()
-    deleteCartItems([cartItem])
+    e.stopPropagation();
+    deleteCartItems([cartItem]);
   };
 
 

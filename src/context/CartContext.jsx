@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react"
 import { getCurrentUserDetails } from "../Auth/loginFunc"
 import { toast } from 'react-toastify'
 
-export const CartContext = createContext()
+export const  CartContext = createContext()
 
 const CartContextProvider=({children})=>{
     
@@ -21,14 +21,14 @@ const CartContextProvider=({children})=>{
     }, [cart]);
 
 
-    const getAllCartItems = async () => {   
+    const refreshAllCartItems = async () => {   
       const currentUser=getCurrentUserDetails()
       try {
         if(currentUser){
           const response = await fetch(`${process.env.REACT_APP_API_URL}/cart/user/${currentUser.id}/allCartData`);
           if (response.ok) {
             const cartItems = await response.json();
-            setCart(cartItems)
+            setCart(cartItems);
           }else{
             console.log("Not got cartData");           
           }
@@ -40,10 +40,11 @@ const CartContextProvider=({children})=>{
             theme: 'dark'
           });
       }
+      console.log("End of refreshAllCartItems");
   };
 
     useEffect(() => { 
-        getAllCartItems();
+      refreshAllCartItems();
     }, []);
 
     const addToCart = async (newCartItem) => {
@@ -138,12 +139,11 @@ const CartContextProvider=({children})=>{
         <CartContext.Provider value={{
           cart,
           setCart,
-          getAllCartItems,
+          refreshAllCartItems,
           totalCartPrice,
           setTotalCartPrice,
           cartQuantity,
           setCartQuantity,
-          getAllCartItems,
           addToCart,
           updateCartItemQuantity,
           deleteCartItems,

@@ -45,23 +45,28 @@ const SellerPasswordCreationPage = () => {
           doSellerLogin(sellerData,()=>{
           navigate("/sellerDashboard")
         })
-        setLoading(false);
       } else if(response.status===500){
         const errorDetails=await response.json()
-        throw new Error(errorDetails.status)
+        console.log(errorDetails);
 
+        toast.error("Email/Phone is linked with another account", {
+          position: 'top-center',
+          theme: 'dark'
+        })
       } else {
+        console.log("Not eroor");
         const errorMessage = await response.text()
         toast.error(errorMessage, {
           position: 'top-center',
           theme: 'dark'
         })
       }
-      setLoading(false);
     } catch (error) {
       console.error(error)
       const errorObj={  errorMessage : error.message }
       navigate('/errorPage', {state:errorObj })
+    } finally{
+      setLoading(false);
     }
   }
 

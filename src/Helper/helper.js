@@ -45,10 +45,10 @@ export const formatDate=(inputDate)=> {
 }
 
 export const formatDateForOrderItem=(inputDate)=> {
-
+  console.log(inputDate);
   const parts = inputDate.split('-');
   if (parts.length === 3) {
-    const [month, day] = parts;
+    const [year,month, day] = parts;
 
     // Get the name of the month based on the numeric value
     const monthNames = [
@@ -56,7 +56,7 @@ export const formatDateForOrderItem=(inputDate)=> {
       'July', 'August', 'September', 'October', 'November', 'December'
     ];
     const monthName = monthNames[Number(month) - 1]; // Subtract 1 because month array is 0-indexed
-
+    console.log(`${monthName} ${day}`);
     return `${monthName} ${day}`;
   }
   return inputDate; // Return as-is if the input format is not as expected

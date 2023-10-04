@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FaSearch } from 'react-icons/fa';
+import { FaAlgolia, FaSearch } from 'react-icons/fa';
 import '../css/searchbox.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,6 +8,7 @@ const SearchBox = ({searchQuery }) => {
   const [searchTerm, setSearchTerm] = useState(searchQuery || '');
   const [placeholderTest, setPlaceholderText] = useState('Search books by title, category and more...');
   const [searchResults, setSearchResults]=useState([]);
+  const [isBoxExpanded, setIsBoxExpanded]=useState(false);
   const navigate=useNavigate();
 
 
@@ -49,17 +50,29 @@ const SearchBox = ({searchQuery }) => {
     setSearchResults([]);
     navigate('/searchResults',{state:result});
   }
+  const activeSearchBoxClass = () => {
+    setIsBoxExpanded(true);
+  };
+  const deactiveSearchBoxClass = () => {
+    setIsBoxExpanded(false);
+  };
 
 
 
   return (
+    <>
+    {isBoxExpanded && <div className='remove-search-box-size' onClick={deactiveSearchBoxClass} onScroll={deactiveSearchBoxClass}></div>}
     <div className="search-box-container">
-      <form className='search-box' onSubmit={handleSubmit}>
+      <form className={`search-box ${isBoxExpanded ? 'search-box-increase-size' : ''}`} 
+          onSubmit={handleSubmit} 
+          onClick={activeSearchBoxClass}
+      >
         <button className="search-button">  
            <FaSearch/>
         </button>
         <input
           type="text"
+          autoFocus={isBoxExpanded}
           placeholder={placeholderTest}
           value={searchTerm}
           onChange={(e)=>handleSearch(e.target.value)}
@@ -67,7 +80,7 @@ const SearchBox = ({searchQuery }) => {
         />    
       </form>
       {
-        searchTerm && searchResults.length!==0 && <div className="suggestedSearchResults">
+        searchTerm && searchResults.length!==0 && <div className={`suggestedSearchResults ${!isBoxExpanded ? 'suggestedSearchResults-decrease-size' : ''}`} >
           {
             searchResults.map(result=>(           
               <div className="result-text-container" key={result} onClick={()=>handleSearchResultClick(result)}>
@@ -78,11 +91,10 @@ const SearchBox = ({searchQuery }) => {
               </div>
             ))
           }
-
         </div>
       }
-
     </div>
+    </>
   );
 };
 

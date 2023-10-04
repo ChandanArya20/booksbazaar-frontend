@@ -14,7 +14,7 @@
   }
   .cart-items-container{ 
     padding: 20px;
-    max-height: 300px;
+    max-height: 350px;
     border-radius: 10px;
     background-color: #bbe2eb5d;
     overflow-y: scroll;
@@ -90,7 +90,7 @@
   }
   .cart-items-container{ 
     padding: 2vw;
-    max-height: 400px;
+    max-height: 65vh;
     border-radius: 10px;
     background-color: #bbe2eb5d;
   }

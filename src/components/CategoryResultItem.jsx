@@ -10,7 +10,7 @@ const CategoryResultItem = ({ book }) => {
   const { cart, addToCart } = useContext(CartContext);
   const {isUserLoggedin}=useContext(UserContext)
   const navigate=useNavigate()
-  const isBookInCart = cart.some((item) => item.id === book.id);
+  const isBookInCart = cart.some((item) => item.book.id === book.id);
 
   const goToCart=(e)=>{
 

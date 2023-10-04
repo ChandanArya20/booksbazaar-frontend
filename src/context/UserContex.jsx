@@ -7,13 +7,13 @@ export const UserContext = createContext();
 const UserContextProvider = ({ children }) => {
 
   const [currentUser, setCurrentUser] = useState(null);
-  const {setCart, getAllCartItems}=useContext(CartContext)
+  const {setCart, refreshAllCartItems}=useContext(CartContext)
 
 
   const loginUser = (data, next) => {
     console.log("IN UserCOntext-loginUser");
     localStorage.setItem("userData", JSON.stringify(data));
-    getAllCartItems()
+    refreshAllCartItems()
     setCurrentUser(data.user);
     next();
   };

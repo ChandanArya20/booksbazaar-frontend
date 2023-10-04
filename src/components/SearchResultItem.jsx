@@ -12,7 +12,8 @@ const SearchResultItem = ({ book }) => {
   const { cart, addToCart } = useContext(CartContext);
   const {isUserLoggedin}=useContext(UserContext);
   const navigate=useNavigate();
-  const isBookInCart = cart.some((item) => item.id === book.id);
+
+  const isBookInCart = cart.some((item) => item.book.id === book.id);
 
 
   const handleAddToCart = (e) => {
@@ -22,8 +23,9 @@ const SearchResultItem = ({ book }) => {
       const cartItem={book, quantity:1};
       addToCart(cartItem);
 
-    }else
+    }else{
       navigate("/userPhoneLogin");
+    }
   }
 
   const HandleBuyBook=async(e)=>{
