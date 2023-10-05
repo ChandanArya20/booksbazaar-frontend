@@ -5,16 +5,19 @@ import { formatDate } from '../Helper/helper';
 import AddressItem from '../components/AddressItem';
 import { useState } from 'react';
 import {toast} from 'react-toastify';
+import ClipLoader  from "react-spinners/ClipLoader";
 
 const OrderItemDetailsPage = () => {
   
   const location = useLocation();
   const navigate=useNavigate();
+  const [loading, setLoading]=useState(false);
   const order=location.state;
   const [status, setStatus]=useState(order.status);
 
 
   const handleCancelOrder=async()=>{
+    setLoading(true);
     try {
       const response= await fetch(`${process.env.REACT_APP_API_URL}/order/${order.id}?status=Cancelled`,{
         method:'PATCH',
@@ -36,10 +39,13 @@ const OrderItemDetailsPage = () => {
       console.error(error);
       const errorObj={  errorMessage : error.message };
       navigate('/errorPage', {state:errorObj });
+    } finally{
+      setLoading(false);
     }
   }
 
   const handleReturnOrder=async()=>{
+    setLoading(true);
     try {
       const response= await fetch(`${process.env.REACT_APP_API_URL}/order/${order.id}?status=Returned`,{
         method:'PATCH',
@@ -61,6 +67,8 @@ const OrderItemDetailsPage = () => {
       console.error(error);
       const errorObj={  errorMessage : error.message };
       navigate('/errorPage', {state:errorObj });
+    } finally{
+      setLoading(false);
     }
   }
 
@@ -89,8 +97,21 @@ const OrderItemDetailsPage = () => {
           <AddressItem address={order.deliveryAddress} />
           
           <div className="cancel-order-button">
-          {status!=='Cancelled'&& status!=='Delivered' && status!=='Returned'  && <button onClick={handleCancelOrder}>Cancel Order</button>}
-          {status=='Delivered' && <button onClick={handleReturnOrder}>Return</button>}
+          {status!=='Cancelled'&& status!=='Delivered' && status!=='Returned'  && 
+            <button onClick={handleCancelOrder} disabled={loading} >
+                {loading ? 'Cancelling...' : 'Cancel Order'}
+                {loading && <div className="loading-overlay-btn">
+                                <ClipLoader color="#620c88" />
+                            </div>
+                }
+            </button>}
+          {status=='Delivered' && <button onClick={handleReturnOrder} disabled={loading}>
+            {loading ? 'Returning...' : 'Return'}
+            {loading && <div className="loading-overlay-btn">
+                            <ClipLoader color="#620c88" />
+                        </div>
+            }
+          </button>}
           </div>
         </div>
       </div>

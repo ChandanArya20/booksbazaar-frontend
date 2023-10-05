@@ -83,10 +83,10 @@
     color: rgb(15, 167, 25);
   }
   #order-item-cancelled{
-    background-color: #f6dede;
+    background-color: #f6deded1;
   }
   #order-item-delivered{
-    background-color: #bfe8d6;
+    background-color: #bfe8d6ba;
   }
   .text-with-line-through {
     text-decoration: line-through;

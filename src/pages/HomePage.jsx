@@ -14,9 +14,9 @@ const HomePage=()=>{
 
 
   const categories = [
-    { id: 17, name: 'Fictional' },
     { id: 10, name: 'Mystery/Thriller' },
     { id: 14, name: 'Health/Fitness' },
+    { id: 17, name: 'Fictional' },
     { id: 1, name: 'Sceince & Mathematics' },
     { id: 2, name: 'Computer & Internet' },
     { id: 3, name: 'Technology & Engineering' },

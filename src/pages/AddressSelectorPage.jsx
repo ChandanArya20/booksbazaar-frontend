@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import {toast} from 'react-toastify'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
-import { getWholeUserData } from '../Helper/helper';
 import Navbar from '../components/Navbar';
 import ClipLoader  from "react-spinners/ClipLoader";
 
@@ -116,7 +115,7 @@ const AddressSelectorPage = () => {
         <button className='add-new-address-btn' onClick={handleAddNewAddress}>+Add a new Address</button>
         {
           selectedAddress !== null && <div className="seleted-next-btn">
-                                              <button onClick={handleProceedBtn} disabled={loading ? true: false}>
+                                              <button onClick={handleProceedBtn} disabled={loading}>
                                               { loading ? 'Processing...' : 'Proceed'}
                                               {loading && <div className="loading-overlay-btn">
                                                               <ClipLoader color="#620c88" />

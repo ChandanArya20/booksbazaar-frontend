@@ -84,7 +84,7 @@ const AddressFormPage = () => {
                 body: JSON.stringify(orderData)
             });
             if(response.ok){
-                navigate("/orderSuccessPage");
+                navigate("/orderSuccess");
             }else{
                 toast.error("Placing order failed..., try again later", {
                     position: 'top-center',

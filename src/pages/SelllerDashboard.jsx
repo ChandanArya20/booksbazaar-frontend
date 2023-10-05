@@ -79,9 +79,12 @@ const SellerDashboard = () => {
             <h3>Published Books</h3>
           </div>
           <div className="seller-books">
-            {
-              books.map((book)=><SellerBookItem key={book.id} bookData={book}/>)
-            }     
+            {books.length===0?<div className="empty-seller-publish-books">
+            <h1 className='empty-cart-heading'>There is no published books...</h1>
+            <button className='empty-cart-btn' onClick={()=>navigate(-1)}>Go Back</button>
+            </div> :     
+              books.map((book)=><SellerBookItem key={book.id} bookData={book}/>)     
+            }  
           </div>
         </div>
         </>

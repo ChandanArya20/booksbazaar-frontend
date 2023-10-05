@@ -28,7 +28,7 @@ const CartPage = () => {
         if(user.address.length!==0){
           navigate("/addressContinue", {state:{book,user}});
         } else{
-          navigate("/addressFormPage", {state:{book,user}});
+          navigate("/addressForm", {state:{book,user}});
         }     
     }
 
