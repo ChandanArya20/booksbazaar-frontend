@@ -1,149 +1,144 @@
 .cart-item {
-  height: 75px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  cursor: pointer;
+	height: 75px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 15px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	cursor: pointer;
 }
 
 .product-image {
-  height: 100%;
-  cursor: pointer;
-  margin-right: 10px;
+	height: 100%;
+	cursor: pointer;
+	margin-right: 10px;
 }
 
 .product-image img {
-  width: 65px;
+  	width: 65px;
 }
 
 .book-details {
-  width: 250px;
- } 
+  	width: 250px;
+} 
 
 .book-title {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  margin-bottom: 10px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	margin-bottom: 10px;
 }
 .book-author {
-  font-size: 13px;
-  margin-left: 10px;
+	font-size: 13px;
+	margin-left: 10px;
 }
 
 .quantity-control {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .quantity-btn {
-  border: none;
-  background-color: #e1e1e1;
-  color: #333;
-  width: 30px;
-  height: 30px;
-  font-size: 20px;
-  cursor: pointer;
+	border: none;
+	background-color: #e1e1e1;
+	color: #333;
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	cursor: pointer;
 }
 .quantity-btn:hover{
-  background-color: #e1e1e1;
+	background-color: #e1e1e1;
 }
 
 .quantity-input {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 35px;
-  height: 30px;
-  text-align: center;
-  cursor: not-allowed;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	width: 35px;
+	height: 30px;
+	text-align: center;
+	cursor: not-allowed;
 }
 .quantity-input:focus{
-  outline: none;
+	outline: none;
 }
 .price {
-  font-size: 16px;
-  font-weight: bold;
-  margin-left: 30px;
-  margin-right: 30px;
-  flex: 0 0 80px;
-  /* background-color: #c63e3e; */
-  width: 100px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 30px;
+	margin-right: 30px;
+	flex: 0 0 80px;
+	/* background-color: #c63e3e; */
+	width: 100px;
 }
 
 .remove-btn {
-  border: none;
-  color: rgb(255, 5, 5);
-  padding: 10px 12px;
-  font-size: 18px;
-  cursor: pointer;
+	border: none;
+	color: rgb(255, 5, 5);
+	padding: 10px 12px;
+	font-size: 18px;
+	cursor: pointer;
 }
 .remove-btn:hover {
-  color: rgb(209, 5, 5);
+	color: rgb(209, 5, 5);
 }
 .left-cart-item{
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 .right-cart-item{
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
 }
 
 
 @media (max-width:426px) {
 
-  .cart-item {
-    height: auto;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 3vw;
-    
-  }
-  .right-cart-item{
-    width: 100%;
-    justify-content: space-between;
-    margin-right: 0;
-  }
-  .left-cart-item{
-    width: 100%;
-    justify-content: space-between;
-    gap: 2vw;
-    
-  }
-  .product-image {
-    height: 100%;
-    margin-right: 0px;
-  }
-  
-  .product-image img {
-    width: 80px;
-  }
-  .quantity-btn {
-    font-size: 15px;
-    width: 20px;
-    height: 20px;
-  }
-  .quantity-input {
-    height: 20px;
-  }
-  
-  .price {
-    font-size: 15px;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .book-title {
-    -webkit-line-clamp: 3;
-  }
-  .remove-btn {
-    padding: 6px 10px;
-  }
-  
+	.cart-item {
+		height: auto;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 3vw;
+	}
+	.right-cart-item{
+		width: 100%;
+		justify-content: space-between;
+		margin-right: 0;
+	}
+	.left-cart-item{
+		width: 100%;
+		justify-content: space-between;
+		gap: 2vw;
+	}
+	.product-image {
+		height: 100%;
+		margin-right: 0px;
+	}
+	.product-image img {
+		width: 80px;
+	}
+	.quantity-btn {
+		font-size: 15px;
+		width: 20px;
+		height: 20px;
+	}
+	.quantity-input {
+		height: 20px;
+	}
+	.price {
+		font-size: 15px;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.book-title {
+		-webkit-line-clamp: 3;
+	}
+	.remove-btn {
+		padding: 6px 10px;
+	}
 }

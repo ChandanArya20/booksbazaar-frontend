@@ -1,4 +1,4 @@
-  .result-book-card {
+.result-book-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,34 +10,34 @@
     transition: transform 0.3s ease;
     text-align: center;
     margin-top: 10px;
-  }
-  .result-book-card .book-card-content{
+}
+.result-book-card .book-card-content{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-top: 20px;
-  }
-  .result-book-card .book-card-footer{
+}
+.result-book-card .book-card-footer{
     display: flex;
     gap: 30px;
     margin-top: 20px;
     justify-content: space-evenly;
     align-items: center;
     
-  }
-  .result-book-card .book-card:hover {
+}
+.result-book-card .book-card:hover {
     transform: translateY(-5px);
-  }
-  
-  .result-book-card .book-card-image {
+}
+
+.result-book-card .book-card-image {
     height: 170px;
     margin-top: 7px;
     object-fit: cover;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .result-book-card .book-card-title {
+}
+
+.result-book-card .book-card-title {
     width: 200px;
     margin-top: 7px;
     font-size: 16px;
@@ -46,25 +46,25 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-  
-  .result-book-card .book-card-author {
+}
+
+.result-book-card .book-card-author {
     margin-top: 6px;
     font-size: 14px;
     color: #666666;
-  }
-  .result-book-card .book-card-author span{
+}
+.result-book-card .book-card-author span{
     font-weight: bold;
-  }
-  .result-book-card .book-card-price {
+}
+.result-book-card .book-card-price {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 5px;
     font-size: 17px;
     font-weight: bold;
     color: rgb(0, 0, 0);
-  }
-  
-  .result-book-card .book-card-button {
+}
+
+.result-book-card .book-card-button {
     margin-top: 5px;
     padding: 8px;
     font-size: 14px;
@@ -74,12 +74,12 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  .result-book-card  .book-card-button:hover {
+}
+.result-book-card  .book-card-button:hover {
     color: #018577;
     border: 1px solid #018577;
-  }
-  .result-book-card .book-card-button-remove{
+}
+.result-book-card .book-card-button-remove{
     margin-top: 5px;
     padding: 7px 14px;
     font-size: 14px;
@@ -89,35 +89,35 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  .result-book-card .book-card-button-remove:hover{
+}
+.result-book-card .book-card-button-remove:hover{
     background-color: #e94132;
-  }
+}
 
-  @media (max-width:426px) {
+@media (max-width:426px) {
 
     .result-book-card {
-      width: 140px;
-      height: auto;
-      padding: 10px;
-      margin-top: 5px;
+        width: 140px;
+        height: auto;
+        padding: 10px;
+        margin-top: 5px;
     }
     .result-book-card .book-card-image {
-      height: 100px;
+         height: 100px;
     }
     .result-book-card .book-card-content{
-      margin-top: 10px;
+        margin-top: 10px;
     }
     .result-book-card .book-card-title {
-      width: 130px;
+        width: 130px;
     }
     .result-book-card .book-card-footer{
-      gap: 5px;
-      margin-top: 5px;
+        gap: 5px;
+        margin-top: 5px;
     }
     .result-book-card .book-card-button {
-      padding: 6px;
-      font-size: 13px;
+        padding: 6px;
+        font-size: 13px;
     }
     
-  }
+}

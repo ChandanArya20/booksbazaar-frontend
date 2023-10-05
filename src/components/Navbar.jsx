@@ -1,4 +1,5 @@
 import '../css//navbar.css';
+import '../css/back_button.css';
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
@@ -7,14 +8,12 @@ import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
 import { IoMenuOutline as MenuIcon } from 'react-icons/io5';
 import bookapplogo from '../Images/bookapplogo.png';
 import SearchBox from './SearchBox';
-import { isLoggedin } from '../Auth/loginFunc';
 import { isSellerLoggedin } from '../Auth/sellerLoginFunc';
 import UserProfileDropdown from './UserProfileDropdown';
 import { CartContext } from '../context/CartContext';
 import { UserContext } from '../context/UserContex';
-import '../css/back_button.css';
 import {BiArrowBack as BackArrow} from 'react-icons/bi';
-
+import { isLoggedIn } from '../Auth/loginFunc';
 
 const Navbar = ({backButton,searchQuery}) => {
 
@@ -29,7 +28,7 @@ const Navbar = ({backButton,searchQuery}) => {
 
     // Update login state when currentUser changes
     useEffect(() => {
-        setLogin(isLoggedin());
+        setLogin(isLoggedIn());
     }, [currentUser]);
 
     // Click Handlers:-------->
@@ -102,13 +101,13 @@ const Navbar = ({backButton,searchQuery}) => {
             )
           }
           <SearchBox className='icon' searchQuery={searchQuery}/>
-          <div className={isLoggedin()? 'icons':'icons down-gap'}>
+          <div className={isLoggedIn()? 'icons':'icons down-gap'}>
             <div className="cart-icon">
               <CartIcon className="icon" onClick={cartClickHandler} />
               {cartQuantity > 0 && <p className='cart-quantity'><span>{cartQuantity}</span></p>}
             </div>
             <div className="profile-icon">
-              {isLoggedin() ? <ProfileIcon className='icon' onClick={() => setShowMenu(true)} /> :
+              {isLoggedIn() ? <ProfileIcon className='icon' onClick={() => setShowMenu(true)} /> :
                 <Link to="/userPhoneLogin">
                   <button className="login-button">Login</button>
                 </Link>

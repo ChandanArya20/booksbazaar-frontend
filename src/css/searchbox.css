@@ -9,7 +9,7 @@ search-box-container{
   height: 35px;
   padding: 0 10px;
   background-color: #ffffff8c;
-  border: 1px solid rgb(194, 194, 194);
+  /* border: 1px solid rgb(194, 194, 194); */
   border-radius: 20px;
   overflow: hidden;
   width: 30vw;

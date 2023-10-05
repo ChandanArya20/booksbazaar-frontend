@@ -16,6 +16,7 @@
 }
 
 @media (max-width:426px) {
+    
     .address-card{
         width: 90vw;
         height: 130px; 
