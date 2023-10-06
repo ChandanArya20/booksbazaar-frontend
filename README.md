@@ -2,9 +2,18 @@
 
 Welcome to the README for our eCommerce Bookstore project! This application is designed to provide an outstanding shopping experience for book enthusiasts while also offering a robust platform for sellers and efficient management tools for administrators.
 
-## Demo
+## Live Demo
 
 Link : https://booksbazaar.netlify.app/
+
+## Screenshots
+<img width="960" alt="Screenshot 2023-10-06 133420" src="https://github.com/ChandanArya20/e-commerce-bookstore/assets/85821143/0fe34c83-c25c-426d-947a-e1ef60631cb9">
+
+
+![Screenshot_2023-10-06-13-37-04-32](https://github.com/ChandanArya20/e-commerce-bookstore/assets/85821143/cbcd2a41-46f6-456c-a8fd-8380d5a37520)
+
+
+<img width="920" alt="Screenshot 2023-10-06 134103" src="https://github.com/ChandanArya20/e-commerce-bookstore/assets/85821143/c5aaa943-d690-4701-b2bd-5e52ebc2341f">
 
 ## Table of Contents
 - [Feature](#feature)
