@@ -2,9 +2,12 @@
 
 Welcome to the README for our eCommerce Bookstore project! This application is designed to provide an outstanding shopping experience for book enthusiasts while also offering a robust platform for sellers and efficient management tools for administrators.
 
+## Demo
+
+Link : https://booksbazaar.netlify.app/
+
 ## Table of Contents
-- [Project Overview](#project-overview)
-- [Features](#features)
+- [Feature](#feature)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
@@ -15,7 +18,7 @@ Welcome to the README for our eCommerce Bookstore project! This application is d
 
 ---
 
-## Project Overview
+## Feature
 
 Our eCommerce Bookstore project is a comprehensive platform as react project that offers a delightful shopping experience for users while providing efficient tools for sellers and administrators. Here's a quick overview of what this project does:
 
@@ -35,27 +38,6 @@ Our eCommerce Bookstore project is a comprehensive platform as react project tha
 
 - **Technologies Used**: We utilized React and Spring Boot, among other technologies, to implement features like Infinite Scrolling and many more.
 
----
-
-## Features
-
-Here's a more detailed look at the key features of our eCommerce Bookstore project:
-
-- **User Authentication**: Secure authentication system for Users, Sellers, and Administrators.
-
-- **Book Recommendation**: Intelligent recommendation system on the home page.
-
-- **Search and Filter**: Powerful search and filter options for user convenience.
-
-- **Shopping Cart**: Seamless shopping cart functionality for adding, reviewing, and processing orders.
-
-- **Order Management**: User-friendly order management tools for tracking and managing orders.
-
-- **Seller Management**: Comprehensive tools for sellers to list and manage their books, as well as handle user orders.
-
-- **Admin Dashboard**: Efficient admin system for managing user and seller data.
-
----
 
 ## Technologies Used
 
@@ -78,15 +60,28 @@ Please follow these steps to install and run our eCommerce Bookstore project loc
 
 1. Clone the repository to your local machine:
 
-      https://github.com/ChandanArya20/e-commerce-bookstore.git
+```bash
+git clone https://github.com/ChandanArya20/e-commerce-bookstore.git
+```
+2. (a) Run this project to your local machine if backend is on your local machine:
 
-2. Install the required dependencies for both the frontend and backend.
+```bash
+npm run start:dev
+```
+**Instructions to start backend locally** :
 
-3. Configure your database settings in the backend.
+Backend Github Repository : https://github.com/ChandanArya20/E-Commerece-bookbazaarApp.git
 
-4. Start the frontend and backend servers.
+Note : You can access live server as well, that time You don't need to start backend on your local machine
 
-5. Access the application through your web browser.
+
+2. (b) Run this project if you want to access live server:
+
+```bash
+npm run start:prod
+```
+
+3. Access the application through your web browser.
 
 ## Getting Started
 Here are some basic steps to get started with our eCommerce Bookstore project:
