@@ -11,12 +11,13 @@ Welcome to the README for our eCommerce Bookstore project! This application is d
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
+- [Developer](#Developer)
 
 ---
 
 ## Project Overview
 
-Our eCommerce Bookstore project is a comprehensive platform that offers a delightful shopping experience for users while providing efficient tools for sellers and administrators. Here's a quick overview of what this project does:
+Our eCommerce Bookstore project is a comprehensive platform as react project that offers a delightful shopping experience for users while providing efficient tools for sellers and administrators. Here's a quick overview of what this project does:
 
 - **Authentication System**: We provide a secure and user-friendly authentication system that allows Users, Sellers, and Administrators to easily log in and sign up.
 
@@ -77,7 +78,7 @@ Please follow these steps to install and run our eCommerce Bookstore project loc
 
 1. Clone the repository to your local machine:
 
-https://github.com/ChandanArya20/e-commerce-bookstore.git
+      https://github.com/ChandanArya20/e-commerce-bookstore.git
 
 2. Install the required dependencies for both the frontend and backend.
 
@@ -113,10 +114,14 @@ We welcome contributions to make our eCommerce Bookstore project even better! If
 ## License
 This project is licensed under the public License - use the project for your on purpose.
 
-Thank you for using our eCommerce Bookstore project! If you have any questions or encounter any issues, please don't hesitate to contact us.
+Thank you for using our eCommerce Bookstore project! If you have any questions or encounter any issues, please don't hesitate to contact us. You can find contact info in developer section.
 
 Happy Reading and Shopping!
 
+## Developer 
+- **Chandan Kumar**
+- **E-mail**: chandank1848@gmail.com
+- **Github**: https://github.com/ChandanArya20
 
 
 
