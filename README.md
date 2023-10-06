@@ -11,7 +11,7 @@ Welcome to the README for our eCommerce Bookstore project! This application is d
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-- [Developer](#Developer)
+- [Developer](#developer)
 
 ---
 
