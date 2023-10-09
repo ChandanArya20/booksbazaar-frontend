@@ -1,6 +1,6 @@
 import "../css/order_page.css";
 import UserOrderItem from "../components/UserOrderItem";
-import { getCurrentUserDetails } from "../Auth/loginFunc";
+import { getCurrentUserDetails } from "../utils/userDetails";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";

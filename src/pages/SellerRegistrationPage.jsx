@@ -2,7 +2,7 @@ import "../css/login_page.css";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { isLoggedIn, getCurrentUserDetails } from "../Auth/loginFunc";
+import { isUserLoggedIn, getCurrentUserDetails } from "../utils/userDetails";
 
 const SellerRegistrationPage = () => {
 
@@ -21,7 +21,7 @@ const SellerRegistrationPage = () => {
                 <form onSubmit={handleSubmit(registerUser)}>
                     <input
                         type="text"
-                        defaultValue={isLoggedIn && currentUser?.name}
+                        defaultValue={isUserLoggedIn && currentUser?.name}
                         placeholder="Enter full name"
                         {...register("name", {
                             required: "Name is required",
@@ -54,7 +54,7 @@ const SellerRegistrationPage = () => {
                     <p className="error-message">{errors.location?.message}</p>
                     <input
                         type="email"
-                        defaultValue={isLoggedIn && currentUser?.email}
+                        defaultValue={isUserLoggedIn && currentUser?.email}
                         placeholder="Email"
                         {...register("email", {
                             required: "Email is required",
@@ -69,7 +69,7 @@ const SellerRegistrationPage = () => {
                     <input
                         type="tel"
                         placeholder="Phone (optional)"
-                        defaultValue={isLoggedIn && currentUser?.phone}
+                        defaultValue={isUserLoggedIn && currentUser?.phone}
                         {...register("phone", {
                             pattern: {
                                 value: /^[6-9][0-9]*$/,

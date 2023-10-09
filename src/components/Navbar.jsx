@@ -6,14 +6,14 @@ import { BsCartPlusFill as CartIcon } from 'react-icons/bs';
 import { FaUser as ProfileIcon } from 'react-icons/fa';
 import { AiOutlineClose as CloseIcon } from 'react-icons/ai';
 import { IoMenuOutline as MenuIcon } from 'react-icons/io5';
-import bookapplogo from '../Images/bookapplogo.png';
+import bookapplogo from '../assets/bookapplogo.png';
 import SearchBox from './SearchBox';
-import { isSellerLoggedin } from '../Auth/sellerLoginFunc';
+import {isSellerLoggedin} from'../auth/sellerAuth'
 import UserProfileDropdown from './UserProfileDropdown';
 import { CartContext } from '../context/CartContext';
 import { UserContext } from '../context/UserContex';
 import {BiArrowBack as BackArrow} from 'react-icons/bi';
-import { isLoggedIn } from '../Auth/loginFunc';
+import {isUserLoggedIn} from '../utils/userDetails';
 
 const Navbar = ({backButton,searchQuery}) => {
 
@@ -28,7 +28,7 @@ const Navbar = ({backButton,searchQuery}) => {
 
     // Update login state when currentUser changes
     useEffect(() => {
-        setLogin(isLoggedIn());
+        setLogin(isUserLoggedIn());
     }, [currentUser]);
 
     // Click Handlers:-------->
@@ -101,13 +101,13 @@ const Navbar = ({backButton,searchQuery}) => {
             )
           }
           <SearchBox className='icon' searchQuery={searchQuery}/>
-          <div className={isLoggedIn()? 'icons':'icons down-gap'}>
+          <div className={isUserLoggedIn()? 'icons':'icons down-gap'}>
             <div className="cart-icon">
               <CartIcon className="icon" onClick={cartClickHandler} />
               {cartQuantity > 0 && <p className='cart-quantity'><span>{cartQuantity}</span></p>}
             </div>
             <div className="profile-icon">
-              {isLoggedIn() ? <ProfileIcon className='icon' onClick={() => setShowMenu(true)} /> :
+              {isUserLoggedIn() ? <ProfileIcon className='icon' onClick={() => setShowMenu(true)} /> :
                 <Link to="/userPhoneLogin">
                   <button className="login-button">Login</button>
                 </Link>

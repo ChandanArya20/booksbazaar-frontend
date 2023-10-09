@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getCurrentUserDetails } from "../Auth/loginFunc";
+import { getCurrentUserDetails } from "../utils/userDetails";
 import { toast } from 'react-toastify';
 
 //create cart context

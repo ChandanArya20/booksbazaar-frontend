@@ -2,8 +2,7 @@ import "../css/user_profile_dropdown.css";
 import { FaUser,FaEdit,FaInbox,FaCog,FaQuestion,FaSignOutAlt,} from "react-icons/fa";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { doSellerLogout, getCurrentSellerDetails,
-} from "../Auth/sellerLoginFunc";
+import { doSellerLogout, getCurrentSellerDetails} from "../auth/sellerAuth";
 
 const SellerProfileDropdown = ({ showMenu, setShowMenu }) => {
    

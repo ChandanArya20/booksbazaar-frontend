@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Navbar from "../components/Navbar";
-import { getCurrentSellerDetails } from "../Auth/sellerLoginFunc";
+import { getCurrentSellerDetails } from "../auth/sellerAuth";
 import { BiFilterAlt as FilterIcon } from "react-icons/bi";
 import SellerOrderFilterModel from "../components/SellerOrderFilterModel";
 import BeatLoader from "react-spinners/BeatLoader";

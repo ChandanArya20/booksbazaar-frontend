@@ -6,7 +6,7 @@ import SellerProfileDropdown from "../components/SellerProfileDropdown";
 import Navbar from "../components/Navbar";
 import SellerBookItem from "../components/SellerBookItem";
 import { toast } from "react-toastify";
-import { getCurrentSellerDetails } from "../Auth/sellerLoginFunc";
+import { getCurrentSellerDetails } from "../auth/sellerAuth";
 import BackButton from "../components/BackButton";
 import BeatLoader from "react-spinners/BeatLoader";
 

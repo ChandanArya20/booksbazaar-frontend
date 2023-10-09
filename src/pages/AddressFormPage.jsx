@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { toast } from "react-toastify";
-import { getUserAddress } from "../Helper/helper";
+import { getUserAddress } from "../utils/userDetails";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const AddressFormPage = () => {

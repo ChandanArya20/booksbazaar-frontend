@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import { CartContext } from "../context/CartContext";
 import { toast } from "react-toastify";
 import { UserContext } from "../context/UserContex";
-import { getWholeUserData } from "../Helper/helper";
+import { getWholeUserData } from "../utils/userDetails";
 
 const ProductDetailsPage = () => {
     const location = useLocation();

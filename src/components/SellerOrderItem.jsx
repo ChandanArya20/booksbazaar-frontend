@@ -2,7 +2,7 @@ import "../css/order_item.css";
 import "../css/delivery_status_model.css";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
-import { formatDateForOrderItem } from "../Helper/helper";
+import { formatDateForOrderItem } from "../utils/formatDate";
 import DeliveryStatusModel from "../components/DeliveryStatusModel";
 import { useState } from "react";
 

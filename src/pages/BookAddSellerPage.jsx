@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { getCurrentSellerDetails } from "../Auth/sellerLoginFunc";
+import { getCurrentSellerDetails } from "../auth/sellerAuth";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const BookAddSellerPage = () => {

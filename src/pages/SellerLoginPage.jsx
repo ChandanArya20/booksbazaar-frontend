@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import { doSellerLogin } from "../Auth/sellerLoginFunc";
+import { doSellerLogin } from "../auth/sellerAuth";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const SellerLoginPage = () => {

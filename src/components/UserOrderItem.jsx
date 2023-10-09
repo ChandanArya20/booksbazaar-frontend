@@ -1,7 +1,7 @@
 import "../css/order_item.css";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineArrowForwardIos as ForwardArrowIcon } from "react-icons/md";
-import { formatDate, formatDateForOrderItem } from "../Helper/helper";
+import { formatDate, formatDateForOrderItem } from "../utils/formatDate";
 
 const UserOrderItem = ({ order }) => {
 
