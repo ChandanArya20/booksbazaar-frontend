@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+# eCommerce Bookstore Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the README for our eCommerce Bookstore project! This application is designed to provide an outstanding shopping experience for book enthusiasts while also offering a robust platform for sellers and efficient management tools for administrators.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+Link : https://booksbazaar.netlify.app/
 
-### `npm start`
+## Screenshots
+<img width="960" alt="Screenshot 2023-10-06 133420" src="https://github.com/ChandanArya20/e-commerce-bookstore/assets/85821143/0fe34c83-c25c-426d-947a-e1ef60631cb9">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![booksbazaar netlify app_](https://github.com/ChandanArya20/e-commerce-bookstore/assets/85821143/78cf2a09-5fbb-4de6-b376-fc1234270796)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<img width="920" alt="Screenshot 2023-10-06 134103" src="https://github.com/ChandanArya20/e-commerce-bookstore/assets/85821143/c5aaa943-d690-4701-b2bd-5e52ebc2341f">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Table of Contents
+- [Feature](#feature)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Developer](#developer)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Feature
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Our eCommerce Bookstore project is a comprehensive platform as react project that offers a delightful shopping experience for users while providing efficient tools for sellers and administrators. Here's a quick overview of what this project does:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Authentication System**: We provide a secure and user-friendly authentication system that allows Users, Sellers, and Administrators to easily log in and sign up.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Book Recommendation System**: Our home page features an intelligent Book Recommendation System that attracts users by suggesting books tailored to their interests.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Search and Filter System**: We have implemented a robust search and filter system to make it convenient for users to find the books they are looking for quickly.
 
-## Learn More
+- **Shopping Cart**: Users can add books to their shopping carts, and our system facilitates seamless order processing.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Order Management System**: Users can track and manage their orders, ensuring a smooth and transparent order management process.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Seller Management System**: Sellers have the tools they need to list and manage their books, as well as handle orders from users.
 
-### Code Splitting
+- **Admin System**: We've designed an efficient Admin System to manage user and seller data effectively.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Technologies Used**: We utilized React and Spring Boot, among other technologies, to implement features like Infinite Scrolling and many more.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Technologies Used
 
-### Making a Progressive Web App
+Our project leverages the following technologies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Frontend**: React
 
-### Advanced Configuration
+- **Backend**: Spring Boot
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Database**: MySQL
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Please follow these steps to install and run our eCommerce Bookstore project locally:
+
+**Instructions**
+
+1. Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/ChandanArya20/e-commerce-bookstore.git
+```
+2. (a) Run this project to your local machine if backend is on your local machine:
+
+```bash
+npm run start:dev
+```
+**Instructions to start backend locally** :
+
+Backend Github Repository-Eclipse : https://github.com/ChandanArya20/E-Commerece-bookbazaarApp.git
+
+
+Backend Github Repository-In IntelliJ IDEA : https://github.com/ChandanArya20/e_commerce_bookstore-Springboot.git
+
+Note : You can access live server as well, that time You don't need to start backend on your local machine
+
+
+2. (b) Run this project if you want to access live server:
+
+```bash
+npm run start:prod
+```
+
+3. Access the application through your web browser.
+
+## Getting Started
+Here are some basic steps to get started with our eCommerce Bookstore project:
+
+User Registration/Login: Users can register or log in to their accounts.
+
+Browse Books: Users can explore a wide range of books and use the search and filter features to find specific titles.
+
+Add to Cart: Add books to the shopping cart for easy checkout.
+
+Checkout: Review your cart, provide shipping details, and complete the order.
+
+Order Management: Users can track and manage their orders in their account.
+
+Seller Management: Sellers can log in, list books, and manage orders from users.
+
+Admin Dashboard: Administrators can access the admin dashboard to manage user and seller data.
+
+## Usage
+Our eCommerce Bookstore project is designed to be user-friendly, but for more detailed usage instructions, please refer to our User Manual.
+
+## Contributing
+We welcome contributions to make our eCommerce Bookstore project even better! If you would like to contribute, please follow our Contribution Guidelines.
+
+## License
+This project is licensed under the public License - use the project for your on purpose.
+
+Thank you for using our eCommerce Bookstore project! If you have any questions or encounter any issues, please don't hesitate to contact us. You can find contact info in developer section.
+
+Happy Reading and Shopping!
+
+## Developer 
+- **Chandan Kumar**
+- **E-mail**: chandank1848@gmail.com
+- **Github**: https://github.com/ChandanArya20
+
+
+
+
