@@ -50,7 +50,7 @@ const SellerOrderPage = () => {
         const sellerId = getCurrentSellerDetails().id;
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_API_URL}/order/seller/${sellerId}/allOrders`
+                `${process.env.REACT_APP_API_URL}/order/seller/${sellerId}/all-orders`
             );
 
             if (response.ok) {

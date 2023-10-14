@@ -81,7 +81,7 @@ const BookUpdateSellerPage = () => {
         // Fetch API POST request
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_API_URL}/book/seller/updateBook`,
+                `${process.env.REACT_APP_API_URL}/book/seller/update-book`,
                 {
                     method: "PUT",
                     body: formData,

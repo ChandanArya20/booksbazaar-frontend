@@ -51,7 +51,7 @@ const UserOrderPage = () => {
         const userId = getCurrentUserDetails().id;
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_API_URL}/order/user/${userId}/allOrders`
+                `${process.env.REACT_APP_API_URL}/order/user/${userId}/all-orders`
             );
 
             if (response.ok) {

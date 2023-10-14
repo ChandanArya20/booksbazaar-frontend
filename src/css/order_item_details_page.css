@@ -1,6 +1,7 @@
 .order-item-details-container {
   background-color: #fff;
   width: 100%;
+  min-width: 100vh;
   margin-top: 53px;
   display: flex;
 }

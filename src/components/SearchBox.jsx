@@ -39,7 +39,7 @@ const SearchBox = ({ searchQuery }) => {
     const fetchSuggestedFilterResults = async (query) => {
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_API_URL}/book/suggest_book_names?size=10&query=${query}`
+                `${process.env.REACT_APP_API_URL}/book/suggest-book-names?size=10&query=${query}`
             );
             if (response.ok) {
                 const filterResults = await response.json();

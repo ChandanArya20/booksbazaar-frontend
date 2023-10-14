@@ -28,7 +28,7 @@ const SellerBookItem = ({ bookData }) => {
         try {
             const initialStatus = book.status;
             const response = await fetch(
-                `${process.env.REACT_APP_API_URL}/book/${book.id}/changeStatus/`,
+                `${process.env.REACT_APP_API_URL}/book/${book.id}/change-status`,
                 {
                     method: "PATCH",
                 }

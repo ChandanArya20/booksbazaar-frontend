@@ -31,7 +31,7 @@ const SellerDashboard = () => {
         const sellerId = getCurrentSellerDetails().id;
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_API_URL}/book/seller/${sellerId}/allBook`
+                `${process.env.REACT_APP_API_URL}/book/seller/${sellerId}/all-book`
             );
             if (response.ok) {
                 const bookList = await response.json();

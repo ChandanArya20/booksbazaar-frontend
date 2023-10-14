@@ -2,10 +2,9 @@
 
 .address-selector-page {
 	background-color: #fff;
-	width: 98%;
-	height:89vh;
-	margin: 0 auto;
-	margin-top: 60px;
+	width: 100%;
+	min-height: 100vh;
+	margin-top: 53px;
 }
 .address-selector-container{
 	display: flex;

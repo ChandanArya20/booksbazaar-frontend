@@ -38,7 +38,7 @@ const CartContextProvider = ({ children }) => {
 		const currentUser = getCurrentUserDetails();
 		try {
 			if (currentUser) {
-				const response = await fetch(`${process.env.REACT_APP_API_URL}/cart/user/${currentUser.id}/allCartData`);
+				const response = await fetch(`${process.env.REACT_APP_API_URL}/cart/user/${currentUser.id}/all-cart-data`);
 				if (response.ok) {
 					const cartItems = await response.json();
 					setCart(cartItems);
@@ -67,7 +67,7 @@ const CartContextProvider = ({ children }) => {
 		if (currentUser) {
 
 			// Send the new cart item to the server using API  
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/cart/addToCart`, {
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/cart/add-to-cart`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -89,7 +89,7 @@ const CartContextProvider = ({ children }) => {
 	const updateCartItemQuantity = async (cartItem, itemQuantity) => {
 
 		// Send the updated quantity to the server using API 
-		const response = await fetch(`${process.env.REACT_APP_API_URL}/cart/updateCartQuantity`, {
+		const response = await fetch(`${process.env.REACT_APP_API_URL}/cart/update-cart-quantity`, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json",
@@ -130,7 +130,7 @@ const CartContextProvider = ({ children }) => {
 	const placeCartOrder = async (orderData) => {
 
 		//place order in db
-		const response = await fetch(`${process.env.REACT_APP_API_URL}/order/placeOrder`, {
+		const response = await fetch(`${process.env.REACT_APP_API_URL}/order/place-order`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

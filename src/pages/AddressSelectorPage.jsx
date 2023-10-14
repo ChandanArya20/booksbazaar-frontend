@@ -72,7 +72,7 @@ const AddressSelectorPage = () => {
             ];
             try {
                 const response = await fetch(
-                    `${process.env.REACT_APP_API_URL}/order/placeOrder`,
+                    `${process.env.REACT_APP_API_URL}/order/place-order`,
                     {
                         method: "POST",
                         headers: {
@@ -82,7 +82,7 @@ const AddressSelectorPage = () => {
                     }
                 );
                 if (response.ok) {
-                    navigate("/orderSuccessPage");
+                    navigate("/orderSuccess");
                 } else {
                     toast.error("Placing order failed..., try again later", {
                         position: "top-center",
