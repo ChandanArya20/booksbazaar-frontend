@@ -85,7 +85,7 @@ const LoginWithPhonePage = () => {
                     <p className="error-message">{errors.phone?.message}</p>
 
                     <input
-                        type="text"
+                        type="password"
                         placeholder="Password"
                         {...register("password", {
                             required: "Enter password",
@@ -104,7 +104,7 @@ const LoginWithPhonePage = () => {
 
                     {/* Forgot password link */}
                     <p className="forgot-password-link">
-                        <Link to="/comingFeature">Forgot password?</Link>
+                        <Link to="/userForgotPassEmail">Forgot password?</Link>
                     </p>
 
                     {/* Login button */}

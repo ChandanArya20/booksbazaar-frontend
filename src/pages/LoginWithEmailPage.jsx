@@ -75,7 +75,7 @@ const LoginWithEmailPage = () => {
                     />
                     <p className="error-message">{errors.email?.message}</p>
                     <input
-                        type="text"
+                        type="password"
                         placeholder="Password"
                         {...register("password", {
                             required: "Enter password",
@@ -94,7 +94,7 @@ const LoginWithEmailPage = () => {
 
                     {/* Forgot password link */}
                     <p className="forgot-password-link">
-                        <Link to="/comingFeature">Forgot password?</Link>
+                        <Link to="/userForgotPassEmail">Forgot password?</Link>
                     </p>
 
                     {/* Login button */}

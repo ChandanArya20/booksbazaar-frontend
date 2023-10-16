@@ -4,6 +4,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartPage from "./pages/CartPage";
 import LoginWithEmailPage from "./pages/LoginWithEmailPage";
 import LoginWithPhonePage from "./pages/LoginWithPhonePage";
+import UserForgotPasswordByEmail from "./pages/UserForgotPasswordByEmail";
+import UserForgotPasswordByPhone from "./pages/UserForgotPasswordByPhone";
+import OTPVerificationPage from "./pages/OTPVerificationPage";
+import OTPVerifiedPasswordCreatePage from "./pages/OTPVerifiedPasswordCreatePage";
+import SellerForgotPasswordByEmail from "./pages/SellerForgotPasswordByEmail";
+import SellerForgotPasswordByPhone from "./pages/SellerForgotPasswordByPhone";
+import SellerOTPVerificationPage from "./pages/SellerOTPVerificationPage";
+import SellerOTPVerifiedPasswordCreatePage from "./pages/SellerOTPVerifiedPasswordCreatePage";
 import RegistrationPage from "./pages/RegistrationPage";
 import PasswordCreationPage from "./pages/PasswordCreationPage";
 import ErrorPage from "./pages/ErrorPage";
@@ -36,6 +44,14 @@ const App = () => {
                 <Route path="/userPhoneLogin" element={<LoginWithPhonePage />}/>
                 <Route path="/userSignUp" element={<RegistrationPage />} />
                 <Route path="/userPassword" element={<PasswordCreationPage />}/>
+                <Route path="/userForgotPassEmail" element={<UserForgotPasswordByEmail />}/>
+                <Route path="/userForgotPassPhone" element={<UserForgotPasswordByPhone />}/>
+                <Route path="/otpVerification" element={<OTPVerificationPage />}/>
+                <Route path="/otpPasswordCreate" element={<OTPVerifiedPasswordCreatePage />}/>
+                <Route path="/sellerForgotPassEmail" element={<SellerForgotPasswordByEmail />}/>
+                <Route path="/sellerForgotPassPhone" element={<SellerForgotPasswordByPhone />}/>
+                <Route path="/sellerOtpVerification" element={<SellerOTPVerificationPage />}/>
+                <Route path="/sellerOtpPasswordCreate" element={<SellerOTPVerifiedPasswordCreatePage />}/>
                 <Route path="/SellerSignUp" element={<SellerRegistrationPage />}/>
                 <Route path="/sellerLogin" element={<SellerLoginPage />} />
                 <Route path="/sellerPassword" element={<SellerPasswordCreationPage />}/>

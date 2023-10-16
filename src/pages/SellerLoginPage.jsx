@@ -77,7 +77,7 @@ const SellerLoginPage = () => {
                     <p className="error-message">{errors.sellerId?.message}</p>
 
                     <input
-                        type="text"
+                        type="password"
                         placeholder="Password"
                         {...register("password", {
                             required: "Enter password",
@@ -94,7 +94,7 @@ const SellerLoginPage = () => {
                     />
                     <p className="error-message">{errors.password?.message}</p>
                     <p className="forgot-password-link">
-                        <Link to="/comingFeature">Forgot password?</Link>
+                        <Link to="/sellerForgotPassEmail">Forgot password?</Link>
                     </p>
                     <button
                         type="submit"

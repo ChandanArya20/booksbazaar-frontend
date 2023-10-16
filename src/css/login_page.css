@@ -71,10 +71,20 @@ p.login-with-email-link, p.login-with-phone-link {
 p.create-account-link{
   margin-top: 20px;
 }
-p.forgot-password-link{
+p.forgot-password-link a{
   margin-top: 0;
   font-size: 14px;
+  text-decoration: none;
+  color: #0f38ed;
 }
+p.forgot-password-link a:hover{
+  text-decoration: underline;
+}
+
+p.forgot-password-link a:visited {
+  color: #0f38ed;
+}
+
 p.login-with-email-link a, p.login-with-phone-link a, p.create-account-link a {
   color: #0f38ed;
   text-decoration: none;
@@ -94,7 +104,14 @@ p.login-with-email-link a, p.login-with-phone-link a, p.create-account-link a {
   margin-bottom: 10px;
   margin-left:3px;  
 }
+#otp-sent-to-heading{
+  font-size: 14px;
+}
+#otp-sent-to{
+ margin-bottom: 10px;
+ font-size: 14px;
 
+}
 
 @media (max-width:426px) {
 
