@@ -16,20 +16,23 @@ const SellerForgotPasswordByEmail = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    // A promise that resolves after 5 seconds 
-    const timeoutPromise = new Promise((resolve) => {
-        setTimeout(() => resolve({ status: 'timeout' }), 5000);
-    });
+    
 
     // Function to handle OTP
     const sendOTP = async (data) => {
         console.log(data.email);
         setLoading(true);
         try {
-            const response = await Promise.race([
-                fetch(`${process.env.REACT_APP_API_URL}/seller/send-otp?seller-name=${data.email}`),
-                timeoutPromise,
-            ]);
+            const apiCall = fetch(`${process.env.REACT_APP_API_URL}/seller/send-otp?seller-name=${data.email}`);
+                
+            // Create a promise that resolves after 5 seconds
+            const timeoutPromise = new Promise((resolve, reject) => {
+                setTimeout(() => resolve({ status: 'timeout' }), 3000);
+            });
+         
+            // Use Promise.race to either resolve with the API response or the timeout
+            const response = await Promise.race([apiCall, timeoutPromise]);
+            console.log(response);
            
             if (response.status=="timeout" || response.ok) {
                 navigate("/sellerOtpVerification", {state:data.email});

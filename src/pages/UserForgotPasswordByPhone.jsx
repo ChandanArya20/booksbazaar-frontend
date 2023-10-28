@@ -13,22 +13,22 @@ const UserForgotPasswordByPhone = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
-     // A promise that resolves after 5 seconds 
-     const timeoutPromise = new Promise((resolve) => {
-        setTimeout(() => resolve({ status: 'timeout' }), 5000);
-    });
-
-    // Function to handle OTP
+    // Function to send OTP
     const sendOTP = async (data) => {
         setLoading(true);
+       
         try {
-            console.log(data.phone);
-            const response = await Promise.race([
-                fetch(`${process.env.REACT_APP_API_URL}/user/send-otp?user-name=${data.phone}`),
-                timeoutPromise,
-            ]);
+            const apiCall = fetch(`${process.env.REACT_APP_API_URL}/user/send-otp?user-name=${data.phone}`);
             
-            if (response.status=="timeout" || response.ok) {
+            // Create a promise that resolves after 5 seconds
+            const timeoutPromise = new Promise((resolve, reject) => {
+                setTimeout(() => resolve({ status: 'timeout' }), 2000);
+            });
+         
+            // Use Promise.race to either resolve with the API response or the timeout
+            const response = await Promise.race([apiCall, timeoutPromise]);
+
+            if (response.ok || response.status === 'timeout') {
                 console.log(data.phone);
                 navigate("/otpVerification", {state:data.phone});
             } else if (response.status === 404) {

@@ -15,18 +15,24 @@ const SellerForgotPasswordByPhone = () => {
 
      // A promise that resolves after 5 seconds 
      const timeoutPromise = new Promise((resolve) => {
-        setTimeout(() => resolve({ status: 'timeout' }), 5000);
+        setTimeout(() => resolve({ status: 'timeout' }), 2000);
     });
 
     // Function to handle OTP
     const sendOTP = async (data) => {
         setLoading(true);
+        console.log(data.phone);
         try {
-            console.log(data.phone);
-            const response = await Promise.race([
-                fetch(`${process.env.REACT_APP_API_URL}/seller/send-otp?seller-name=${data.phone}`),
-                timeoutPromise,
-            ]);
+            const apiCall = fetch(`${process.env.REACT_APP_API_URL}/seller/send-otp?seller-name=${data.phone}`);
+               
+            // Create a promise that resolves after 5 seconds
+            const timeoutPromise = new Promise((resolve, reject) => {
+                setTimeout(() => resolve({ status: 'timeout' }), 3000);
+            });
+         
+            // Use Promise.race to either resolve with the API response or the timeout
+            const response = await Promise.race([apiCall, timeoutPromise]);
+            console.log(response);
             
             if (response.status=="timeout" || response.ok) {
                 console.log(data.phone);
