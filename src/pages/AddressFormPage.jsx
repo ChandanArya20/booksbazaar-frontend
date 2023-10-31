@@ -244,7 +244,7 @@ const AddressFormPage = () => {
                     </p>
 
                     <div className="form-group-buttons">
-                        <button type="button" onClick={() => navigate(-1)} id="back">
+                        <button type='button' onClick={() => navigate(-1)} id="back">
                             Back
                         </button>
                         <button type="submit" disabled={loading}>
