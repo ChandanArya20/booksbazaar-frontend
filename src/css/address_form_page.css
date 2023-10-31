@@ -8,15 +8,14 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: auto;
+	margin: 0 auto;
 	padding: 15px 10px;
 	border-radius: 5px;
-	margin-top: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .address-form-container h2{
 	text-align: center;
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .address-form-container label {
@@ -90,6 +89,7 @@
 		height: 100vh;
 		background-color: #fff;
 		overflow-x: hidden;
+		margin-top: 0;
 	}
 	.address-form-container{
 		width: 97vw;

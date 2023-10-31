@@ -6,11 +6,13 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { getWholeUserData } from "../utils/userDetails";
 import BeatLoader from "react-spinners/BeatLoader";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const CartPage = () => {
 	
     const { cart, refreshAllCartItems, totalCartPrice, cartQuantity } = useContext(CartContext);
     const [loading, setLoading] = useState(true);
+    const [orderLoading, setOrderLoading] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,7 +24,9 @@ const CartPage = () => {
     }, []);
 
     const handlePlaceOrder = async () => {
+        setOrderLoading(true);
         const user = await getWholeUserData();
+        setOrderLoading(false);
         const book = null;
         if (user.address.length !== 0) {
             navigate("/addressContinue", { state: { book, user } });
@@ -67,7 +71,12 @@ const CartPage = () => {
                                 className="purchase-btn"
                                 onClick={handlePlaceOrder}
                             >
-                                Place order
+                            {orderLoading ? "Processing..." : "Place order"}
+                                    {orderLoading && (
+                                        <div className="loading-overlay-btn">
+                                            <ClipLoader color="#620c88" />
+                                        </div>
+                                    )}
                             </button>
                         </div>
                     </div>
