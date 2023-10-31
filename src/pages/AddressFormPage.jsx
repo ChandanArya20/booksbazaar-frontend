@@ -120,13 +120,6 @@ const AddressFormPage = () => {
         }
     };
 
-    const goBack=(e)=>{
-        e.stopPropagation();
-        navigate(-1);
-
-    }
-
-
     // Render the address form
     return (
         <div className="address-form-page">
@@ -251,7 +244,7 @@ const AddressFormPage = () => {
                     </p>
 
                     <div className="form-group-buttons">
-                        <button onClick={(e)=>goBack(e)} id="back">
+                        <button type="button" onClick={() => navigate(-1)} id="back">
                             Back
                         </button>
                         <button type="submit" disabled={loading}>
