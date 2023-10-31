@@ -89,6 +89,7 @@
 		width: 100%;
 		height: 100vh;
 		background-color: #fff;
+		overflow-x: hidden;
 	}
 	.address-form-container{
 		width: 97vw;

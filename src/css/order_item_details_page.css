@@ -1,13 +1,12 @@
 .order-item-details-container {
   background-color: #fff;
-  width: 100%;
-  min-width: 100vh;
-  margin-top: 53px;
+  max-width: 98%;
+  margin: 0 auto;
+  margin-top: 63px;
   display: flex;
 }
 
 .order-item-image {
-  height: 400px;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -15,7 +14,7 @@
 }
 
 .order-item-image img {
-  height: 100%;
+  width: 80%;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -63,7 +62,6 @@
   cursor: pointer;
   border-radius: 5px;
   transition-duration: 300ms;
-  position: relative;
 
 }
 .cancel-order-button button:hover {
@@ -72,6 +70,7 @@
 
 
 @media (max-width:426px) {
+
   .order-item-details-container {
     flex-direction: column;
   }
@@ -86,7 +85,6 @@
     flex-direction: column;
     gap: 4vw;
     padding: 10px 0px;
-    /* background-color: #91bc93; */
   }
   
 }

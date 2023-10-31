@@ -120,11 +120,18 @@ const AddressFormPage = () => {
         }
     };
 
+    const goBack=(e)=>{
+        e.stopPropagation();
+        navigate(-1);
+
+    }
+
+
     // Render the address form
     return (
         <div className="address-form-page">
             <div className="address-form-container">
-                <h2>Address Details</h2>
+                <h2>Fill Address Details</h2>
                 <form onSubmit={handleSubmit(submitAddress)}>
                     <div className="form-group">
                         <label>Name</label>
@@ -244,7 +251,7 @@ const AddressFormPage = () => {
                     </p>
 
                     <div className="form-group-buttons">
-                        <button onClick={() => navigate(-1)} id="back">
+                        <button onClick={(e)=>goBack(e)} id="back">
                             Back
                         </button>
                         <button type="submit" disabled={loading}>
