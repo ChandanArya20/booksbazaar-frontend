@@ -108,7 +108,7 @@ const BookUpdateSellerPage = () => {
 
     return (
         <div className="book-selling-page-container">
-            <h1>Update the Book Data</h1>
+            <h1>Update the Book Info</h1>
             <div className="book_selling-Page">
                 <form onSubmit={handleSubmit(submitBookDetails)}>
                     <div className="selling-form">
@@ -418,6 +418,7 @@ const BookUpdateSellerPage = () => {
                             )}
                         </button>
                         <button
+                            type="button"
                             className="book-back-button"
                             onClick={() => navigate(-1)}
                         >
