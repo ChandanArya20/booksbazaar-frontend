@@ -6,6 +6,7 @@ import { CartContext } from "../context/CartContext";
 import { toast } from "react-toastify";
 import { UserContext } from "../context/UserContex";
 import { getWholeUserData } from "../utils/userDetails";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const ProductDetailsPage = () => {
     const location = useLocation();
@@ -14,10 +15,12 @@ const ProductDetailsPage = () => {
     const [book, setBook] = useState();
     const { cart, addToCart } = useContext(CartContext);
     const { isUserLoggedin } = useContext(UserContext);
+    const [loading, setLoading] = useState(false);
     const isBookInCart = cart.some((item) => item.book.id === bookInfo?.id); // Check if the book is already in the cart.
 
     // Function to fetch book details from the API.
     const getAllBookDetails = async () => {
+        setLoading(true);
         try {
             const response = await fetch(
                 `${process.env.REACT_APP_API_URL}/book/${bookInfo.id}`
@@ -32,6 +35,8 @@ const ProductDetailsPage = () => {
                 position: "top-center",
                 theme: "dark",
             });
+        } finally{
+            setLoading(false);
         }
     };
 
@@ -82,7 +87,13 @@ const ProductDetailsPage = () => {
     return (
         <>
             <Navbar backButton={true} />
-            <div className="product-details-page">
+            {loading ?
+            (
+                <div className="loading-overlay">
+                    <BeatLoader color="#36d7b7" className="loading-spinner" />
+                </div>
+            ):
+            (<div className="product-details-page">
                 <div className="product-details-image">
                     <img src={book?.imageURL} alt={book?.title} />
                 </div>
@@ -179,6 +190,8 @@ const ProductDetailsPage = () => {
                     </p>
                 </div>
             </div>
+            )
+            }
         </>
     );
 };
