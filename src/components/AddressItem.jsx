@@ -1,7 +1,7 @@
 import "../css/address_item.css";
 import "../css/address_selector_page.css";
 
-const AddressItem = ({ address, handleAddressSelection, isSelected }) => {
+const AddressItem = ({ address}) => {
     return (
         <>
             <div className="address-card">
