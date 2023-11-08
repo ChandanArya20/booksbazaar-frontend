@@ -117,6 +117,11 @@ Admin Dashboard: Administrators can access the admin dashboard to manage user an
 ## Usage
 Our eCommerce Bookstore project is designed to be user-friendly, but for more detailed usage instructions, please refer to our User Manual.
 
+## Future Enhancements
+- Wishlist Feature
+- Review and Rating System
+- Discount system
+
 ## Contributing
 We welcome contributions to make our eCommerce Bookstore project even better! If you would like to contribute, please follow our Contribution Guidelines.
 
