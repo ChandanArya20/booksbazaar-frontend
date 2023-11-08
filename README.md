@@ -23,6 +23,7 @@ Link : https://booksbazaar.netlify.app/
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
+- [Future Enhancements](#future-enhancements)
 - [Contributing](#contributing)
 - [License](#license)
 - [Developer](#developer)
