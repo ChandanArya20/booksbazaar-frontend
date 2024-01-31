@@ -66,9 +66,3 @@ body::-webkit-scrollbar-thumb:hover {
     z-index: 9999; /* Ensure it's above other elements */
 }
 
-.loading-spinner {
-    /* position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-}

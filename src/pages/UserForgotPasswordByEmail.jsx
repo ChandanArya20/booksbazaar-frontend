@@ -2,7 +2,7 @@ import "../css/login_page.css";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContex";
@@ -52,6 +52,7 @@ const UserForgotPasswordByEmail = () => {
             setLoading(false);
         }
     };
+
 
     return (
         <div className="login-page-container">
