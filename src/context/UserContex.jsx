@@ -10,10 +10,10 @@ const UserContextProvider = ({ children }) => {
 	const { setCart, refreshAllCartItems } = useContext(CartContext);
 
 	//to make user logged in
-	const loginUser = (data, next) => {
-		localStorage.setItem("userData", JSON.stringify(data));
+	const loginUser = (userData, next) => {
+		localStorage.setItem("userData", JSON.stringify(userData));
 		refreshAllCartItems();
-		setCurrentUser(data.user);
+		setCurrentUser(userData);
 		next();
 	};
 
@@ -46,8 +46,8 @@ const UserContextProvider = ({ children }) => {
 
 		if (isUserLoggedin()) {
 			const userData = localStorage.getItem("userData");
-			const parsedData = JSON.parse(userData);
-			return parsedData.user;
+			const parsedUserData = JSON.parse(userData);
+			return parsedUserData;
 		} else {
 			return null;
 		}

@@ -9,9 +9,9 @@ export const isSellerLoggedin=()=>{
     let data=localStorage.getItem("sellerData");
     if(data!=null){
         return true;
-	}else{
-        return false;
-	}
+    }else{
+          return false;
+    }
 };
 
 // Seller logout function
@@ -22,12 +22,13 @@ export const doSellerLogout=(next)=>{
 
 // Get the current seller's details if they are logged in
 export const getCurrentSellerDetails = () => {
+
     if (isSellerLoggedin()) {
 
       const sellerData = localStorage.getItem("sellerData");
-      const parsedData = JSON.parse(sellerData);
+      const parsedSellerData = JSON.parse(sellerData);
 
-      return parsedData.seller;
+      return parsedSellerData;
 
     }else{
       return null;

@@ -12,8 +12,8 @@ export const isUserLoggedIn = () => {
 export const getCurrentUserDetails = () => {
     if (isUserLoggedIn()) {
         const userData = localStorage.getItem("userData");
-        const parsedData = JSON.parse(userData);
-        return parsedData.user;
+        const parsedUserData = JSON.parse(userData);
+        return parsedUserData;
     } else {
         return null;
     }
