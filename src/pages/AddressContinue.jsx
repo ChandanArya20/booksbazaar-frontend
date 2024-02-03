@@ -71,6 +71,7 @@ const AddressContinue = () => {
                 if (response.ok) {
                     navigate("/orderSuccess");
                 } else {
+                    console.log(response);
                     toast.error("Placing order failed..., try again later", {
                         position: "top-center",
                         theme: "dark",

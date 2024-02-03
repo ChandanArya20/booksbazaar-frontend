@@ -143,6 +143,7 @@ const CartContextProvider = ({ children }) => {
 			return true;
 		}
 		else {
+			console.log(response);
 			console.log(await response.text());
 			return false;
 		}
