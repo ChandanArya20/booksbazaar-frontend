@@ -120,7 +120,7 @@ const SearchResultPage = () => {
 
         try {
             const response = await fetch(
-                `${process.env.REACT_APP_API_URL}/book/search?page=${page}&size=20&query=${query}`
+                `${process.env.REACT_APP_API_URL}/book/search?page=${page}&size=5&query=${query}`
             );
 
             if (response.ok) {
@@ -164,15 +164,12 @@ const SearchResultPage = () => {
     };
 
     const handleScroll = () => {
-        if (isLoadingMore) {
-            return;
-        }
-        if (
-            window.innerHeight + document.documentElement.scrollTop + 1 >=
-            document.documentElement.scrollHeight
+
+        if (!isLoadingMore &&
+            window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight
         ) {
-            setIsLoadingMore(true);
             setPage((pre) => pre + 1);
+            setIsLoadingMore(true);
         }
     };
 
