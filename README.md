@@ -73,7 +73,7 @@ Please follow these steps to install and run our eCommerce Bookstore project loc
 1. Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/ChandanArya20/e-commerce-bookstore.git
+git clone https://github.com/ChandanArya20/booksbazaarApp.git
 ```
 2. (a) Run this project to your local machine if backend is on your local machine:
 
