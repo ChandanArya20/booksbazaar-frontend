@@ -9,12 +9,10 @@ const UserOrderItem = ({ order }) => {
     console.log(formatDate(order.deliveryDate));
     const navigate = useNavigate();
 
-
     const handleOrderDetails = () => {
         navigate("/orderItemDetails", { state: order });
     };
 
-	
     return (
         <div
             className="order-item"

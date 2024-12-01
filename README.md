@@ -73,7 +73,7 @@ Please follow these steps to install and run our eCommerce Bookstore project loc
 1. Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/ChandanArya20/booksbazaar-frontend.git
+git clone https://github.com/ChandanArya20/e-commerce-bookstore.git
 ```
 2. (a) Run this project to your local machine if backend is on your local machine:
 
@@ -82,8 +82,10 @@ npm run start:dev
 ```
 **Instructions to start backend locally** :
 
-Backend Github Repository : https://github.com/ChandanArya20/BooksbazaarBackend.git
+Backend Github Repository-Eclipse : https://github.com/ChandanArya20/E-Commerece-bookbazaarApp.git
 
+
+Backend Github Repository-In IntelliJ IDEA : https://github.com/ChandanArya20/e_commerce_bookstore-Springboot.git
 
 Note : You can access live server as well, that time You don't need to start backend on your local machine
 

@@ -28,6 +28,7 @@ const SearchResultPage = () => {
         French: false,
         German: false,
     });
+    
     const [otherFilters, setOtherFilters] = useState({
         outOfStock: false,
         onlyLatest: false,
@@ -37,12 +38,14 @@ const SearchResultPage = () => {
     const handlePriceFilterChange = (filterType) => {
         setPriceFilter(filterType);
     };
+
     const handleLanguageFilterChange = (language) => {
         setLanguageFilters({
             ...languageFilters,
             [language]: !languageFilters[language],
         });
     };
+
     const handleOtherFilterChange = (filter) => {
         setOtherFilters({ ...otherFilters, [filter]: !otherFilters[filter] });
     };

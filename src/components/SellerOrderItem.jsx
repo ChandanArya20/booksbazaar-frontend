@@ -14,18 +14,15 @@ const SellerOrderItem = ({ order }) => {
     // State to store the current order status
     const [status, setStatus] = useState(order.status);
 
-
     // Function to handle changes in order status
     const handleStatusChanges = (newStatus) => {
         setStatus(newStatus);
     };
 
-
     // Function to navigate to order details page
     const handleOrderDetails = () => {
         navigate("/sellerOrderItemDetails", { state: order });
     };
-
 
     // Function to show the delivery status model
     const showDeliveryStatusModel = (e) => {
@@ -33,8 +30,6 @@ const SellerOrderItem = ({ order }) => {
         setShowStatusModel(true);
     };
 
-
-	
     return (
         <div
             className="order-item"
